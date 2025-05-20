@@ -8,6 +8,7 @@ https://fr.wikipedia.org/wiki/Conception_assist%C3%A9e_par_ordinateur
 https://en.wikipedia.org/wiki/Computer-aided_design 
 
 Notes Djivan : [CAD Tutoriel Djivan](../Design/CAD%20Tutoriel%20Djivan.md). 
+Notes Alice : [Notes Freecad Alice](Notes%20Freecad%20Alice.md)
 
 ## À savoir  
 Faire des design en pensant à l'impression 3D. Éviter les surplombs et assurez-vous que les pièces peuvent être imprimées sans avoir besoin de supports excessifs. Garder en tête les dimensions du volume d'impression de l'imprimante 3D. 
