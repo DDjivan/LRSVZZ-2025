@@ -4,9 +4,9 @@ Bienvenue sur le repository pour le projet "MechaDelivery".
 ## Introduction 
 Le projet est divisé en plusieurs parties. 
 - [ ] **[Projet](docs/Projet.md)** (à lire en premier) 
-- [ ] [[Hardware]] 
-- [ ] [[Software]] 
-- [ ] [[Design]] 
+- [ ] [Hardware](docs/Hardware.md) 
+- [ ] [Software](docs/Software.md) 
+- [ ] [Design](docs/Design.md) 
 
 ## Auteurs 
 - Alice LIN 
