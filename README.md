@@ -15,3 +15,11 @@ Le projet est divisé en plusieurs parties.
 - Djivan Julien VARTANIAN 
 - Benjamin ZHANG 
 - Louise ZHENG 
+
+```mermaid
+graph TD;
+    A[Process 1] --> B[Process 2];
+    A --> C[Process 3];
+    B --> D[Process 4];
+    C --> D;
+```

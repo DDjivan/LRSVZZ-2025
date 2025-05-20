@@ -43,7 +43,7 @@ Liste numérotée -> nombre point espace : `1. texte `
 
 ## Syntaxe spécifique à Obsidian 
 Ne vraiment pas hésiter à lire la documentation d'usage : 
-![[Obsidian#^Documentation]] 
+![](Obsidian.md#^Documentation) 
 
 Obsidian utilise beaucoup les références. 
 Références à des fichiers -> doubles crochets : `[[note.md]]`. 

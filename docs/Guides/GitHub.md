@@ -2,7 +2,7 @@
 Service et site web d'hébergements de code source de projets. 
 ## En bref 
 Utilise [Git](docs/Guides/Git.md). 
-![[Git#^Explication]] 
+![](Git.md#^Explication) 
 
 GitHub permet la collaboration, et l'interface web est sympa et pratique. 
 
