@@ -7,7 +7,7 @@ Utilisé pour les pièces techniques précises, les assemblages et la vérificat
 https://fr.wikipedia.org/wiki/Conception_assist%C3%A9e_par_ordinateur 
 https://en.wikipedia.org/wiki/Computer-aided_design 
 
-Notes Djivan : [CAD Tutoriel Djivan](docs/Guides/CAD%20Tutoriel%20Djivan.md). 
+Notes Djivan : [CAD Tutoriel Djivan](../Design/CAD%20Tutoriel%20Djivan.md). 
 Notes Alice : [Notes Freecad Alice](Notes%20Freecad%20Alice.md)
 
 ## À savoir  
