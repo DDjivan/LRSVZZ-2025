@@ -2,6 +2,11 @@
 Ressources utilisées : 
 - https://www.youtube.com/watch?v=E14m5hf6Pvo 
 ### Sketching 
+IMPORTANT 
+**Workbench:** Part Design 
+![](attachments/Pasted%20image%2020250520134048.png) 
+
+#### Part Design 
 Pour modifier un sketch, double clic. 
 Pour le quitter, cliquer sur `Close` dans `Tasks`, ou sinon ESC suffit. 
 
@@ -31,6 +36,10 @@ Pour utiliser la variable, il faut nécessairement la mettre dans une "expressio
 Jusqu'ici, il faut juste cliquer sur ce petit disque. 
 ![[Pasted image 20250519131126.png|400]] 
 Pour l'entrer, il faut indiquer le nom du set. Par exemple, `VarSet001.Length`. 
+
+#### Draft 
+Ce workbench donne accès à d'autres fonctionnalités, telle que Array Tools, qui permet de faire une grille dans trois dimensions d'un sketch. 
+
 
 
 
