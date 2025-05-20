@@ -3,7 +3,7 @@ Ressources utilisées :
 - https://www.youtube.com/watch?v=E14m5hf6Pvo 
 ### Sketching 
 Pour modifier un sketch, double clic. 
-Pour le quitter, cliquer sur `Close` dans `Tasks`, ESC suffit. 
+Pour le quitter, cliquer sur `Close` dans `Tasks`, ou sinon ESC suffit. 
 
 Contour vert : constrained, ne peut pas bouger, est fixé 
 Contour noir : pas constrained 

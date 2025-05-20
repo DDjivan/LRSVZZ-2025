@@ -1,6 +1,6 @@
 # Guide pour accéder au projet 
-Un compte [GitHub](docs/Guides/GitHub.md) est nécessaire : https://github.com/login. 
-Deux outils nécessaires expliqués ci-dessous : [[GitHub Desktop]] et [[Obsidian]]. 
+Un compte [GitHub](GitHub.md) est nécessaire : https://github.com/login. 
+Deux outils nécessaires expliqués ci-dessous : [GitHub Desktop](GitHub%20Desktop.md) et [Obsidian](Obsidian.md). 
 
 ## 1. Téléchargements et installation 
 ### Linux 
@@ -17,7 +17,7 @@ Obsidian :
 ---
 <div style="page-break-after: always;"></div>
 
-## 2. Configuration [GitHub Desktop](docs/Guides/GitHub%20Desktop.md) 
+## 2. Configuration [GitHub Desktop](GitHub%20Desktop.md) 
 ### Connexion 
 Se connecter avec son compte GitHub en cliquant sur le bouton principal "Sign in". 
 
@@ -96,9 +96,9 @@ Le *vault* est prêt, la lecture (voire l'écriture) peut maintenant commencer.
 ## 4. Lire 
 De nombreuses notes ont été rédigées pour comprendre le projet. 
 
-Commencer à partir du fichier initial [README](README.md) afin de commencer la lecture de l'ensemble de la documentation. 
+Commencer à partir du fichier initial [README](../../README.md) afin de commencer la lecture de l'ensemble de la documentation. 
 
-À présent, le plus important est de comprendre en détail [GitHub Desktop](docs/Guides/GitHub%20Desktop.md), puis [Obsidian](docs/Guides/Obsidian.md). 
+À présent, le plus important est de comprendre en détail [GitHub Desktop](GitHub%20Desktop.md), puis [Obsidian](Obsidian.md). 
 
 Merci pour votre lecture, et bon courage ! 
 
