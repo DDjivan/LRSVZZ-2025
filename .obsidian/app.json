@@ -1,0 +1,8 @@
+{
+  "newLinkFormat": "absolute",
+  "useMarkdownLinks": true,
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "./attachments",
+  "newFileLocation": "current",
+  "trashOption": "local"
+}
