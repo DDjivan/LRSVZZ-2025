@@ -1,6 +1,6 @@
 # Markdown 
 [Markdown](https://fr.wikipedia.org/wiki/Markdown) est un "langage de programmation". 
-C'est lisible même sans un éditeur de texte comme [[Obsidian]]. 
+C'est lisible même sans un éditeur de texte comme [Obsidian](docs/Guides/Obsidian.md). 
 
 ## Syntaxe 
 ### Modifier le texte en l'entourant de caractères 

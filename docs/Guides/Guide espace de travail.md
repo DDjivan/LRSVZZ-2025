@@ -1,23 +1,23 @@
 # Guide pour accéder au projet 
-Un compte [[GitHub]] est nécessaire : https://github.com/login. 
+Un compte [GitHub](docs/Guides/GitHub.md) est nécessaire : https://github.com/login. 
 Deux outils nécessaires expliqués ci-dessous : [[GitHub Desktop]] et [[Obsidian]]. 
 
 ## 1. Téléchargements et installation 
 ### Linux 
 GitHub Desktop : 
-![[GitHub Desktop#^Linux]] 
+![](GitHub%20Desktop.md#^Linux) 
 Obsidian : 
-![[Obsidian#^Linux]] 
+![](Obsidian.md#^Linux) 
 ### Windows 
 GitHub Desktop : 
-![[GitHub Desktop#^Windows]] 
+![](GitHub%20Desktop.md#^Windows) 
 Obsidian : 
-![[Obsidian#^Windows]] 
+![](Obsidian.md#^Windows) 
 
 ---
 <div style="page-break-after: always;"></div>
 
-## 2. Configuration [[GitHub Desktop]] 
+## 2. Configuration [GitHub Desktop](docs/Guides/GitHub%20Desktop.md) 
 ### Connexion 
 Se connecter avec son compte GitHub en cliquant sur le bouton principal "Sign in". 
 
@@ -33,7 +33,7 @@ Finaliser sa connexion en cliquant sur le bouton principal "Finish".
 
 ### Importation 
 Importer le projet en le sélectionnant à gauche. 
-Le repository s'appelle "DDjivan/LeMajordome". 
+Le repository s'appelle "DDjivan/LRSVZZ-2025". 
 Cliquer sur le bouton principal "Clone". 
 
 > [!info] Information
@@ -57,7 +57,7 @@ Après avoir sélectionné, cliquer sur le bouton principal "Clone".
 <div style="page-break-after: always;"></div>
 
 ### Finalisation 
-Si le dossier sélectionné est valide, un fenêtre devrait indiquer la progression de téléchargements de tous les fichiers, qui résulterait en la fenêtre suivante. 
+Si le dossier sélectionné est valide, une fenêtre devrait indiquer la progression de téléchargements de tous les fichiers, qui résulterait en la fenêtre suivante. 
 
 Le logiciel peut être à présent minimisé, voire fermé. 
 
@@ -70,17 +70,17 @@ Le logiciel peut être à présent minimisé, voire fermé.
 ### Ouverture initiale 
 Sélectionner le bouton "Open", et sélectionner le répertoire du repository, "LeMajordome", ce qui permet de créer un *vault*. 
 
-S'il est situé comme proposé dans le guide, il devrait se situer à la racine de l'utilisateur : `Documents > Git > LeMajordome`. 
+S'il est situé comme proposé dans le guide, il devrait se situer à la racine de l'utilisateur : `Documents > Git > LRSVZZ-2025`. 
 
 ![[006.png]]
 <div style="page-break-after: always;"></div>
 
 ### Confirmation  
-Le *vault* contient des fonctionnalités de tierce partie (des *plugins*). 
-Afin qu'ils restent activés, il faut activer "Trust author and enable plugins". 
+Il est possible que le *vault* contienne des fonctionnalités de tierce partie (des *plugins*). 
+Afin qu'ils restent activés, il faut sélectionner "Trust author and enable plugins". 
 
 > [!info] Information 
-> À ce jour (2025-04-16), le *vault* peut être ouvert sans les *plugins* sans aucun problème. Il suffit d'appuyer sur le bouton "Browse vault in Restricted Mode". 
+> À ce jour (2025-05-20), le *vault* peut être ouvert sans les *plugins* sans aucun problème. Il suffit d'appuyer sur le bouton "Browse vault in Restricted Mode". 
 
 ![[007.png]] 
 <div style="page-break-after: always;"></div>
@@ -96,9 +96,9 @@ Le *vault* est prêt, la lecture (voire l'écriture) peut maintenant commencer.
 ## 4. Lire 
 De nombreuses notes ont été rédigées pour comprendre le projet. 
 
-Commencer à partir du fichier initial [[README]] afin de commencer la lecture de l'ensemble de la documentation. 
+Commencer à partir du fichier initial [README](README.md) afin de commencer la lecture de l'ensemble de la documentation. 
 
-À présent, le plus important est de comprendre en détail [[GitHub Desktop]], puis [[Obsidian]]. 
+À présent, le plus important est de comprendre en détail [GitHub Desktop](docs/Guides/GitHub%20Desktop.md), puis [Obsidian](docs/Guides/Obsidian.md). 
 
 Merci pour votre lecture, et bon courage ! 
 

@@ -1,14 +1,14 @@
 # GitHub 
 Service et site web d'hébergements de code source de projets. 
 ## En bref 
-Utilise [[Git]]. 
+Utilise [Git](docs/Guides/Git.md). 
 ![[Git#^Explication]] 
 
 GitHub permet la collaboration, et l'interface web est sympa et pratique. 
 
 ## Notre projet 
-**Lien du repo :** https://github.com/DDjivan/LeMajordome. ^Lien
-Pour y apporter des modifications, mieux vaut utiliser [[GitHub Desktop]]. 
+**Lien du repo :** https://github.com/DDjivan/LRSVZZ-2025. ^Lien
+Pour y apporter des modifications, mieux vaut utiliser [GitHub Desktop](docs/Guides/GitHub%20Desktop.md). 
 
 ## Terminologie 
 Repository (repo) : le dossier qui contient tout 

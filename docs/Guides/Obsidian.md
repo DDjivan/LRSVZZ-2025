@@ -10,7 +10,7 @@ Obsidian est un logiciel gratuit mais pas open source, disponible sur toutes les
 - Documentation pour les développeurs : https://docs.obsidian.md/Home 
 
 ## En bref 
-C'est un éditeur de texte au format [About/Guides/Markdown](About/Guides/Markdown). 
+C'est un éditeur de texte au format [Markdown](docs/Guides/Markdown.md). 
 Il fonctionne en "Vault" : c’est tout simplement un **dossier sur ton ordinateur** qui contient tes notes en **fichiers Markdown** 
 
 Tous les fichiers sont sur le repo [GitHub](docs/Guides/GitHub.md). 

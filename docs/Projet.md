@@ -6,9 +6,9 @@ Pour commencer à lire ou modifier le projet, commencer par initialiser l'espace
 
 ## Avec quoi  
 Afin de réaliser ce projet, les outils suivants sont utilisés : 
-- [[GitHub]] pour héberger le code et la documentation ;
-- [[GitHub Desktop]] pour télécharger le vault et upload des modifications ;
-- [[Obsidian]] pour rédiger les notes et organiser le vault. 
+- [GitHub](docs/Guides/GitHub.md) pour héberger le code et la documentation ;
+- [GitHub Desktop](docs/Guides/GitHub%20Desktop.md) pour télécharger le vault et upload des modifications ;
+- [Obsidian](docs/Guides/Obsidian.md) pour rédiger les notes et organiser le vault. 
 
 ## Quoi  
 Liste de choses à faire : [[TODO]]. 
