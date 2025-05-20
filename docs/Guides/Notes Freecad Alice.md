@@ -105,7 +105,7 @@ Contrôler un robot à deux roues avec Raspberry Pi : 
 
 [https://www.thingiverse.com/thing:2945466](https://www.thingiverse.com/thing:2945466) 
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXd3rLYSls7BmYVEf0pf9D02Q6tjJHzB-I5uxZzJQJVSFlf_4aw8w1fKDqs6QDxB20MXRDoU34YJHkTh3TsfL6wMsclPFgWs9HFBfMsO6juF-CKGf_wGjmKg9dkrbU1WTABg1o_EiA?key=L4A1ejDVxs0i06ERmyTYIKsb)
+![image](https://cdn.thingiverse.com/renders/06/7c/d9/87/08/8af37ecc3e74440de72d8741d51e9f7d_display_large.jpg)
 
   
 
@@ -114,7 +114,7 @@ Contrôler un robot à deux roues avec Raspberry Pi : 
   
   
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcrGxK1w2T8-q4Ky82CAi3I6e3B42hpmvO1ypWwg5UJ388uxPxgmVzsF3wplc5-49TsIjqgY7A96pHXtp6vvJwYxfXXvvOgCq-qGauD6Yj3BLjL8UsbQDzteue63OcUzuUojB0C?key=L4A1ejDVxs0i06ERmyTYIKsb)
+![image](https://cdn.thingiverse.com/assets/08/60/60/04/d6/large_display_Robot_Fusion3D_01_1000px.png)
 
 
 
