@@ -1,26 +1,24 @@
 # Raspberry Pi 
 
 ![400](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdUqR7V3iTRMHx9IjhJyjIzrAZC87YA1EP8RUSUe5E_eizSCTrJOvvTvR_df053OSU_J2VpQKkw5OmDSXjNcv03opDjbPKZX4JaBeIY3rQXt_WD1IuiIcxIlZihKU4LTymnhtWoSw?key=L4A1ejDVxs0i06ERmyTYIKsb)
-Lite = pas de DE = un serveur quoi 
+Lite = headless = pas de DE (desktop environment) = un serveur. 
 
-Le serveur (RPi 2 chez Djivan) 
+Il y a trois Raspberry Pi : 
+- le serveur (RPi 2 chez Djivan) ; 
+- les clients qui sont les Raspberry Pi 4 à l'ESIEE qui doivent se connecter à `eduroam`. 
 
-| Hostname | raspberrypi-server |
-| -------- | ------------------ |
-| Username | dd                 |
-| Password | lrsvzz             |
-| Addresse | 90.22.255.6        |
-Le (ou les) client qui sont les Raspberry Pi 4 à l'ESIEE qui doivent se connecter à `eduroam`. 
+| Carte SD | SanDisk 58.03 GiB    | Logo Raspberry        | 32 GB                 |
+| -------- | -------------------- | --------------------- | --------------------- |
+| Modèle   | Raspberry Pi 2 B     | Raspberry Pi 4 B      | Raspberry Pi 4 B      |
+| Hostname | `raspberrypi-server` | `raspberrypi-client1` | `raspberrypi-client2` |
+| Username | `dd`                 | `nous`                | `nous`                |
+| Password | `lrsvzz`             | `lrsvzz`              | `lrsvzz`              |
+| Addresse | `90.22.255.6`        | Dynamique             | Dynamique             |
+Dynamique = à déterminer sur http://90.22.255.6:50000/view_ips
 
-| Hostname | raspberrypi-client1                                           |
-| -------- | ------------------------------------------------------------- |
-| Username | nous                                                          |
-| Password | lrsvzz                                                        |
-| Addresse | dynamique, à déterminer sur http://90.22.255.6:50000/view_ips |
-
-Comment s'y connecter ? Par exemple, voilà comment se connecter au serveur. 
+**Comment s'y connecter ? Par exemple, voilà comment se connecter au serveur.** 
 Pour exécuter des commandes, se connecter en SSH. 
-```
+```bash
 ssh dd@90.22.255.6
 ```
 
@@ -29,7 +27,7 @@ Pour accéder aux fichiers via un explorateur de fichiers, entrer cette adresse.
 sftp://dd@90.22.255.6/home/
 ```
 
-**Pour que la plateforme du site web fonctionne, il faut :** 
+**Pour allumer la plateforme du site web, il faut faire ceci en SSH :** 
 1. Naviguer dans le dossier contenant le fichier texte avec toutes les données. 
 ```bash
 cd /home/pojet
@@ -154,7 +152,7 @@ En bref :
 | **Password**                      | \*\*\*\*                 |
 
 
-## Ajouter le script au démarrage  
+## Comment ajouter un script au démarrage  
 Être à la racine utilisateur. 
 ```bash
 cd
