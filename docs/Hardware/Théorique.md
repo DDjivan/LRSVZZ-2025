@@ -156,5 +156,70 @@ $$
 Fin de la cinématique. 
 
 ## Dynamique 
+### Modélisation 
+Torseur d'action mécanique avec $i \in \{1,2,3,4\}$ : 
+$$
+F(\text{route} \to S_i) = 
+\begin{Bmatrix}
+	T_{ri} \cdot \vec{x} + N_{ri} \cdot \vec{z} 
+	\\
+	\vec0
+\end{Bmatrix}_{I_{i}}
+$$
+
+Limite de roulement sans glissement : $T_{ri,\text{max}} = f \times N_{ri, \text{max}}$. 
+$$
+F(S \to S_i) = 
+\begin{Bmatrix}
+	X_i \cdot \vec{x} + Y_i \cdot \vec{y} + Z_i \cdot \vec{z} \\
+	L_i \cdot \vec{x} + N_i \cdot \vec{z}
+\end{Bmatrix}_{A_{i}}
+$$
+
+
+$$
+F(S_{\text{moteur}_3}\to S_3) = 
+\begin{Bmatrix}
+	\vec{0} \\
+	C_{m_3} \cdot \vec{y} 
+\end{Bmatrix}_{A_{3}}
+$$
+$$
+F(S_{\text{moteur}_4}\to S_4) = 
+\begin{Bmatrix}
+	\vec{0} \\
+	C_{m_4} \cdot \vec{y} 
+\end{Bmatrix}_{A_{4}}
+$$
+
+
+
+$$
+F(P \to S) = 
+\begin{Bmatrix}
+	-mg\vec{z} \\
+	\vec0 
+\end{Bmatrix}_{G}
+$$
+Avec $i \in \{1,2\}$ : 
+$$
+F(S \to F_i) = 
+\begin{Bmatrix}
+	X_{F_i} \cdot \vec{x} + Y_{F_i} \cdot \vec{y} + Z_{F_i} \cdot \vec{z} \\
+	L_{F_i} \cdot \vec{x} + M_{F_i} \cdot \vec{y}
+\end{Bmatrix}_{A_{i}}
+$$
+
+$$
+F(F_i \to S_i) = 
+\begin{Bmatrix}
+	X_{F_i S_i} \cdot \vec{x_i} + Y_{F_i S_i} \cdot \vec{y_i} + Z_{F_i S_i} \cdot \vec{z_i} \\
+	L_{F_i S_i} \cdot \vec{x_i} + N_{F_i S_i} \cdot \vec{z_i}
+\end{Bmatrix}_{A_{i}}
+$$
+
+
+
+
 
 
