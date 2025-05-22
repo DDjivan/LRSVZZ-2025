@@ -1,73 +1,5 @@
-# Plateforme Web 
-Plusieurs éléments à assembler : 
-
-- Backend (Framework Web) 
-- Database (Base de données) 
-- Frontend (Apparence) 
-- Communication avec les Raspberry Pi 
-- Bibliothèque SSH 
-
-## Backend 
-**Choix du langage :** Python 
-
-Bibliothèque Python Flask : 
-https://flask.palletsprojects.com/en/stable/quickstart/
-
-Bibliothèque Python Django : 
-https://www.djangoproject.com/ 
-
-**Choix de la bibliothèque :** Flask 
-
-Soit Python, soit JavaScript. Je commence à regarder Python parce que familier et simple. 
-
-En suivant les [instructions Flask](https://flask.palletsprojects.com/en/stable/installation/) : 
-
-1. Créer un nouveau dossier et y naviguer. 
-
-```bash
-mkdir -p pojet && cd $_
-```
-
-2. Créer un environnement virtuel. 
-```bash
-python3 -m venv .venv
-```
-
-3. Activer l'environnement 
-```bash
-. .venv/bin/activate
-```
-
-4. Installer la bibliothèque 
-```bash
-pip install Flask
-```
-
-
-
-En créant un fichier `app.py` et en y mettant du code Python utilisant Flask, on peut exécuter la ligne suivante pour lancer la plateforme. 
-```bash
-flask run
-```
-
-Pour y accéder de n’importe quelle adresse IP et pas seulement [http://localhost:5000](http://localhost:5000) , on peut exécuter la ligne suivante 
-```bash
-flask run --host=0.0.0.0
-```
-
-```bash
-flask --app app.py run --host=0.0.0.0 --port=5000 --debug
-```
-
-**Toutefois,** le mieux est de faire tout ça dans le script Python directement. Voir le script indiqué à cette section : [Intégration avec Flask sous Python](#Intégration%20avec%20Flask%20sous%20Python). 
 ## Database 
-SQLite pour commencer simplement. 
-https://sqlite.org/index.html 
-
-SQLite est préinstallé. Vérifier l'installation : 
-```bash
-sqlite3 --version
-```
+**Choix :** [SQLite](../Guides/SQLite.md) 
 
 ### Test 1 
 #### SQLite 
@@ -92,15 +24,15 @@ Exemple d'ajout de lignes :
 INSERT INTO raspberry_pis (name, status, delivery_step) VALUES ('RPi4 #1', 'Connected', 'Idle');
 INSERT INTO raspberry_pis (name, status, delivery_step) VALUES ('RPi4 #2', 'Disconnected', 'Busy');
 ```
-~~Mais ça ne fonctionne pas... mais on dirait qu'après, curl -X POST fonctionne... ~~
-ÇA FONCTIONNE ! 
+~~Mais ça ne fonctionne pas... mais on dirait qu'après, curl -X POST fonctionne...~~
+Ça fonctionne ! 
 
-Lire le tableau. 
+Afficher les lignes du tableau. 
 ```sqlite
 SELECT * FROM raspberry_pis;
 ```
 
-Lire la liste des tableaux. 
+Afficher la liste des tableaux. 
 ```sqlite
 SELECT name FROM sqlite_master WHERE type='table';
 ```
@@ -110,7 +42,7 @@ Installer ce module.
 pip install Flask-SQLAlchemy
 ```
 
-app.py: 
+PAS À JOUR, `app.py` : 
 ```python
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
@@ -193,27 +125,11 @@ dd@dd-b-framework:~$ curl http://127.0.0.1:5000/api/raspberrypis
 ]
 ```
 
+==À mettre en forme davantage.== 
 
-#### IGNORE 
-POST AVEC CURL: À NE PAS FAIRE PARCE QUE ÇA A L'AIR TROP GALÈRE SA RACE. 
+#### Test 2 
+POST avec `curl`. Pas à utiliser pour le moment. 
 ```bash
 curl -X POST http://127.0.0.1:5000/api/raspberrypis -H "Content-Type: application/json" -d '{"name": "RPi4 #1", "status": "Connected", "delivery_step": "Step 1"}'
 ```
-
-## Frontend 
-Jinja2??? Non. Rien à voir. 
-
-Javascript??? 
-- VueJS
-	- https://vuejs.org/guide/introduction.html 
-	- https://vuejs.org/about/faq.html 
-- React 
-	- https://react.dev/ 
-
-On dirait que JS est obligatoire à utiliser si on veut que n'importe quel client puisse interagir avec la plateforme web. Surtout si je veux : 
-- contenu de la page mis à jour dynamiquement 
-	- en utilisant AJAX (Asynchronous JavaScript and XML), je crois 
-- une seule page : Single Page Applications (SPAs) 
-- contenu en temps réel, comme des notifs ou un chat, en utilisant des WebSockets 
-- calcul du côté du client pour moins de charge côté serveur 
 
