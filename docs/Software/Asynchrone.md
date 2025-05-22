@@ -1,0 +1,3 @@
+An asynchronous function is a function that operates asynchronously via the event loop, allowing you to perform non-blocking operations. This means that the function can execute code that may take some time to complete (like fetching data from a server) without freezing or blocking the execution of other code.
+
+C'est un principe relativement complexe à priori, plus d'infos [ici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
