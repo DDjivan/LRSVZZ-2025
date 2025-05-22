@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{{ url_for('static', filename='shop-four-tiles.svg') }}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Restaurant Ticket Tracker</title>
+</head>
+<body>
+    <h1>Restaurant Ticket Tracker</h1>
+    <table id="ticketTable">
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Tickets will be populated here -->
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
