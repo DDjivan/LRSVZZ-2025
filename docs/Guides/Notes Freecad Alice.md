@@ -122,7 +122,7 @@ Pour commencer l'interface de FreeCAD ressemble a ceci, quand on ouvre le logici
 ![Image (1)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(1).png)
 
 
-Pour faire une modélisation 3D, on ouvre un nouveau fichier vide. 
+Pour faire une modélisation 3D, on ouvre un nouveau "Fichier vide". 
 
 Il faut cliquer sur créer un corps puis créer une esquisse :
 ![Image (2)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(2).png)
@@ -138,7 +138,7 @@ Maintenant on a accès à tout un panel d'outils :
 
 
 
-### **2.Pour faire cube**
+### **2.Pour un faire cube**
 
 
 On clique sur cette outil pour créer un rectangle : 
@@ -149,16 +149,16 @@ On aura quelque chose qui ressemble a ceci, dont on pourra changer la taille et 
 ![Image (7)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(7).png)
 
 
-Ensuite on clique sur "Echap" pour ne plus avoir l'outil sur la souris.
+Ensuite on clique sur "Echap" ou clique droit pour ne plus avoir l'outil sur la souris.
 On obtient ceci : 
 ![Image (8)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(8).png)
 
 
-Evidemment pour rechanger les dimensions on peut double-cliquer sur les mesures et on obtient une fenêtre pop up comme ceci et cliquer sur "Entrée" pour valider : 
+Evidemment pour changer les dimensions on peut double-cliquer sur les mesures et on obtient une fenêtre pop up comme ceci et cliquer sur "Entrée" pour valider : 
 ![Image(20)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image(20).png)
 
 
-On peut cliquer deux fois sur le rectangle pour le déplacer (il faut qu'il soit allumer en vert).
+On peut cliquer deux fois sur le rectangle pour le déplacer (il faut qu'il soit allumer en vert de tout les côtés).
 ![Image (9)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(9).png)
 
 
@@ -167,7 +167,9 @@ Enfin on peut fermer cette tâche pour maintenant le mettre en  3D :
 
 
 Ensuite on voit que le rectangle/carré est vert.
-⚠️ Il ne faut surtout pas cliquer autre part sinon l'outil ne détecte pas la forme pour le sortir en 3D.
+⚠️ Il ne faut surtout pas cliquer autre part sinon l'outil ne détecte pas la forme pour le sortir en 3D. Sinon on peut quand même double-cliquer dessus mais dans certain cas ça ne marche plus.
+![](attachments/Pasted%20image%2020250522124410.png)
+
 
 Il faut cliquer sur "Protrusion" pour le sortir en 3D : 
 ![Image (11)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(11).png)
@@ -177,6 +179,9 @@ Maintenant dans la fenêtre tâche, on a ceci :
 ![Image (12)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(12).png)
 La case "Longueur" sert à choisir la hauteur du cube, une fois choisi la hauteur, il faut cliquer sur "Entrée" du clavier. 
 
+Pour remodifier, il faut double-cliquer sur cette icône : 
+![](attachments/Pasted%20image%2020250522132936.png)
+
 
 On coche origine pour cacher les axes : 
 ![Image (13)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(13).png)
@@ -184,6 +189,7 @@ On coche origine pour cacher les axes :
 
 Voila le résultat final : 
 ![Image (14)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(14).png)
+
 Un magnifique cube ✨
 
 
@@ -194,7 +200,7 @@ Pour se déplacer, on maintient la molette de la souris.
 ![Video (1)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Video%20(1).mp4)
 
 
-Pour changer de perspective, on maintient la molette de la souris et le clique droit.
+Pour changer de perspective, on maintient la molette de la souris puis le clique droit.
 ![Video (2)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Video%20(2).mp4)
 
 
@@ -221,8 +227,10 @@ Voilà le résultat :
 ![Image (18)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(18).png)
 
 
-Evidement pour rechanger l'épaisseur, on double-clique ici et la fenêtre des tâches se réaffiche.
+Evidement pour rechanger l'épaisseur, on double-clique ici et la fenêtre des tâches se réaffiche pour changer la taille.
 ![Image (19)](Screenshots%20-%20Notes%20FreeCAD%20Alice/Image%20(19).png)
+
+
 
 
 
