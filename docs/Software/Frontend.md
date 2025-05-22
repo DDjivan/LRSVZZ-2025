@@ -15,3 +15,7 @@ On dirait que JS est obligatoire à utiliser si on veut que n'importe quel clien
 - contenu en temps réel, comme des notifs ou un chat, en utilisant des WebSockets 
 - calcul du côté du client pour moins de charge côté serveur 
 
+### 2025-05-22 Djivan 
+Installation de Node : [NodeJS](NodeJS.md) 
+Installation de Vue CLI : [[VueJS]] 
+
