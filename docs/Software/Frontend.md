@@ -2,7 +2,7 @@
 Jinja2 ? Non, rien à voir. 
 
 Javascript ? 
-- VueJS
+- VueJS 
 	- https://vuejs.org/guide/introduction.html 
 	- https://vuejs.org/about/faq.html 
 - React 
@@ -17,5 +17,10 @@ On dirait que JS est obligatoire à utiliser si on veut que n'importe quel clien
 
 ### 2025-05-22 Djivan 
 Installation de Node : [NodeJS](NodeJS.md) 
-Installation de Vue CLI : [[VueJS]] 
+OK 
+
+~~Installation de Vue CLI : [[VueJS]] ~~
+
+Installation de Vuetify : [Vuetify](Vuetify.md) 
+OK 
 
