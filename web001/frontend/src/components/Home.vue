@@ -18,8 +18,8 @@ export default {
   },
   methods: {
     async fetchData() {
-      const response = await fetch('http://127.0.0.1:5000/api/data');
-      const data = await response.json();
+      const response = await fetch('http://127.0.0.1:5000/api/data'); //adresse du backend flask défini dans app.py
+      const data = await response.json(); //réponse du backend sous format json
       this.message = data.message;
     },
   },
