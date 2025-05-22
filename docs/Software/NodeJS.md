@@ -1,20 +1,52 @@
 https://nodejs.org/en/download 
-
-Sur une machine Linux : 
+## Installer 
+Sur une machine Linux. 
+### Installer NODE 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
-Relancer le shell (ou `CTRL+D`)
+Relancer le shell (ou `CTRL+D`) 
 
+~~Installer NVM 22~~ 
 ```
 nvm install 22
 ``````
 
-Verifier la version de Node.js et npm : 
+Installer NVM 24 
+```
+nvm install 24
+``````
+
+
+Vérifier la version de Node.js et npm : 
 ```bash
-node -v  # Should print "v22.16.0".
-nvm current  # Should print "v22.16.0".
-npm -v  # Should print "10.9.2".
+node -v
+nvm current
+npm -v
+```
+### Installer Yarn : 
+Non : 
+```bash
+corepack enable yarn
+```
+
+Oui : 
+```bash
+corepack install
+```
+
+Vérifier Yarn : 
+```bash
+yarn -v  
+```
+
+
+
+
+## Désinstaller 
+Tout désinstaller : 
+```
+rm -rf ~/.nvm
 ```
 
