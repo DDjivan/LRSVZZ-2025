@@ -1,54 +1,15 @@
-# Raspberry Pi 
+# Le réseau de l'école 
+## Informations 
+Les réseaux Wi-Fi `ESIEE` et `eduroam` semblent être les mêmes, mis à part l'authentification. 
 
-![400](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdUqR7V3iTRMHx9IjhJyjIzrAZC87YA1EP8RUSUe5E_eizSCTrJOvvTvR_df053OSU_J2VpQKkw5OmDSXjNcv03opDjbPKZX4JaBeIY3rQXt_WD1IuiIcxIlZihKU4LTymnhtWoSw?key=L4A1ejDVxs0i06ERmyTYIKsb)
-Lite = headless = pas de DE (desktop environment) = un serveur. 
+Le port 50000 est possiblement ouvert. 
 
-Il y a trois Raspberry Pi : 
-- le serveur (RPi 2 chez Djivan) ; 
-- les clients qui sont les Raspberry Pi 4 à l'ESIEE qui doivent se connecter à `eduroam`. 
-
-| Carte SD | SanDisk 58.03 GiB    | Logo Raspberry        | 32 GB                 |
-| -------- | -------------------- | --------------------- | --------------------- |
-| Modèle   | Raspberry Pi 2 B     | Raspberry Pi 4 B      | Raspberry Pi 4 B      |
-| Hostname | `raspberrypi-server` | `raspberrypi-client1` | `raspberrypi-client2` |
-| Username | `dd`                 | `nous`                | `nous`                |
-| Password | `lrsvzz`             | `lrsvzz`              | `lrsvzz`              |
-| Addresse | `90.22.255.6`        | Dynamique             | Dynamique             |
-Dynamique = à déterminer sur http://90.22.255.6:50000/view_ips
-
-**Comment s'y connecter ? Par exemple, voilà comment se connecter au serveur.** 
-Pour exécuter des commandes, se connecter en SSH. 
-```bash
-ssh dd@90.22.255.6
-```
-
-Pour accéder aux fichiers via un explorateur de fichiers, entrer cette adresse. 
-```
-sftp://dd@90.22.255.6/home/
-```
-
-**Pour allumer la plateforme du site web, il faut faire ceci en SSH :** 
-1. Naviguer dans le dossier contenant le fichier texte avec toutes les données. 
-```bash
-cd /home/pojet
-```
-2. Activer l'environnement virtuel Python. 
-```bash
-. .venv/bin/activate
-```
-3. Exécuter le script Python. 
-```bash
-python LRSVZZ-2025/server_ip-getter-displayer.py
-```
-
-Vérifier en allant sur http://90.22.255.6:50000/view_ips ! 
-
-## Challenge : Configurer Le Réseau 
-Objectif : se connecter à `eduroam`. 
+## S'y connecter 
+**Objectif :** se connecter au réseau Wi-Fi `eduroam`. 
 ### Échec 
 ~~Première étape : customiser l’installation de l’OS pour qu’il connaisse un local hotspot~~ 
 
-wpa_supplicant.conf 
+`wpa_supplicant.conf` 
 
 [https://github.com/asparatu/raspberrypi-wpa-supplicant.conf](https://github.com/asparatu/raspberrypi-wpa-supplicant.conf) 
 
@@ -113,7 +74,7 @@ Command pour debug. Mais elle est illisible.
 sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -d
 ```
 
-### Problème 
+#### Problème 
 ```
 Wi-Fi is currently blocked by rfkill. 
 Use raspi-config to set the country before use.
@@ -151,57 +112,6 @@ En bref :
 | **Username**                      | `vartanij@esiee.fr`      |
 | **Password**                      | \*\*\*\*                 |
 
-
-## Comment ajouter un script au démarrage  
-Être à la racine utilisateur. 
-```bash
-cd
-```
-Clone le repo. 
-```bash
-git clone https://github.com/DDjivan/LRSVZZ-2025
-```
-Copier le chemin du script Python client en faisant LMB dessus et "Copy Path(s)". 
-
-Modifier le fichier `crontab` de l'utilisateur : 
-```bash
-crontab -e
-```
-Écrire la ligne suivante à la fin. 
-```bash
-@reboot python3 /home/nous/LRSVZZ-2025/client_ip-sender.py
-```
-Redémarrer. 
-## Gérer le script 
-View a list of existing `cron` jobs for current user: 
-```bash
-crontab -l
-```
-
-`ps aux` permet de voir la liste des process (`ps` permet d'obtenir des informations sur les process). `grep` permet de garder uniquement les lignes de la sortie de `ps aux` contenant l'argument, ici `py`. 
-```bash
-ps aux | grep py
-```
-
-La deuxième colonne est le PID (Process ID). Besoin de tuer le process ? 
-```bash
-kill INSÉRER_PID_ICI
-```
-
-Alice tu devrais connaître tout ça normalement. 
-### Tentative à ignorer 
-Lancer le script python au démarrage en modifiant le fichier `/etc/crontab`.
-```bash
-sudo nano /etc/crontab
-```
-
-```
-@reboot pi python3 /home/pi/myscript.py
-```
-
-```
-@reboot pi python3 /home/pi/LRSVZZ-2025/client_ip-sender.py
-```
 
 
 
