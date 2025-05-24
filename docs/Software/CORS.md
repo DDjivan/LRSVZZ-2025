@@ -1,0 +1,2 @@
+CORS, or Cross-Origin Resource Sharing, is a security feature implemented in web browsers that allows or restricts web applications running at one origin (domain) to make requests to resources on a different origin.
+[Plus d'informations](https://www.geeksforgeeks.org/how-to-install-flask-cors-in-python/)
