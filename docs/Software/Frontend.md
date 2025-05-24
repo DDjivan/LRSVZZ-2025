@@ -16,7 +16,7 @@ On dirait que JS est obligatoire à utiliser si on veut que n'importe quel clien
 - calcul du côté du client pour moins de charge côté serveur 
 
 ### 2025-05-22 Djivan 
-Installation de Node : [NodeJS](NodeJS.md) 
+Installation de Node : [Installer NodeJS](Installer%20NodeJS.md) 
 OK 
 
 ~~Installation de Vue CLI : [[VueJS]] ~~

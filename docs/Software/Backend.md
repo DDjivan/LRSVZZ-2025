@@ -1,13 +1,7 @@
 ## Backend 
-**Choix du langage :** Python 
+**Choix du langage :** [Python](../Guides/Python.md) 
 
-Bibliothèque Python Flask : 
-https://flask.palletsprojects.com/en/stable/quickstart/
-
-Bibliothèque Python Django : 
-https://www.djangoproject.com/ 
-
-**Choix de la bibliothèque :** Flask 
+**Choix de la bibliothèque :** [[Flask]] 
 
 Soit Python, soit JavaScript. Je commence à regarder Python parce que familier et simple. 
 
