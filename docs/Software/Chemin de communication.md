@@ -101,3 +101,19 @@ ssh -p 50001 nous@localhost
 ```
 
 Normalement, aucun mot de passe ne devrait être demandé ! 
+
+## Envoyer des commandes en SSH via Web 
+Sur le serveur, lancer le back-end et front-end [Flask](../Guides/Flask.md) : 
+```bash
+cd /home/dd/LRSVZZ-2025/fetch-ip-auto/
+```
+```bash
+python server_script-launcher.py
+```
+
+S'assurer d'avoir un tunnel SSH de lancé sur le port 50001. 
+
+Aller sur cette page pour tester : http://90.22.255.6:50000/ 
+
+Un fichier de test sera créé sur la Raspberry appelé `TEST.txt` à la racine utilisateur. 
+
