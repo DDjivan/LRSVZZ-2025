@@ -25,6 +25,11 @@ Obtenir des informations sur l'état du repo.
 git status
 ```
 
+Changer de branche, ou s'assurer d'être dans une branche. 
+```bash
+git checkout NOM_DE_LA_BRANCHE
+```
+
 Mettre à jour le repo avec les dernières modifications de la branche `main`. 
 ```bash
 git pull origin main
