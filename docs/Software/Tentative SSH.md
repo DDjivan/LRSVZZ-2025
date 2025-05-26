@@ -1,54 +1,60 @@
-**Recherches : comment relier la raspberry avec le PC. sur chatgpt et site de raspberry 
+
+#### OBJECTIF : Pouvoir se connecter depuis son PC à la Raspberry Pi
+
+Lien utile : 
 [https://www.raspberrypi.com/documentation/computers/getting-started.html](https://www.raspberrypi.com/documentation/computers/getting-started.html)
 
-J’ai suivis les étapes comme indiqué sur le site officiel et de même sur chatgpt : 
+##### 1. Préparer la carte micro SD avec Raspberry Pi Imager via Eduroam directement
 
-#### OBJECTIF : pouvoir te connecter depuis ton PC à ton Raspberry Pi, sans écran (mode sans tête)
-
-##### 1. Préparer la carte microSD avec Raspberry Pi Imager
-
-- Insèrer ta carte microSD dans ton PC.  
+- Insérer la carte micro SD dans son PC.
 - Ouvrir Raspberry Pi Imager.
-- Cliquer sur "Choose OS" → choisis “Raspberry Pi OS (32-bit)” (avec ou sans interface, selon ton besoin).  
-- Cliquer sur “Choose Storage” → sélectionner la carte microSD.
-- valider et faire la modif de paramètres  
-	- Hostname : raspberrypi1.local (laisse par défaut)
-	- Enable SSH : cocher cette case → choisir Use password authentication    
-	- Set username and password : j’ai mis pi et un mpt : 12345678  
-	- Configure wireless LAN : cocher cette case  
-		- SSID : S23 Ultra de Alice    
-		- Password : 123456789  
+- Sélectionner "Choose OS" → sélectionner “Raspberry Pi OS (32-bit)” (sans interface)
+- Sélectionner “Choose Storage” → sélectionner la carte microSD
+- Valider et modifier les paramètres comme suit : 
+	- Hostname : raspberrypi1.local (par défaut)
+	- Enable SSH : cocher cette case → choisir ''Use password authentication''    
+	- Set username : pi
+	- Set password : 12345678  
+	- Configure wireless LAN : cocher cette case 
+		- SSID : **eduroam**    
+		- Password : azerty 
 		- Wireless LAN country : FR  
 - Cliquer sur “Save”.    
 - Cliquer sur “Write” pour flasher la carte SD avec toutes ces options.
 
-#####  2. Insérer la carte SD et démarrer le Raspberry Pi
+#####  2. Insérer la carte micro SD et démarrer le Raspberry Pi
 
-- Une fois l’écriture terminée, éjecter proprement la carte microSD.  
-- Insèrer -la dans ton Raspberry Pi.  
-- Brancher l’alimentation. ( vérifier que le raspberry lit la carte ⇒ clignotement du led vert )  
-- Le Pi va démarrer et se connecter au Wi-Fi automatiquement (ou Ethernet si tu as mis un câble réseau).
+- Une fois l’étape 1 terminée, éjecter la carte micro SD du PC.  
+- L'insérer dans la Raspberry Pi.  
+- Brancher l’alimentation de la Raspberry Pi (vérification via clignotement de la LED verte).
+- La Raspberry PI va démarrer et se connecter au Wi-Fi automatiquement.
 
-##### 3. Trouver l’adresse IP du Raspberry Pi (ou utiliser son nom)
+##### 3. Trouver l’adresse IP de la Raspberry Pi (ou utiliser son nom)
 
-###### Option 1 Par nom d’hôte :
+###### OPTION 1 : Par nom d’hôte
 
-Depuis ton PC , ouvrir un terminal et taper : ssh pi@raspberrypi1.local
-Cela demande  MPT = celui que mis dans Raspberry Pi Imager)
-###### Option 2 Par adresse IP directe :
+Ouvrir un terminal et taper : ssh pi@raspberrypi1.local
+Cela demande un mot de passe (celui qu'on a configuré dans l'étape1 : azerty)
 
-1. Utilise un outil comme :
-	- Advanced IP Scanner (Windows)
-	- Angry IP Scanner (Linux, Mac, Windows)  
-2. Cherche l’appareil nommé “raspberrypi” ou une nouvelle IP connectée.  
-3. Noter son adresse IP (ex : 192.168.1.42)  
-4. Connecter à nouveau  via SSH : ssh pi@IP
+**Conclusion :** Cette démarche n'a pas fonctionné et nous n'avons pas compris pourquoi donc on est passé à l'option 2.
 
-Bloqué à cette étape : impossible de me connecter. : Soit je ne parviens pas à trouver l’adresse IP, soit la commande ssh fonctionne, mais le mot de passe que j’ai configuré à l’étape précédente ne fonctionne pas.
+###### OPTION 2 : Par adresse IP directe
 
-Du coup, j’ai relancé le téléchargement de l’image plusieurs fois :
+1. Télécharger Advanced IP Scanner.
+2. Chercher l’appareil nommé “raspberrypi1” ou alors une nouvelle adresse IP qui s'est connectée au réseau. 
+3. Noter son adresse IP
+4. S'y connecter via SSH : dans un terminal, écrire la commande ''ssh pi@IP''.
 
-- La première fois, c’était pour changer de réseau Wi-Fi (au départ j’étais sur eduroam), mais c’était trop compliqué de trouver l’adresse IP du Raspberry Pi à cause du grand nombre d'appareils connectés. Je devais me repérer uniquement avec les adresses IP, car les noms d’hôtes ne s'affichent pas.  
+
+**Conclusion :** Pour cette démarche, on est également bloqués. 
+Soit la commande ssh fonctionne mais on arrive pas à s'authentifier. 
+Soit on ne parviens pas à trouver l’adresse IP car sur Eduroam il y a beaucoup trop d'appareils connectés et donc d'adresses IP.
+
+**Solution :** Ne comprenant pas pourquoi nous n'arrivons pas à nous authentifier, on a décidé de refaire la préparation de la carte micro SD via un autre réseau qu'Eduroam qui est restreint => **un partage de connexion**. 
+
+
+
+
 
 - Ensuite, je me suis connecté via le partage de connexion d’Alice, pour pouvoir retrouver plus facilement l’adresse IP et vérifier le mot de passe configuré, car il me renvoyait une erreur d’identifiants incohérents.
 
@@ -89,8 +95,16 @@ Les commandes à utiliser sur l'invite pi@raspberrypi:~ $ : 
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfVNwNWDZu5Gf-Ni0ltGOx7j9NZBdsnDx7vOdnQRV-hiJLzVIsVpL7tUeocFy-I89hOtsj-r3ZHdpni4pSPoDIdH4dH5ieLjbAY8R9eGY2rHJri2iVXT51BsbplNCvV8o-9tY9apw?key=L4A1ejDVxs0i06ERmyTYIKsb)
 
-- **sudo reboot** : Redémarre le Raspberry Pi pour appliquer les changements.
+-sudo reboot : Redémarre le Raspberry Pi pour appliquer les changements.
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeE5L8p06JrRXliZn42gGdNxbQnkr_sAgz5fazqFnbHNzAz82jex5xZx2b442_owmiir8krnTppDJpbuSDLjw0VNpXXu09iCdaj7B4BBDEbWJvcpcDCK_52ydhKeGpaKgTRRZAYIQ?key=L4A1ejDVxs0i06ERmyTYIKsb)
 
-Je me connecte à nouveau sur la Raspberry 
+Je me connecte à nouveau sur la raspberry 
+
+J’ai installé MobaXterm. 
+
+Je lis maintenant le rapport de Louise.**
+
+
+
+Là c'est avec connexion d'Alice mais Djivan a reussi à écrire un script avec Eduroam directement donc pas besoin 
