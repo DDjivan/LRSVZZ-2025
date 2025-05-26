@@ -89,12 +89,8 @@ Les commandes à utiliser sur l'invite pi@raspberrypi:~ $ : 
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfVNwNWDZu5Gf-Ni0ltGOx7j9NZBdsnDx7vOdnQRV-hiJLzVIsVpL7tUeocFy-I89hOtsj-r3ZHdpni4pSPoDIdH4dH5ieLjbAY8R9eGY2rHJri2iVXT51BsbplNCvV8o-9tY9apw?key=L4A1ejDVxs0i06ERmyTYIKsb)
 
--sudo reboot : Redémarre le Raspberry Pi pour appliquer les changements.
+- **sudo reboot** : Redémarre le Raspberry Pi pour appliquer les changements.
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeE5L8p06JrRXliZn42gGdNxbQnkr_sAgz5fazqFnbHNzAz82jex5xZx2b442_owmiir8krnTppDJpbuSDLjw0VNpXXu09iCdaj7B4BBDEbWJvcpcDCK_52ydhKeGpaKgTRRZAYIQ?key=L4A1ejDVxs0i06ERmyTYIKsb)
 
-Je me connecte à nouveau sur la raspberry 
-
-J’ai installé MobaXterm. 
-
-Je lis maintenant le rapport de Louise.**
+Je me connecte à nouveau sur la Raspberry 
