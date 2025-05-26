@@ -11,7 +11,6 @@ Choses à savoir avant de coder :
 
 2. Format des données envoyées par le TF02 Lidar 
 
-
 ![500](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdZzi0E0bgC3lww5dCx-ZdUOkYb3x_mw9QaS38VHGrMdOAlgC7thA0EwCDCOH0thmtgC5zmI2tP3-PFxuP7eWz8-ERf7X3ey3Bt2f0wCO__z8RmIXqxa_59lHvEPcQ4WZF5W0rJtA?key=L4A1ejDVxs0i06ERmyTYIKsb)
 
 ![500](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeXTCCWw-wKp3XOP8jfSiNN0vwWzfJxNQwIhWyUl6zARPtkJPS6jW4j02xfs5VXgW7_bpaoDoKZJWh1M7kbeX44o2moOFwMMPxY8AmXrg_ZOTosfco7AYuD0jIw30nDU5DgcY8L?key=L4A1ejDVxs0i06ERmyTYIKsb)
