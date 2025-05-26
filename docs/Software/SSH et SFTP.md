@@ -35,7 +35,7 @@ Il faut faire les étapes suivantes en SSH.
 
 1. Naviguer dans le dossier contenant le fichier texte avec toutes les données. 
 ```bash
-cd /home/pojet
+cd /home/dd/pojet/
 ```
 
 2. Activer l'environnement virtuel [Python](../Guides/Python.md). 
