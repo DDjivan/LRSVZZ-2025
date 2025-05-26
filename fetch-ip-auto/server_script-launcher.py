@@ -11,7 +11,7 @@ def index():
 def execute_script():
     # '-p' = execute the command on RPi4 via SSH
     # run(['ssh', '-p', '50000', 'user@localhost', 'bash /path/to/your_script.sh'])
-    run(['ssh', '-p', '50000', 'dd@localhost', 'echo "Current date: $(date)" > ~/TEST.txt'])
+    run(['ssh', '-p', '50001', 'dd@localhost', 'echo "Current date: $(date)" > ~/TEST.txt'])
 
     return "Script executed!"
 
