@@ -35,7 +35,7 @@ Il faut faire les étapes suivantes en SSH.
 
 1. Naviguer dans le dossier contenant le fichier texte avec toutes les données. 
 ```bash
-cd /home/pojet
+cd LRSVZZ-2025/fetch-ip/
 ```
 
 2. Activer l'environnement virtuel [Python](../Guides/Python.md). 
@@ -45,7 +45,7 @@ cd /home/pojet
 
 3. Exécuter le script Python. 
 ```bash
-python LRSVZZ-2025/server_ip-getter-displayer.py
+python server_ip-getter-displayer.py
 ```
 
 Vérifier en allant sur http://90.22.255.6:50000/view_ips ! 
