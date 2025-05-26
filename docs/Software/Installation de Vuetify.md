@@ -71,4 +71,4 @@ Etant sur eduroam, je peux accéder à ce site avec mon téléphone en me mettan
 Maintenant, pour la prise main des composants de base, voir la [page sur les composants de Vuetify.](https://vuetifyjs.com/en/components/all/#containment)
 
 En lien :
-[[Communication par Vuetify avec un téléphone]]
+[[Page Vuetify en temps réel]]
