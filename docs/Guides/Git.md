@@ -14,7 +14,7 @@ git clone https://github.com/DDjivan/LRSVZZ-2025
 ```
 Cloner = Télécharger tous les fichiers pour la première fois. Si le dossier est déjà présent, il faudra pull. 
 
-Naviguer dans le répertoire du dépôt. 
+Naviguer dans le répertoire du repo. 
 ```bash
 cd LRSVZZ-2025
 ```
@@ -25,10 +25,27 @@ Obtenir des informations sur l'état du repo.
 git status
 ```
 
-Mettre à jour le repo avec les dernières modifications de la branche `main`. 
+Changer de branche, ou s'assurer d'être dans une branche. 
 ```bash
-git pull origin main
+git switch NOM_DE_LA_BRANCHE
 ```
-Remplacer `main` par le nom d'une autre branche si nécessaire. 
+Il y a aussi `checkout`, mais il vaut mieux utiliser `switch`. 
+```bash
+git checkout NOM_DE_LA_BRANCHE
+```
+
+Mettre à jour le repo avec les dernières modifications de la branche actuelle. 
+```bash
+git pull
+```
+
+
+
+À ignorer : 
+	Mettre à jour le repo avec les dernières modifications de la branche `main`. 
+```bash
+	git pull origin main
+```
+	Remplacer `main` par le nom d'une autre branche si nécessaire. 
 
 
