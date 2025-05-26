@@ -38,6 +38,16 @@ ssh -p 50000 user@localhost
 echo "Current date: $(date)" > test.txt
    ```
 
+#### Exemple 
+On peut pas remplacer localhost par n'importe quoi il semble. 
+```bash
+ssh -R 50000:localhost:22 dd@90.22.255.6
+```
+
+```bash
+ssh -p 50000 nous@localhost
+```
+
 ### Ideas 
 - Make sure that SSH is installed and enabled on both Raspberry Pis with `systemctl` ; 
 - Issues with permissions or connectivity? Check SSH configuration and firewall settings ; 
