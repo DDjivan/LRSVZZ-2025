@@ -68,8 +68,21 @@ Ce qu’il faut savoir avant de brancher : 
 La tension de sortie délivrée par la broche Echo du capteur HC-SR04 est de 5V. Or, la broche d'entrée du Rapsberry est conçue pour du 3,3 V au maximum.                                           Pour ne pas endommager le Rapsberry et le capteur, nous allons utiliser un pont diviseur de tension.
 
 **Calcul :
+#### Formule du diviseur de tension
 
-**![350](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcMU3ny-RcU9NyL1Ngysl-JuBCv84tUy7yTFGYTxSv4rGdCQVovKHvOCmUa3HpmRb75GfGwQNWRG7y6VFs6t2RRwUmvnf1p6jp_hWLEa5a0epFPBKWGNQs28ZV76HC4gMOS4Rl1rw?key=L4A1ejDVxs0i06ERmyTYIKsb)
+$$V_{\text{out}} = V_{\text{in}} \times \frac{R_2}{R_1 + R_2}\ $$
+#### Application numérique
+
+$$\frac{V_{\text{out}}}{V_{\text{in}}} = \frac{3.3}{5} = 0.66$$
+
+$$\frac{R_2}{R_1 + R_2} = 0.66 \Rightarrow R_2 = 0.66(R_1 + R_2)$$
+
+
+$$ R_2 = 0.66R_1 + 0.66R_2\Rightarrow 0.34R_2 = 0.66R_1\Rightarrow \frac{R_1}{R_2} = \frac{0.34}{0.66} \approx 0,5$$
+##### Exemple de valeurs possibles
+
+$$R_1 = 1\,k\Omega \quad R_2 = 2\,k\Omega$$
+car $$U = R \times I \Rightarrow I = \frac{U}{R}$$
 
 **Documentation des résistances :**
 
