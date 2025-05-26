@@ -45,8 +45,19 @@ ssh -R 50000:localhost:22 dd@90.22.255.6
 ```
 
 ```bash
+ssh -R 50001:localhost:22 dd@90.22.255.6
+```
+
+
+
+```bash
 ssh -p 50000 nous@localhost
 ```
+
+```bash
+ssh -p 50001 nous@localhost
+```
+
 
 ### Ideas 
 - Make sure that SSH is installed and enabled on both Raspberry Pis with `systemctl` ; 
