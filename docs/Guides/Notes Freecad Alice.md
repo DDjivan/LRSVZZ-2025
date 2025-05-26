@@ -232,5 +232,41 @@ Evidement pour rechanger l'épaisseur, on double-clique ici et la fenêtre des t
 
 
 
+### **5. Faire un trou dans un cube 
 
 
+On sélectionne la surface pour faire un trou : 
+![](attachments/Pasted%20image%2020250526084948.png)
+
+
+
+On clique sur créer une esquisse : 
+![](attachments/Pasted%20image%2020250526085122.png)
+
+
+
+Avec les outils d'esquisse, on peut faire plusieurs formes : 
+![](attachments/Pasted%20image%2020250526085312.png)
+
+
+Ici je vais choisir le cercle et le rectangle : 
+![](attachments/Pasted%20image%2020250526085350.png)
+
+Pour le cercle, on peut choisir la taille du diamètre et pareil pour le rectangle.
+Une fois fini, on ferme la fenêtre des tâches : 
+![](attachments/Pasted%20image%2020250526085543.png)
+
+
+Il faut que les esquisses soient allumées en vert, ensuite on clique sur cavité pour créer un trou : 
+Si ce n'est pas allumé en vert, il faut cliquer sur l'esquisse correspondante.
+![](attachments/Pasted%20image%2020250526085656.png)
+
+
+Ensuite on peut choisir la profondeur de la cavité : 
+![](attachments/Pasted%20image%2020250526085815.png)
+
+
+Une fois fini, on peut cliquer sur "OK".
+![](attachments/Pasted%20image%2020250526085903.png)
+
+Voilà le résultat final ~
