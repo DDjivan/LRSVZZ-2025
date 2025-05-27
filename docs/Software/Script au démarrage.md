@@ -1,8 +1,8 @@
 Objectif : lancer un script au démarrage d'un appareil Linux. 
 
 ## Quoi et où 
-- [server_ip-getter-displayer](../../server_ip-getter-displayer.py) 
-- [client_ip-sender](../../client_ip-sender.py) 
+- [server_ip-getter-displayer](../../../fetch-ip/server_ip-getter-displayer.py) 
+- [client_ip-sender](../../../fetch-ip/client_ip-sender.py) 
 
 ## Comment 
 - `cron` pour des tâches simples 
