@@ -1,3 +1,5 @@
+GÉNÉRÉ : 
+
 Pour créer une plateforme web, il est effectivement courant d'utiliser un backend et un frontend. Voici un aperçu de la façon dont Flask (pour le backend) et Vuetify (pour le frontend) peuvent interagir.
 
 ### Concepts de base

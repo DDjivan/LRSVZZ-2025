@@ -29,6 +29,9 @@ Pour le client :
 	- Communication avec les moteurs et les roues 
 - Synthèse vocale 
 
+Pour le serveur et le client : 
+- [[Software/Chemin de communication]] ! 
+
 ## Comment 
 Pour le moment, il a été décidé que [Python](Guides/Python.md) soit l'unique langage de programmation à utiliser, dû à sa simplicité et familiarité. 
 
