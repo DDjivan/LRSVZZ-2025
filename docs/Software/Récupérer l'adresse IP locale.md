@@ -23,3 +23,7 @@ Vérifier en allant sur http://90.22.255.6:50000/view_ips !
 En cours. 
 Voir [Chemin de communication](Chemin%20de%20communication.md). 
 
+Dans le crontab ([Script au démarrage](Script%20au%20démarrage.md)) d'un client, ajouter la ligne suivante. 
+```ini
+@reboot bash /home/nous/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh
+```
