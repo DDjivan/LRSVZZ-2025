@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from subprocess import run
 from datetime import datetime
+from configparser import ConfigParser
 
 
 
@@ -12,9 +13,17 @@ def index():
 
 @app.route('/execute_script')
 def execute_script():
-    # '-p' = execute the command on RPi4 via SSH on tunnel port 50001
-    # run(['ssh', '-p', '50000', 'user@localhost', 'bash /path/to/your_script.sh'])
-    run(['ssh', '-p', '50001', 'nous@localhost', 'echo "Current date: $(date)" > ~/TEST.txt'])
+    # nPort = 50001
+    config = ConfigParser()
+    config.read('./tunnel/client_tunnelconfig.cfg')
+    nPort = config.get('DEFAULT', 'PORT')
+    sUsername = "nous"
+    sCommand = "echo 'Current date: $(date)' > ~/TEST.txt"
+
+    sRun = f"ssh -p {nPort} {sUsername}@localhost"
+    lRun = sRun.split(' ') + [sCommand]
+
+    run(lRun)
 
     current_time = datetime.now().isoformat().replace('T', ' ')
 
