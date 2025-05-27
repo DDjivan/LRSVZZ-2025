@@ -33,6 +33,12 @@ ssh -R 50001:localhost:22 dd@90.22.255.6
 ssh -p 50001 nous@localhost
 ```
 
+#### `fetch-ip-auto` 
+Dans le crontab, ajouter la ligne suivante. 
+```bash
+@reboot bash ~/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh
+```
+
 ## Envoyer des commandes par SSH 
 Commande pour le serveur. S'assurer que le client a un tunnel d'ouvert d'abord. 
 ```bash
@@ -95,6 +101,7 @@ ssh-copy-id nous@ADRESSEIP
 ```
 
 
+
 ## Envoyer des commandes en SSH via Web 
 Sur le serveur, lancer le back-end et front-end [Flask](../Guides/Flask.md) : 
 ```bash
@@ -109,4 +116,7 @@ S'assurer d'avoir un tunnel SSH de lancé sur le port 50001.
 Aller sur cette page pour tester : http://90.22.255.6:50000/ 
 
 Un fichier de test sera créé sur la Raspberry appelé `TEST.txt` à la racine utilisateur. 
+
+
+
 

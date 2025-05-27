@@ -15,38 +15,27 @@ Il y a trois Raspberry Pi :
 | Password | `lrsvzz`             | `lrsvzz`              | `lrsvzz`              |
 | Addresse | `90.22.255.6`        | Dynamique             | Dynamique             |
 Dynamique = à déterminer sur http://90.22.255.6:50000/view_ips 
+Pour faire tourner cette plateforme web qui récupère et affiche les adresses IP, voir [Récupérer l'adresse IP locale](Récupérer%20l'adresse%20IP%20locale.md). 
 
 ## Comment s'y connecter ? 
-**Par exemple, comment se connecter au serveur.** 
-
-Pour exécuter des commandes, se connecter en SSH. 
+Pour exécuter des commandes, utiliser la commande SSH. 
 ```bash
-ssh dd@90.22.255.6
+ssh USERNAME@ADRESSEIP
 ```
 
 Pour accéder aux fichiers via un explorateur de fichiers, entrer cette adresse. 
 ```URL
+sftp://USERNAME@ADRESSEIP/CHEMIN/
+```
+
+---
+
+**Par exemple, comment se connecter au serveur (RPi 2).** 
+```bash
+ssh dd@90.22.255.6
+```
+
+```URL
 sftp://dd@90.22.255.6/home/
 ```
-
-## Plateforme web  
-Allumer la plateforme web qui récupère et affiche les adresses IP. 
-Il faut faire les étapes suivantes en SSH. 
-
-1. Naviguer dans le dossier contenant le fichier texte avec toutes les données. 
-```bash
-cd LRSVZZ-2025/fetch-ip/
-```
-
-2. Activer l'environnement virtuel [Python](../Guides/Python.md). 
-```bash
-. .venv/bin/activate
-```
-
-3. Exécuter le script Python. 
-```bash
-python server_ip-getter-displayer.py
-```
-
-Vérifier en allant sur http://90.22.255.6:50000/view_ips ! 
 
