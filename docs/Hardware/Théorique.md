@@ -220,6 +220,18 @@ $$
 
 
 
+PFO sur les roues arrières
+
+$$\ {D}({S_i/R_0}) = \ {F}({S \rightarrow S_i)} + \ {F}{(\text{roue} \rightarrow S_i)} + \ {F} ({S_{rot_i}\rightarrow S_i)}$$
+
+masse des roues négligeable $$\vec{D}_{S_i/R_0} = \begin{Bmatrix}
+	 \vec{0} \\
+	\vec{0}\\ \end{Bmatrix}_{\forall P}$$
 
 
+$$
+\vec{M}_{Ai}({\text{roue} \rightarrow S_i)} = \vec{M}_{I_i}({S_i \rightarrow S_i)} + \left( \overrightarrow{A_iI_i} \right) \wedge \vec{T}_{rix} + \vec{N}_{r_i} \vec{z}
+$$
 
+$$ = \vec{O} + ({-R}\vec{z}
+$$
