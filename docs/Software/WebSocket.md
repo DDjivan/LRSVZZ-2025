@@ -1,0 +1,3 @@
+[Lien](![](attachments/Pasted%20image%2020250526140238.png))
+
+A WebSocket is a protocol that allows for real-time, two-way communication between a client (like a web browser) and a server. It enables both parties to send and receive messages simultaneously over a single, persistent connection, making it ideal for applications like chat apps, live notifications, and online gaming. Unlike traditional HTTP, which is one-way and requires opening and closing connections for each message, WebSockets keep the connection open for continuous data exchange.
