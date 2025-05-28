@@ -1,5 +1,5 @@
 #!/bin/bash
-exec > /tmp/client_tunnel.log 2>&1
+# exec > /tmp/client_tunnel.log 2>&1
 echo "Starting client_tunnel.sh at $(date)"
 
 if [[ $(uname -n) == *"raspberrypi"* ]]; then

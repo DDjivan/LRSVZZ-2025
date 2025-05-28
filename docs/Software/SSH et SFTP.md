@@ -7,13 +7,13 @@ Il y a trois Raspberry Pi :
 - le serveur (RPi 2B chez Djivan) ; 
 - les clients qui sont les RPi 4B à l'ESIEE qui doivent se connecter à `eduroam`. 
 
-| Carte SD | SanDisk 58.03 GiB    | Logo Raspberry        | 32 GB                 |
-| -------- | -------------------- | --------------------- | --------------------- |
-| Modèle   | Raspberry Pi 2 B     | Raspberry Pi 4 B      | Raspberry Pi 4 B      |
-| Hostname | `raspberrypi-server` | `raspberrypi-client1` | `raspberrypi-client2` |
-| Username | `dd`                 | `nous`                | `nous`                |
-| Password | `lrsvzz`             | `lrsvzz`              | `lrsvzz`              |
-| Addresse | `90.22.255.6`        | Dynamique             | Dynamique             |
+| Carte SD | SanDisk 58.03 GiB                        | Logo Raspberry        | 32 GB                 |
+| -------- | ---------------------------------------- | --------------------- | --------------------- |
+| Modèle   | Raspberry Pi 2 B                         | Raspberry Pi 4 B      | Raspberry Pi 4 B      |
+| Hostname | `raspberrypi-server`                     | `raspberrypi-client1` | `raspberrypi-client2` |
+| Username | `dd`                                     | `nous`                | `nous`                |
+| Password | `Character-Residual9-Perpetual-Maximize` | `lrsvzz`              | `lrsvzz`              |
+| Addresse | `90.22.255.6`                            | Dynamique             | Dynamique             |
 Dynamique = à déterminer sur http://90.22.255.6:50000/view_ips 
 Pour faire tourner cette plateforme web qui récupère et affiche les adresses IP, voir [Récupérer l'adresse IP locale](Récupérer%20l'adresse%20IP%20locale.md). 
 
