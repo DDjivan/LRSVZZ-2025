@@ -20,13 +20,13 @@ cd LRSVZZ-2025/fetch-ip/
 Vérifier en allant sur http://90.22.255.6:50000/view_ips ! 
 
 ## `fetch-ip-auto` 
-En cours. 
 Voir [Chemin de communication](Chemin%20de%20communication.md). 
 
 Dans le crontab ([Script au démarrage](Script%20au%20démarrage.md)) d'un client, ajouter la ligne suivante. 
 ```ini
 @reboot bash /home/nous/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh
 ```
+^crontab
 
 ### Fichiers de configurations 
 CFG : pas universel entre Bash et Python 
@@ -34,6 +34,7 @@ CFG : pas universel entre Bash et Python
 YAML : pas built in à Python 
 JSON : parfait 
 - Attention : pas de "trailing comma" (de virgule à la fin) 
+- `jq` (processeur JSON) n'est pas toujours pré-installé sur [Linux](../Guides/Linux.md) 
 
 ### Service `systemd`
 Créer un fichier de service `systemd` dans `/etc/systemd/system/`. 
