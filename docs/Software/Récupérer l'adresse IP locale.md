@@ -28,6 +28,13 @@ Dans le crontab ([Script au démarrage](Script%20au%20démarrage.md)) d'un clien
 @reboot bash /home/nous/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh
 ```
 
+### Fichiers de configurations 
+CFG : pas universel entre Bash et Python 
+- Python doit avoir un `[DEFAULT]`, et Bash ne doit rien avoir 
+YAML : pas built in à Python 
+JSON : parfait 
+- Attention : pas de "trailing comma" (de virgule à la fin) 
+
 ### Service `systemd`
 Créer un fichier de service `systemd` dans `/etc/systemd/system/`. 
 Par exemple, pour un fichier de service qui s'appelle `NOM_DU_SERVICE.service`, il faut qu'il possède ce genre de contenu : 
