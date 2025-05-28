@@ -10,11 +10,6 @@ PORT=$(jq -r '.PORT' "$CONFIG_PATH")
 USERNAME=$(jq -r '.USERNAME' "$CONFIG_PATH")
 ADDRESSEIP=$(jq -r '.ADDRESSEIP' "$CONFIG_PATH")
 
-
-
-sleep 30
-
-while true; do
-    ssh -R 50001:localhost:22 dd@90.22.255.6 -N >> /home/nous/ssh_tunnel.log 2>&1
-    sleep 10
-done
+echo "Port: $PORT"
+echo "Username: $USERNAME"
+echo "IP Address: $ADDRESSEIP"
