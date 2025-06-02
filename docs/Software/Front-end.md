@@ -1,4 +1,12 @@
-## Frontend 
+## Front-end 
+Il va falloir faire du web dev. 
+Ainsi, il faudra connaître les trois suivants : 
+- [HTML](../Guides/HTML.md) 
+- [CSS](../Guides/CSS.md) 
+- [JavaScript](../Guides/JavaScript.md) 
+
+
+
 Jinja2 ? Non, rien à voir. 
 
 Javascript ? 
@@ -15,12 +23,17 @@ On dirait que JS est obligatoire à utiliser si on veut que n'importe quel clien
 - contenu en temps réel, comme des notifs ou un chat, en utilisant des WebSockets 
 - calcul du côté du client pour moins de charge côté serveur 
 
-### 2025-05-22 Djivan 
+### Djivan 
+#### 2025-05-22
 Installation de Node : [Installer NodeJS](Installer%20NodeJS.md) 
 OK 
 
-~~Installation de Vue CLI : [[VueJS]] ~~
+~~Installation de Vue CLI : [[VueJS]]~~ 
 
 Installation de Vuetify : [Vuetify](Vuetify.md) 
 OK 
+
+#### 2025-06-02 
+[JavaScript](../Guides/JavaScript.md) !!! 
+
 

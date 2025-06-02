@@ -14,9 +14,9 @@ Pour le serveur :
 - Récepteur d'informations 
 - Gestion des programmes 
 - Interface web 
-	- [Backend](Software/Backend.md) (Framework Web) 
+	- [Back-end](Software/Back-end.md) (Framework Web) 
 	- [Database](Software/Database.md) (Base de données) 
-	- [Frontend](Software/Frontend.md) (Apparence) 
+	- [Front-end](Software/Front-end.md) (Apparence) 
 	- Communication avec les Raspberry Pi 
 	- Bibliothèque SSH 
 
