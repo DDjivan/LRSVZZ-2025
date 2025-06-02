@@ -49,6 +49,7 @@ npm run dev
 ```
 
 ## Quoi 
+#benjamin 
 ~~5~~ 4 fichiers à décortiquer : 
 - `app.py` 
 - `main.js` 
@@ -74,7 +75,7 @@ Et en back-end :
 On fait tourner deux parties séparées. 
 La première est le back-end avec Flask, à l'adresse 127.0.0.1:5000 par défaut. 
 
-Dans `app.py`, il est nécessaire d'activer le [[../Guides/CORS]] avec `CORS(app)`, puisque l'on a une partie front-end à une adresse différente de la partie back-end. 
+Dans `app.py`, il est nécessaire d'activer le CORS ([[../Guides/CORS]]) avec `CORS(app)`, puisque l'on a une partie front-end à une adresse différente de la partie back-end. 
 
 L'adresse du front-end étant http://192.168.218.54:3000/, ça permet de gérer les requêtes entre le front-end et le back-end sur des origines différentes. 
 

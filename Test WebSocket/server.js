@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://147.215.206.226:8080", // Remplacez par l'URL de votre application Vue.js
+    origin: "http://192.168.218.54:8080", // Remplacez par l'URL de votre application Vue.js
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true
