@@ -17,8 +17,8 @@
 
 <body>
     <header>
-        <h1>MechaDelivery de ses morts </h1>
-        <p>Je sais pas. </p>
+        <h1>🍱 MechaDelivery !!! </h1>
+        <p>Du texte. </p>
     
         <div class="button-container">
             <button class="orangebutton" onclick="window.location.href='/'">🏠 Return Home</button>
@@ -38,8 +38,12 @@
 
     </main>
 
+    <script>
+        const svgIconPath = "{{ url_for('static', filename='square.svg') }}";
+    </script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="{{ url_for('static', filename='script_collapsible.js') }}"></script>
+    <script src="{{ url_for('static', filename='script_link_icons.js') }}"></script>
 </body>
 
 

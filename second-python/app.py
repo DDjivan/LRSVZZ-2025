@@ -48,6 +48,11 @@ def convert_strikethrough_text(text):
     result = sub(pattern, r'<s>\1</s>', text)
     return result
 
+def convert_highlighted_text(text):
+    pattern = r'==(.*?)=='
+    result = sub(pattern, r'<mark>\1</mark>', text)
+    return result
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
 @app.route('/')
@@ -71,13 +76,20 @@ def web_markdown(filename:str) :
 
     sPath = path.join('../', filename)
 
+    if not path.isfile(sPath):
+        return render_template('index.html', content=f'<h1>404 Not Found</h1>')
+
     with open(sPath, 'r', encoding='utf-8') as file:
         md_data = file.read()
 
     md_data = convert_https_links(md_data)
     md_data = convert_strikethrough_text(md_data)
 
-    html_data = md_to_html(md_data)
+    data = convert_https_links(data)
+    data = convert_strikethrough_text(data)
+    data = convert_highlighted_text(data)
+
+    html_data = md_to_html(data)
 
     # return render_template_string(html_data)
     return render_template('index.html', content=html_data)
