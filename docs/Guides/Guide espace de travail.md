@@ -5,13 +5,19 @@ Deux outils nécessaires expliqués ci-dessous : [GitHub Desktop](GitHub%20Deskt
 ## 1. Téléchargements et installation 
 ### Linux 
 GitHub Desktop : 
+
 ![](GitHub%20Desktop.md#^Linux) 
+
 Obsidian : 
+
 ![](Obsidian.md#^Linux) 
 ### Windows 
 GitHub Desktop : 
+
 ![](GitHub%20Desktop.md#^Windows) 
+
 Obsidian : 
+
 ![](Obsidian.md#^Windows) 
 
 ---
@@ -106,4 +112,6 @@ Merci pour votre lecture, et bon courage !
 
 ## À propos 
 Guide rédigé par [[VARTANIAN Djivan]]. 
-Dernière mise à jour : 2025-04-20 16:04 
+Dernière mise à jour : 2025-06-03 14:51 
+
+
