@@ -63,3 +63,7 @@ Les deux fonctions sont nécessaires.
 from flask import Flask, render_template
 ```
 
+4. Installer la bibliothèque `markdown2`. 
+```bash
+pip install markdown2
+```

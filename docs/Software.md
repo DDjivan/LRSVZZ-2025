@@ -27,7 +27,8 @@ Pour le client :
 	- [Réseau de l'école](Software/Réseau%20de%20l'école.md) 
 	- [SSH et SFTP](Software/SSH%20et%20SFTP.md) 
 - Envoyeur d'informations, dont l'adresse IP 
-	- [Script au démarrage](Software/Script%20au%20démarrage.md) 
+	- [Récupérer l'adresse IP locale](Récupérer%20l'adresse%20IP%20locale.md)
+		- 
 	- Communication avec les moteurs et les roues 
 - Synthèse vocale 
 

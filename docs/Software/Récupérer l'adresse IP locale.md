@@ -1,23 +1,42 @@
 ## `fetch-ip` 
-Dans le crontab ([Script au démarrage](Script%20au%20démarrage.md)) d'un client, ajouter la ligne suivante. 
+### Client 
+Il faut ajouter ce [Script au démarrage](Software/Script%20au%20démarrage.md) : `LRSVZZ-2025/fetch-ip/client_ip-sender.py`
+
+Utilisons `cron`. Dans le `crontab` d'un client, ajouter la ligne suivante. 
 ```ini
 @reboot python3 /home/nous/LRSVZZ-2025/fetch-ip/client_ip-sender.py
 ```
 
-Le serveur doit quant à lui exécuter le script suivant. 
+### Serveur 
+Le serveur doit quant à lui exécuter un script qui héberge la page suivante. 
+-> http://90.22.255.6:50000/view_ips 
+
+Peu importe le script, il faut aller dans le bon répertoire, activer l'environnement virtuel Python (pour avoir accès à la bibliothèque Flask), puis lancer le script. 
+#### Script moderne 
 ```bash
-python server_ip-getter-displayer.py
+cd LRSVZZ-2025/second-python/
 ```
 
-Penser à être dans le bon répertoire, et d'avoir l'environnement virtuel Python d'activé pour avoir accès à la bibliothèque Flask. 
-```bash
-cd LRSVZZ-2025/fetch-ip/
-```
 ```bash
 . .venv/bin/activate
 ```
 
-Vérifier en allant sur http://90.22.255.6:50000/view_ips ! 
+```bash
+python app.py
+```
+
+#### Script classique 
+```bash
+cd LRSVZZ-2025/fetch-ip/
+```
+
+```bash
+. .venv/bin/activate
+```
+
+```bash
+python server_ip-getter-displayer.py
+```
 
 ## `fetch-ip-auto` 
 Voir [Chemin de communication](Chemin%20de%20communication.md). 
