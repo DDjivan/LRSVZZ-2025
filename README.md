@@ -13,9 +13,11 @@ Le projet est divisé en plusieurs parties.
 - Alice LIN 
 - Thisalini RAVINTHIRAN 
 - Lilian SAFAR 
-- Djivan Julien VARTANIAN 
+- Djivan VARTANIAN 
 - Benjamin ZHANG 
 - Louise ZHENG 
+
+
 
 ```mermaid
 graph TD;

@@ -1,5 +1,5 @@
 # GitHub Desktop 
-GitHub Desktop est un logiciel gratuit open source (Linux, Windows). 
+GitHub Desktop est un logiciel gratuit open source. 
 Il n'y a de version officielle pour Linux, mais la communauté en a fait une. 
 
 ## Liens 
