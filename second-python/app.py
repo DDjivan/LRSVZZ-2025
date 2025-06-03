@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from os import path
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
@@ -55,6 +54,8 @@ def convert_highlighted_text(text):
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
+from os import path
+
 @app.route('/')
 def web_home() :
     sREADME = path.join('../', 'README.md')
@@ -81,6 +82,9 @@ def web_markdown(filename:str) :
 
     with open(sPath, 'r', encoding='utf-8') as file:
         data = file.read()
+
+    if not filename.endswith('.md'):
+        return render_template('index.html', content=f'<pre>{data}</pre>')
 
     data = convert_https_links(data)
     data = convert_strikethrough_text(data)
@@ -119,7 +123,7 @@ def view_ips() :
             content = f.read()
 
         # return f'<pre>{content}</pre>'  
-        content = f'<pre>{content}</pre>'  
+        content = f'<pre>{content}</pre>'
 
     except FileNotFoundError :
         # return 'The file is empy: no IP addresses recorded yet.', 404
