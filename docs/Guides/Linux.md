@@ -2,6 +2,8 @@
 Noyau open-source, mais fait plus souvent référence aux systèmes d'exploitation l'utilisant. 
 
 ## Comment 
+S'y connecter à distance : [SSH et SFTP](../Software/SSH%20et%20SFTP.md). 
+
 ### Shell 
 `CTRL+C` pour annuler la commande exécutée (cancel). 
 `CTRL+D` pour se déconnecter (disconnect). 

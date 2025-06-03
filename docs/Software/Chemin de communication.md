@@ -34,7 +34,7 @@ ssh -p 50001 nous@localhost
 ```
 
 #### `fetch-ip-auto` 
-Dans le crontab, ajouter la ligne suivante. 
+Dans le `crontab`, ajouter la ligne suivante. 
 ```bash
 @reboot bash ~/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh
 ```
@@ -46,40 +46,19 @@ ssh -p 50001 nous@localhost "echo 'Current date: $(date)' > ~/TEST.txt"
 ```
 
 ### Utiliser l'authentification par clés SSH 
-Problème : Le mot de passe du client est systématiquement demandé. 
+**Problème :** Le mot de passe du client est systématiquement demandé. 
 
-Solution : Générer une paire de clés SSH sur le serveur et copier la clé publique sur le client
+**Solution :** Générer une paire de clés SSH sur le serveur et copier la clé publique sur le client
 
-Faire les étapes suivantes le serveur : 
-1. Générer les clés. 
-```bash
-ssh-keygen -t rsa -b 4096
-```
-
-```
-Enter file in which to save the key (/home/nous/.ssh/id_rsa):
-```
-Appuyer sur `ENTER` pour que l'option par défaut soit choisie (`~/.ssh/id_rsa`). 
-```
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-```
-Appuyer deux fois sur `ENTER` pour ne pas mettre de passphrase. 
-
-2. Envoyer la clé publique du serveur au client. 
-```bash
-ssh-copy-id -p 50001 nous@localhost
-```
-
-3. Tester la connexion automatique. 
-```bash
-ssh -p 50001 nous@localhost
-```
+Faire les étapes suivantes le serveur : [Clés SSH](Clés%20SSH.md). 
 
 Normalement, aucun mot de passe ne devrait être demandé ! 
 
 L'inverse devrait également être fait. 
+
 #### En bref 
+Ne pas oublier de préciser un port. 
+
 1. Sur la RPi 4. 
 ```bash
 ssh -R 50001:localhost:22 dd@90.22.255.6 -N
@@ -101,7 +80,6 @@ ssh-copy-id dd@90.22.255.6
 ssh-copy-id nous@ADRESSEIP
 ```
 
-
 ## Envoyer des commandes en SSH via Web 
 Sur le serveur, lancer le back-end et front-end [Flask](../Guides/Flask.md) : 
 ```bash
@@ -112,7 +90,8 @@ python server_script-launcher.py
 ```
 
 ~~S'assurer d'avoir un tunnel SSH de lancé sur le port 50001.~~ 
-S'assurer que le client a bien le crontab contient la ligne suivante 
+S'assurer que le client a bien le `crontab` contient la ligne suivante. 
+
 ![](récupérer%20l'adresse%20IP%20locale.md#^crontab)
 
 Aller sur cette page pour tester : http://90.22.255.6:50000/ 

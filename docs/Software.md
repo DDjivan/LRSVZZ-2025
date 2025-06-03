@@ -11,6 +11,7 @@ Un logiciel divisé en plusieurs programmes, qui fonctionneraient idéalement pa
 Voici des idées de programmes. 
 
 Pour le serveur : 
+
 - Récepteur d'informations 
 - Gestion des programmes 
 - Interface web 
@@ -21,6 +22,7 @@ Pour le serveur :
 	- Bibliothèque SSH 
 
 Pour le client : 
+
 - Pouvoir envoyer des commandes et accéder aux fichiers 
 	- [Réseau de l'école](Software/Réseau%20de%20l'école.md) 
 	- [SSH et SFTP](Software/SSH%20et%20SFTP.md) 
@@ -30,7 +32,8 @@ Pour le client :
 - Synthèse vocale 
 
 Pour le serveur et le client : 
-- [[Software/Chemin de communication]] ! 
+
+- [Chemin de communication](Software/Chemin%20de%20communication.md) ! 
 
 ## Comment 
 Pour le moment, il a été décidé que [Python](Guides/Python.md) soit l'unique langage de programmation à utiliser, dû à sa simplicité et familiarité. 
