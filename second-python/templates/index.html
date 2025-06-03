@@ -7,11 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_collapsible.css') }}">
 
     <title>ÇA FONCTIONE</title>
     <link rel="icon" href="{{ url_for('static', filename='shop-four-tiles.svg') }}" type="image/x-icon">
-
-    <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
 </head>
 
 
@@ -21,25 +20,22 @@
         <h1>MechaDelivery de ses morts </h1>
         <p>Je sais pas. </p>
     
-        <button onclick="executeScript()">Run Script</button>
+        <button class="orangebutton" onclick="executeScript()">🐍 Run Script</button>
         <p id="response"></p>
-    
+
     </header>
 
     <main>
-        <div class="markdown-content">
+        <div id="markdown-content">
             {{ content|safe }}
         </div>
 
         <br>
 
-        <div>
-            <iframe src="https://duckduckgo.com" width="600" height="400" title="DuckDuckGo Search"></iframe>
-        </div>
     </main>
 
-
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script_collapsible.js') }}"></script>
 </body>
 
 

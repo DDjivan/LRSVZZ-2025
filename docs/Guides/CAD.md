@@ -21,6 +21,7 @@ Formats de fichier à connaître : [CAD Formats](docs/Guides/CAD%20Formats.md).
 
 ## Comment  
 CAD 
+
 - FreeCAD : 
 	- https://www.freecad.org/ 
 	- [Flatpak](appstream:org.freecad.FreeCAD) 
@@ -29,6 +30,7 @@ CAD
 	- https://www.solidworks.com/ 
 
 Slicing software / Logiciel de tranchage 
+
 - Cura 
 	- https://ultimaker.com/software/ultimaker-cura/ 
 	- [Flatpak](appstream:com.ultimaker.cura.desktop) 

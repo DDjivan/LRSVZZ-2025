@@ -24,4 +24,3 @@ async function executeScript() {
             document.getElementById('response').innerText = 'Error: ' + error.message;
         });
 }
-
