@@ -22,7 +22,26 @@ Vérifier en allant sur http://90.22.255.6:50000/view_ips !
 ## `fetch-ip-auto` 
 Voir [Chemin de communication](Chemin%20de%20communication.md). 
 
-Dans le crontab ([Script au démarrage](Script%20au%20démarrage.md)) d'un client, ajouter la ligne suivante. 
+Il faut ajouter ce [Script au démarrage](Software/Script%20au%20démarrage.md) : 
+`LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh` 
+Le script en question : [client_tunnel.sh](../../fetch-ip-auto/tunnel/client_tunnel.sh) 
+
+Ce script utilise un fichier de configuration. 
+
+Pour le moment, uniquement `cron` est utilisé. 
+
+### Fichiers de configurations 
+Il y a plusieurs types de fichiers de configurations 
+
+- CFG : pas universel entre Bash et Python 
+	- Python doit avoir un `[DEFAULT]`, et Bash ne doit rien avoir 
+- YAML : pas built in à Python 
+- JSON : parfait 
+	- Attention : pas de "trailing comma" (de virgule à la fin) 
+	- `jq` (processeur JSON) n'est pas toujours pré-installé sur [Linux](../Guides/Linux.md) 
+
+### Lancer avec `cron` 
+Utilisons `cron`. Dans le `crontab` d'un client, ajouter la ligne suivante. 
 ```ini
 @reboot bash /home/nous/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh
 ```
