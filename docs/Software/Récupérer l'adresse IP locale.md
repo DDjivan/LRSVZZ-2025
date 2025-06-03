@@ -39,33 +39,45 @@ python server_ip-getter-displayer.py
 ```
 
 ## `fetch-ip-auto` 
-Voir [Chemin de communication](Chemin%20de%20communication.md). 
+Utilise un tunnel SSH ([Chemin de communication](Chemin%20de%20communication.md)). 
 
-Dans le crontab ([Script au démarrage](Script%20au%20démarrage.md)) d'un client, ajouter la ligne suivante. 
+Il faut ajouter ce [Script au démarrage](Software/Script%20au%20démarrage.md) : 
+`LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh` 
+[client_tunnel](../../fetch-ip-auto/tunnel/client_tunnel.sh) 
+
+Ce script utilise un fichier de configuration. 
+
+Pour le moment, uniquement `cron` est utilisé. 
+
+### Fichiers de configurations 
+Il y a plusieurs types de fichiers de configurations 
+
+- CFG : pas universel entre Bash et Python 
+	- Python doit avoir un `[DEFAULT]`, et Bash ne doit rien avoir 
+- YAML : pas built in à Python 
+- JSON : parfait 
+	- Attention : pas de "trailing comma" (de virgule à la fin) 
+	- `jq` (processeur JSON) n'est pas toujours pré-installé sur [Linux](../Guides/Linux.md) 
+
+### Lancer avec `cron` 
+Utilisons `cron`. Dans le `crontab` d'un client, ajouter la ligne suivante. 
 ```ini
 @reboot bash /home/nous/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh
 ```
 ^crontab
 
-### Fichiers de configurations 
-CFG : pas universel entre Bash et Python 
-- Python doit avoir un `[DEFAULT]`, et Bash ne doit rien avoir 
-YAML : pas built in à Python 
-JSON : parfait 
-- Attention : pas de "trailing comma" (de virgule à la fin) 
-- `jq` (processeur JSON) n'est pas toujours pré-installé sur [Linux](../Guides/Linux.md) 
-
-### Service `systemd`
+### Lancer avec un service `systemd` 
 Créer un fichier de service `systemd` dans `/etc/systemd/system/`. 
-Par exemple, pour un fichier de service qui s'appelle `NOM_DU_SERVICE.service`, il faut qu'il possède ce genre de contenu : 
 
 ```bash
-sudo nano /etc/systemd/system/client_tunnel_de_ses_morts.service
+sudo nano /etc/systemd/system/client_tunnel_dsm.service
 ```
+
+Par exemple, pour un fichier de service qui s'appelle `NOM_DU_SERVICE.service`, il faut qu'il possède ce genre de contenu. 
 
 ```ini
 [Unit]
-Description=DESCRIPTION D'UN SCRIPT BASH DE SES MORTS
+Description=DESCRIPTION D'UN SCRIPT BASH DSM
 After=network.target
 
 [Service]
@@ -82,27 +94,8 @@ WantedBy=multi-user.target
 
 Il faut le démarrer avec cette commande : 
 ```bash
-sudo systemctl enable client_tunnel_de_ses_morts.service
+sudo systemctl enable client_tunnel_dsm.service
   ```
-
-
-
-```bash
-ssh -R 50001:localhost:22 dd@90.22.255.6 -N
-```
-```ini
-@reboot ssh -R 50001:localhost:22 dd@90.22.255.6 -N
-```
-```ini
-@reboot ssh -R 50001:localhost:22 dd@90.22.255.6 -N >> /home/nous/ssh_tunnel.log 2>&1
-```
-```ini
-@reboot sleep 30 && ssh -R 50001:localhost:22 dd@90.22.255.6 -N >> /home/nous/ssh_tunnel.log 2>&1
-```
-```ini
-@reboot /home/nous/start_ssh_tunnel.sh
-```
-
 
 
 
