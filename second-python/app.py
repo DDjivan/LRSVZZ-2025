@@ -30,7 +30,7 @@ app = Flask(__name__)
 from re import sub, MULTILINE
 
 def convert_https_links(text):
-    pattern = r'(?<!\]\()' + r'https://[^\s]+'
+    pattern = r'(?<!\]\()' + r'http(s)?://[^\s]+'
 
     # text_with_links = sub(pattern, r'[\1](\1)', text, flags=MULTILINE)
 
@@ -80,10 +80,7 @@ def web_markdown(filename:str) :
         return render_template('index.html', content=f'<h1>404 Not Found</h1>')
 
     with open(sPath, 'r', encoding='utf-8') as file:
-        md_data = file.read()
-
-    md_data = convert_https_links(md_data)
-    md_data = convert_strikethrough_text(md_data)
+        data = file.read()
 
     data = convert_https_links(data)
     data = convert_strikethrough_text(data)

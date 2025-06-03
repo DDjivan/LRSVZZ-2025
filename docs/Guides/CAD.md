@@ -17,7 +17,7 @@ Exportation pour l'impression 3D : Une fois une conception terminée, exporter l
 
 Utiliser un logiciel de tranchage (comme Cura ou PrusaSlicer) pour préparer des fichiers STL pour l'impression. Ce logiciel convertit un modèle 3D en G-code que l'imprimante peut comprendre. 
 
-Formats de fichier à connaître : [CAD Formats](docs/Guides/CAD%20Formats.md). 
+Formats de fichier à connaître : [CAD Formats](CAD%20Formats.md). 
 
 ## Comment  
 CAD 
