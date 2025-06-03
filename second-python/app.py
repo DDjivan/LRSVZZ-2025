@@ -30,7 +30,7 @@ app = Flask(__name__)
 from re import sub, MULTILINE
 
 def convert_https_links(text):
-    pattern = r'(?<!\]\()' + r'https://[^\s]+'
+    pattern = r'(?<!\]\()' + r'http(s)?://[^\s]+'
 
     # text_with_links = sub(pattern, r'[\1](\1)', text, flags=MULTILINE)
 
