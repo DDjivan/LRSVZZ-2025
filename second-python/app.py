@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from os import path
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
@@ -50,6 +49,8 @@ def convert_strikethrough_text(text):
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
+from os import path
+
 @app.route('/')
 def web_home() :
     sREADME = path.join('../', 'README.md')
@@ -71,13 +72,19 @@ def web_markdown(filename:str) :
 
     sPath = path.join('../', filename)
 
+    if not path.isfile(sPath):
+        return render_template('index.html', content='404 Not Found')
+
     with open(sPath, 'r', encoding='utf-8') as file:
-        md_data = file.read()
+        data = file.read()
 
-    md_data = convert_https_links(md_data)
-    md_data = convert_strikethrough_text(md_data)
+    if not filename.endswith('.md'):
+        return render_template('index.html', content=f'<pre>{data}</pre>')
 
-    html_data = md_to_html(md_data)
+    data = convert_https_links(data)
+    data = convert_strikethrough_text(data)
+
+    html_data = md_to_html(data)
 
     # return render_template_string(html_data)
     return render_template('index.html', content=html_data)
@@ -110,7 +117,7 @@ def view_ips() :
             content = f.read()
 
         # return f'<pre>{content}</pre>'  
-        content = f'<pre>{content}</pre>'  
+        content = f'<pre>{content}</pre>'
 
     except FileNotFoundError :
         # return 'The file is empy: no IP addresses recorded yet.', 404
