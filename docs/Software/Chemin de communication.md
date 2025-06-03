@@ -45,10 +45,10 @@ Commande pour le serveur. S'assurer que le client a un tunnel d'ouvert d'abord.
 ssh -p 50001 nous@localhost "echo 'Current date: $(date)' > ~/TEST.txt"
 ```
 
-### Problème 
-Le mot de passe du client est systématiquement demandé. 
+### Utiliser l'authentification par clés SSH 
+Problème : Le mot de passe du client est systématiquement demandé. 
 
-Solution : Generate SSH key pair on the server and copy the public key to the client. 
+Solution : Générer une paire de clés SSH sur le serveur et copier la clé publique sur le client
 
 Faire les étapes suivantes le serveur : 
 1. Générer les clés. 
@@ -59,12 +59,12 @@ ssh-keygen -t rsa -b 4096
 ```
 Enter file in which to save the key (/home/nous/.ssh/id_rsa):
 ```
-Appuyer sur ENTER pour que l'option par défaut soit choisie (`~/.ssh/id_rsa`). 
+Appuyer sur `ENTER` pour que l'option par défaut soit choisie (`~/.ssh/id_rsa`). 
 ```
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
 ```
-Appuyer deux fois sur ENTER pour ne pas mettre de passphrase. 
+Appuyer deux fois sur `ENTER` pour ne pas mettre de passphrase. 
 
 2. Envoyer la clé publique du serveur au client. 
 ```bash
@@ -82,8 +82,9 @@ L'inverse devrait également être fait.
 #### En bref 
 1. Sur la RPi 4. 
 ```bash
-ssh -R 50001:localhost:22 dd@90.22.255.6
+ssh -R 50001:localhost:22 dd@90.22.255.6 -N
 ```
+`-N` permet de ne pas ouvrir de session, mais de juste créer le tunnel. 
 
 2. Sur la RPi 2 (qui a une paire de clés). 
 ```bash
@@ -101,7 +102,6 @@ ssh-copy-id nous@ADRESSEIP
 ```
 
 
-
 ## Envoyer des commandes en SSH via Web 
 Sur le serveur, lancer le back-end et front-end [Flask](../Guides/Flask.md) : 
 ```bash
@@ -111,7 +111,9 @@ cd /home/dd/LRSVZZ-2025/fetch-ip-auto/
 python server_script-launcher.py
 ```
 
-S'assurer d'avoir un tunnel SSH de lancé sur le port 50001. 
+~~S'assurer d'avoir un tunnel SSH de lancé sur le port 50001.~~ 
+S'assurer que le client a bien le crontab contient la ligne suivante 
+![](récupérer%20l'adresse%20IP%20locale.md#^crontab)
 
 Aller sur cette page pour tester : http://90.22.255.6:50000/ 
 

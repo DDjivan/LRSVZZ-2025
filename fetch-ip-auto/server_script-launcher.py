@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from subprocess import run
 from datetime import datetime
-from configparser import ConfigParser
+from json import load
 
 
 
@@ -13,12 +13,14 @@ def index():
 
 @app.route('/execute_script')
 def execute_script():
-    # nPort = 50001
-    config = ConfigParser()
-    config.read('./tunnel/client_tunnelconfig.cfg')
-    nPort = config.get('DEFAULT', 'PORT')
+
+    with open('./tunnel/client_tunnelconfig.json') as file:
+        config = load(file)
+
+    nPort = config['PORT']
     sUsername = "nous"
-    sCommand = "echo 'Current date: $(date)' > ~/TEST.txt"
+    sCommand = 'echo "Client over SSH: $(date +%Y-%m-%dT%H:%M:%S.%6N)" > ~/TEST.txt'
+
 
     sRun = f"ssh -p {nPort} {sUsername}@localhost"
     lRun = sRun.split(' ') + [sCommand]
@@ -27,9 +29,9 @@ def execute_script():
 
     current_time = datetime.now().isoformat().replace('T', ' ')
 
-    return "Script executed! " + current_time
+    return "Server local output: " + current_time
 
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=50000)
+    app.run(host='0.0.0.0', port=50000, debug=True)
