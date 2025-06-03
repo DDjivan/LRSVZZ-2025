@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style_collapsible.css') }}">
 
-    <title>MechaDelivery 😎</title>
+    <title>MECHA DELIVERY 😎</title>
     <link rel="icon" href="{{ url_for('static', filename='shop-four-tiles.svg') }}" type="image/x-icon">
 </head>
 
@@ -17,7 +17,8 @@
 
 <body>
     <header>
-        <h1>MechaDelivery !!! </h1>
+        <h1>🍱 MechaDelivery !!! </h1>
+
         <p>Du texte. </p>
     
         <div class="button-container">
@@ -38,8 +39,16 @@
 
     </main>
 
+    <script>
+        const svgIconLink = "{{ url_for('static', filename='square.svg') }}";
+        const svgIconLinkInternal = "{{ url_for('static', filename='icon-link-internal.svg') }}";
+        const svgIconLinkExternal = "{{ url_for('static', filename='icon-link-external.svg') }}";
+        const svgIconLinkFlathub = "{{ url_for('static', filename='icon-link-flatpak.svg') }}";
+        const svgIconLinkEmail = "{{ url_for('static', filename='icon-link-email.svg') }}";
+    </script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="{{ url_for('static', filename='script_collapsible.js') }}"></script>
+    <script src="{{ url_for('static', filename='script_link_icons.js') }}"></script>
 </body>
 
 

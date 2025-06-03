@@ -43,7 +43,7 @@ Utilise un tunnel SSH ([Chemin de communication](Chemin%20de%20communication.md)
 
 Il faut ajouter ce [Script au démarrage](Software/Script%20au%20démarrage.md) : 
 `LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh` 
-[client_tunnel](../../fetch-ip-auto/tunnel/client_tunnel.sh) 
+Le script en question : [client_tunnel.sh](../../fetch-ip-auto/tunnel/client_tunnel.sh) 
 
 Ce script utilise un fichier de configuration. 
 
