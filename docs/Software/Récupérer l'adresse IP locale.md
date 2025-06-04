@@ -1,6 +1,6 @@
 ## `fetch-ip` 
 ### Client 
-Il faut ajouter ce [Script au démarrage](Software/Script%20au%20démarrage.md) : `LRSVZZ-2025/fetch-ip/client_ip-sender.py`
+Il faut ajouter ce [Script au démarrage](Script%20au%20démarrage.md) : `LRSVZZ-2025/fetch-ip/client_ip-sender.py`
 
 Utilisons `cron`. Dans le `crontab` d'un client, ajouter la ligne suivante. 
 ```ini
@@ -18,7 +18,7 @@ cd LRSVZZ-2025/second-python/
 ```
 
 ```bash
-. .venv/bin/activate
+source ../.venv/bin/activate
 ```
 
 ```bash
@@ -31,7 +31,7 @@ cd LRSVZZ-2025/fetch-ip/
 ```
 
 ```bash
-. .venv/bin/activate
+source ../.venv/bin/activate
 ```
 
 ```bash
@@ -66,6 +66,9 @@ Utilisons `cron`. Dans le `crontab` d'un client, ajouter la ligne suivante.
 ```
 ^crontab
 
+```ini
+@reboot bash /home/nous/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel02.sh
+```
 ### Lancer avec un service `systemd` 
 Créer un fichier de service `systemd` dans `/etc/systemd/system/`. 
 

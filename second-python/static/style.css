@@ -25,13 +25,11 @@ code {
 
 /* --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
 
-#markdown-content {body {
-    /* background-color: white; */
-    padding: 1% 10%;
-}
-    background-color:   oklch(1 0 0 / 100%); 
+#markdown-content {
+    background-color: oklch(1 0 0 / 100%); 
     margin-right: 50px;
-    padding-left: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
     padding-top: 20px;
     padding-bottom: 40px;
     /* outline: 2px solid oklch(.5 .5 300); */
@@ -85,6 +83,11 @@ code {
     border-radius: 8px;
     color: oklch(.5 0.1 150 / 100%);
     background-color: oklch(1 0.1 150 / 10%); 
+}
+
+mark {
+    background-color: inherit;
+    background-color: oklch(0.9416 0.1101 98.06 / 50%);
 }
 
 /* --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- */

@@ -43,7 +43,7 @@ Le repository s'appelle "DDjivan/LRSVZZ-2025".
 Cliquer sur le bouton principal "Clone". 
 
 > [!info] Information
-> Si le repository n'apparaît pas dans la liste, s'assurer que le compte fait partie des membres du repository. Le propriétaire de ce dernier étant [[VARTANIAN Djivan]], ne pas hésiter à le contacter.
+> Si le repository n'apparaît pas dans la liste, s'assurer que le compte fait partie des membres du repository. Le propriétaire de ce dernier étant [VARTANIAN Djivan](../People/VARTANIAN%20Djivan.md), ne pas hésiter à le contacter.
 
 ![[002.png]] 
 <div style="page-break-after: always;"></div>
@@ -111,7 +111,7 @@ Merci pour votre lecture, et bon courage !
 ---
 
 ## À propos 
-Guide rédigé par [[VARTANIAN Djivan]]. 
-Dernière mise à jour : 2025-06-03 14:51 
+Guide rédigé par [VARTANIAN Djivan](../People/VARTANIAN%20Djivan.md). 
+Dernière mise à jour : 2025-06-04 09:07 
 
 
