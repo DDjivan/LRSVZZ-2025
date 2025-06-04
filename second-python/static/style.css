@@ -86,7 +86,8 @@ code {
 }
 
 mark {
-    background-color: oklch(0.9416 0.1101 98.06);
+    background-color: inherit;
+    background-color: oklch(0.9416 0.1101 98.06 / 50%);
 }
 
 /* --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
