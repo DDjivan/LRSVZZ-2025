@@ -10,7 +10,7 @@ Un robot qui serait :
 En détail : 
 Un robot d'intérieur qui livre des petites portions de nourritures, qui se déplace de manière autonome sur roues. Il doit être solide, et pour le moment, il ne va pas être très grand, entre 30×30×20 et 40×40×25 centimètres. 
 Les imprimantes 3D ne seront certainement pas cette taille, et il faudra sûrement s'orienter vers des modélisations de pièces détachées. 
-Une [[Raspberry Pi]] sera installée sur le robot et permettra le contrôle de ses moteurs et roues. Il y aura une batterie et d'autres choses. 
+Une [Raspberry Pi](Guides/Raspberry%20Pi.md) sera installée sur le robot et permettra le contrôle de ses moteurs et roues. Il y aura une batterie et d'autres choses. 
 
 ## Comment 
 Un logiciel de modélisation 3D. Mais pas n'importe lequel, comme Blender. 
