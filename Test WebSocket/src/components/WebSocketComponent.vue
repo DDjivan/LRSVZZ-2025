@@ -32,7 +32,7 @@ export default {
   },
   mounted() {
     // Remplacez l'URL par celle de votre serveur WebSocket
-    this.socket = io("http://147.215.206.226:3000"); // Remplacez par votre adresse IP publique
+    this.socket = io("http://192.168.218.54:3000"); // Remplacez par votre adresse IP publique
 
     this.socket.on("message", (msg) => {
       this.messages.push(msg);

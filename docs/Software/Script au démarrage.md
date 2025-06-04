@@ -1,8 +1,10 @@
 Objectif : lancer un script au démarrage d'un appareil Linux. 
 
 ## Quoi et où 
-- [server_ip-getter-displayer](../../../fetch-ip/server_ip-getter-displayer.py) 
-- [client_ip-sender](../../../fetch-ip/client_ip-sender.py) 
+- ~~[server_ip-getter-displayer.py](../../../fetch-ip/server_ip-getter-displayer.py) ~~
+- [client_ip-sender.py](../../../fetch-ip/client_ip-sender.py) 
+- [client_tunnel.sh](../../fetch-ip-auto/tunnel/client_tunnel.sh)
+- [client_tunnel02.sh](../../fetch-ip-auto/tunnel/client_tunnel02.sh) 
 
 ## Comment 
 - `cron` pour des tâches simples 
@@ -87,8 +89,10 @@ kill INSÉRER_PID_ICI
 
 > [!info] À propos 
 > 
-> Alice et Djivan ayant suivi l'élective Systèmes d'Exploitation, ils sont censés connaître tout ça (normalement). 
+> Alice et [Djivan](../People/VARTANIAN%20Djivan.md) ayant suivi l'élective Systèmes d'Exploitation, ils sont censés connaître tout ça (normalement). 
 
 > [!tip] Astuce 
 > 
 > Les fichiers `crontab` existent physiquement sur le stockage. Il y en a un situé à `/etc/crontab`, mais ce n'est pas celui de l'utilisateur courant. 
+
+
