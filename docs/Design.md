@@ -2,6 +2,7 @@
 Cette note concerne l'apparence et l'assemblage du robot. Tout ce qui est lié au design : croquis, progression de la modélisation, impression 3D, etc. 
 ## Quoi 
 Un robot qui serait : 
+
 - Compact 
 - Solide 
 - Stable 
@@ -12,7 +13,8 @@ Les imprimantes 3D ne seront certainement pas cette taille, et il faudra sûreme
 Une [[Raspberry Pi]] sera installée sur le robot et permettra le contrôle de ses moteurs et roues. Il y aura une batterie et d'autres choses. 
 
 ## Comment 
-Un logiciel de modélisation 3D. Mais pas n'importe lequel, comme Blender. M. DUPONT-LEGENDRE nous a demandé à utiliser un logiciel de CAO : [CAD](Guides/CAD.md). 
+Un logiciel de modélisation 3D. Mais pas n'importe lequel, comme Blender. 
+M. DUPONT-LEGENDRE nous a demandé à utiliser un logiciel de CAO : [CAD](Guides/CAD.md). 
 
 ## Où
 ==À déterminer comment enregistrer les fichiers de conception.== 
