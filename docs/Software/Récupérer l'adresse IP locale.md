@@ -66,6 +66,9 @@ Utilisons `cron`. Dans le `crontab` d'un client, ajouter la ligne suivante.
 ```
 ^crontab
 
+```ini
+@reboot bash /home/nous/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel02.sh
+```
 ### Lancer avec un service `systemd` 
 Créer un fichier de service `systemd` dans `/etc/systemd/system/`. 
 
