@@ -151,6 +151,18 @@ def execute_script():
 
     return "JS to Python to HTML: " + current_time
 
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
+
+@app.route('/moteurMarche')
+def moteurMarche():
+
+    sCommand = 'ssh -p 50001 nous@localhost'
+    lRun = [sCommand]
+
+    run(lRun, shell=True)
+
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
 if __name__ == '__main__' :

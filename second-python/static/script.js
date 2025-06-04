@@ -24,3 +24,15 @@ async function executeScript() {
             document.getElementById('response').innerText = 'Error: ' + error.message;
         });
 }
+
+
+// function executeScript() {
+async function moteurMarche() {
+    // temp optional loading message
+    document.getElementById('response').innerText = 'Executing...';
+
+    await sleep(1000); // milliseconds
+
+    // actual execution
+    fetch('/moteurMarche')
+}
