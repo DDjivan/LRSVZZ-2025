@@ -3,6 +3,7 @@ Bienvenue sur le repository pour le projet "MechaDelivery".
 
 ## Introduction 
 Le projet est divisé en plusieurs parties. 
+
 - [ ] **[Projet](docs/Projet.md)** (à lire en premier) 
 - [ ] [Hardware](docs/Hardware.md) 
 - [ ] [Software](docs/Software.md) 
@@ -12,9 +13,11 @@ Le projet est divisé en plusieurs parties.
 - Alice LIN 
 - Thisalini RAVINTHIRAN 
 - Lilian SAFAR 
-- Djivan Julien VARTANIAN 
+- Djivan VARTANIAN 
 - Benjamin ZHANG 
 - Louise ZHENG 
+
+
 
 ```mermaid
 graph TD;
