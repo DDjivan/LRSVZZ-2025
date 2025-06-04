@@ -38,7 +38,7 @@ Pour le client :
 ## Comment 
 Pour le moment, il a été décidé que [Python](Guides/Python.md) soit l'unique langage de programmation à utiliser, dû à sa simplicité et familiarité. 
 
-Toutefois, la section [Hardware](Hardware.md) indique qu'on utilise des [Raspberry Pi](docs/Guides/Raspberry%20Pi.md). [VARTANIAN Djivan](VARTANIAN%20Djivan) : Je suppose qu'écrire en C ou en C++ serait mieux, mais c'est à voir plus tard. 
+Toutefois, la section [Hardware](Hardware.md) indique qu'on utilise des [Raspberry Pi](docs/Guides/Raspberry%20Pi.md). [VARTANIAN Djivan](People/VARTANIAN%20Djivan.md) : Je suppose qu'écrire en C ou en C++ serait mieux, mais c'est à voir plus tard. 
 
 Il faudrait comprendre comment un ordinateur fonctionne : [Process](Guides/Process.md), [Thread](Guides/Thread.md), automatismes ([Script au démarrage](Software/Script%20au%20démarrage.md)), ce qu'il se passe à la mise en veille/redémarrage... 
 
