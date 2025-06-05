@@ -13,9 +13,20 @@ C'est un une interface graphique qui utilise le logiciel [Git](Git.md) avec le s
 ## Pourquoi 
 Simple d'usage, et intuitif car [Git](Git.md) est un logiciel à CLI (Command Line Interface), c'est-à-dire qu'il n'a pas d'interface graphique. 
 
-Alternatives : ==aucune idée==. 
+Limitations : il est limité aux repos hébergés sur GitHub. 
+
+Alternatives : ==se renseigner==. 
 
 ## Guide 
 ==À rédiger==. 
+
+## Problèmes 
+### Numéro à côté de la branche  
+Il y a un numéro précédé d'un hashtag à côté du nom de la branche courante, et vous n'avez aucune suggestion de créer un pull request, similaire au screenshot suivant ? 
+
+![](attachments/Screenshot_20250526_133450_cant_pull_request.png)
+
+La raison étant qu'il y au moins une pull request en cours qui n'a pas été résolue. 
+Il est possible d'aller consulter les pull request existantes en cliquant sur `Current branch`, puis `Pull requests`. 
 
 

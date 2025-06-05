@@ -13,7 +13,7 @@ Le projet est divisé en plusieurs parties.
 - Alice LIN 
 - Thisalini RAVINTHIRAN 
 - Lilian SAFAR 
-- Djivan VARTANIAN 
+- [Djivan VARTANIAN](docs/People/VARTANIAN%20Djivan.md) 
 - Benjamin ZHANG 
 - Louise ZHENG 
 

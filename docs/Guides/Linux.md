@@ -52,7 +52,7 @@ top
 ```bash
 htop
 ```
-3. Meilleure version (pas installée par défaut) selon [VARTANIAN Djivan](VARTANIAN%20Djivan). 
+3. Meilleure version (pas installée par défaut) selon [VARTANIAN Djivan](../People/VARTANIAN%20Djivan.md). 
 ```bash
 btop
 ```
