@@ -35,4 +35,16 @@ async function moteurMarche() {
 
     // actual execution
     fetch('/moteurMarche')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('response').innerText = data;
+        })
+        .catch(error => {
+            document.getElementById('response').innerText = 'Error: ' + error.message;
+        });
 }
