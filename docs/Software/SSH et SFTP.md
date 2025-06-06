@@ -17,7 +17,7 @@ Il y a trois Raspberry Pi :
 | Modèle   | Raspberry Pi 2 B                         | Raspberry Pi 4 B      | Raspberry Pi 4 B      |
 | Hostname | `raspberrypi-server`                     | `raspberrypi-client1` | `raspberrypi-client2` |
 | Username | `dd`                                     | `nous`                | `nous`                |
-| Password | `Character-Residual9-Perpetual-Maximize` | `lrsvzz`              | `lrsvzz`              |
+| Password | `caché`                                  | `lrsvzz`              | `lrsvzz`              |
 | Addresse | `90.22.255.6`                            | Dynamique             | Dynamique             |
 
 Dynamique = à déterminer sur http://90.22.255.6:50000/view_ips 
