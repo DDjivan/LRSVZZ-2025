@@ -157,11 +157,10 @@ def execute_script():
 @app.route('/moteurMarche')
 def moteurMarche():
 
-    sCommand = 'ssh -p 50001 nous@localhost'
-    lRun = [sCommand]
-
-    run(lRun, shell=True)
-
+    run(
+            ["ssh", "-p", "50001", "nous@localhost"],
+            check=True
+        )
     return "Moteur en marche"
 
 
