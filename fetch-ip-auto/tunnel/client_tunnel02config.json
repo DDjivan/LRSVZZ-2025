@@ -1,0 +1,17 @@
+{
+  "server_IP": "90.22.255.6",
+  "server_USERNAME": "dd",
+
+  "raspberrypi-client1": {
+    "PORT_LOCAL": 22,
+    "PORT_REMOTE": 50001
+  },
+  "raspberrypi-client2": {
+    "PORT_LOCAL": 22,
+    "PORT_REMOTE": 50002
+  },
+  "default": {
+    "PORT_LOCAL": 22,
+    "PORT_REMOTE": 50001
+  }
+}
