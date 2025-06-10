@@ -46,3 +46,9 @@ Sur le repository, dans le dossier `FichiersPosters`.
 	- https://intra.esiee.fr/rubrique.php?id_rub=92 
 	- extrait de `Poster JdP en mode PAYSAGE 2025 (EPS)` 
 
+
+
+## Comment 
+Avec [Inkscape](../Guides/Inkscape.md). 
+
+
