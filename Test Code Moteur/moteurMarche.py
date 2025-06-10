@@ -11,3 +11,4 @@ GPIO.setup(pwm_gpio, GPIO.OUT)
 pwm = GPIO.PWM(pwm_gpio, frequence)
 
 pwm.start(90)
+time.sleep(10)

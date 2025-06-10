@@ -84,6 +84,3 @@ server.listen(3000, () => {
 ```
 Le [[CORS]] est nécessaire puisqu'il y a un serveur qui communique avec la page par des adresses différentes.
 
-# Utilisation de la Raspberry pour envoyer des informations affichées en temps réel
-
-
