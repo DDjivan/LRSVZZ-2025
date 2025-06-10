@@ -27,9 +27,10 @@ Il devra mentionner les informations suivantes :
 
 - En haut : titre du projet (idem celui du poster, celui de la vidéo) 
 - Au centre : ses objectifs et travail réalisés ou à réaliser 
-- En bas à gauche : noms, prénoms, classes, filières 
-- En bas à droite : Triple logo (ESIEE Paris, CCIR, Membre fondateur de l’université Gustave Eiffel) 
 - En haut à gauche : Logo Jour des Projets 
+- En haut à droite : "Logo de l'entreprise et/ou partenaires" 
+- En bas à gauche : noms, prénoms, classes, filières + suiveur 
+- En bas à droite : Triple logo (ESIEE Paris, CCIR, Membre fondateur de l’université Gustave Eiffel) 
 - Langue : en français, optionnellement avec une traduction en anglais 
 
 ## Où 
@@ -37,7 +38,7 @@ Sur le repository, dans le dossier `FichiersPosters`.
 
 - Poster : [MechaDelivery.svg](FichiersPoster/MechaDelivery.svg) 
 
-Éléments : 
+Éléments ESIEE : 
 
 - [Logo JdP 20 ans baseline.png](FichiersPoster/Logo%20JdP%2020%20ans%20baseline.png) 
 	- https://intra.esiee.fr/rubrique.php?id_rub=92 
@@ -46,6 +47,26 @@ Sur le repository, dans le dossier `FichiersPosters`.
 	- https://intra.esiee.fr/rubrique.php?id_rub=92 
 	- extrait de `Poster JdP en mode PAYSAGE 2025 (EPS)` 
 
+Éléments autres : 
+
+- Raspberry Pi 4 
+	- https://cdn-reichelt.de/bilder/web/xxl_ws/A300/RASP_PI_4_B_01_ANW.png 
+	- Licence peut-être pas libre d'usage 
+- Raspberry Pi Logo 
+	- https://www.raspberrypi.com/trademark-rules/ 
+
+Polices d'écriture : 
+
+- Bricolage (corps) 
+	- https://ateliertriay.github.io/bricolage/#download 
+	- complètement libre d'usage et de modification 
+- Junicode (titre) 
+	- https://junicode.sourceforge.io/ 
+	- https://github.com/ateliertriay/bricolage 
+	- libre d'usage 
+
+> [!tip] Police d'écriture
+> Le format `otf` est privilégié, mais `ttf` ne pose aucun problème. 
 
 
 ## Comment 
