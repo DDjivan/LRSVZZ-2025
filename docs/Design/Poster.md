@@ -8,8 +8,8 @@ Le poster :
 - est obligatoire ; 
 - est noté par le jury ; 
 - doit être validé par le tuteur ; 
-- est à envoyer pour le 2025-06-19 jeudi à 12:00 au plus tard ; 
-- peut être envoyé à [jourdesprojets@esiee.fr](mailto:jourdesprojets@esiee.fr) en amont pour validation 
+- est à envoyer pour le ==**2025-06-19 jeudi à 12:00**== au plus tard ; 
+- peut être envoyé à [jourdesprojets@esiee.fr](mailto:jourdesprojets@esiee.fr) en amont pour validation ; 
 - est imprimée au format A0 par le Service Communication (il n'y aura normalement pas de perte de qualité, et on nous contactera en cas de problème) ; 
 - sera sur notre stand le jour J. 
 
@@ -17,7 +17,7 @@ Le poster :
 Réalisation : 
 
 - Orientation : paysage ou portrait 
-- Format : A4 ou A3 
+- Format : A3 (ou A4) 
 - Taille : inférieur à 5 MB 
 - Nom du fichier : titre du projet (`MechaDelivery`) 
 - Extension : `pdf` (ou `ppt`) 
@@ -51,9 +51,10 @@ Sur le repository, dans le dossier `FichiersPosters`.
 
 - Raspberry Pi 4 
 	- https://cdn-reichelt.de/bilder/web/xxl_ws/A300/RASP_PI_4_B_01_ANW.png 
-	- Licence peut-être pas libre d'usage 
+	- ==Licence peut-être pas libre d'usage== 
 - Raspberry Pi Logo 
 	- https://www.raspberrypi.com/trademark-rules/ 
+	- À ne pas utiliser, il semble 
 
 Polices d'écriture : 
 
@@ -67,7 +68,6 @@ Polices d'écriture :
 
 > [!tip] Police d'écriture
 > Le format `otf` est privilégié, mais `ttf` ne pose aucun problème. 
-
 
 ## Comment 
 Avec [Inkscape](../Guides/Inkscape.md). 

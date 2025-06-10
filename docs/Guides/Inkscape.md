@@ -19,7 +19,6 @@ Alternatives :
 ## Comment 
 Format de fichier : `SVG`. 
 
-
 ## Problèmes 
 ### Importer d'autres fichiers 
 Lors de l'import d'un SVG dans le document, quelle option choisir ? 
@@ -53,7 +52,6 @@ y="635.83752" />
 Changer la ligne en `xlink:href="Triple-logo_ESIEE_CCI_UGE.svg"` 
 
 ### Résolution 
-Propriétés de l'objet. 
-
+Si la résolution d'un calque SVG est faible, cliquer sur l'élément, et aller dans l'onglet "Propriétés de l'objet". 
 
 
