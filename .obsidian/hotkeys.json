@@ -18,15 +18,6 @@
       "key": "Z"
     }
   ],
-  "workspace:export-pdf": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "S"
-    }
-  ],
   "app:go-back": [
     {
       "modifiers": [
@@ -55,6 +46,24 @@
         "Alt"
       ],
       "key": "ArrowRight"
+    }
+  ],
+  "editor:open-link-in-new-leaf": [],
+  "break-page:insert-break-page": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Enter"
+    }
+  ],
+  "better-export-pdf:export-current-file-to-pdf": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "S"
     }
   ]
 }
