@@ -8,7 +8,7 @@ https://fr.wikipedia.org/wiki/Conception_assist%C3%A9e_par_ordinateur
 https://en.wikipedia.org/wiki/Computer-aided_design 
 
 Notes Djivan : [CAD Tutoriel Djivan](../Design/CAD%20Tutoriel%20Djivan.md). 
-Notes Alice : [Notes Freecad Alice](Notes%20Freecad%20Alice.md)
+Notes Alice : [Notes FreeCAD Alice](Notes%20FreeCAD%20Alice.md)
 
 ## À savoir  
 Faire des design en pensant à l'impression 3D. Éviter les surplombs et assurez-vous que les pièces peuvent être imprimées sans avoir besoin de supports excessifs. Garder en tête les dimensions du volume d'impression de l'imprimante 3D. 
@@ -17,10 +17,11 @@ Exportation pour l'impression 3D : Une fois une conception terminée, exporter l
 
 Utiliser un logiciel de tranchage (comme Cura ou PrusaSlicer) pour préparer des fichiers STL pour l'impression. Ce logiciel convertit un modèle 3D en G-code que l'imprimante peut comprendre. 
 
-Formats de fichier à connaître : [CAD Formats](docs/Guides/CAD%20Formats.md). 
+Formats de fichier à connaître : [CAD Formats](CAD%20Formats.md). 
 
 ## Comment  
 CAD 
+
 - FreeCAD : 
 	- https://www.freecad.org/ 
 	- [Flatpak](appstream:org.freecad.FreeCAD) 
@@ -29,6 +30,7 @@ CAD
 	- https://www.solidworks.com/ 
 
 Slicing software / Logiciel de tranchage 
+
 - Cura 
 	- https://ultimaker.com/software/ultimaker-cura/ 
 	- [Flatpak](appstream:com.ultimaker.cura.desktop) 
