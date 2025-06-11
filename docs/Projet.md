@@ -12,3 +12,8 @@ Afin de réaliser ce projet, les outils suivants sont utilisés :
 
 ## Quoi  
 Liste de choses à faire : [[TODO]]. 
+
+
+Cahier des charges fonctionnel : [CDCF](CDCF.md) 
+
+

@@ -1,0 +1,226 @@
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\documentclass[a4paper,12pt]{report}  % args : article, report, book 
+\usepackage[utf8]{inputenc}  % encodage UTF-8 
+\usepackage[french]{babel}  % choix de langue, important pour maketitle et tableofcontents
+\usepackage{geometry}  % géométrie de la page 
+\usepackage{hyperref}  % liens internes et externes 
+\usepackage{graphicx}  % images 
+\usepackage{longtable}  % tableaux 
+\usepackage{fontspec}  % polices d'écriture du système 
+\usepackage{tabularx}  % pour des tableaux larges 
+
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\geometry{margin = 2 cm}  % marge de 2 cm (possible d'utiliser "in" aussi)
+
+% hyperref 
+\hypersetup{  
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+	citecolor=red
+}
+
+% fontspec
+\setmainfont{Bricolage Grotesque}
+%\setmonofont[size=6pt]{Comic Code Ligatures} 
+
+
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\title{Cahier des charges fonctionnel}
+\author{Groupe LRSVZZ}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+%	\pagebreak
+	
+	\section*{Auteurs}
+	
+	\renewcommand{\arraystretch}{1.5}  % augmenter de 50 % les lignes 
+	\begin{table}[h]
+%		\centering
+%		\caption{Auteurs}
+%		\begin{tabular}{|c|c|c|}
+		\begin{tabularx}{\textwidth}{|X|X|X|}  % on met X pour des colonnes de même longueur 
+			\hline
+			\textbf{Nom} & \textbf{Rôle} & \textbf{Département} \\
+			\hline
+			VARTANIAN Djivan & Responsable & Informatique \\
+			\hline
+			Row 2, Col 1 & Row 2, Col 2 & Row 2, Col 3 \\
+			\hline
+			Row 3, Col 1 & Row 3, Col 2 & Row 3, Col 3 \\
+			\hline
+%		\end{tabular}
+		\end{tabularx}
+	\end{table}
+	
+	\section*{Historique des documents}
+	\begin{table}[h]
+%		\centering
+		\begin{tabular}{|c|c|c|c|} 
+			\hline
+			\textbf{Date} & \textbf{Version} & \textbf{Description du document} & \textbf{Auteur du document} \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\section*{Approbations}
+	\begin{table}[h]
+		\begin{tabular}{|c|c|c|c|} 
+			\hline
+			\textbf{Date d'approbation} & \textbf{Version approuvée} & \textbf{Rôle de l'approbateur} & \textbf{Approbateur} \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+		
+	\tableofcontents
+	\pagebreak
+	
+	
+	
+	\section{Introduction}
+%	Identifiez le besoin ou le problème de l'entreprise.
+	
+	\subsection{Objet du document}
+%	Décrivez le cahier des charges fonctionnel et son objectif.
+%	Le cahier des charges fonctionnel décrit comment la solution système fonctionnera et son comportement requis.
+	
+	\subsection{Portée du projet}
+%	Décrire la portée du projet et la solution proposée.
+	
+	\subsection{Champ d'application du document}
+%	Décrire le champ d'application spécifique du document.
+	
+	\subsection{Documents connexes}
+%	Ajouter toute documentation pertinente.
+	\begin{longtable}{|l|l|l|}
+		\hline
+		\textbf{Composant} & \textbf{Nom (lien)} & \textbf{Description} \\
+		\hline
+	\end{longtable}
+	
+	\subsection{Termes/acronymes et définitions}
+%	Indiquez les termes et définitions.
+	\begin{longtable}{|l|l|l|}
+		\hline
+		\textbf{Terme/Acronyme} & \textbf{Définition} & \textbf{Description} \\
+		\hline
+	\end{longtable}
+	
+	\subsection{Risques et hypothèses}
+%	Énumérer les risques et hypothèses affectant la conception.
+	
+	\section{Aperçu du système/de la solution}
+%	Brève description du logiciel et de la solution.
+	
+	\subsection{Diagrammes}
+%	Fournir des représentations graphiques appropriées.
+	
+	\subsection{Acteurs du système}
+	\begin{longtable}{|l|l|l|l|l|}
+		\hline
+		\textbf{Utilisateur/Rôle} & \textbf{Exemple} & \textbf{Fréquence d'utilisation} & \textbf{Sécurité/accès} & \textbf{Notes} \\
+		\hline
+	\end{longtable}
+	
+	\subsection{Dépendances et impacts des changements}
+	\subsubsection{Dépendances du système}
+%	Liste des dépendances avec d'autres systèmes.
+	
+	\subsubsection{Impacts du changement}
+%	Identifier les systèmes impactés par la solution.
+	
+	\section{Spécifications fonctionnelles}
+%	Décrire les spécifications du système global.
+	
+	\subsection{Titre}
+	\subsubsection{Objectif / Description}
+%	Description de haut niveau des spécifications.
+	
+	\subsubsection{Cas d'utilisation}
+%	Mapper l'exigence fonctionnelle à des cas d'utilisation.
+	
+	\subsubsection{Maquette}
+%	Fournir la maquette de la fonctionnalité.
+	
+	\subsubsection{Exigences fonctionnelles}
+%	Détails au niveau de la page.
+	\begin{longtable}{|l|l|l|}
+		\hline
+		\textbf{ID du spécimen} & \textbf{Description} & \textbf{Règles de gestion} \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{Spécifications au niveau du terrain}
+%	Éléments de données de champ liés à l'exigence fonctionnelle.
+	
+	\section{Configurations du système}
+%	Vue d'ensemble des étapes de configuration nécessaires.
+	
+	\section{Autres exigences du système/exigences non fonctionnelles}
+%	Détails supplémentaires sur les aspects liés à la qualité.
+	
+	\section{Exigences en matière de rapports}
+%	Définir les besoins en matière de rapports.
+	
+	\section{Exigences d'intégration}
+%	Identifier les besoins d'intégration et les interfaces nécessaires.
+	
+	\subsection{Traitement des exceptions/rapports d'erreurs}
+%	Expliquer les conditions d'erreur/exceptions.
+	
+	\begin{longtable}{|l|l|l|l|}
+		\hline
+		\textbf{ID de l'exception} & \textbf{Erreur} & \textbf{Cause} & \textbf{Stratégie de solution} \\
+		\hline
+	\end{longtable}
+	
+	\section{Exigences en matière de migration/conversion des données}
+%	Expliquer le plan de conversion des données.
+	
+	\subsection{Stratégie de conversion des données}
+%	Stratégie globale pour la conversion des données.
+	
+	\subsection{Préparation à la conversion des données}
+%	Détails sur les conditions préalables à la conversion.
+	
+	\subsection{Spécifications pour la conversion des données}
+	\begin{longtable}{|l|l|l|l|l|}
+		\hline
+		\textbf{Source} & \textbf{Source Élément de données} & \textbf{Cible} & \textbf{Élément de données cible} & \textbf{Règles de conversion} \\
+		\hline
+	\end{longtable}
+	
+	\section{Références}
+%	Listez toutes les références à des documents externes.
+	
+	\section{Questions ouvertes}
+	\begin{longtable}{|l|l|l|l|l|l|l|l|}
+		\hline
+		\textbf{ID de la question} & \textbf{Enjeu} & \textbf{Élevé par} & \textbf{Décision} & \textbf{Résolu par} & \textbf{Statut} \\
+		\hline
+	\end{longtable}
+	
+	\section{Annexe}
+%	Inclure toute information supplémentaire ou documents annexes.
+	
+\end{document}
