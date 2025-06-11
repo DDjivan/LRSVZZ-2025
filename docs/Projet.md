@@ -11,3 +11,7 @@ Afin de réaliser ce projet, les outils suivants sont utilisés :
 - [GitHub Desktop](Guides/GitHub%20Desktop.md) pour gérer le repository sur son ordinateur ; 
 - [Obsidian](Guides/Obsidian.md) pour rédiger les notes et organiser la documentation du repo. 
 
+## Documents à réaliser 
+Cahier des charges fonctionnel : [CDCF](CDCF.md) 
+
+

@@ -1,0 +1,277 @@
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\documentclass[a4paper,12pt]{report}  % args : article, report, book 
+\usepackage[utf8]{inputenc}  % encodage UTF-8 
+\usepackage[french]{babel}  % choix de langue, important pour maketitle et tableofcontents
+\usepackage{geometry}  % géométrie de la page 
+\usepackage{hyperref}  % liens internes et externes 
+\usepackage{graphicx}  % images 
+\usepackage{longtable}  % tableaux 
+\usepackage{fontspec}  % polices d'écriture du système 
+\usepackage{tabularx}  % pour des tableaux larges 
+\usepackage{lipsum}  % pour du texte 
+
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\geometry{margin = 2 cm}  % marge de 2 cm (possible d'utiliser "in" aussi)
+
+% hyperref 
+\hypersetup{  
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+	citecolor=red
+}
+
+% fontspec
+\setmainfont{Bricolage Grotesque}
+%\setmonofont[size=6pt]{Comic Code Ligatures} 
+
+
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\title{Cahier des charges fonctionnel}
+\author{Groupe LRSVZZ}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+%	\pagebreak
+	
+	% --- --- --- --- %
+	
+	\section*{Auteurs}
+	
+	\renewcommand{\arraystretch}{1.5}  % augmenter de 50 % les lignes 
+	\begin{table}[h]
+%		\centering
+%		\caption{Auteurs}
+%		\begin{tabular}{|c|c|c|}
+		\begin{tabularx}{\textwidth}{|X|X|X|}  % on met X pour des colonnes de même longueur 
+			\hline
+			\textbf{Nom} & \textbf{Rôle} & \textbf{Département} \\
+			\hline
+			VARTANIAN Djivan & Responsable & Informatique \\
+			\hline
+			Row 2, Col 1 & Row 2, Col 2 & Row 2, Col 3 \\
+			\hline
+			Row 3, Col 1 & Row 3, Col 2 & Row 3, Col 3 \\
+			\hline
+%		\end{tabular}
+		\end{tabularx}
+	\end{table}
+	
+	\section*{Historique des documents}
+	\begin{table}[h]
+%		\centering
+		\begin{tabular}{|c|c|c|c|} 
+			\hline
+			\textbf{Date} & \textbf{Version} & \textbf{Description du document} & \textbf{Auteur du document} \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\section*{Approbations}
+	\begin{table}[h]
+		\begin{tabular}{|c|c|c|c|} 
+			\hline
+			\textbf{Date d'approbation} & \textbf{Version approuvée} & \textbf{Rôle de l'approbateur} & \textbf{Approbateur} \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	% --- --- --- --- %
+		
+	\tableofcontents
+	
+	\pagebreak
+	% --- --- --- --- %
+	
+	\section{Introduction}
+%	Identifiez le besoin ou le problème de l'entreprise.
+	Introduction.
+	\lipsum[1] 
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth]{./attachements/Untitled-2025-06-11-1251_B.pdf}
+		\caption{Description. }
+		\label{fig:your_label}
+	\end{figure}
+	
+	\subsection{Objet du document}
+%	Décrivez le cahier des charges fonctionnel et son objectif.
+%	Le cahier des charges fonctionnel décrit comment la solution système fonctionnera et son comportement requis.
+	\lipsum[2] 
+	
+	\subsection{Portée du projet}
+%	Décrire la portée du projet et la solution proposée.
+	\lipsum[3]
+	
+	\subsection{Champ d'application du document}
+%	Décrire le champ d'application spécifique du document.
+	\lipsum[4]
+	
+	\subsection{Documents connexes}
+%	Ajouter toute documentation pertinente.
+	\begin{longtable}{|l|l|l|}
+		\hline
+		\textbf{Composant} & \textbf{Nom (lien)} & \textbf{Description} \\
+		\hline
+	\end{longtable}
+	
+	\subsection{Termes/acronymes et définitions}
+%	Indiquez les termes et définitions.
+	\lipsum[5]
+	\begin{longtable}{|l|l|l|}
+		\hline
+		\textbf{Terme/Acronyme} & \textbf{Définition} & \textbf{Description} \\
+		\hline
+	\end{longtable}
+	
+	\subsection{Risques et hypothèses}
+%	Énumérer les risques et hypothèses affectant la conception.
+	\lipsum[6]
+	
+	\pagebreak
+	% --- --- --- --- %
+	
+	\section{Aperçu du système/de la solution}
+%	Brève description du logiciel et de la solution.
+	\lipsum[7]
+	
+	\subsection{Diagrammes}
+%	Fournir des représentations graphiques appropriées.
+	\lipsum[8]
+	
+	\subsection{Acteurs du système}
+	\subsubsection{Rôles et responsabilités des utilisateurs / exigences en matière d'autorité}
+	\lipsum[9]
+	\begin{longtable}{|l|l|l|l|l|}
+		\hline
+		\textbf{Utilisateur/Rôle} & \textbf{Exemple} & \textbf{Fréquence d'utilisation} & \textbf{Sécurité/accès} & \textbf{Notes} \\
+		\hline
+	\end{longtable}
+	
+	\subsection{Dépendances et impacts des changements}
+	\subsubsection{Dépendances du système}
+%	Liste des dépendances avec d'autres systèmes.
+	\lipsum[10]
+	
+	\subsubsection{Impacts du changement}
+%	Identifier les systèmes impactés par la solution.
+	\lipsum[11]
+
+	\pagebreak
+	% --- --- --- --- %
+	
+	\section{Spécifications fonctionnelles}
+%	Décrire les spécifications du système global.
+	\lipsum[12]
+	
+	\subsection{Titre}
+	\subsubsection{Objectif / Description}
+%	Description de haut niveau des spécifications.
+	\lipsum[13]
+	
+	\subsubsection{Cas d'utilisation}
+%	Mapper l'exigence fonctionnelle à des cas d'utilisation.
+	\lipsum[14]
+	
+	\subsubsection{Maquette}
+%	Fournir la maquette de la fonctionnalité.
+	\lipsum[15]
+	
+	\subsubsection{Exigences fonctionnelles}
+%	Détails au niveau de la page.
+	\lipsum[16]
+	\begin{longtable}{|l|l|l|}
+		\hline
+		\textbf{ID du spécimen} & \textbf{Description} & \textbf{Règles de gestion} \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{Spécifications au niveau du terrain}
+%	Éléments de données de champ liés à l'exigence fonctionnelle.
+	\lipsum[17]
+	
+	\pagebreak
+	% --- --- --- --- %
+	
+	\section{Configurations du système}
+%	Vue d'ensemble des étapes de configuration nécessaires.
+	\lipsum[18]
+	
+	\section{Autres exigences du système/exigences non fonctionnelles}
+%	Détails supplémentaires sur les aspects liés à la qualité.
+	\lipsum[19]
+	
+	\section{Exigences en matière de rapports}
+%	Définir les besoins en matière de rapports.
+	\lipsum[20]
+	
+	\section{Exigences d'intégration}
+%	Identifier les besoins d'intégration et les interfaces nécessaires.
+	\lipsum[21]
+	
+	\subsection{Traitement des exceptions/rapports d'erreurs}
+%	Expliquer les conditions d'erreur/exceptions.
+	\lipsum[22]
+	
+	\begin{longtable}{|l|l|l|l|}
+		\hline
+		\textbf{ID de l'exception} & \textbf{Erreur} & \textbf{Cause} & \textbf{Stratégie de solution} \\
+		\hline
+	\end{longtable}
+	
+	\section{Exigences en matière de migration/conversion des données}
+%	Expliquer le plan de conversion des données.
+	\lipsum[23]
+	
+	\subsection{Stratégie de conversion des données}
+%	Stratégie globale pour la conversion des données.
+	\lipsum[24]
+	
+	\subsection{Préparation à la conversion des données}
+%	Détails sur les conditions préalables à la conversion.
+	\lipsum[25]
+	
+	\subsection{Spécifications pour la conversion des données}
+	\lipsum[26]
+	\begin{longtable}{|l|l|l|l|l|}
+		\hline
+		\textbf{Source} & \textbf{Source Élément de données} & \textbf{Cible} & \textbf{Élément de données cible} & \textbf{Règles de conversion} \\
+		\hline
+	\end{longtable}
+	
+	\section{Références}
+%	Listez toutes les références à des documents externes.
+	\lipsum[27]
+	
+	\section{Questions ouvertes}
+	\lipsum[28]
+	
+	\begin{longtable}{|l|l|l|l|l|l|l|l|}
+		\hline
+		\textbf{ID de la question} & \textbf{Enjeu} & \textbf{Élevé par} & \textbf{Décision} & \textbf{Résolu par} & \textbf{Statut} \\
+		\hline
+	\end{longtable}
+	
+	\section{Annexe}
+%	Inclure toute information supplémentaire ou documents annexes.
+	\lipsum[29]
+	
+\end{document}
