@@ -2,6 +2,7 @@
 Document obligatoire à réaliser. 
 
 https://fr.wikipedia.org/wiki/Cahier_des_charges_fonctionnel 
+https://fr.wikipedia.org/wiki/Cahier_des_charges 
 
 ## Comment 
 Markdown est trop limité. 
