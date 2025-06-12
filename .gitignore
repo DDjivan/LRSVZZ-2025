@@ -166,7 +166,7 @@ cython_debug/
 *.log
 *.out
 *.synctex.gz
-docs/CDCF/*.pdf
+#docs/CDCF/*.pdf
 *.toc
 
 # IP LOG 

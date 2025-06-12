@@ -22,7 +22,7 @@ Dans le `.gitignore`, ces lignes doivent être ajoutées, car seul le `.tex` suf
 *.log
 *.out
 *.synctex.gz
-docs/CDCF/*.pdf
+#docs/CDCF/*.pdf
 *.toc
 ```
 
