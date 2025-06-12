@@ -72,4 +72,11 @@ Polices d'écriture :
 ## Comment 
 Avec [Inkscape](../Guides/Inkscape.md). 
 
+## Ressources 
+Afin de réaliser un poster de qualité, voici des inspirations. 
+
+- https://jdp.esiee.fr/photos-jdp-2024-2/ 
+- Trois posters de projet en face du Club NIX 
+- ... 
+
 
