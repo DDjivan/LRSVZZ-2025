@@ -31,7 +31,7 @@ def send_impulsion_to_pin(arg_pi, pin_number:int, largeur_d_impulsion:int):
 
 
 def stop_pin(arg_pi, pin_number:int):
-    send_impulsion_to_pin(arg_pi, pin_number, 0)
+    send_impulsion_to_pin(arg_pi, pin_number, 1500)
     # Apparemment on peut aussi envoyer 1500 ? 
     # arg_pi.stop()
 
