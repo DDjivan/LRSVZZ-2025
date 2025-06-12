@@ -79,7 +79,7 @@ def main():
         stop_pin(notre_pi, nos_args.pin +1)
     else:
         start_pin(notre_pi, nos_args.pin, nos_args.speed)
-        start_pin(notre_pi, nos_args.pin +1, nos_args.speed)
+        start_pin(notre_pi, nos_args.pin +1, -nos_args.speed)
         time.sleep(nos_args.time)
         stop_pin(notre_pi, nos_args.pin)
         stop_pin(notre_pi, nos_args.pin +1)
