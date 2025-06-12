@@ -1,4 +1,4 @@
-# from pigpio import pi
+from pigpio import pi
 import time
 from argparse import ArgumentParser
 from datetime import datetime
