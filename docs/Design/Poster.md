@@ -55,6 +55,14 @@ Sur le repository, dans le dossier `FichiersPosters`.
 - Raspberry Pi Logo 
 	- https://www.raspberrypi.com/trademark-rules/ 
 	- À ne pas utiliser, il semble 
+- Un render Blender basique d'un robot (fichier `.blend` chez Djivan) 
+	- `./Untitled.png`
+- Flask
+	- https://flask.palletsprojects.com/en/stable/_images/flask-horizontal.svg
+- SQLite
+	- https://upload.wikimedia.org/wikipedia/commons/3/38/SQLite370.svg
+- SSH
+	- https://upload.wikimedia.org/wikipedia/commons/0/00/Unofficial_SSH_Logo.svg
 
 Polices d'écriture : 
 
