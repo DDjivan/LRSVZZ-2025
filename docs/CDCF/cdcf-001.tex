@@ -1,3 +1,4 @@
+% !TeX spellcheck = fr_FR
 % --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
 
 \documentclass[a4paper,12pt]{report}  % args : article, report, book 
@@ -10,6 +11,9 @@
 \usepackage{fontspec}  % polices d'écriture du système 
 \usepackage{tabularx}  % pour des tableaux larges 
 \usepackage{lipsum}  % pour du texte 
+%\usepackage{titlepic}  % pour avoir une image dans \maketitle
+\usepackage{titling}  % pour utiliser \theauthor, \thedate, \thetitle 
+\usepackage{datetime}  % pour que la date de \thedate soit en français 
 
 % --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
 
@@ -33,10 +37,25 @@
 \title{Cahier des charges fonctionnel}
 \author{Groupe LRSVZZ}
 \date{\today}
+%\titlepic{\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf}}
 
 \begin{document}
 	
-	\maketitle
+%	\maketitle
+
+	\begin{titlepage}
+		\centering
+		\vspace*{9cm} 
+		{\LARGE \bfseries \thetitle \par}
+		\vspace{1cm} 
+		\large \theauthor \par
+		\vspace{0.5cm} 
+		\large \thedate \par
+		\vspace{5cm} 
+		\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf} 
+		\vfill 
+	\end{titlepage}
+	
 %	\pagebreak
 	
 	% --- --- --- --- %
@@ -100,178 +119,84 @@
 	\pagebreak
 	% --- --- --- --- %
 	
-	\section{Introduction}
-%	Identifiez le besoin ou le problème de l'entreprise.
-	Introduction.
-	\lipsum[1] 
+	\section{Résumé}
+	% Brève description du projet, de ses objectifs et de ses résultats attendus.
+	
+	Résumé. 
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=\textwidth]{./attachements/Untitled-2025-06-11-1251_B.pdf}
+		\includegraphics[width=0.8\textwidth]{./attachements/Untitled-2025-06-11-1251_B.pdf}
 		\caption{Description. }
 		\label{fig:your_label}
 	\end{figure}
 	
-	\subsection{Objet du document}
-%	Décrivez le cahier des charges fonctionnel et son objectif.
-%	Le cahier des charges fonctionnel décrit comment la solution système fonctionnera et son comportement requis.
-	\lipsum[2] 
+	\section{Introduction}
+	% Contexte du projet, problématique, objectifs du robot.
+	Livrer des choses. Facilement, fiable. 
 	
-	\subsection{Portée du projet}
-%	Décrire la portée du projet et la solution proposée.
-	\lipsum[3]
+	\section{État de l'Art}
+	% Revue des technologies existantes pour la livraison autonome.
 	
-	\subsection{Champ d'application du document}
-%	Décrire le champ d'application spécifique du document.
-	\lipsum[4]
+	\section{Cahier des Charges Fonctionnel}
+	\subsection{Description des Fonctionnalités}
+	% Description des fonctionnalités requises (navigation, évitement d'obstacles, etc.)
 	
-	\subsection{Documents connexes}
-%	Ajouter toute documentation pertinente.
-	\begin{longtable}{|l|l|l|}
-		\hline
-		\textbf{Composant} & \textbf{Nom (lien)} & \textbf{Description} \\
-		\hline
-	\end{longtable}
+	\subsection{Contraintes Techniques}
+	% Contraintes techniques (dimensions, poids, autonomie, etc.)
 	
-	\subsection{Termes/acronymes et définitions}
-%	Indiquez les termes et définitions.
-	\lipsum[5]
-	\begin{longtable}{|l|l|l|}
-		\hline
-		\textbf{Terme/Acronyme} & \textbf{Définition} & \textbf{Description} \\
-		\hline
-	\end{longtable}
+	\section{Architecture du Système}
+	\subsection{Schéma de l'Architecture}
+	% Inclure un schéma de l'architecture matérielle et logicielle.
 	
-	\subsection{Risques et hypothèses}
-%	Énumérer les risques et hypothèses affectant la conception.
-	\lipsum[6]
+	\subsection{Description des Composants}
+	% Description des composants utilisés (Raspberry Pi, capteur ultrason, etc.)
 	
-	\pagebreak
-	% --- --- --- --- %
+	\section{Développement et Implémentation}
+	% Étapes de développement, utilisation de Git, défis rencontrés.
 	
-	\section{Aperçu du système/de la solution}
-%	Brève description du logiciel et de la solution.
-	\lipsum[7]
+	\section{Tests et Validation}
+	% Méthodologie de test, résultats des tests, retours d'expérience.
 	
-	\subsection{Diagrammes}
-%	Fournir des représentations graphiques appropriées.
-	\lipsum[8]
+	\section{Rétro-planning et Gestion de Projet}
+	\subsection{Organisation des Tâches}
+	% Inclure un tableau ou un graphique du rétroplanning.
 	
-	\subsection{Acteurs du système}
-	\subsubsection{Rôles et responsabilités des utilisateurs / exigences en matière d'autorité}
-	\lipsum[9]
-	\begin{longtable}{|l|l|l|l|l|}
-		\hline
-		\textbf{Utilisateur/Rôle} & \textbf{Exemple} & \textbf{Fréquence d'utilisation} & \textbf{Sécurité/accès} & \textbf{Notes} \\
-		\hline
-	\end{longtable}
+	\subsection{Liste des Actions Réalisées}
+	% Liste des actions réalisées pendant le projet.
 	
-	\subsection{Dépendances et impacts des changements}
-	\subsubsection{Dépendances du système}
-%	Liste des dépendances avec d'autres systèmes.
-	\lipsum[10]
+	\subsection{Compte Rendu des Réunions Hebdomadaires}
+	% Résumé des points discutés lors des réunions.
 	
-	\subsubsection{Impacts du changement}
-%	Identifier les systèmes impactés par la solution.
-	\lipsum[11]
-
-	\pagebreak
-	% --- --- --- --- %
+	\section{Documentation et Ressources}
+	% Documentation hébergée sur le serveur, liens vers les ressources.
 	
-	\section{Spécifications fonctionnelles}
-%	Décrire les spécifications du système global.
-	\lipsum[12]
+	\section{Conclusion}
+	% Bilan du projet, perspectives d'amélioration.
 	
-	\subsection{Titre}
-	\subsubsection{Objectif / Description}
-%	Description de haut niveau des spécifications.
-	\lipsum[13]
+	\section{Annexes}
+	% Graphiques, schémas, photos du robot, code source.
 	
-	\subsubsection{Cas d'utilisation}
-%	Mapper l'exigence fonctionnelle à des cas d'utilisation.
-	\lipsum[14]
+	\section{Remerciements}
+	% Remerciements aux encadrants, partenaires, etc.
 	
-	\subsubsection{Maquette}
-%	Fournir la maquette de la fonctionnalité.
-	\lipsum[15]
 	
-	\subsubsection{Exigences fonctionnelles}
-%	Détails au niveau de la page.
-	\lipsum[16]
-	\begin{longtable}{|l|l|l|}
-		\hline
-		\textbf{ID du spécimen} & \textbf{Description} & \textbf{Règles de gestion} \\
-		\hline
-	\end{longtable}
 	
-	\subsubsection{Spécifications au niveau du terrain}
-%	Éléments de données de champ liés à l'exigence fonctionnelle.
-	\lipsum[17]
-	
-	\pagebreak
-	% --- --- --- --- %
-	
-	\section{Configurations du système}
-%	Vue d'ensemble des étapes de configuration nécessaires.
-	\lipsum[18]
-	
-	\section{Autres exigences du système/exigences non fonctionnelles}
-%	Détails supplémentaires sur les aspects liés à la qualité.
-	\lipsum[19]
-	
-	\section{Exigences en matière de rapports}
-%	Définir les besoins en matière de rapports.
-	\lipsum[20]
-	
-	\section{Exigences d'intégration}
-%	Identifier les besoins d'intégration et les interfaces nécessaires.
-	\lipsum[21]
-	
-	\subsection{Traitement des exceptions/rapports d'erreurs}
-%	Expliquer les conditions d'erreur/exceptions.
-	\lipsum[22]
-	
-	\begin{longtable}{|l|l|l|l|}
-		\hline
-		\textbf{ID de l'exception} & \textbf{Erreur} & \textbf{Cause} & \textbf{Stratégie de solution} \\
-		\hline
-	\end{longtable}
-	
-	\section{Exigences en matière de migration/conversion des données}
-%	Expliquer le plan de conversion des données.
-	\lipsum[23]
-	
-	\subsection{Stratégie de conversion des données}
-%	Stratégie globale pour la conversion des données.
-	\lipsum[24]
-	
-	\subsection{Préparation à la conversion des données}
-%	Détails sur les conditions préalables à la conversion.
-	\lipsum[25]
-	
-	\subsection{Spécifications pour la conversion des données}
-	\lipsum[26]
-	\begin{longtable}{|l|l|l|l|l|}
-		\hline
-		\textbf{Source} & \textbf{Source Élément de données} & \textbf{Cible} & \textbf{Élément de données cible} & \textbf{Règles de conversion} \\
-		\hline
-	\end{longtable}
-	
-	\section{Références}
-%	Listez toutes les références à des documents externes.
-	\lipsum[27]
-	
-	\section{Questions ouvertes}
-	\lipsum[28]
-	
-	\begin{longtable}{|l|l|l|l|l|l|l|l|}
-		\hline
-		\textbf{ID de la question} & \textbf{Enjeu} & \textbf{Élevé par} & \textbf{Décision} & \textbf{Résolu par} & \textbf{Statut} \\
-		\hline
-	\end{longtable}
-	
-	\section{Annexe}
-%	Inclure toute information supplémentaire ou documents annexes.
-	\lipsum[29]
+%	\section{Références}
+%%	Listez toutes les références à des documents externes.
+%	\lipsum[27]
+%	
+%	\section{Questions ouvertes}
+%	\lipsum[28]
+%	
+%	\begin{longtable}{|l|l|l|l|l|l|l|l|}
+%		\hline
+%		\textbf{ID de la question} & \textbf{Enjeu} & \textbf{Élevé par} & \textbf{Décision} & \textbf{Résolu par} & \textbf{Statut} \\
+%		\hline
+%	\end{longtable}
+%	
+%	\section{Annexe}
+%%	Inclure toute information supplémentaire ou documents annexes.
+%	\lipsum[29]
 	
 \end{document}
