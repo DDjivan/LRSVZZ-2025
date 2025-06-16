@@ -133,14 +133,28 @@
 	
 	\section{Introduction}
 	% Contexte du projet, problématique, objectifs du robot.
-	Livrer des choses. Facilement, fiable. 
+	Livrer des choses. Facilement, fiable.
+
+	Ce projet a pour but de clôturer la fin de la première année de notre cycle ingénieur à 
+	l'ESIEE Paris. Il permet de mettre en application l'ensemble des connaissances acquises 
+	lors de notre formation et apprendre davantage sur d'autres logiciels informatique et 
+	électronique.
+	L'objectif est de créer un site web accessible depuis n'importe quel appareil connecté 
+	à internet permettant aux étudiants de commander de la nourriture et de se faire livrer 
+	via un robot vers l'étudiant, sans déplacement requis de la part de l'étudiant.
+	Ce besoin a été identifié lors d'emploi du temps chargé, par les longues files 
+	d'attente ou juste par la difficulté de certains étudiants à se déplacer.
+
+	Problématique : Comment concevoir un robot permettant de livrer de la nourriture 
+	aux étudiants depuis la cafétéria ?
 	
 	\section{État de l'Art}
 	% Revue des technologies existantes pour la livraison autonome.
-	
+
 	\section{Cahier des Charges Fonctionnel}
 	\subsection{Description des Fonctionnalités}
 	% Description des fonctionnalités requises (navigation, évitement d'obstacles, etc.)
+
 	
 	\subsection{Contraintes Techniques}
 	% Contraintes techniques (dimensions, poids, autonomie, etc.)
@@ -151,6 +165,32 @@
 	
 	\subsection{Description des Composants}
 	% Description des composants utilisés (Raspberry Pi, capteur ultrason, etc.)
+	Raspberry Pi 4 Model B : contrôle tous les composants.
+
+	Module de détection US HC-SR04 : détecte les obstacles.
+
+	Servomoteur FB5311M-360 à rotation continue + feedback : permet de faire tourner les roues du robot et l'option feedback permet la localisation du robot.
+
+	Deux roulettes pivotantes à platine, Diam.40 mm (Réf 82629519) : permet le déplacement du robot
+
+	Paire de roues 136 mm DGR136 : permet de déplacer le robot à l'aide des servomoteurs.
+
+	INIU Batterie Externe, 22.5W 10000mAh : permet d'alimenter les composants comme la Raspberry Pi 4 Model B et les servomoteurs.
+
+	Deux résistances 2.2 kOhm et 3.3 kOhm : la tension de sortie délivrée par la broche Echo du capteur HC-SR04 est de 5V. 
+	Or, la broche d'entrée du Rapsberry est conçue pour du 3,3 V au maximum. Pour ne pas endommager le Rapsberry et le capteur, nous allons utiliser un pont diviseur de tension.
+
+
+	Breadbord/PCB : permet de relier tous les composants
+
+	Module capteurs LSM9DSO SEN12636 : composé de gyroscope → mesure quand le robot tourne
+	Accéléromètre → mesure si le robot accélère ou freine
+	Magnétomètre → indique dans quelle direction absolue se trouve le robot (comme une boussole) 
+	=> va permettre de vérifier si le robot fait bien face aux points d’arrivé
+
+
+
+
 	
 	\section{Développement et Implémentation}
 	% Étapes de développement, utilisation de Git, défis rencontrés.
