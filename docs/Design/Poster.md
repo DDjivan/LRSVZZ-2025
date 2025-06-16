@@ -58,7 +58,8 @@ Sur le repository, dans le dossier `FichiersPosters`.
 - Un render Blender basique d'un robot (fichier `.blend` chez Djivan) 
 	- `./Untitled.png`
 - Flask
-	- https://flask.palletsprojects.com/en/stable/_images/flask-horizontal.svg
+	- ~~https://flask.palletsprojects.com/en/stable/_images/flask-horizontal.svg~~
+	- https://flask.palletsprojects.com/en/stable/_images/flask-name.svg
 - SQLite
 	- https://upload.wikimedia.org/wikipedia/commons/3/38/SQLite370.svg
 - SSH
