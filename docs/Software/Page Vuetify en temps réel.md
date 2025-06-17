@@ -1,4 +1,4 @@
-(Benjamin)
+#benjamin
 Dans cette section, on voit comment après avoir mis en place une page web avec Vuetify accessible par exemple par un téléphone sur le même réseau, on peut utiliser les [[WebSocket]]pour afficher en temps réel des informations. Dans cet exemple, on affiche des messages envoyés par le téléphone et l'ordinateur sur la page.
 ![500](attachments/Pasted%20image%2020250526135537.png)![200](attachments/Pasted%20image%2020250526135812.png)
 L'ensemble des fichiers pour ce test peut se retrouver dans le dossier Test WebSocket.
@@ -83,3 +83,4 @@ server.listen(3000, () => {
 
 ```
 Le [[CORS]] est nécessaire puisqu'il y a un serveur qui communique avec la page par des adresses différentes.
+

@@ -1,4 +1,4 @@
-(Benjamin)
+#benjamin
 Fait sur Kubuntu, pour la simplicité par rapport à Windows où il y avait des problèmes d'installation.
 
 [Vidéo d'initiation du site de vuetify](https://www.vuemastery.com/courses/beautify-with-vuetify/getting-started-with-vuetify/)

@@ -15,7 +15,7 @@ En suivant les [instructions Flask](https://flask.palletsprojects.com/en/stable/
 
 1. Créer un nouveau dossier et y naviguer. 
 ```bash
-mkdir -p pojet && cd $_
+mkdir -p EXEMPLEBACKEND && cd $_
 ```
 
 2. Créer un environnement virtuel. 

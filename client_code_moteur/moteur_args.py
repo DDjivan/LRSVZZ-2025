@@ -31,7 +31,7 @@ def send_impulsion_to_pin(arg_pi, pin_number:int, largeur_d_impulsion:int):
 
 
 def stop_pin(arg_pi, pin_number:int):
-    send_impulsion_to_pin(arg_pi, pin_number, 0)
+    send_impulsion_to_pin(arg_pi, pin_number, 1500)
     # Apparemment on peut aussi envoyer 1500 ? 
     # arg_pi.stop()
 
@@ -60,6 +60,10 @@ def main():
         '-s', '--speed', type=float, required=True,
         help="Vitesse entre -1 et 1. Mettre 0 arrête le moteur."
         )
+    notre_parser.add_argument(
+        '-t', '--time', type=int, required=True,
+        help="Temps en secondes."
+        )
 
     nos_args = notre_parser.parse_args()
 
@@ -72,10 +76,13 @@ def main():
 
     if nos_args.speed == 0:
         stop_pin(notre_pi, nos_args.pin)
+        stop_pin(notre_pi, nos_args.pin +1)
     else:
         start_pin(notre_pi, nos_args.pin, nos_args.speed)
-        time.sleep(2)
+        start_pin(notre_pi, nos_args.pin +1, -nos_args.speed)
+        time.sleep(nos_args.time)
         stop_pin(notre_pi, nos_args.pin)
+        stop_pin(notre_pi, nos_args.pin +1)
 
     notre_pi.stop()
     
