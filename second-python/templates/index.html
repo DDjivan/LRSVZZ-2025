@@ -42,12 +42,6 @@
             <button class="orangebutton" onclick="executeScript()">🐍 Run Script</button>
         </div>
         <p id="response"></p>
-
-            <h1>MathJax Test</h1>
-    <p>This is an inline math expression: $ e^x $.</p>
-    <p>And this is a standalone math expression:</p>
-    <p>$ \int_0^\infty e^{-x} \, dx = 1 $</p>
-
     </header>
 
     <main>
@@ -65,7 +59,6 @@
         const svgIconLinkExternal = "{{ url_for('static', filename='icon-link-external.svg') }}";
         const svgIconLinkFlathub = "{{ url_for('static', filename='icon-link-flatpak.svg') }}";
         const svgIconLinkEmail = "{{ url_for('static', filename='icon-link-email.svg') }}";
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
     </script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="{{ url_for('static', filename='script_collapsible.js') }}"></script>
