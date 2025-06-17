@@ -55,6 +55,10 @@ def convert_highlighted_text(text):
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
 from os import path
+from flask import send_file
+
+def render_error(error_msg) -> str :
+    return f'<h1>Error</h1><p>{str(error_msg)}</p>'
 
 @app.route('/')
 def web_home() :
@@ -76,15 +80,24 @@ def web_home() :
 def web_markdown(filename:str) :
 
     sPath = path.join('../', filename)
+    text_file_extensions = ['.py', '.sh', '.html', '.css', '.js', '.json', '.txt', ]
 
     if not path.isfile(sPath):
-        return render_template('index.html', content=f'<h1>404 Not Found</h1>')
-
-    with open(sPath, 'r', encoding='utf-8') as file:
-        data = file.read()
+        return render_template('index.html', content=render_error('404 Not Found'))
 
     if not filename.endswith('.md'):
-        return render_template('index.html', content=f'<pre>{data}</pre>')
+        if not any(filename.endswith(ext) for ext in text_file_extensions):
+            return send_file(sPath)  # utile pour les images et les pdf 
+
+    try:
+        with open(sPath, 'r', encoding='utf-8') as file:
+            data = file.read()
+    except Exception as e:
+        return render_template('index.html', content=render_error(e))
+
+    for extension in text_file_extensions:
+        if filename.endswith(extension):
+            return render_template('index.html', content=f'<pre>{data}</pre>')
 
     data = convert_https_links(data)
     data = convert_strikethrough_text(data)
@@ -92,7 +105,6 @@ def web_markdown(filename:str) :
 
     html_data = md_to_html(data)
 
-    # return render_template_string(html_data)
     return render_template('index.html', content=html_data)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #

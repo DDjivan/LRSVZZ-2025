@@ -2,9 +2,9 @@
 ## Où 
 Dans le dossier "Test Code Moteur", deux versions de scripts. 
 
-1. [moteurMarche.py](../../Test%20Code%20Moteur/moteurMarche.py) 
-2. [moteur.py](../../Test%20Code%20Moteur/moteur.py) 
-3. 2025-06-12 : [moteur_args.py](../../Test%20Code%20Moteur/moteur_args.py) 
+1. [moteurMarche.py](../../client_code_moteur/moteurMarche.py) 
+2. [moteur.py](../../client_code_moteur/moteur.py) 
+3. 2025-06-12 : [moteur_args.py](../../client_code_moteur/moteur_args.py) 
 
 Le daemon `pigpiod` (Pi GPIO daemon) est nécessaire aux scripts. 
 Il est lancé au démarrage avec `systemd`, qu'on contrôle avec la commande `systemctl`. 
