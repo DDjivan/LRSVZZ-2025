@@ -1,0 +1,22 @@
+/* Base typographique */
+body {
+    padding: 1% 10%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+p, ul, li, table {
+    font-family: Helvetica, Arial, sans-serif;
+}
+code {
+    font-family: 'Courier New', Courier, monospace;
+    outline-offset: 4px;
+    border-radius: 8px;
+    color: oklch(0.5 0.1 150);
+    background-color: oklch(1 0.1 150 / 10%);
+}
+
+/* Sélection */
+::selection {
+    background-color: oklch(0.9015 0.0468 32.8);
+}

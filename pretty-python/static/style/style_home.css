@@ -1,15 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background-color: white;
-}
-
 section {
   width: 100%;
   display: flex;
@@ -33,6 +21,8 @@ section {
   align-items: flex-start;
   position: relative;
   z-index: 2;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .left-title {
@@ -61,6 +51,8 @@ section {
   font-style: italic;
   z-index: 1;
   pointer-events: none;
+  text-align: center;
+  padding: 0 1rem;
 }
 
 .bottom-section .content {
@@ -132,4 +124,45 @@ section {
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ Media Query for mobile */
+@media (max-width: 768px) {
+  .top-section, .bottom-section {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .left-title {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  .right-box {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    align-self: flex-start;
+  }
+
+  .bg-text {
+    font-size: 1.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .welcome {
+    font-size: 1rem;
+  }
+
+  .roles li {
+    font-size: 1rem;
+  }
+
+  .bottom-section .content {
+    padding: 0.5rem;
+  }
 }

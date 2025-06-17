@@ -60,6 +60,10 @@ from os import path
 def web_home() :
     return render_template('index.html')
 
+@app.route('/choix')
+def web_choix() :
+    return render_template('choix.html')
+
 @app.route('/client')
 def web_client() :
     return render_template('client.html')
@@ -68,7 +72,7 @@ def web_client() :
 def web_dev() :
     return render_template('dev.html')
 
-@app.route('/doc')
+@app.route('/docs')
 def web_doc() :
     sREADME = path.join('../', 'README.md')
 

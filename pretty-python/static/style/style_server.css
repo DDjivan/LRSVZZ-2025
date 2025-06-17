@@ -1,1 +1,22 @@
- 
+ /* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: oklch(0.32 0.15 265);
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    padding: 1rem 0;
+    border: 3px solid oklch(0.32 0.15 265);
+    border-radius: 16px;
+}
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.navbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}

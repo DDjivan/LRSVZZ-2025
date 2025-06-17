@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style_police.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style_doc.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style_collapsible.css') }}">
 
@@ -16,12 +17,17 @@
 
 
 <body>
-    <header>
-        <h1>🍱 MechaDelivery-Doc</h1>
-
-        <p>Du texte. </p>
-
-    </header>
+    <header class ="navbar"><nav>
+            <h1>🍱 MechaDelivery-Doc</h1>
+            <div class="nav-toggle" id="burger">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+            <li><a href="/">Acceuil </a></li>
+            <li><a href="/docs">Acceuil Documentation </a></li>
+            <li><a href="/docs/Software.md">Software</a></li>
+            <li><a href="/docs/Hardware.md">Hardware</a></li>
+            <li><a href="/docs/Design.md">Design</a></li>
+            </ul>
+    </nav></header>
 
     <main>
         <div id="markdown-content">

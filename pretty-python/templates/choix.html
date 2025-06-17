@@ -8,14 +8,17 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style/style_home.css') }}" />
 </head>
 <body>
-  <!-- SECTION 1 -->
-  <section class="top-section">
-    <div class="header">
-      <div class="left-title">MechaDelivery</div>
-      <div class="right-box">Description RAPIDE</div>
+  <!-- SECTION 2 -->
+  <section class="bottom-section">
+    <div class="content">
+      <p class="welcome">Bienvenu, choisissez :</p>
+      <ul class="roles">
+        <li class="client"> <a href="client">Client</a></li>
+        <li class="serveur"> <a href="server">Serveur</a></li>
+        <li class="dev"> <a href="dev">Développeur</a> </li>
+      </ul>
+      <p class="doc">Ou regardez la <a href="docs" class="documentation">documentation</a></p>
     </div>
-    <div class="bg-text">(Robot en arrière-plan)</div>
-    <p><a href="/choix">Commencer</a></p>
   </section>
 
   <script src="{{ url_for('static', filename='script/script_home.js') }}"></script>
