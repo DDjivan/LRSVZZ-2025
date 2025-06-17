@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style_doc.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style_collapsible.css') }}">
+
+    <title>MechaDelivery-Doc</title>
+    <link rel="icon" href="{{ url_for('static', filename='shop-four-tiles.svg') }}" type="image/x-icon">
+</head>
+
+
+
+<body>
+    <header>
+        <h1>🍱 MechaDelivery-Doc</h1>
+
+        <p>Du texte. </p>
+
+    </header>
+
+    <main>
+        <div id="markdown-content">
+            {{ content|safe }}
+        </div>
+
+        <br>
+
+    </main>
+
+    <script>
+        const svgIconLink = "{{ url_for('static', filename='square.svg') }}";
+        const svgIconLinkInternal = "{{ url_for('static', filename='icon-link-internal.svg') }}";
+        const svgIconLinkExternal = "{{ url_for('static', filename='icon-link-external.svg') }}";
+        const svgIconLinkFlathub = "{{ url_for('static', filename='icon-link-flatpak.svg') }}";
+        const svgIconLinkEmail = "{{ url_for('static', filename='icon-link-email.svg') }}";
+    </script>
+    <script src="{{ url_for('static', filename='script/script_doc.js') }}"></script>
+    <script src="{{ url_for('static', filename='script/script_collapsible.js') }}"></script>
+    <script src="{{ url_for('static', filename='script/script_link_icons.js') }}"></script>
+</body>
+
+
+
+</html>

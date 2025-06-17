@@ -58,6 +58,18 @@ from os import path
 
 @app.route('/')
 def web_home() :
+    return render_template('index.html')
+
+@app.route('/client')
+def web_client() :
+    return render_template('client.html')
+
+@app.route('/dev')
+def web_dev() :
+    return render_template('dev.html')
+
+@app.route('/doc')
+def web_doc() :
     sREADME = path.join('../', 'README.md')
 
     with open(sREADME, 'r', encoding='utf-8') as file:
@@ -70,7 +82,11 @@ def web_home() :
         'footnotes': True
     })
 
-    return render_template('index.html', content=html_data)
+    return render_template('doc.html', content=html_data)
+
+@app.route('/server')
+def web_server() :
+    return render_template('server.html')
 
 @app.route('/<path:filename>')
 def web_markdown(filename:str) :
@@ -78,13 +94,13 @@ def web_markdown(filename:str) :
     sPath = path.join('../', filename)
 
     if not path.isfile(sPath):
-        return render_template('index.html', content=f'<h1>404 Not Found</h1>')
+        return render_template('doc.html', content=f'<h1>404 Not Found</h1>')
 
     with open(sPath, 'r', encoding='utf-8') as file:
         data = file.read()
 
     if not filename.endswith('.md'):
-        return render_template('index.html', content=f'<pre>{data}</pre>')
+        return render_template('doc.html', content=f'<pre>{data}</pre>')
 
     data = convert_https_links(data)
     data = convert_strikethrough_text(data)
@@ -93,7 +109,7 @@ def web_markdown(filename:str) :
     html_data = md_to_html(data)
 
     # return render_template_string(html_data)
-    return render_template('index.html', content=html_data)
+    return render_template('doc.html', content=html_data)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
