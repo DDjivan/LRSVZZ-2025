@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style_collapsible.css') }}">
 
+    <script type="text/javascript" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+    window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']] 
+    },
+    options: {
+        skipHtmlTags: []
+    }
+    };
+    </script>
+
     <title>MECHA DELIVERY 😎</title>
     <link rel="icon" href="{{ url_for('static', filename='shop-four-tiles.svg') }}" type="image/x-icon">
 </head>
@@ -28,7 +43,6 @@
             <button class="orangebutton" onclick="moteurMarche()">🐍 Moteur Marche</button>
         </div>
         <p id="response"></p>
-
     </header>
 
     <main>

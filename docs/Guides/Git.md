@@ -47,4 +47,15 @@ git pull
 ```
 	Remplacer `main` par le nom d'une autre branche si nécessaire. 
 
+## Problèmes 
+Un conflit de fichier qui contient énormément de "current changes" et de "incoming changes", comme avec un fichier SVG ? 
+
+En ouvrant le fichier avec VSCodium, (faire `Ctrl+Shift+P` et sélectionner "View: Reopen Editor with Text Editor" si la version texte ne s'affiche pas), il est possible de gérer plus facilement les différences. 
+
+Utiliser la Command Palette (`Ctrl+Shift+P`) et sélectionner "Merge Conflict: Accept All Incoming" ou "Merge Conflict: Accept All Current" pour garder une version uniquement. 
+
+Ensuite, faire "enregistrer sous" pour chacune des sélections fois pour créer les deux fichiers. 
+
+[Source](https://stackoverflow.com/questions/52288120/how-can-i-accept-all-current-changes-in-vscode-at-once) 
+
 
