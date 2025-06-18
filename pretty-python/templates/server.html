@@ -1,18 +1,49 @@
- <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MechaDelivery-Server</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style/style_police.css') }}" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='style/style_server.css') }}" />
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MechaDelivery - Serveur</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style/style_server.css') }}" />
 </head>
-
 <body>
- <header class ="navbar"><nav>
-            <h1>🍱 MechaDelivery-Server</h1>
-    </nav></header>
-  <section class="top-section">
-    <div class="header">
-      <h1>MechaDelivery-Server</h1>
+
+<header class="navbar">
+  <nav>
+    <h1>🍱 MechaDelivery-Server</h1>
+  </nav>
+</header>
+
+<section class="top-section">
+<h2>Cliquer ici pour gérer les <a href="/gestion"> produits</a> </>
+  <h2>Commandes en attente</h2>
+
+  {% if commandes|length == 0 %}
+    <p>Aucune commande en attente.</p>
+  {% else %}
+    <div class="commandes-container">
+      {% for cmd in commandes %}
+      <div class="commande-bulle">
+        <h3>Commande #{{ cmd.id }} - {{ cmd.destination }}</h3>
+        <p><em>Passée le {{ cmd.date }}</em></p>
+        <ul>
+          {% for produit, quantite in cmd.order_items %}
+            <li>{{ produit }} × {{ quantite }}</li>
+          {% endfor %}
+        </ul>
+
+        <form method="POST" class="form-commande">
+          <input type="hidden" name="order_id" value="{{ cmd.id }}" />
+
+          <button type="submit" name="action" value="envoyer">Envoyer</button>
+          <button type="submit" name="action" value="refuser" onclick="return confirm('Confirmer le refus de la commande ?')">Refuser</button>
+        </form>
+      </div>
+      {% endfor %}
     </div>
-  </section>
+  {% endif %}
+
+</section>
+
 </body>
+</html>

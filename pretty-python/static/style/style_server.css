@@ -20,3 +20,50 @@
     margin: 0;
     font-size: 1.5rem;
 }
+
+.orders-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.order-bubble {
+  background-color: oklch(0.97 0.05 230);
+  border: 2px solid oklch(0.7 0.2 230);
+  border-radius: 16px;
+  padding: 1rem;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.order-bubble h3 {
+  margin-top: 0;
+}
+
+.order-bubble ul {
+  padding-left: 1.2rem;
+}
+
+button.refuse {
+  background-color: oklch(0.6 0.2 25);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+button.send {
+  background-color: oklch(0.7 0.15 140);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+select {
+  margin-right: 0.5rem;
+}

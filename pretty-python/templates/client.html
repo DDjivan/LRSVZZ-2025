@@ -1,4 +1,4 @@
- <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MechaDelivery-Client</title>
@@ -7,12 +7,51 @@
 </head>
 
 <body>
- <header class ="navbar"><nav>
-            <h1>🍱 MechaDelivery-Client</h1>
-    </nav></header>
+  <header class="navbar">
+    <nav>
+      <h1>🍱 MechaDelivery-Client</h1>
+    </nav>
+  </header>
+
   <section class="top-section">
     <div class="header">
-      <h1>MechaDelivery-Client</h1>
+      <h1>Choisissez vos produits</h1>
     </div>
+
+    <form action="{{ url_for('commander') }}" method="POST">
+      <table>
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+           <tr>
+            <td>{{ product[0] }}</td>
+            <td>
+              <div class="qty-control">
+                <button type="button" onclick="adjustQty('{{ product[0]|replace(' ', '_') }}', -1)">−</button>
+                <input type="number" id="qty_{{ product[0]|replace(' ', '_') }}" name="quantite_{{ product[0]|replace(' ', '_') }}" value="0" min="0" />
+                <button type="button" onclick="adjustQty('{{ product[0]|replace(' ', '_') }}', 1)">+</button>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <select id="destination" name="destination" required>
+        <option value="" disabled selected>Choisissez une destination</option>
+        <option value="Paris">Paris</option>
+        <option value="Lyon">Lyon</option>
+        <option value="Marseille">Marseille</option>
+        <option value="Toulouse">Toulouse</option>
+        <option value="Bordeaux">Bordeaux</option>
+      </select>
+      <button type="submit">Commander</button>
+    </form>
   </section>
 </body>
+
+<script src="{{ url_for('static', filename='script/script_client.js') }}"></script>
