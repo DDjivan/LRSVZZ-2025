@@ -27,7 +27,7 @@ D'après https://jdp.esiee.fr/videos-jdp-2025/
 > - **Musique et images libres de droits** 
 > - **Durée** : entre de 1:30 et 2:30  
 > - **Envoyez le lien de votre vidéo à** jourdesprojets@esiee.fr 
-> - **Date de transmission** : au plus tard le **20 juin 2025 midi. Le jury se réunit le 23 juin 2025.**  
+> - ==**Date de transmission** : au plus tard le **20 juin 2025 midi.== Le jury se réunit le 23 juin 2025.**  
 > 
 > **Exemples de vidéos :** https://jdp.esiee.fr/concours-videos-2018/ 
 
@@ -37,6 +37,23 @@ Il faudrait qu'elle attire l'œil.
 Pourquoi pas plusieurs versions ? 
 Trouver des musiques libres d'usage (chercher "royalty free" en ligne). 
 
+### 2025-06-18 
+Une vidéo qui explique notre projet simplement, tout en restant divertissant. 
+
+Plusieurs parties. 
+
+- Nos efforts et notre assiduité 
+- Les différents prototypes 
+- Explication de la partie théorique 
+- Vulgarisation de la partie logicielle 
+- Photo de nous 
+- Moments marrants ? 
+
+À ne pas oublier : 
+
+- Égalisation du son 
+- Crédits (musique, images, sons... ) à la fin de la vidéo 
+- 
 
 ## Comment 
 Un logiciel de composition vidéo. 
