@@ -82,6 +82,12 @@ Sur le repository, dans le dossier `FichiersPosters`.
 	- https://no-ai-icon.com/all-downloads/?accepted=true 
 - Markdown 
 	- https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg 
+- Raspberry Pi par [SiRo126](https://www.reddit.com/r/raspberry_pi/comments/5y0s0j/comment/dempy1f/) 
+	- https://i.imgur.com/YGTQmIg.png 
+- Git 
+	- https://git-scm.com/downloads/logos 
+	- https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg 
+	- fonctionne pas 
 
 #### Éléments étapes 
 1. Commande 
