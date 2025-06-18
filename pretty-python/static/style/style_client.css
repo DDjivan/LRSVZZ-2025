@@ -1,1 +1,116 @@
- 
+ /* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: oklch(0.53 0.22 29);
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    padding: 1rem 0;
+    border: 3px solid oklch(0.53 0.22 29);
+    border-radius: 16px;
+}
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.navbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: oklch(0.9 0.05 30);
+}
+
+button[type="submit"] {
+  margin-top: 1em;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: oklch(0.7 0.25 32);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: oklch(0.65 0.25 32);
+}
+
+.qty-control {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .qty-control button {
+      padding: 0.25em 0.5em;
+      font-size: 1rem;
+      border: none;
+      background-color: oklch(0.85 0.1 30);
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .qty-control input[type="number"] {
+      width: 3em;
+      text-align: center;
+    }
+/* Supprime les flèches du champ number sur Chrome, Safari, Edge */
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Supprime les flèches sur Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  /* Style du label */
+label[for="destination"] {
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+/* Style du select */
+#destination {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 2px solid oklch(0.53 0.22 29);
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  min-width: 200px;
+}
+
+/* Focus sur le select */
+#destination:focus {
+  outline: none;
+  border-color: oklch(0.7 0.3 40);
+  box-shadow: 0 0 5px oklch(0.7 0.3 40 / 0.7);
+}
+
+/* Style option (fonctionne sur certains navigateurs) */
+#destination option {
+  padding: 8px;
+}

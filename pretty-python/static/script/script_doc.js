@@ -48,3 +48,13 @@ async function moteurMarche() {
             document.getElementById('response').innerText = 'Error: ' + error.message;
         });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("nav-links");
+
+    burger.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    });
+});
+
