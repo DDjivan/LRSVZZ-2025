@@ -1,3 +1,4 @@
+% !TeX spellcheck = fr_FR
 % --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
 
 \documentclass[a4paper,12pt]{report}  % args : article, report, book 
@@ -10,6 +11,9 @@
 \usepackage{fontspec}  % polices d'écriture du système 
 \usepackage{tabularx}  % pour des tableaux larges 
 \usepackage{lipsum}  % pour du texte 
+%\usepackage{titlepic}  % pour avoir une image dans \maketitle
+\usepackage{titling}  % pour utiliser \theauthor, \thedate, \thetitle 
+\usepackage{datetime}  % pour que la date de \thedate soit en français 
 
 % --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
 
@@ -33,10 +37,25 @@
 \title{Cahier des charges fonctionnel}
 \author{Groupe LRSVZZ}
 \date{\today}
+%\titlepic{\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf}}
 
 \begin{document}
 	
-	\maketitle
+%	\maketitle
+
+	\begin{titlepage}
+		\centering
+		\vspace*{9cm} 
+		{\LARGE \bfseries \thetitle \par}
+		\vspace{1cm} 
+		\large \theauthor \par
+		\vspace{0.5cm} 
+		\large \thedate \par
+		\vspace{5cm} 
+		\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf} 
+		\vfill 
+	\end{titlepage}
+	
 %	\pagebreak
 	
 	% --- --- --- --- %
@@ -100,178 +119,124 @@
 	\pagebreak
 	% --- --- --- --- %
 	
-	\section{Introduction}
-%	Identifiez le besoin ou le problème de l'entreprise.
-	Introduction.
-	\lipsum[1] 
+	\section{Résumé}
+	% Brève description du projet, de ses objectifs et de ses résultats attendus.
+	
+	Résumé. 
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=\textwidth]{./attachements/Untitled-2025-06-11-1251_B.pdf}
+		\includegraphics[width=0.8\textwidth]{./attachements/Untitled-2025-06-11-1251_B.pdf}
 		\caption{Description. }
 		\label{fig:your_label}
 	\end{figure}
 	
-	\subsection{Objet du document}
-%	Décrivez le cahier des charges fonctionnel et son objectif.
-%	Le cahier des charges fonctionnel décrit comment la solution système fonctionnera et son comportement requis.
-	\lipsum[2] 
-	
-	\subsection{Portée du projet}
-%	Décrire la portée du projet et la solution proposée.
-	\lipsum[3]
-	
-	\subsection{Champ d'application du document}
-%	Décrire le champ d'application spécifique du document.
-	\lipsum[4]
-	
-	\subsection{Documents connexes}
-%	Ajouter toute documentation pertinente.
-	\begin{longtable}{|l|l|l|}
-		\hline
-		\textbf{Composant} & \textbf{Nom (lien)} & \textbf{Description} \\
-		\hline
-	\end{longtable}
-	
-	\subsection{Termes/acronymes et définitions}
-%	Indiquez les termes et définitions.
-	\lipsum[5]
-	\begin{longtable}{|l|l|l|}
-		\hline
-		\textbf{Terme/Acronyme} & \textbf{Définition} & \textbf{Description} \\
-		\hline
-	\end{longtable}
-	
-	\subsection{Risques et hypothèses}
-%	Énumérer les risques et hypothèses affectant la conception.
-	\lipsum[6]
-	
-	\pagebreak
-	% --- --- --- --- %
-	
-	\section{Aperçu du système/de la solution}
-%	Brève description du logiciel et de la solution.
-	\lipsum[7]
-	
-	\subsection{Diagrammes}
-%	Fournir des représentations graphiques appropriées.
-	\lipsum[8]
-	
-	\subsection{Acteurs du système}
-	\subsubsection{Rôles et responsabilités des utilisateurs / exigences en matière d'autorité}
-	\lipsum[9]
-	\begin{longtable}{|l|l|l|l|l|}
-		\hline
-		\textbf{Utilisateur/Rôle} & \textbf{Exemple} & \textbf{Fréquence d'utilisation} & \textbf{Sécurité/accès} & \textbf{Notes} \\
-		\hline
-	\end{longtable}
-	
-	\subsection{Dépendances et impacts des changements}
-	\subsubsection{Dépendances du système}
-%	Liste des dépendances avec d'autres systèmes.
-	\lipsum[10]
-	
-	\subsubsection{Impacts du changement}
-%	Identifier les systèmes impactés par la solution.
-	\lipsum[11]
+	\section{Introduction}
+	% Contexte du projet, problématique, objectifs du robot.
+	Livrer des choses. Facilement, fiable.
 
-	\pagebreak
-	% --- --- --- --- %
+	Ce projet a pour but de clôturer la fin de la première année de notre cycle ingénieur à 
+	l'ESIEE Paris. Il permet de mettre en application l'ensemble des connaissances acquises 
+	lors de notre formation et apprendre davantage sur d'autres logiciels informatique et 
+	électronique.
+	L'objectif est de créer un site web accessible depuis n'importe quel appareil connecté 
+	à internet permettant aux étudiants de commander de la nourriture et de se faire livrer 
+	via un robot vers l'étudiant, sans déplacement requis de la part de l'étudiant.
+	Ce besoin a été identifié lors d'emploi du temps chargé, par les longues files 
+	d'attente ou juste par la difficulté de certains étudiants à se déplacer.
+
+	Problématique : Comment concevoir un robot permettant de livrer de la nourriture 
+	aux étudiants depuis la cafétéria ?
 	
-	\section{Spécifications fonctionnelles}
-%	Décrire les spécifications du système global.
-	\lipsum[12]
+	\section{État de l'Art}
+	% Revue des technologies existantes pour la livraison autonome.
+
+	\section{Cahier des Charges Fonctionnel}
+	\subsection{Description des Fonctionnalités}
+	% Description des fonctionnalités requises (navigation, évitement d'obstacles, etc.)
+
 	
-	\subsection{Titre}
-	\subsubsection{Objectif / Description}
-%	Description de haut niveau des spécifications.
-	\lipsum[13]
+	\subsection{Contraintes Techniques}
+	% Contraintes techniques (dimensions, poids, autonomie, etc.)
 	
-	\subsubsection{Cas d'utilisation}
-%	Mapper l'exigence fonctionnelle à des cas d'utilisation.
-	\lipsum[14]
+	\section{Architecture du Système}
+	\subsection{Schéma de l'Architecture}
+	% Inclure un schéma de l'architecture matérielle et logicielle.
 	
-	\subsubsection{Maquette}
-%	Fournir la maquette de la fonctionnalité.
-	\lipsum[15]
+	\subsection{Description des Composants}
+	% Description des composants utilisés (Raspberry Pi, capteur ultrason, etc.)
+	Raspberry Pi 4 Model B : contrôle tous les composants.
+
+	Module de détection US HC-SR04 : détecte les obstacles.
+
+	Servomoteur FB5311M-360 à rotation continue + feedback : permet de faire tourner les roues du robot et l'option feedback permet la localisation du robot.
+
+	Deux roulettes pivotantes à platine, Diam.40 mm (Réf 82629519) : permet le déplacement du robot
+
+	Paire de roues 136 mm DGR136 : permet de déplacer le robot à l'aide des servomoteurs.
+
+	INIU Batterie Externe, 22.5W 10000mAh : permet d'alimenter les composants comme la Raspberry Pi 4 Model B et les servomoteurs.
+
+	Deux résistances 2.2 kOhm et 3.3 kOhm : la tension de sortie délivrée par la broche Echo du capteur HC-SR04 est de 5V. 
+	Or, la broche d'entrée du Rapsberry est conçue pour du 3,3 V au maximum. Pour ne pas endommager le Rapsberry et le capteur, nous allons utiliser un pont diviseur de tension.
+
+
+	Breadbord/PCB : permet de relier tous les composants
+
+	Module capteurs LSM9DSO SEN12636 : composé de gyroscope → mesure quand le robot tourne
+	Accéléromètre → mesure si le robot accélère ou freine
+	Magnétomètre → indique dans quelle direction absolue se trouve le robot (comme une boussole) 
+	=> va permettre de vérifier si le robot fait bien face aux points d’arrivé
+
+
+
+
 	
-	\subsubsection{Exigences fonctionnelles}
-%	Détails au niveau de la page.
-	\lipsum[16]
-	\begin{longtable}{|l|l|l|}
-		\hline
-		\textbf{ID du spécimen} & \textbf{Description} & \textbf{Règles de gestion} \\
-		\hline
-	\end{longtable}
+	\section{Développement et Implémentation}
+	% Étapes de développement, utilisation de Git, défis rencontrés.
 	
-	\subsubsection{Spécifications au niveau du terrain}
-%	Éléments de données de champ liés à l'exigence fonctionnelle.
-	\lipsum[17]
+	\section{Tests et Validation}
+	% Méthodologie de test, résultats des tests, retours d'expérience.
 	
-	\pagebreak
-	% --- --- --- --- %
+	\section{Rétro-planning et Gestion de Projet}
+	\subsection{Organisation des Tâches}
+	% Inclure un tableau ou un graphique du rétroplanning.
 	
-	\section{Configurations du système}
-%	Vue d'ensemble des étapes de configuration nécessaires.
-	\lipsum[18]
+	\subsection{Liste des Actions Réalisées}
+	% Liste des actions réalisées pendant le projet.
 	
-	\section{Autres exigences du système/exigences non fonctionnelles}
-%	Détails supplémentaires sur les aspects liés à la qualité.
-	\lipsum[19]
+	\subsection{Compte Rendu des Réunions Hebdomadaires}
+	% Résumé des points discutés lors des réunions.
 	
-	\section{Exigences en matière de rapports}
-%	Définir les besoins en matière de rapports.
-	\lipsum[20]
+	\section{Documentation et Ressources}
+	% Documentation hébergée sur le serveur, liens vers les ressources.
 	
-	\section{Exigences d'intégration}
-%	Identifier les besoins d'intégration et les interfaces nécessaires.
-	\lipsum[21]
+	\section{Conclusion}
+	% Bilan du projet, perspectives d'amélioration.
 	
-	\subsection{Traitement des exceptions/rapports d'erreurs}
-%	Expliquer les conditions d'erreur/exceptions.
-	\lipsum[22]
+	\section{Annexes}
+	% Graphiques, schémas, photos du robot, code source.
 	
-	\begin{longtable}{|l|l|l|l|}
-		\hline
-		\textbf{ID de l'exception} & \textbf{Erreur} & \textbf{Cause} & \textbf{Stratégie de solution} \\
-		\hline
-	\end{longtable}
+	\section{Remerciements}
+	% Remerciements aux encadrants, partenaires, etc.
 	
-	\section{Exigences en matière de migration/conversion des données}
-%	Expliquer le plan de conversion des données.
-	\lipsum[23]
 	
-	\subsection{Stratégie de conversion des données}
-%	Stratégie globale pour la conversion des données.
-	\lipsum[24]
 	
-	\subsection{Préparation à la conversion des données}
-%	Détails sur les conditions préalables à la conversion.
-	\lipsum[25]
-	
-	\subsection{Spécifications pour la conversion des données}
-	\lipsum[26]
-	\begin{longtable}{|l|l|l|l|l|}
-		\hline
-		\textbf{Source} & \textbf{Source Élément de données} & \textbf{Cible} & \textbf{Élément de données cible} & \textbf{Règles de conversion} \\
-		\hline
-	\end{longtable}
-	
-	\section{Références}
-%	Listez toutes les références à des documents externes.
-	\lipsum[27]
-	
-	\section{Questions ouvertes}
-	\lipsum[28]
-	
-	\begin{longtable}{|l|l|l|l|l|l|l|l|}
-		\hline
-		\textbf{ID de la question} & \textbf{Enjeu} & \textbf{Élevé par} & \textbf{Décision} & \textbf{Résolu par} & \textbf{Statut} \\
-		\hline
-	\end{longtable}
-	
-	\section{Annexe}
-%	Inclure toute information supplémentaire ou documents annexes.
-	\lipsum[29]
+%	\section{Références}
+%%	Listez toutes les références à des documents externes.
+%	\lipsum[27]
+%	
+%	\section{Questions ouvertes}
+%	\lipsum[28]
+%	
+%	\begin{longtable}{|l|l|l|l|l|l|l|l|}
+%		\hline
+%		\textbf{ID de la question} & \textbf{Enjeu} & \textbf{Élevé par} & \textbf{Décision} & \textbf{Résolu par} & \textbf{Statut} \\
+%		\hline
+%	\end{longtable}
+%	
+%	\section{Annexe}
+%%	Inclure toute information supplémentaire ou documents annexes.
+%	\lipsum[29]
 	
 \end{document}
