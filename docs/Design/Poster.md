@@ -77,7 +77,11 @@ Sur le repository, dans le dossier `FichiersPosters`.
 - SQLite
 	- https://upload.wikimedia.org/wikipedia/commons/3/38/SQLite370.svg
 - SSH
-	- https://upload.wikimedia.org/wikipedia/commons/0/00/Unofficial_SSH_Logo.svg
+	- https://upload.wikimedia.org/wikipedia/commons/0/00/Unofficial_SSH_Logo.svg 
+- Travail humain 
+	- https://no-ai-icon.com/all-downloads/?accepted=true 
+- Markdown 
+	- https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg 
 
 #### Éléments étapes 
 1. Commande 
