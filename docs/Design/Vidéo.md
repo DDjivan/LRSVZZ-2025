@@ -27,7 +27,7 @@ D'après https://jdp.esiee.fr/videos-jdp-2025/
 > - **Musique et images libres de droits** 
 > - **Durée** : entre de 1:30 et 2:30  
 > - **Envoyez le lien de votre vidéo à** jourdesprojets@esiee.fr 
-> - **Date de transmission** : au plus tard le **20 juin 2025 midi. Le jury se réunit le 23 juin 2025.**  
+ > - **Date de transmission** : au plus tard le **20 juin 2025 midi. Le jury se réunit le 23 juin 2025.**  
 > 
 > **Exemples de vidéos :** https://jdp.esiee.fr/concours-videos-2018/ 
 
@@ -80,3 +80,5 @@ Des musiques libres d'usage.
 
 - https://pixabay.com/ 
 
+Thisalini qui fait le rapport / CDCF 
+Djivan ou Benjamin qui fait le rapport hebdomadaire 

@@ -1,3 +1,22 @@
+.orangebutton {
+    line-height: 1.2;
+    padding: 0.5em 2em;
+    font-size: 1rem;
+    color: oklch(0.287 0.0742 270.58);
+    background-color: oklch(0.9911 0 0);
+    border: 2px solid oklch(0.8602 0.0018 247.84);
+    border-radius: 8px;
+    box-shadow: 0px 1px 0px 1px oklch(0.8602 0.0018 247.84);
+    text-align: left;
+    font-size: xx-large;
+}
+.orangebutton:hover {
+    border-color: oklch(0.7414 0.1678 32.3801);
+}
+.orangebutton:active {
+    background-color: oklch(0.8738 0.0576 26.1301);
+}
+
 section {
   width: 100%;
   display: flex;
@@ -9,8 +28,8 @@ section {
 .top-section, .bottom-section {
   height: 100vh;
   position: relative;
-  border: 2px solid green;
-  padding: 2rem;
+  border: 2px solid black;
+  /* padding: 2rem; */
   overflow: hidden;
 }
 
@@ -38,7 +57,7 @@ section {
   font-weight: bold;
   font-size: 1rem;
   background-color: white;
-  animation: slideInRight 1s ease-out;
+  animation: slideInRight 2s ease-out;
 }
 
 .bg-text {

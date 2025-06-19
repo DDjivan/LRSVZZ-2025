@@ -11,11 +11,12 @@
   <!-- SECTION 1 -->
   <section class="top-section">
     <div class="header">
-      <div class="left-title">MechaDelivery</div>
-      <div class="right-box">Description RAPIDE</div>
+      <div class="left-title"><h1>MechaDelivery</h1></div>
+      <div class="right-box"><h3>Livraison à l'ESIEE</h3></div>
     </div>
-    <img src="{{ url_for('static', filename='PotiRoboV3.svg') }}" alt="Robot Background" />
-    <p><a href="/choix">Commencer</a></p>
+    <!-- <img src="{{ url_for('static', filename='PotiRoboV3.svg') }}" alt="Robot Background" /> -->
+    <!-- <p><a href="/choix">Commencer</a></p> -->
+    <button class="orangebutton" onclick="window.location.href='/choix'">🍱 Commencer</button>
   </section>
 
   <script src="{{ url_for('static', filename='script/script_home.js') }}"></script>
