@@ -42,10 +42,20 @@ Une vidéo qui explique notre projet simplement, tout en restant divertissant.
 
 Plusieurs parties. 
 
-- Nos efforts et notre assiduité 
-- Les différents prototypes 
-- Explication de la partie théorique 
-- Vulgarisation de la partie logicielle 
+- Nos efforts et notre assiduité : timelapses 
+- Les différents prototypes : 
+	- Michaël qui roule pour la première fois 
+- Explication de la partie théorique : 
+	- Animations Manim LaTeX 
+	- Time-lapse tableaux en arrière-plan 
+- Vulgarisation de la partie logicielle : animation des parties, des logiciels 
+- Courts extraits de nos outils de projet 
+	- FreeCAD : Alice, Djivan 
+	- Inkscape : Djivan 
+	- PCB, circuit imprimé, awiwi : Louise 
+	- Programmation : Benjamin 
+	- Écritures d'équations Obsidian, Desmos : Lilian 
+	- Peinture, assemblage : Thisalini 
 - Photo de nous 
 - Moments marrants ? 
 
@@ -53,7 +63,53 @@ Plusieurs parties.
 
 - Égalisation du son 
 - Crédits (musique, images, sons... ) à la fin de la vidéo 
-- 
+
+### 2025-06-19 
+Format : 
+
+- Time-lapses en continu 
+- Passages "au ralenti" qui montrent en détail quelque chose 
+
+Idées Lilian : 
+
+1. *Introduction, choix du projet* 
+2. Time-lapse général 
+3. **Partie théorique, mécanique** 
+	- [ ] Lilian qui écrit sur une feuille en papier jk
+	- [ ] Djivan sur Obsidian qui écrit en MathJax 
+4. **Partie électrique** 
+	- [ ] Louise et Thisalini qui réalisent le câblage 
+5. **Partie logicielle, programmer sur des IDE, python, shell, site web** 
+	- [ ] Benjamin, Djivan sur le terminal, Kate ou VSCodium 
+	- [ ] Benjamin qui exécute `$ python app.py`, Djivan qui rafraîchit la page à côté et wow ça fonctionne 
+	- [ ] Interface de la page web 
+	- [ ] `git pull` 
+6. Time-lapse général 
+7. **Photos avec matériel électronique, réception moteurs** 
+	- [ ] Juste photos de notre matos, où on ouvre la boîte 
+	- [ ] Photos du matériel dans la voiture de Djivan 
+8. Time-lapse général 
+9. **Modélisations 3D** 
+	- [ ] Alice, Djivan sur FreeCAD 
+10. Time-lapse général 
+11. **Time-lapse carton, peinture** 
+	- [ ] Thisalini qui peint 
+12. **Vidéo de Michaël qui roule pour la première fois** 
+13. Time-lapse général 
+14. **Réalisation poster et mascotte Mikeru** 
+	- [ ] Djivan sur Inkscape 
+15. Time-lapse général 
+16. **Algorithme de plus court chemin** 
+	- [ ] Lilian, Benjamin voire Djivan au tableau 
+17. **Réalisation du circuit PCB** 
+	- [ ] Louise sur `<INSÉRER_LOGICIEL_PCB_ICI>`  
+18. Time-lapse général 
+19. **Images de Michel** 
+	- [ ] ??? 
+20. *Crédits* 
+
+2¹⁰ = 10³ 
+2²⁰ = 10⁶ 
 
 ## Comment 
 Un logiciel de composition vidéo. 
