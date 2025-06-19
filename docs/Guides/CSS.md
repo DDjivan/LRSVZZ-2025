@@ -33,4 +33,14 @@ Utiliser `@media` avec des paramètres, par exemple :
 }
 ```
 
+Images qui dépassent le cadre de leur `div` ? Ajouter ceci. 
+```css
+/* ... */ img {
+    max-width: 100%;  /* ensure images do not exceed width of container */
+    height: auto;  /* auto = same aspect ratio */
+    display: block;  /* center the image */
+    /* margin: 0 auto; */ /* center the image horizontally */
+}
+```
+
 

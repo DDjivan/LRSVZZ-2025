@@ -43,6 +43,13 @@ code {
     border-radius: 16px;
 }
 
+#markdown-content img {
+    max-width: 100%;  /* ensure images do not exceed width of container */
+    height: auto;  /* auto = same aspect ratio */
+    display: block;  /* center the image */
+    /* margin: 0 auto; */ /* center the image horizontally */
+}
+
 @media (max-width: 600px) {
     #markdown-content {
         /* background-color: inherit; */

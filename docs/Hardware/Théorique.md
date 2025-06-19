@@ -47,11 +47,11 @@ $$\vec{\Omega}(S_3/R_0) = \omega_{S_3/S} \cdot \vec{y} + \omega_{S/R_0} \cdot \v
 $$\vec{\Omega}(S_4/R_0) = \omega_{S_4/S} \cdot \vec{y} + \omega_{S/R_0} \cdot \vec{z} \tag{4}$$
 
 ### Étape 1 
+
 Relation entre vitesse de rotation des roues et la vitesse du châssis. 
 
 $$
-R\omega_{S_4/S} \cdot \vec{x} + R\omega_{S_3/S} \cdot \vec{x}
-=
+R\omega_{S_4/S} \cdot \vec{x} + R\omega_{S_3/S} \cdot \vec{x} =
 \vec{V}(A_4, S/R_0) + \vec{V}(A_3, S/R_0) 
 \tag{1)+(2}
 $$
@@ -73,10 +73,11 @@ $$
 }
 $$
 ### Étape 2 
+
 Relation entre vitesse de rotation des roues et la **vitesse de rotation** du châssis. 
+
 $$
-R\omega_{S_4/S} \cdot \vec{x} - R\omega_{S_3/S} \cdot \vec{x}
-=
+R\omega_{S_4/S} \cdot \vec{x} - R\omega_{S_3/S} \cdot \vec{x} =
 \vec{V}(A_4, S/R_0) - \vec{V}(A_3, S/R_0) 
 \tag{1)–(2}
 $$
@@ -92,12 +93,11 @@ $$
 = \overrightarrow{A_4 I} \wedge \vec{\Omega}(S/R_0) 
 - \bigg( \overrightarrow{A_3 I} \wedge \vec{\Omega}(S/R_0) \bigg)$$
 On décompose avec la relation de Chasles : 
+
 $$
-= 
-\bigg(\overrightarrow{A_4 I_4}+\overrightarrow{I_4 I} \bigg)
+= \bigg(\overrightarrow{A_4 I_4}+\overrightarrow{I_4 I} \bigg)
 \wedge \vec{\Omega}(S/R_0) 
-- 
-\Bigg( 
+- \Bigg( 
 	\bigg(
 		\overrightarrow{A_3 I_3} 
 		+ \overrightarrow{I_3 I_4} 
@@ -108,8 +108,7 @@ $$
 $$
 
 $$
-= 
-\bigg( -R\vec{z}+\overrightarrow{I_4 I} \bigg)
+= \bigg( -R\vec{z}+\overrightarrow{I_4 I} \bigg)
 \wedge {\omega}_{S/R_0} \cdot \vec{z} 
 - 
 \Bigg( 
@@ -121,9 +120,7 @@ $$
 $$
 
 $$
-= 
-- 
-\Bigg( 
+= - \Bigg( 
 	\bigg( 
 		L\vec{y} 
 	\bigg) 
@@ -132,9 +129,7 @@ $$
 $$
 
 $$
-= 
-- 
-\Bigg( 
+= - \Bigg( 
 	\bigg( 
 		L
 	\bigg) 
@@ -146,23 +141,20 @@ $$
 Donc : 
 $$
 R\omega_{S_4/S} \cdot \vec{x} - R\omega_{S_3/S} \cdot \vec{x}
-=
--L {\omega}_{S/R_0} \cdot \vec{x}
+= -L {\omega}_{S/R_0} \cdot \vec{x}
 $$
 
 Selon $\vec{x}$ : 
 $$
 R\omega_{S_4/S} - R\omega_{S_3/S} 
-=
--L {\omega}_{S/R_0} 
+= -L {\omega}_{S/R_0} 
 $$
 
 Donc : 
 $$
 \boxed{
 	\omega_{S_3/S} - \omega_{S_4/S} 
-	=
-	\frac{L}{R} {\omega}_{S/R_0}
+	= \frac{L}{R} {\omega}_{S/R_0}
 }
 $$
 
