@@ -27,7 +27,7 @@ def testParamètres():
         time.sleep(temps)
 
     except Exception as e:
-        print(f"\n❌ Problème lors de l'interprétation des paramètres : {e}\n")
+        print(f"\nProblème lors de l'interprétation des paramètres : {e}\n")
 
     finally:
         stopMoteurs()
