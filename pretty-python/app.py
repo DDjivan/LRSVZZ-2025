@@ -74,6 +74,10 @@ def get_products():
     conn.close()
     return products
 
+from flask_socketio import SocketIO, emit
+
+socketio = SocketIO(app)
+
 @app.route('/client')
 def web_client() :
     products = get_products()
@@ -111,9 +115,10 @@ def commander():
     for produit, quantite in produits_commandes:
         c.execute("INSERT INTO order_items (order_id, product_name, quantity) VALUES (?, ?, ?)",
                   (order_id, produit, quantite))
-
     conn.commit()
     conn.close()
+
+    socketio.emit("new order")
 
     products = get_products()
     return render_template("client.html", products=products)
@@ -173,6 +178,7 @@ def web_gestion() :
     return render_template('gestion.html',products=get_products())
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
+
 
 @app.route('/server', methods=['GET', 'POST'])
 def web_server():
@@ -311,4 +317,4 @@ def moteurMarche():
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
 if __name__ == '__main__' :
-    app.run(host='0.0.0.0', port=50000, debug=True)
+    socketio.run(app,host='0.0.0.0', port=50000, debug=True)
