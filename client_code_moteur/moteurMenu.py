@@ -28,7 +28,7 @@ if __name__ == '__main__' :
         gpioM1=12
         gpioM2=13
         while True :
-            printT("Heure :")
+            mot.printT("Heure :")
             print("Rappel que les ports GPIO 12 et 13, soit pins 32 et 33 correspondent aux moteurs. un arrêt forcé par Ctrl-C arrêtera tout de suite les moteurs. Dans la partie code, les moteurs ne sont pas automatiquement arrêtés lors de l'exécution des scripts, il ne faut jamais oublier de les arrêter !!")
             print("\n------------------------------------")
             print("1. COUPER LES MOTEURS !1!1! ")
@@ -49,6 +49,6 @@ if __name__ == '__main__' :
                 print("Fin des tests, arrêt des moteurs.")
                 break
     finally :
-        mot.stopMoteurs()
+        stopMoteurs()
         pi.stop()
 
