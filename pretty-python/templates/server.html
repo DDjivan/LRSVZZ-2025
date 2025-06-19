@@ -21,9 +21,9 @@
   {% if commandes|length == 0 %}
     <p>Aucune commande en attente.</p>
   {% else %}
-    <div class="commandes-container">
+    <div class="orders-container">
       {% for cmd in commandes %}
-      <div class="commande-bulle">
+      <div class="order-bubble">
         <h3>Commande #{{ cmd.id }} - {{ cmd.destination }}</h3>
         <p><em>Passée le {{ cmd.date }}</em></p>
         <ul>
