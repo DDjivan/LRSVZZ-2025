@@ -1,4 +1,4 @@
-import moteur_args.py
+import moteur_args
 
 
 def stopMoteurs():
