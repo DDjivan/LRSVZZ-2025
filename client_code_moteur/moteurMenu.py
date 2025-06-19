@@ -33,14 +33,16 @@ def testParamètres():
         print("\nFin du test Paramétré.\n--------------------------------------\n")
 
 def testSimple():
+    print("Les moteurs tournent dans un sens.")
     mot.start_pin(pi, gpioM1, 0.5)
+    mot.start_pin(pi, gpioM2, 0.5)
+    time.sleep(3)
+    print("Puis dans l'autre.")
+    mot.start_pin(pi, gpioM1, -0.5)
     mot.start_pin(pi, gpioM2, -0.5)
     time.sleep(3)
     stopMoteurs()
-    mot.start_pin(pi, gpioM1, 0.5)
-    mot.start_pin(pi, gpioM2, -0.5)
-    time.sleep(3)
-    stopMoteurs()
+    print("Fin.")
 
 def scriptTest():
     print("Script de test à faire")
