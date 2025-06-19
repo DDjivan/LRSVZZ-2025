@@ -70,6 +70,7 @@ Des outils pour faire des animations.
 - Tout : [Blender](https://www.blender.org/) 
 - Polyvalent, 2D : Adobe Animate 
 
+### Media 
 
 Des banques de sons libres d'usage. (Merci [EvilDaystar](https://www.reddit.com/r/Filmmakers/comments/13lwk4l/comment/jkrynys/)) 
 
@@ -93,7 +94,42 @@ Des musiques libres d'usage.
 
 - Toutes les compositions de Toby Fox. 
 
+D'après https://materiamusicpub.com/youtube-faq/ 
+
+> **Can I use music from games such as UNDERTALE or DELTARUNE in my YouTube videos?**
+> 
+> You are welcome to include most melodies administered by Materia Music Publishing (including the original recordings from the UNDERTALE® and DELTARUNE® soundtracks) in your videos as long as you’re doing so non-commercially. This means your video is not intended to make you money, it is not sponsored or promoting a product that will make you money, you do not receive ad/subscription/affiliate/marketing/sponsorship revenue for the video, etc. This is determined in Materia’s sole discretion; please reach out should there be concerns about clarity.
+> 
+> If you use this music non-commercially, YouTube may still receive a claim to let us know that the music is being used. This is not a strike against your channel. There is no penalty or punishment for receiving a claim.
+> 
+> If you do use music published by Materia Music Publishing, we ask you to please credit the appropriate composer/copyright holder in your video’s description. In the case of UNDERTALE or DELTARUNE, that means crediting Toby Fox as the composer and Materia Music Publishing as the copyright administrator. Giving credit where it’s due is the right thing to do!
+
 Éventuellement : des banques d'images et vidéos libres d'usage. 
 
 - https://pixabay.com/ 
+
+## Utile 
+### Télécharger de YouTube 
+Pour extraire la vidéo ou l'audio. 
+
+Vidéo. 
+```bash
+yt-dlp https://youtu.be/xLsuam9o9BA
+```
+
+Audio. 
+```bash
+yt-dlp -x https://youtu.be/xLsuam9o9BA
+```
+
+Audio `.wav`. 
+```bash
+yt-dlp -x --audio-format wav --audio-quality 0 https://youtu.be/xLsuam9o9BA
+```
+
+> For video compositing, WAV files are preferred due to their uncompressed quality, which provides the best audio fidelity. M4A and MP3 files are compressed formats that may sacrifice some audio quality for smaller file sizes, making them less ideal for professional audio work.
+> 
+> [lalal.ai](https://www.lalal.ai/blog/difference-between-audio-formats-mp3-flac-wav-aiff-m4a-ogg/), [caseguard.com](https://caseguard.com/articles/m4a-mp3-and-wav-audio-files-new-technology/) 
+
+
 
