@@ -130,6 +130,7 @@ Afin de réaliser un poster de qualité, voici des inspirations.
 
 
 ## Problèmes 
+### Google Drive 
 Comment utiliser Google Drive pour héberger des images ? 
 
 Merci à [Aathi et AymDev](https://stackoverflow.com/questions/15557392/how-do-i-display-images-from-google-drive-on-a-website#52067077) sur stack overflow. 
@@ -153,5 +154,28 @@ https://drive.google.com/thumbnail?id=1omwimIhElE-idGV9QKTgngyVpMtV4FHf&sz=w1000
 4. Ce nouveau lien est utilisable sur [Inkscape](../Guides/Inkscape.md) ou sur une page [HTML](../Guides/HTML.md) ! Yippee ! 🥤 
 
 Autre problème : les liens sur Inkscape n'ont pas l'air de pouvoir garder les query strings... donc celui de la résolution (`&sz=w1000`) n'est pas conservé et l'image est de basse résolution... 
+
+### Télécharger de YouTube 
+Pour extraire la vidéo ou l'audio. 
+
+Vidéo. 
+```bash
+yt-dlp https://youtu.be/xLsuam9o9BA
+```
+
+Audio. 
+```bash
+yt-dlp -x https://youtu.be/xLsuam9o9BA
+```
+
+Audio `.wav`. 
+```bash
+yt-dlp -x --audio-format wav --audio-quality 0 https://youtu.be/xLsuam9o9BA
+```
+
+> For video compositing, WAV files are preferred due to their uncompressed quality, which provides the best audio fidelity. M4A and MP3 files are compressed formats that may sacrifice some audio quality for smaller file sizes, making them less ideal for professional audio work.
+> 
+> [lalal.ai](https://www.lalal.ai/blog/difference-between-audio-formats-mp3-flac-wav-aiff-m4a-ogg/), [caseguard.com](https://caseguard.com/articles/m4a-mp3-and-wav-audio-files-new-technology/) 
+
 
 
