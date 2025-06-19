@@ -1,0 +1,242 @@
+% !TeX spellcheck = fr_FR
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\documentclass[a4paper,12pt]{report}  % args : article, report, book 
+\usepackage[utf8]{inputenc}  % encodage UTF-8 
+\usepackage[french]{babel}  % choix de langue, important pour maketitle et tableofcontents
+\usepackage{geometry}  % géométrie de la page 
+\usepackage{hyperref}  % liens internes et externes 
+\usepackage{graphicx}  % images 
+\usepackage{longtable}  % tableaux 
+\usepackage{fontspec}  % polices d'écriture du système 
+\usepackage{tabularx}  % pour des tableaux larges 
+\usepackage{lipsum}  % pour du texte 
+%\usepackage{titlepic}  % pour avoir une image dans \maketitle
+\usepackage{titling}  % pour utiliser \theauthor, \thedate, \thetitle 
+\usepackage{datetime}  % pour que la date de \thedate soit en français 
+
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\geometry{margin = 2 cm}  % marge de 2 cm (possible d'utiliser "in" aussi)
+
+% hyperref 
+\hypersetup{  
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+	citecolor=red
+}
+
+% fontspec
+\setmainfont{Bricolage Grotesque}
+%\setmonofont[size=6pt]{Comic Code Ligatures} 
+
+
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\title{Cahier des charges fonctionnel}
+\author{Groupe LRSVZZ}
+\date{\today}
+%\titlepic{\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf}}
+
+\begin{document}
+	
+%	\maketitle
+
+	\begin{titlepage}
+		\centering
+		\vspace*{9cm} 
+		{\LARGE \bfseries \thetitle \par}
+		\vspace{1cm} 
+		\large \theauthor \par
+		\vspace{0.5cm} 
+		\large \thedate \par
+		\vspace{5cm} 
+		\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf} 
+		\vfill 
+	\end{titlepage}
+	
+%	\pagebreak
+	
+	% --- --- --- --- %
+	
+	\section*{Auteurs}
+	
+	\renewcommand{\arraystretch}{1.5}  % augmenter de 50 % les lignes 
+	\begin{table}[h]
+%		\centering
+%		\caption{Auteurs}
+%		\begin{tabular}{|c|c|c|}
+		\begin{tabularx}{\textwidth}{|X|X|X|}  % on met X pour des colonnes de même longueur 
+			\hline
+			\textbf{Nom} & \textbf{Rôle} & \textbf{Département} \\
+			\hline
+			VARTANIAN Djivan & Responsable & Informatique \\
+			\hline
+			Row 2, Col 1 & Row 2, Col 2 & Row 2, Col 3 \\
+			\hline
+			Row 3, Col 1 & Row 3, Col 2 & Row 3, Col 3 \\
+			\hline
+%		\end{tabular}
+		\end{tabularx}
+	\end{table}
+	
+	\section*{Historique des documents}
+	\begin{table}[h]
+%		\centering
+		\begin{tabular}{|c|c|c|c|} 
+			\hline
+			\textbf{Date} & \textbf{Version} & \textbf{Description du document} & \textbf{Auteur du document} \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\section*{Approbations}
+	\begin{table}[h]
+		\begin{tabular}{|c|c|c|c|} 
+			\hline
+			\textbf{Date d'approbation} & \textbf{Version approuvée} & \textbf{Rôle de l'approbateur} & \textbf{Approbateur} \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	% --- --- --- --- %
+		
+	\tableofcontents
+	
+	\pagebreak
+	% --- --- --- --- %
+	
+	\section{Résumé}
+	% Brève description du projet, de ses objectifs et de ses résultats attendus.
+	
+	Résumé. 
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\textwidth]{./attachements/Untitled-2025-06-11-1251_B.pdf}
+		\caption{Description. }
+		\label{fig:your_label}
+	\end{figure}
+	
+	\section{Introduction}
+	% Contexte du projet, problématique, objectifs du robot.
+	Livrer des choses. Facilement, fiable.
+
+	Ce projet a pour but de clôturer la fin de la première année de notre cycle ingénieur à 
+	l'ESIEE Paris. Il permet de mettre en application l'ensemble des connaissances acquises 
+	lors de notre formation et apprendre davantage sur d'autres logiciels informatique et 
+	électronique.
+	L'objectif est de créer un site web accessible depuis n'importe quel appareil connecté 
+	à internet permettant aux étudiants de commander de la nourriture et de se faire livrer 
+	via un robot vers l'étudiant, sans déplacement requis de la part de l'étudiant.
+	Ce besoin a été identifié lors d'emploi du temps chargé, par les longues files 
+	d'attente ou juste par la difficulté de certains étudiants à se déplacer.
+
+	Problématique : Comment concevoir un robot permettant de livrer de la nourriture 
+	aux étudiants depuis la cafétéria ?
+	
+	\section{État de l'Art}
+	% Revue des technologies existantes pour la livraison autonome.
+
+	\section{Cahier des Charges Fonctionnel}
+	\subsection{Description des Fonctionnalités}
+	% Description des fonctionnalités requises (navigation, évitement d'obstacles, etc.)
+
+	
+	\subsection{Contraintes Techniques}
+	% Contraintes techniques (dimensions, poids, autonomie, etc.)
+	
+	\section{Architecture du Système}
+	\subsection{Schéma de l'Architecture}
+	% Inclure un schéma de l'architecture matérielle et logicielle.
+	
+	\subsection{Description des Composants}
+	% Description des composants utilisés (Raspberry Pi, capteur ultrason, etc.)
+	Raspberry Pi 4 Model B : contrôle tous les composants.
+
+	Module de détection US HC-SR04 : détecte les obstacles.
+
+	Servomoteur FB5311M-360 à rotation continue + feedback : permet de faire tourner les roues du robot et l'option feedback permet la localisation du robot.
+
+	Deux roulettes pivotantes à platine, Diam.40 mm (Réf 82629519) : permet le déplacement du robot
+
+	Paire de roues 136 mm DGR136 : permet de déplacer le robot à l'aide des servomoteurs.
+
+	INIU Batterie Externe, 22.5W 10000mAh : permet d'alimenter les composants comme la Raspberry Pi 4 Model B et les servomoteurs.
+
+	Deux résistances 2.2 kOhm et 3.3 kOhm : la tension de sortie délivrée par la broche Echo du capteur HC-SR04 est de 5V. 
+	Or, la broche d'entrée du Rapsberry est conçue pour du 3,3 V au maximum. Pour ne pas endommager le Rapsberry et le capteur, nous allons utiliser un pont diviseur de tension.
+
+
+	Breadbord/PCB : permet de relier tous les composants
+
+	Module capteurs LSM9DSO SEN12636 : composé de gyroscope → mesure quand le robot tourne
+	Accéléromètre → mesure si le robot accélère ou freine
+	Magnétomètre → indique dans quelle direction absolue se trouve le robot (comme une boussole) 
+	=> va permettre de vérifier si le robot fait bien face aux points d’arrivé
+
+
+
+
+	
+	\section{Développement et Implémentation}
+	% Étapes de développement, utilisation de Git, défis rencontrés.
+	
+	\section{Tests et Validation}
+	% Méthodologie de test, résultats des tests, retours d'expérience.
+	
+	\section{Rétro-planning et Gestion de Projet}
+	\subsection{Organisation des Tâches}
+	% Inclure un tableau ou un graphique du rétroplanning.
+	
+	\subsection{Liste des Actions Réalisées}
+	% Liste des actions réalisées pendant le projet.
+	
+	\subsection{Compte Rendu des Réunions Hebdomadaires}
+	% Résumé des points discutés lors des réunions.
+	
+	\section{Documentation et Ressources}
+	% Documentation hébergée sur le serveur, liens vers les ressources.
+	
+	\section{Conclusion}
+	% Bilan du projet, perspectives d'amélioration.
+	
+	\section{Annexes}
+	% Graphiques, schémas, photos du robot, code source.
+	
+	\section{Remerciements}
+	% Remerciements aux encadrants, partenaires, etc.
+	
+	
+	
+%	\section{Références}
+%%	Listez toutes les références à des documents externes.
+%	\lipsum[27]
+%	
+%	\section{Questions ouvertes}
+%	\lipsum[28]
+%	
+%	\begin{longtable}{|l|l|l|l|l|l|l|l|}
+%		\hline
+%		\textbf{ID de la question} & \textbf{Enjeu} & \textbf{Élevé par} & \textbf{Décision} & \textbf{Résolu par} & \textbf{Statut} \\
+%		\hline
+%	\end{longtable}
+%	
+%	\section{Annexe}
+%%	Inclure toute information supplémentaire ou documents annexes.
+%	\lipsum[29]
+	
+\end{document}

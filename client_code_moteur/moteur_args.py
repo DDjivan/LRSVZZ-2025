@@ -26,7 +26,7 @@ def send_impulsion_to_pin(arg_pi, pin_number:int, largeur_d_impulsion:int):
         raise Exception("Valeur hors plage (500 - 2500 µs)")
     else:
         arg_pi.set_servo_pulsewidth(pin_number, largeur_d_impulsion)
-        printT(f"INFO: Envoi {largeur_d_impulsion} µs à pin GPIO {pin_number}")
+        #printT(f"INFO: Envoi {largeur_d_impulsion} µs à pin GPIO {pin_number}")
 
 
 

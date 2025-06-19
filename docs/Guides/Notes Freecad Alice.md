@@ -270,3 +270,12 @@ Une fois fini, on peut cliquer sur "OK".
 ![](attachments/Pasted%20image%2020250526085903.png)
 
 Voilà le résultat final ~
+
+
+
+### 6. Comment marche l'extension A2 Plus
+
+
+Permet de mettre deux faces sur le même plan.
+![](attachments/Pasted%20image%2020250527093725.png)
+
