@@ -1,3 +1,4 @@
+#benjamin
 Fait sur Kubuntu, pour la simplicité par rapport à Windows où il y avait des problèmes d'installation.
 
 [Vidéo d'initiation du site de vuetify](https://www.vuemastery.com/courses/beautify-with-vuetify/getting-started-with-vuetify/)
@@ -60,8 +61,14 @@ benyade@benyade-20ve:~/test$ npm run dev
 ```
 ![](attachments/Pasted%20image%2020250521102357.png)
 
-Etant sur eduroam, je peux accéder à ce site avec mon téléphone en me mettant sur eduroam.
+Etant sur eduroam, je peux accéder à ce site avec mon téléphone en me mettant sur eduroam dessus.
 ![300](attachments/Pasted%20image%2020250521102601.png)
 ==wow very gud wp==
 
 
+![](https://perso.esiee.fr/~zhangbe/wow.gif)
+
+Maintenant, pour la prise main des composants de base, voir la [page sur les composants de Vuetify.](https://vuetifyjs.com/en/components/all/#containment)
+
+En lien :
+[[Page Vuetify en temps réel]]

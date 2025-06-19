@@ -3,65 +3,101 @@ Plusieurs manières.
 - SSH 
 
 ## Tunnel SSH 
-### 1 - Create Tunnel 
-On RPi4, run the following command to create a reverse SSH tunnel to RPi2. 
+### 1 - Créer le tunnel 
+Lancer un tunnel SSH inversé. 
 ```bash
-ssh -R 50000:localhost:22 user@RPi2_IP
+ssh -R PORT:localhost:22 USERNAME@ADRESSEIP
 ```
-   - Replace `user` with the username on RPi2. 
-   - Replace `RPi2_IP` with the static IP address of RPi2. 
+   - `PORT` : port à choisir pour établir la communication. 
+   - `USERNAME` : nom d'utilisateur de l'ordinateur distant. 
+   - `ADRESSEIP` : adresse IP (idéalement statique) de l'ordinateur distant. 
 
-This command will allow RPi2 to connect to RPi4 via port 50000. 
-
-Keep the SSH session open. This command needs to remain running for the tunnel to stay active. 
-
-### 2 - Execute Scripts on RPi4 from RPi2
-On RPi2, you can now SSH into RPi4 using the reverse tunnel. Use the following command:
+Cette commande va techniquement lancer une session SSH. Pas besoin de l'utiliser, il faut simplement la laisser active pour que le tunnel soit ouvert sur le port indiqué. 
+### 2 - Se connecter en SSH 
+Il est à présent possible de lancer une session SSH, mais il faut préciser le port. 
+L'adresse IP à indiquer est toujours `localhost`. 
 ```bash
-ssh -p 50000 user@localhost
+ssh -p PORT USERNAME@localhost
 ```
-   - Replace `user` with your username on RPi4. 
+   - `PORT` : même port indiqué dans la première partie. 
+   - `USERNAME` : nom d'utilisateur de l'ordinateur qui a lancé le tunnel. 
 
-### En bref  
-1. RPi4. 
-```bash
-ssh -R 50000:localhost:22 user@RPi2_IP
-```
-
-2. RPi2. 
-```bash
-ssh -p 50000 user@localhost
-```
-
-3. Test command. 
-```bash
-echo "Current date: $(date)" > test.txt
-   ```
-
-#### Exemple 
-On peut pas remplacer localhost par n'importe quoi il semble. 
-```bash
-ssh -R 50000:localhost:22 dd@90.22.255.6
-```
-
+### En bref 
+1. Sur la RPi 4. 
 ```bash
 ssh -R 50001:localhost:22 dd@90.22.255.6
 ```
 
-
-
-```bash
-ssh -p 50000 nous@localhost
-```
-
+2. Sur la RPi 2. 
 ```bash
 ssh -p 50001 nous@localhost
 ```
 
+#### `fetch-ip-auto` 
+Dans le `crontab`, ajouter la ligne suivante. 
+```bash
+@reboot bash ~/LRSVZZ-2025/fetch-ip-auto/tunnel/client_tunnel.sh
+```
 
-### Ideas 
-- Make sure that SSH is installed and enabled on both Raspberry Pis with `systemctl` ; 
-- Issues with permissions or connectivity? Check SSH configuration and firewall settings ; 
-- Maybe set up SSH key authentication for easier access without needing to enter a password each time. 
+## Envoyer des commandes par SSH 
+Commande pour le serveur. S'assurer que le client a un tunnel d'ouvert d'abord. 
+```bash
+ssh -p 50001 nous@localhost "echo 'Current date: $(date)' > ~/TEST.txt"
+```
 
-## 2 
+### Utiliser l'authentification par clés SSH 
+**Problème :** Le mot de passe du client est systématiquement demandé. 
+
+**Solution :** Générer une paire de clés SSH sur le serveur et copier la clé publique sur le client
+
+Faire les étapes suivantes le serveur : [Clés SSH](Clés%20SSH.md). 
+
+Normalement, aucun mot de passe ne devrait être demandé ! 
+
+L'inverse devrait également être fait. 
+
+#### En bref 
+Ne pas oublier de préciser un port. 
+
+1. Sur la RPi 4. 
+```bash
+ssh -R 50001:localhost:22 dd@90.22.255.6 -N
+```
+`-N` permet de ne pas ouvrir de session, mais de juste créer le tunnel. 
+
+2. Sur la RPi 2 (qui a une paire de clés). 
+```bash
+ssh-copy-id -p 50001 nous@localhost
+```
+
+3. Sur n'importe quel ordinateur (qui a une paire de clés) pour se connecter à la RPi 2. 
+```bash
+ssh-copy-id dd@90.22.255.6
+```
+
+4. Sur n'importe quel ordinateur (qui a une paire de clés) pour se connecter à une RPi 4. 
+```bash
+ssh-copy-id nous@ADRESSEIP
+```
+
+## Envoyer des commandes en SSH via Web 
+Sur le serveur, lancer le back-end et front-end [Flask](../Guides/Flask.md) : 
+```bash
+cd /home/dd/LRSVZZ-2025/fetch-ip-auto/
+```
+```bash
+python server_script-launcher.py
+```
+
+~~S'assurer d'avoir un tunnel SSH de lancé sur le port 50001.~~ 
+S'assurer que le client a bien le `crontab` contient la ligne suivante. 
+
+![](récupérer%20l'adresse%20IP%20locale.md#^crontab)
+
+Aller sur cette page pour tester : http://90.22.255.6:50000/ 
+
+Un fichier de test sera créé sur la Raspberry appelé `TEST.txt` à la racine utilisateur. 
+
+
+
+

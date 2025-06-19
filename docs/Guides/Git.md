@@ -1,9 +1,12 @@
 # Git 
-Logiciel open source qui fait du versioning. 
+Logiciel open source qui fait du versioning, et bien plus. 
 Permet donc de revenir à une version précédente sans inquiétude. ^Explication
+Essentiel pour la réalisation de projet contenant du code et de la documentation. 
 
 ## Liens 
+https://git-scm.com/ 
 https://fr.wikipedia.org/wiki/Git 
+https://github.com/git/git 
 
 ## Comment  
 Commandes essentielles pour cloner, mettre à jour et gérer le repo, surtout sur une [Raspberry Pi](Raspberry%20Pi.md). 
@@ -14,11 +17,7 @@ git clone https://github.com/DDjivan/LRSVZZ-2025
 ```
 Cloner = Télécharger tous les fichiers pour la première fois. Si le dossier est déjà présent, il faudra pull. 
 
-Naviguer dans le répertoire du repo. 
-```bash
-cd LRSVZZ-2025
-```
-`cd` = change directory. 
+Le reste de ces commandes sont à réaliser à l'intérieur du répertoire du repo cloné. 
 
 Obtenir des informations sur l'état du repo. 
 ```bash
@@ -39,7 +38,7 @@ Mettre à jour le repo avec les dernières modifications de la branche actuelle.
 git pull
 ```
 
-
+---
 
 À ignorer : 
 	Mettre à jour le repo avec les dernières modifications de la branche `main`. 

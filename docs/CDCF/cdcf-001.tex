@@ -1,0 +1,328 @@
+% !TeX spellcheck = fr_FR
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\documentclass[a4paper,12pt]{report}  % args : article, report, book 
+\usepackage[utf8]{inputenc}  % encodage UTF-8 
+\usepackage[french]{babel}  % choix de langue, important pour maketitle et tableofcontents
+\usepackage{geometry}  % géométrie de la page 
+\usepackage{hyperref}  % liens internes et externes 
+\usepackage{graphicx}  % images 
+\usepackage{longtable}  % tableaux 
+\usepackage{fontspec}  % polices d'écriture du système 
+\usepackage{tabularx}  % pour des tableaux larges 
+\usepackage{lipsum}  % pour du texte 
+%\usepackage{titlepic}  % pour avoir une image dans \maketitle
+\usepackage{titling}  % pour utiliser \theauthor, \thedate, \thetitle 
+\usepackage{datetime}  % pour que la date de \thedate soit en français 
+
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\geometry{margin = 2 cm}  % marge de 2 cm (possible d'utiliser "in" aussi)
+
+% hyperref 
+\hypersetup{  
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+	citecolor=red
+}
+
+% fontspec
+\setmainfont{Bricolage Grotesque}
+%\setmonofont[size=6pt]{Comic Code Ligatures} 
+
+
+% --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
+
+\title{Cahier des charges fonctionnel}
+\author{Groupe LRSVZZ}
+\date{\today}
+%\titlepic{\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf}}
+
+\begin{document}
+	
+%	\maketitle
+
+	\begin{titlepage}
+		\centering
+		\vspace*{9cm} 
+		{\LARGE \bfseries \thetitle \par}
+		\vspace{1cm} 
+		\large \theauthor \par
+		\vspace{0.5cm} 
+		\large \thedate \par
+		\vspace{5cm} 
+		\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf} 
+		\vfill 
+	\end{titlepage}
+	
+%	\pagebreak
+	
+	% --- --- --- --- %
+	
+	\section*{Auteurs}
+	
+	\renewcommand{\arraystretch}{1.5}  % augmenter de 50 % les lignes 
+	\begin{table}[h]
+%		\centering
+%		\caption{Auteurs}
+%		\begin{tabular}{|c|c|c|}
+		\begin{tabularx}{\textwidth}{|X|X|X|}  % on met X pour des colonnes de même longueur 
+			\hline
+			\textbf{Nom} & \textbf{Rôle} & \textbf{Département} \\
+			\hline
+			VARTANIAN Djivan & Responsable & Informatique \\
+			\hline
+			SAFAR Lilian & Row 2, Col 2 & Row 2, Col 3 \\
+			\hline
+			ZHENG Louise & Row 3, Col 2 & Row 3, Col 3 \\
+			\hline
+			RAVINTHIRAN Thisalini & Row 4, Col 2 & Row 4, Col 3 \\
+			\hline
+			ZHANG Benjamin & Row 5, Col 2 & Row 5, Col 3 \\
+			\hline
+			LIN Alice & Row 6, Col 2 & Row 6, Col 3 \\
+			\hline
+%		\end{tabular}
+		\end{tabularx}
+	\end{table}
+	
+	\section*{Historique des documents}
+	\begin{table}[h]
+%		\centering
+		\begin{tabular}{|c|c|c|c|} 
+			\hline
+			\textbf{Date} & \textbf{Version} & \textbf{Description du document} & \textbf{Auteur du document} \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\section*{Approbations}
+	\begin{table}[h]
+		\begin{tabular}{|c|c|c|c|} 
+			\hline
+			\textbf{Date d'approbation} & \textbf{Version approuvée} & \textbf{Rôle de l'approbateur} & \textbf{Approbateur} \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+			& & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	% --- --- --- --- %
+		
+	\tableofcontents
+	
+	\pagebreak
+	% --- --- --- --- %
+	
+	\section{Résumé}
+	% Brève description du projet, de ses objectifs et de ses résultats attendus.
+	
+	Résumé. 
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\textwidth]{./attachements/Untitled-2025-06-11-1251_B.pdf}
+		\caption{Description. }
+		\label{fig:your_label}
+	\end{figure}
+	
+	\section{Introduction}
+	% Contexte du projet, problématique, objectifs du robot.
+	Livrer des choses. Facilement, fiable.
+
+	Ce projet a pour but de clôturer la fin de la première année de notre cycle ingénieur à 
+	l'ESIEE Paris. Il permet de mettre en application l'ensemble des connaissances acquises 
+	lors de notre formation et apprendre davantage sur d'autres logiciels informatique et 
+	électronique.
+	L'objectif est de créer un site web accessible depuis n'importe quel appareil connecté 
+	à internet permettant aux étudiants de commander de la nourriture et de se faire livrer 
+	via un robot vers l'étudiant, sans déplacement requis de la part de l'étudiant.
+	Ce besoin a été identifié lors d'emploi du temps chargé, par les longues files 
+	d'attente ou juste par la difficulté de certains étudiants à se déplacer.
+
+	Problématique : Comment concevoir un robot permettant de livrer de la nourriture 
+	aux étudiants depuis la cafétéria ?
+	
+	\section{État de l'Art}
+	% Revue des technologies existantes pour la livraison autonome.
+
+	\section{Cahier des Charges Fonctionnel}
+	\subsection{Description des Fonctionnalités}
+	% Description des fonctionnalités requises (navigation, évitement d'obstacles, etc.)
+	Le robot navigue...
+
+	Le robot via le capteur ultrason va détecter les obstacles et pouvoir les éviter en 
+	changeant sa trajectoire de déplacement.
+	
+	\subsection{Contraintes Techniques}
+	% Contraintes techniques (dimensions, poids, autonomie, etc.)
+	
+	\section{Architecture du Système}
+	\subsection{Schéma de l'Architecture}
+	% Inclure un schéma de l'architecture matérielle et logicielle.
+	
+	\subsection{Description des Composants}
+	% Description des composants utilisés (Raspberry Pi, capteur ultrason, etc.)
+	Raspberry Pi 4 Model B : contrôle tous les composants.
+
+	Module de détection US HC-SR04 : capteur ultrason qui détecte les obstacles.
+
+	Servomoteur FB5311M-360 à rotation continue + feedback : permet de faire tourner les 
+	roues du robot et l'option feedback permet la localisation du robot.
+
+	Deux roulettes pivotantes à platine, Diam.40 mm (Réf 82629519) : permet le déplacement 
+	du robot.
+
+	Paire de roues 136 mm DGR136 : permet de déplacer le robot à l'aide des servomoteurs.
+
+	INIU Batterie Externe, 22.5W 10000mAh : permet d'alimenter les composants comme la 
+	Raspberry Pi 4 Model B et les servomoteurs.
+
+	Deux résistances 2.2 kOhm et 3.3 kOhm : la tension de sortie délivrée par la 
+	broche Echo du Module de détection US HC-SR04 est de 5V. Or, la broche d'entrée 
+	du Rapsberry est conçue pour du 3,3 V au maximum. Pour ne pas endommager le 
+	Rapsberry et le capteur, nous allons utiliser un pont diviseur de tension.
+
+	Breadbord/PCB : permet de relier tous les composants.
+
+	Module capteurs LSM9DSO SEN12636 : composé de gyroscope → mesure quand le robot tourne
+	Accéléromètre → mesure si le robot accélère ou freine
+	Magnétomètre → indique dans quelle direction absolue se trouve le robot (comme une 
+	boussole) 
+	=> va permettre de vérifier si le robot fait bien face aux points d’arrivé
+	
+	\section{Développement et Implémentation}
+	% Étapes de développement, utilisation de Git, défis rencontrés.
+
+	Beaucoup de calculs pour dimensionner les moteurs et roues.
+
+	Beaucoup de recherches pour les composants à utiliser.
+
+	Au début on voulait faire la structure à l'aide d'une imprimante 3D, donc 
+	apprentissage des outils de développement 3D et un coffre modulable mais 
+	par souci de temps (en effet l'impression des pièces seraient chronophages), 
+	donc on a abandonné cette idée et on est parti sur une structure en carton.
+
+	Utilisation de Javascript, apprentissage assez long et ensuite mise en application.
+	
+	\section{Tests et Validation}
+	% Méthodologie de test, résultats des tests, retours d'expérience.
+	
+	\section{Rétro-planning et Gestion de Projet}
+	\subsection{Organisation des Tâches}
+	% Inclure un tableau ou un graphique du rétroplanning.
+	
+	\subsection{Liste des Actions Réalisées}
+	% Liste des actions réalisées pendant le projet.
+
+	Mettre en place les outils de suivi
+	Choisir le modèle et la version de l'ordinateur intégré au robot
+	Faire le rétro planning
+	Fixer des scénarios simples pour les premiers prototypes
+	Organiser les rôles de chaque personne de l'équipe
+	Créer le repository pour le code et la documentation
+	Faire la modélisation mécanique 1 (schéma cinématique + graphe des liaisons)
+	Mise en place d'un serveur fixe 
+	S’initier à la Raspberry Pi en découvrant ses bases et les sources d'information
+	Configurer automatiquement la Raspberry Pi sur le réseau eduroam 
+	Récupérer l'adresse IP de la Raspberry sur un réseau local
+	Configurer la Raspberry sur le réseau local
+	Créer la plateforme web qui récupère les adresses IP locales des robots
+	Étudier le pilotage du robot (cinématique)
+	Établir l'architecture
+	Configurer les cartes intégrées pour la connexion à eduroam 
+	Faire un schéma de l'ensemble du robot 
+	Estimer le poids max du robot 
+	Prendre en main MobaXterm pour programmer
+	Mettre en place le cahier des charges
+	Structurer les informations collectées et organiser les données par catégories sous forme de tableau
+	Prendre en main les outils de modélisation 3D
+	Choisir la version adaptée du logiciel de modélisation 3D
+	Débuter la documentation de la partie logicielle
+	Adapter le contenu aux standards d’un document technique ou d’entreprise (CDCF)
+	Etudier la stabilité du robot (dynamique + asservissement)
+	Rendre la documentation naviguable
+	Choisir un châssis et les matériaux
+	Mettre le cahier des charges au format systml
+	Débuter la documentation de la partie théorique
+	Coder le programme pour utiliser le LIDAR
+	Mettre en place un pont diviseur de tension pour le capteur d'ultrasons
+	Rédiger une documentation sur le processus de modélisation 
+	Installer et prendre en main un framework JavaScript pour la création du site 
+	Brancher le capteur d'ultrasons à la raspberry
+	Programmer le capteur d'ultrason
+	Faire des recherches et comparer des versions de robots existants
+	Justifier le modèle de Raspberry Pi adapté au projet
+	Mettre en place un lien de communication entre le frontend en JavaScript et le backend en Python
+	Brancher le LIDAR à la Raspberry Pi
+	Envoyer des instructions à une Raspberry Pi 4 depuis le serveur
+	Ajouter la documentation sur la plateforme web
+	Dimensionner le moteur + la batterie (partie dynamique)
+	Modéliser le châssis et le coffre en 3D
+	Déterminer le système de localisation du robot
+	Mettre en place les moyens de communication en temps réel entre le serveur et les clients
+	Débuter la documentation de la partie matérielle
+	Réaliser le poster
+	Réaliser la vidéo
+	Permettre la manipulation des Raspberry Pi depuis le site
+	Réaliser le châssis
+	Positionner les composants sur le châssis (Assemblage)
+	Contrôler les moteurs par la Raspberry
+	Communiquer avec le capteur ultrason par la Raspberry
+	Brancher tout les composants entre eux
+	Choisir les moteurs et les roues
+	Etudier la stabilité theorique du systeme 
+	Programmer le gyroscope
+	Mettre en relation les moteurs et le détecteur d'obstacles
+	Décorer le châssis
+	
+	\subsection{Compte Rendu des Réunions Hebdomadaires}
+	% Résumé des points discutés lors des réunions. 
+
+	
+	
+	\section{Documentation et Ressources}
+	% Documentation hébergée sur le serveur, liens vers les ressources.
+	
+	\section{Conclusion}
+	% Bilan du projet, perspectives d'amélioration.
+	
+	\section{Annexes}
+	% Graphiques, schémas, photos du robot, code source.
+	
+	\section{Remerciements}
+	% Remerciements aux encadrants, partenaires, etc.
+	Remerciements : 
+	Papa de Thisalini 🙏
+	
+	
+	
+%	\section{Références}
+%%	Listez toutes les références à des documents externes.
+%	\lipsum[27]
+%	
+%	\section{Questions ouvertes}
+%	\lipsum[28]
+%	
+%	\begin{longtable}{|l|l|l|l|l|l|l|l|}
+%		\hline
+%		\textbf{ID de la question} & \textbf{Enjeu} & \textbf{Élevé par} & \textbf{Décision} & \textbf{Résolu par} & \textbf{Statut} \\
+%		\hline
+%	\end{longtable}
+%	
+%	\section{Annexe}
+%%	Inclure toute information supplémentaire ou documents annexes.
+%	\lipsum[29]
+	
+\end{document}

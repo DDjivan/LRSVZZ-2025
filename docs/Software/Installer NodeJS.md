@@ -11,12 +11,12 @@ Relancer le shell (ou `CTRL+D`)
 ~~Installer NVM 22~~ 
 ```
 nvm install 22
-``````
+```
 
 Installer NVM 24 
 ```
 nvm install 24
-``````
+```
 
 
 Vérifier la version de Node.js et npm : 
