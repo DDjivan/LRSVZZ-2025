@@ -7,9 +7,8 @@ def stopMoteurs():
     mot.stop_pin(pi,gpioM2)
 
 def testParamètres():
-    print("\n--------------------------------------\n")
     ligne = input(
-        "\nCe test permet de faire tourner deux moteurs avec des paramètres différents.\n"
+        "Ce test permet de faire tourner deux moteurs avec des paramètres différents.\n"
         "Format : VITESSE1 VITESSE2 TEMPS\n"
         "Exemple : '1 -1 3' → moteurs en sens opposés pendant 3 secondes\n> "
     )
@@ -37,11 +36,11 @@ def testSimple():
     mot.start_pin(pi, gpioM1, 0.5)
     mot.start_pin(pi, gpioM2, -0.5)
     time.sleep(3)
-    mot.stopMoteurs()
+    stopMoteurs()
     mot.start_pin(pi, gpioM1, 0.5)
     mot.start_pin(pi, gpioM2, -0.5)
     time.sleep(3)
-    mot.stopMoteurs()
+    stopMoteurs()
 
 def scriptTest():
     print("Script de test à faire")
@@ -52,7 +51,7 @@ if __name__ == '__main__' :
         gpioM1=12
         gpioM2=13
         while True :
-            print("--------------------------------------")
+            print("\n--------------------------------------")
             mot.printT("\n")
             print("Rappel que les ports GPIO 12 et 13, soit pins 32 et 33 correspondent aux moteurs. un arrêt forcé par Ctrl-C arrêtera tout de suite les moteurs. Dans la partie code, les moteurs ne sont pas automatiquement arrêtés lors de l'exécution des scripts, il ne faut jamais oublier de les arrêter !!")
             print("\n------------------------------------")
@@ -66,6 +65,7 @@ if __name__ == '__main__' :
             print("\n--------------------------------------\n")
             if choix == "1":
                 stopMoteurs()
+                print("MOTEURS COUPES !1!1")
             elif choix == "2":
                 testParamètres()
             elif choix == "3":
