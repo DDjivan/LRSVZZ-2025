@@ -1,5 +1,5 @@
 import moteur_args as mot
-
+import time
 
 def stopMoteurs():
     global pi,gpioM1,gpioM2
