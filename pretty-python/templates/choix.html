@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MechaDelivery</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style_police.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style_home.css') }}" />
+</head>
+<body>
+  <!-- SECTION 2 -->
+  <section class="bottom-section">
+    <div class="content">
+      <p class="welcome">Bienvenu, choisissez :</p>
+      <ul class="roles">
+        <li class="client"> <a href="client">Client</a></li>
+        <li class="serveur"> <a href="server">Serveur</a></li>
+        <li class="dev"> <a href="dev">Développeur</a> </li>
+      </ul>
+      <p class="doc">Ou regardez la <a href="docs" class="documentation">documentation</a></p>
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='script/script_home.js') }}"></script>
+</body>
+</html>

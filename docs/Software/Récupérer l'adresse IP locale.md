@@ -57,7 +57,7 @@ Il y a plusieurs types de fichiers de configurations
 - YAML : pas built in à Python 
 - JSON : parfait 
 	- Attention : pas de "trailing comma" (de virgule à la fin) 
-	- `jq` (processeur JSON) n'est pas toujours pré-installé sur [Linux](../Guides/Linux.md) 
+	- ==**Attention** :== `jq` (processeur JSON) n'est pas toujours pré-installé sur [Linux](../Guides/Linux.md) 
 
 ### Lancer avec `cron` 
 Utilisons `cron`. Dans le `crontab` d'un client, ajouter la ligne suivante. 

@@ -1,0 +1,168 @@
+section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-section, .bottom-section {
+  height: 100vh;
+  position: relative;
+  border: 2px solid green;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.header {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.left-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.right-box {
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: white;
+  animation: slideInRight 1s ease-out;
+}
+
+.bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: #e4d4f0;
+  font-style: italic;
+  z-index: 1;
+  pointer-events: none;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.bottom-section .content {
+  text-align: left;
+  animation: fadeInUp 1s ease-out;
+}
+
+.welcome {
+  color: green;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.roles {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.roles li {
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.roles li:hover {
+  transform: translateX(5px);
+}
+
+.client {
+  color: red;
+  border-left: 4px solid red;
+  padding-left: 0.5rem;
+}
+
+.serveur {
+  color: blue;
+  border-left: 4px solid blue;
+  padding-left: 0.5rem;
+}
+
+.dev {
+  color: orange;
+  border-left: 4px solid orange;
+  padding-left: 0.5rem;
+}
+
+.doc {
+  color: green;
+}
+
+.documentation {
+  color: purple;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ Media Query for mobile */
+@media (max-width: 768px) {
+  .top-section, .bottom-section {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .left-title {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  .right-box {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    align-self: flex-start;
+  }
+
+  .bg-text {
+    font-size: 1.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .welcome {
+    font-size: 1rem;
+  }
+
+  .roles li {
+    font-size: 1rem;
+  }
+
+  .bottom-section .content {
+    padding: 0.5rem;
+  }
+}

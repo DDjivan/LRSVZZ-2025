@@ -1,0 +1,21 @@
+/*
+.collapsible {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.collapsible.active .arrow {
+    transform: rotate(180deg);
+}
+
+.collapsible + div {
+    display: none; // content hidden by default
+    transition: max-height 0.3s ease; // smooth transition
+}
+*/
