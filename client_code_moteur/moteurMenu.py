@@ -1,27 +1,30 @@
-import moteur_args
+import moteur_args as mot
 
 
 def stopMoteurs():
     global pi,gpioM1,gpioM2
-    stop_pin(pi,gpioM1)
-    stop_pin(pi,gpioM2)
+    mot.stop_pin(pi,gpioM1)
+    mot.stop_pin(pi,gpioM2)
+
+def testParamètres():
+    print("A faire")
 
 def testSimple():
-    start_pin(pi, gpioM1, 0.5)
-    start_pin(pi, gpioM2, -0.5)
+    mot.start_pin(pi, gpioM1, 0.5)
+    mot.start_pin(pi, gpioM2, -0.5)
     time.sleep(3)
-    stopMoteurs()
-    start_pin(pi, gpioM1, 0.5)
-    start_pin(pi, gpioM2, -0.5)
+    mot.stopMoteurs()
+    mot.start_pin(pi, gpioM1, 0.5)
+    mot.start_pin(pi, gpioM2, -0.5)
     time.sleep(3)
-    stopMoteurs()
+    mot.stopMoteurs()
 
 def scriptTest():
     print("Script de test à faire")
 
 if __name__ == '__main__' :
     try :
-        pi = init_pi()
+        pi = mot.init_pi()
         gpioM1=12
         gpioM2=13
         while True :
@@ -46,6 +49,6 @@ if __name__ == '__main__' :
                 print("Fin des tests, arrêt des moteurs.")
                 break
     finally :
-        stopMoteurs()
+        mot.stopMoteurs()
         pi.stop()
 
