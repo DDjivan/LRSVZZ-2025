@@ -8,17 +8,27 @@ def stopMoteurs():
 
 def testParamètres():
     print("\n--------------------------------------\n")
-    ligne = input("\nCe test permet de faire tourner deux moteurs avec des paramètres différents. le format est le suivant : VITESSE1 VITESSE2 TEMPS\nPar exemple pour faire tourner dans des sens opposés pendant 3 secondes : '1 -1 3' \n")
+    ligne = input(
+        "\nCe test permet de faire tourner deux moteurs avec des paramètres différents.\n"
+        "Format : VITESSE1 VITESSE2 TEMPS\n"
+        "Exemple : '1 -1 3' → moteurs en sens opposés pendant 3 secondes\n> "
+    )
     try:
         parts = ligne.strip().split()
-        vitesse1=parts[0]
-        vitesse2=parts[1]
-        temps=parts[2]
+        if len(parts) != 3:
+            raise ValueError("Trois paramètres sont requis.")
+
+        vitesse1 = float(parts[0])
+        vitesse2 = float(parts[1])
+        temps = float(parts[2])
+
         mot.start_pin(pi, gpioM1, vitesse1)
         mot.start_pin(pi, gpioM2, vitesse2)
         time.sleep(temps)
-    except:
-        print("\nProblème lors de l'interprétation des paramètres\n")
+
+    except Exception as e:
+        print(f"\n❌ Problème lors de l'interprétation des paramètres : {e}\n")
+
     finally:
         stopMoteurs()
         print("\nFin du test Paramétré.\n--------------------------------------\n")
@@ -63,9 +73,11 @@ if __name__ == '__main__' :
             elif choix == "4":
                 scriptTest()
             elif choix == "5":
-                print("Fin des tests, arrêt des moteurs.")
                 break
     finally :
+        print("\n--------------------------------------\n")
+        print("Fin des tests, arrêt des moteurs.")
+        print("\n--------------------------------------\n")
         stopMoteurs()
         pi.stop()
 
