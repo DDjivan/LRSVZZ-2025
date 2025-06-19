@@ -20,7 +20,7 @@ def testParamètres():
     except:
         print("\nProblème lors de l'interprétation des paramètres\n")
     finally:
-        mot.stopMoteurs()
+        stopMoteurs()
         print("\nFin du test Paramétré.\n--------------------------------------\n")
 
 def testSimple():
