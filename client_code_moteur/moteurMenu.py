@@ -7,7 +7,21 @@ def stopMoteurs():
     mot.stop_pin(pi,gpioM2)
 
 def testParamètres():
-    print("A faire")
+    print("\n--------------------------------------\n")
+    ligne = input("\nCe test permet de faire tourner deux moteurs avec des paramètres différents. le format est le suivant : VITESSE1 VITESSE2 TEMPS\nPar exemple pour faire tourner dans des sens opposés pendant 3 secondes : '1 -1 3' \n")
+    try:
+        parts = ligne.strip().split()
+        vitesse1=parts[0]
+        vitesse2=parts[1]
+        temps=parts[2]
+        mot.start_pin(pi, gpioM1, vitesse1)
+        mot.start_pin(pi, gpioM2, vitesse2)
+        time.sleep(temps)
+    except:
+        print("\nProblème lors de l'interprétation des paramètres\n")
+    finally:
+        mot.stopMoteurs()
+        print("\nFin du test Paramétré.\n--------------------------------------\n")
 
 def testSimple():
     mot.start_pin(pi, gpioM1, 0.5)
@@ -39,6 +53,7 @@ if __name__ == '__main__' :
             print("5. Quitter")
             print("--------------------------------------\n")
             choix=input("Choisir une option (le nombre): ")
+            print("\n--------------------------------------\n")
             if choix == "1":
                 stopMoteurs()
             elif choix == "2":
