@@ -38,7 +38,7 @@ if __name__ == '__main__' :
             print("4. Exécuter un script")
             print("5. Quitter")
             print("--------------------------------------\n")
-            choix=input("Choisir une option (le nombre)")
+            choix=input("Choisir une option (le nombre): ")
             if choix == "1":
                 stopMoteurs()
             elif choix == "2":
