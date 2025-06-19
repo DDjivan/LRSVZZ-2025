@@ -20,7 +20,7 @@ def testParamètres():
         vitesse1 = float(parts[0])
         vitesse2 = float(parts[1])
         temps = float(parts[2])
-
+        assert temps>0
         mot.start_pin(pi, gpioM1, vitesse1)
         mot.start_pin(pi, gpioM2, vitesse2)
         time.sleep(temps)
