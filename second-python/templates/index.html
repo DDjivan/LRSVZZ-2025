@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-
-
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -13,17 +8,17 @@
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
     <script>
-    window.MathJax = {
-    tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']] 
-    },
-    options: {
-        skipHtmlTags: []
-    }
-    };
+        window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] 
+        },
+        options: {
+            skipHtmlTags: []
+        }
+        };
     </script>
-
+    <!-- ... -->
     <title>MECHA DELIVERY 😎</title>
     <link rel="icon" href="{{ url_for('static', filename='shop-four-tiles.svg') }}" type="image/x-icon">
 </head>
