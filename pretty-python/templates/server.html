@@ -21,9 +21,9 @@
   {% if commandes|length == 0 %}
     <p>Aucune commande en attente.</p>
   {% else %}
-    <div class="commandes-container">
+    <div class="orders-container">
       {% for cmd in commandes %}
-      <div class="commande-bulle">
+      <div class="order-bubble">
         <h3>Commande #{{ cmd.id }} - {{ cmd.destination }}</h3>
         <p><em>Passée le {{ cmd.date }}</em></p>
         <ul>
@@ -36,7 +36,7 @@
           <input type="hidden" name="order_id" value="{{ cmd.id }}" />
 
           <button type="submit" name="action" value="envoyer">Envoyer</button>
-          <button type="submit" name="action" value="refuser" onclick="return confirm('Confirmer le refus de la commande ?')">Refuser</button>
+          <button type="submit" name="action" value="refuser">Refuser</button>
         </form>
       </div>
       {% endfor %}
@@ -46,4 +46,10 @@
 </section>
 
 </body>
+
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='script/script_server.js') }}"></script>
+
 </html>
+
+
