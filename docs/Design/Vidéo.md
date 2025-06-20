@@ -73,40 +73,46 @@ Format :
 Idées Lilian : 
 
 1. *Introduction, choix du projet* 
+	- [x] Vote du robot (2025-06 19, 1) 
 2. Time-lapse général 
 3. **Partie théorique, mécanique** 
-	- [ ] Lilian qui écrit sur une feuille en papier jk
+	- [x] Lilian qui écrit sur une feuille en papier (6) 
 	- [ ] Djivan sur Obsidian qui écrit en MathJax 
 4. **Partie électrique** 
-	- [ ] Louise et Thisalini qui réalisent le câblage 
-5. **Partie logicielle, programmer sur des IDE, python, shell, site web** 
-	- [ ] Benjamin, Djivan sur le terminal, Kate ou VSCodium 
-	- [ ] Benjamin qui exécute `$ python app.py`, Djivan qui rafraîchit la page à côté et wow ça fonctionne 
-	- [ ] Interface de la page web 
-	- [ ] `git pull` 
+	- [ ] Louise et Thisalini qui réalisent le câblage (vendredi) 
+5. **Partie logicielle, programmer sur des IDE, python, shell, site web**  
+	- [x] Benjamin qui exécute `$ python app.py`, Djivan qui rafraîchit la page à côté et la page charge (4) 
+	- [ ] Utilisation de la plateforme web 
 6. Time-lapse général 
 7. **Photos avec matériel électronique, réception moteurs** 
 	- [ ] Juste photos de notre matos, où on ouvre la boîte 
 	- [ ] Photos du matériel dans la voiture de Djivan 
 8. Time-lapse général 
 9. **Modélisations 3D** 
-	- [ ] Alice, Djivan sur FreeCAD 
+	- [x] Alice et Lilian sur FreeCAD (3) 
 10. Time-lapse général 
 11. **Time-lapse carton, peinture** 
-	- [ ] Thisalini qui peint 
+	- [x] Thisalini qui peint (on a déjà) 
 12. **Vidéo de Michaël qui roule pour la première fois** 
 13. Time-lapse général 
 14. **Réalisation poster et mascotte Mikeru** 
-	- [ ] Djivan sur Inkscape 
+	- [x] Djivan sur Inkscape (8) 
 15. Time-lapse général 
 16. **Algorithme de plus court chemin** 
 	- [ ] Lilian, Benjamin voire Djivan au tableau 
 17. **Réalisation du circuit PCB** 
-	- [ ] Louise sur `<INSÉRER_LOGICIEL_PCB_ICI>`  
+	- [x] Louise sur `<INSÉRER_LOGICIEL_PCB_ICI>` (2) 
 18. Time-lapse général 
 19. **Images de Michel** 
 	- [ ] ??? 
 20. *Crédits* 
+
+- [ ] Thisalini qui fait le rapport / CDCF 
+- [ ] Djivan ou Benjamin qui fait le rapport hebdomadaire  
+- [x] Alice qui coupe un morceau de carton (5) 
+- [ ] Lilian et Thisalini qui font des activités manuelles 
+- [x] Benjamin qui fait le rapport hebdomadaire (7)
+- [x] Thisalini qui coupe du carton (2025-06 20, 8) 
 
 2¹⁰ = 10³ 
 2²⁰ = 10⁶ 
