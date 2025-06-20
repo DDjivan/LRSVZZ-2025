@@ -179,7 +179,7 @@ def web_gestion() :
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
-from flask import redirect
+from flask import redirect, url_for
 
 @app.route('/server', methods=['GET', 'POST'])
 def web_server():
