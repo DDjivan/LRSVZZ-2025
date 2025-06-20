@@ -277,11 +277,11 @@ def view_ips() :
 
     except FileNotFoundError :
         # return 'The file is empy: no IP addresses recorded yet.', 404
-        content = "The file is empy: no IP addresses recorded yet."
+        content = "The file is empty: no IP addresses recorded yet."
 
     finally:
         new_content = md_to_html(content)
-        return render_template('index.html', content=new_content)
+        return render_template('dev.html', content=new_content)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
