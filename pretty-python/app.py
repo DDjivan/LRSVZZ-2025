@@ -195,7 +195,9 @@ def web_server():
             # Supprimer la commande et ses items dans les deux cas (plus de suivi)
             c.execute("DELETE FROM order_items WHERE order_id = ?", (order_id,))
             c.execute("DELETE FROM orders WHERE id = ?", (order_id,))
+            socketio.emit("new order")
             conn.commit()
+            return
 
     # Afficher toutes les commandes (toutes les commandes sont en attente tant qu'elles existent)
     c.execute("""
@@ -272,14 +274,14 @@ def view_ips() :
         with open(sFile, 'r') as f :
             content = f.read()
 
-        # return f'<pre>{content}</pre>'  
+        # return f'<pre>{content}</pre>'
         content = f'<pre>{content}</pre>'
 
     except FileNotFoundError :
         # return 'The file is empy: no IP addresses recorded yet.', 404
         content = "The file is empy: no IP addresses recorded yet."
 
-    finally: 
+    finally:
         new_content = md_to_html(content)
         return render_template('index.html', content=new_content)
 
