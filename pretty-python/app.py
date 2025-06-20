@@ -197,7 +197,7 @@ def web_server():
             c.execute("DELETE FROM order_items WHERE order_id = ?", (order_id,))
             c.execute("DELETE FROM orders WHERE id = ?", (order_id,))
             conn.commit()
-            return redirect(url_for('server'))
+            return redirect(url_for('web_server'))
     # Afficher toutes les commandes (toutes les commandes sont en attente tant qu'elles existent)
     c.execute("""
         SELECT id, destination, date
