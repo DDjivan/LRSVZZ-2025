@@ -120,8 +120,7 @@ def commander():
 
     socketio.emit("new order")
 
-    products = get_products()
-    return render_template("client.html", products=products)
+    return redirect(url_for('web_client'))
 
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
