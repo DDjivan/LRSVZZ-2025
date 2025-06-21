@@ -134,7 +134,7 @@ de livrer de la nourriture aux étudiants depuis la cafétéria ?
 	\centering
 	\includegraphics[width=0.6\textwidth]{./attachments/sketch.jpg}
 	\caption{Schéma du prototype. }
-
+	\label{fig:schema_proto}
 \end{figure}
 
 Liste des composants utilisés : 
@@ -421,7 +421,7 @@ Voici les câblages à effectuer :
 	\item La broche ECHO du capteur sur le PIN18 via le pont diviseur de tension (fil jaune) 
 \end{itemize}
 
-\subsubsection{Servomoteurs}
+\subsection{Servomoteurs}
 
 \begin{figure}[H]
 	\centering
@@ -480,25 +480,200 @@ Ces servomoteurs fonctionnent de 4 à 8.4 Vcc, donc nous n’avons plus besoin d
 Tout le long de l’assemblage nous avons utilisé des breadboard pour connecter les composants entre eux. Toutefois, on s’est rendu compte que certains fils Dupont se détachent, ne sont plus fixés sur le breadboard. Ce qui est assez problématique. 
 Nous sommes donc passé à un circuit imprimé personnalisé qui remplacera nos breadboards.
 
+\subsection{PCB}
 
-\section{Développement et Implémentation}
+Pour concevoir notre propre PCB, nous l’avons modélisé sur EasyEDA, en commençant par les branchements électroniques, puis en générant le PCB correspondant. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./attachments/schema_elec.jpg}
+	\caption{Schéma électronique.}
+\end{figure}
+
+a
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./attachments/schema_pcb.jpg}
+    \caption{PCB généré après avoir mis en place les wires.}
+\end{figure}
+
+Côté composants : le dessus du circuit 
+
+Côté cuivre : le dessous du circuit
+
+Voici le design en 3D : 
+
+(IMAGE)
+
+
+\subsection{Roues}
+
+Comme mentionné précédemment, nous avons constaté que le diamètre de l’axe des moteurs à courant continu était trop petit pour s’adapter correctement aux roues que nous avions. Il y avait trop de jeu, ce qui rendait l’assemblage instable et peu fiable.
+
+Face à ce problème, nous avons décidé de baser notre robot sur un servomoteur en attendant de dimensionner précisément celui dont nous aurions besoin pour la version finale. Pour nos premiers tests, nous avons utilisé un servomoteur déjà disponible. Ce servomoteur était fourni avec un kit de roues parfaitement compatibles, ce qui nous a permis de réaliser des essais pratiques rapidement.
+
+Nous avons ainsi utilisé ce couple servomoteur-roue pour valider nos premières étapes de programmation et tester l’assemblage du robot, en lien avec notre approche théorique. Toutefois, dès le départ, nous savions que notre robot final nécessiterait des roues de plus grand diamètre pour accomplir correctement sa mission. Ces tests ont donc servi de base temporaire en attendant le choix définitif des composants.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./attachments/schema_pcb.jpg}
+	\caption{Premières roues.}
+\end{figure}
+
+Après avoir terminé le dimensionnement des servomoteurs, nous avons souhaité passer commande des servomoteurs accompagnés des kits de roues compatibles. Cependant, seules des roues de petit diamètre étaient disponibles avec ces kits. Nous avons donc décidé de commander séparément les servomoteurs et des roues du diamètre souhaité, en pensant pouvoir les assembler nous-mêmes.
+
+Malheureusement, à la réception de la commande, nous avons constaté que l’arbre du servomoteur n’était pas compatible avec les roues choisies. L’axe ne correspondait pas, ce qui rendait l’assemblage impossible sans adaptation.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./attachments/schema_pcb.jpg}
+	\caption{Liens roues.}
+\end{figure}
+
+Afin de résoudre le problème d’incompatibilité entre les servomoteurs et les roues, notre première idée a été d’agrandir le trou de l’adaptateur de roue pour y faire passer l’arbre moteur et le fixer solidement. Voici le résultat obtenu :
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{./attachments/schema_pcb.jpg}
+	\includegraphics[width=0.3\textwidth]{./attachments/schema_pcb.jpg}
+	\includegraphics[width=0.3\textwidth]{./attachments/schema_pcb.jpg}
+	\caption{Résultat.}
+\end{figure}
+
+Après avoir fixé les servomoteurs aux roues de cette manière, nous avons réalisé un premier essai de déplacement avec notre prototype. Cependant, nous avons rapidement constaté que l’arbre moteur n’était pas suffisamment maintenu. Cela provoquait un mauvais alignement des roues, les faisant tourner de manière désordonnée, comme sur une surface glissante.
+
+Face à ce problème, nous avons réfléchi à une autre solution plus fiable.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./attachments/schema_pcb.jpg}
+	\includegraphics[width=0.4\textwidth]{./attachments/schema_pcb.jpg}
+	\caption{Résultat.}
+\end{figure}
+
+Après plusieurs tentatives, nous avons finalement utilisé l’équipement fourni avec les roues : des ailettes de fixation que nous avons vissées et solidement maintenues à l’aide d’écrous. Nous avons pris soin de bien aligner et fixer l’arbre moteur pour garantir la stabilité. Ensuite, nous avons monté l’ensemble sur les arbres moteurs avec précaution.
+
+Ensemble servomoteur-roues
+
+\section{Structure du système}
+
+Tout d’abord, nous avons fait un schéma du robot (\autoref{fig:schema_proto}) pour avoir un aperçu de notre projet. Nous voulions un châssis dont le coffre serait posé dessus avec des piliers, avec des compartiments qui aurait un couvercle qui s'ouvrerait automatiquement, lorsque la commande serait arrivée à destination. 
+
+Ensuite, nous partons sur le fait d’imprimer la structure à l’aide d’une imprimante 3D. Alors nous avons en premier lieu chercher un logiciel de modélisation facile à manipuler et ensuite appris à le maîtriser. Ensuite, pour que tout le monde comprenne les outils utilisés, nous avons rédigé une documentation claire et détaillée de notre démarche sur l'outil utilisé qui est FreeCAD. Ce dernier est un logiciel de conception assistée par ordinateur open source.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_planche.jpg}
+	\caption{Châssis.}
+\end{figure}
+
+Ici, le châssis est une planche rectangulaire, que nous poserons les composants dessus et percer des trous.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_coffre.jpg}
+	\caption{Coffre.}
+\end{figure}
+
+Ici, le coffre comporte trois compartiments, pour stocker des boissons, des sandwichs au milieu et le reste.
+
+Après avoir modélisé les composants nécessaires, dont le châssis et le coffre. Nous nous sommes rendu compte que les dimensions des objets ne conviennent pas au plateau de l’imprimante 3D alors nous avons pensé à diviser les différentes parties du coffre et du châssis en plusieurs morceaux. Mais cela poserait problème pour le coffre. En effet, nous avons rapidement oublié l’idée du couvercle.
+
+Nous voulions rester sur une structure imprimée alors nous avons opté pour quatre petits objets en forme d'équerre et de housse qui fait le contour. Cela permettra de les accrocher ensemble et de mettre les équerres l’un sur l’autre. De ce fait, le coffre et le châssis seraient modulables et nous mettrons les composants sur les équerres et n’importe quel carton pour faire le coffre.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_equerre.jpg}
+	\caption{Première équerre.}
+\end{figure}
+
+L'équerre est assez fine pour pouvoir les empiler
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_housse.jpg}
+	\caption{Housse.}
+\end{figure}
+
+Les housses sont assez large, mais de la bonne taille pour bien fixer les équerres entre elles
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_assemblage.jpg}
+	\caption{Ce que ça donnerait assemblé.}
+\end{figure}
+
+Après réflexions, nous avons vu qu’il y avait un problème dans nos propos. En effet, si on pose les composants sur les équerres puis ensuite un carton, ça écrase les composants.
+
+Nous avons alors réfléchi à une meilleure solution, de faire le châssis séparément du coffre comme convenu à la base. Le châssis serait équipé de petit trou pour placer des piliers pour continuer à avoir un coffre modulable avec du carton posé dessus. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_equerre_v2.jpg}
+	\caption{Seconde équerre.}
+\end{figure}
+
+Cette fois, les équerres seraient empilées entre eux pour éviter qu’il est trop d’écart entre le carton et les autres équerres avec un trou sur le long pour pouvoir le fixer au châssis à l’aide de piliers.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_assemblage_v2.jpg}
+	\caption{Second assemblage.}
+\end{figure}
+
+Nous pouvons voir un aperçu avec les quatre coins assemblés, les coins ont pour but de coulisser entre elles et s’ajuster en fonction de la taille du carton choisi.
+
+Malheureusement, cette solution n’a pas abouti, car ces coins ne conviennent pas aux temps d’impression accordés, qui dure plus d’un jour d’impression pour un seul coin.
+
+Alors nous avons réfléchi longuement à quel matériau choisir. Nous nous sommes d’abord basés sur du bois, mais certaines planches (7 kg) dépassent le poids que peuvent supporter les roues. Nous nous sommes penchés sur le métal, mais cette solution a le même problème que le bois. 
+
+C’est alors que nous nous sommes concentrés sur le choix définitif du carton. Ce matériau est à la fois modulable, facile à manipuler, léger et facilement accessible. Il nous permet de faire et de refaire la structure sans se soucier du temps. De ce fait, nous n’avons pas la contrainte de tous les groupes ont, à utiliser une imprimante 3D qui prend beaucoup de temps à imprimer et nous démarque par rapport aux autres groupes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./attachments/prototype_1.jpg}
+	\caption{Premier prototype.}
+\end{figure}
+
+Voici le premier prototype du robot sans le coffre à l’instant. Les finitions du châssis sont plutôt négligées et le carton utilisé n’est pas très solide, nous pouvons voir que le châssis n’est pas droit. Cependant, il a été peint à la peinture et nous pouvons voir que ça couvre le fait que ce soit du carton. 
+
+C’est pour cela que nous avons refait une autre structure avec des finitions plus propre et avec du carton beaucoup plus solide. Ensuite, nous l’avons peint à la bombe pour avoir un rendu plus uniforme et pouvoir peindre surtout plus rapidement, ainsi éviter le temps de sèche. 
+
+Certaines planches de cartons solides étaient assez fines alors nous l’avons renforcé en collant plusieurs planches entre elles pour bien renforcer le châssis et supporté la force des moteurs.
+
+Enfin, nous avons pu passer à la partie décoration du robot, pour donner du charme et donner une petite touche personnelle.
+
+
+
+\section{Partie logicielle}
 % Étapes de développement, utilisation de Git, défis rencontrés.
 
-Beaucoup de calculs pour dimensionner les moteurs et roues.
+\subsection{Programmation individuelle des composants}
+Gyroscope
 
-Beaucoup de recherches pour les composants à utiliser.
+Capteur d’obstacle (Lidar et ultrason)
 
-Au début on voulait faire la structure à l'aide d'une imprimante 3D, donc 
-apprentissage des outils de développement 3D et un coffre modulable mais 
-par souci de temps (en effet l'impression des pièces seraient chronophages), 
-donc on a abandonné cette idée et on est parti sur une structure en carton.
+Pour le LiDAR
 
-Utilisation de JavaScript, apprentissage assez long et ensuite mise en application.
+Pour l’ultrason
 
-\section{Tests et Validation}
-% Méthodologie de test, résultats des tests, retours d'expérience.
+Servomoteurs
 
-\section{Rétro-planning et Gestion de Projet}
+
+
+%Beaucoup de calculs pour dimensionner les moteurs et roues.
+%
+%Beaucoup de recherches pour les composants à utiliser.
+%
+%Au début on voulait faire la structure à l'aide d'une imprimante 3D, donc 
+%apprentissage des outils de développement 3D et un coffre modulable mais 
+%par souci de temps (en effet l'impression des pièces seraient chronophages), 
+%donc on a abandonné cette idée et on est parti sur une structure en carton.
+%
+%Utilisation de JavaScript, apprentissage assez long et ensuite mise en application.
+
+\section{Gestion du projet}
 \subsection{Organisation des Tâches}
 % Inclure un tableau ou un graphique du rétroplanning.
 
