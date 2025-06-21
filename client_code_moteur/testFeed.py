@@ -23,7 +23,7 @@ def adc_to_degrees(raw_value):
     Hypothèse : 0 V = 0°, 3.3 V = 180°
     """
     voltage = raw_value * 3.3 / 4095  # Convertir en volts
-    angle = (voltage / 3.3) * 180     # Proportion linéaire
+    angle = (voltage / 3.3) * 360     # Proportion linéaire
     return angle
 
 # --- Boucle de test ---
