@@ -122,7 +122,7 @@ Idées Lilian :
 ## Comment 
 Un logiciel de composition vidéo. 
 
-- Davinci Resolve : avancé et complet 
+- **Davinci Resolve** : avancé et complet 
 - Kdenlive : moyennement avancé, simple 
 - Premiere Pro : avancé mais... adobe 
 - Shotcut : aucune idée 
@@ -134,7 +134,15 @@ Des outils pour faire des animations.
 - Tout : [Blender](https://www.blender.org/) 
 - Polyvalent, 2D : Adobe Animate 
 
-### Media 
+## Où 
+Les fichiers de projet sont sur l'ordinateur portable de [Djivan](../People/VARTANIAN%20Djivan.md) uniquement. 
+
+La vidéo a été uploadée sur YouTube à l'adresse suivante : 
+https://youtube.com/watch?v=tuzv-f1nu2c 
+
+
+
+## Media 
 
 Des banques de sons libres d'usage. (Merci [EvilDaystar](https://www.reddit.com/r/Filmmakers/comments/13lwk4l/comment/jkrynys/)) 
 
