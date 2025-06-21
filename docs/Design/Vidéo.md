@@ -85,33 +85,35 @@ Idées Lilian :
 	- [ ] Utilisation de la plateforme web 
 6. Time-lapse général 
 7. **Photos avec matériel électronique, réception moteurs** 
-	- [ ] Juste photos de notre matos, où on ouvre la boîte 
-	- [ ] Photos du matériel dans la voiture de Djivan 
+	- [x] Juste photos de notre matos, où on ouvre la boîte 
+	- [x] Photos du matériel dans la voiture de Djivan 
 8. Time-lapse général 
 9. **Modélisations 3D** 
 	- [x] Alice et Lilian sur FreeCAD (3) 
 10. Time-lapse général 
-11. **Time-lapse carton, peinture** 
-	- [x] Thisalini qui peint (on a déjà) 
+11. **Carton, hebdo** 
+	- [x] Alice qui coupe un morceau de carton (5) 
+	- [x] Benjamin qui fait le rapport hebdomadaire (7)
 12. **Vidéo de Michaël qui roule pour la première fois** 
 13. Time-lapse général 
 14. **Réalisation poster et mascotte Mikeru** 
 	- [x] Djivan sur Inkscape (8) 
-15. Time-lapse général 
-16. **Algorithme de plus court chemin** 
-	- [ ] Lilian, Benjamin voire Djivan au tableau 
-17. **Réalisation du circuit PCB** 
+15. Peinture 
+	- [x] Thisalini qui peint (on a déjà) 
+16. Time-lapse général 
+17. **Algorithme de plus court chemin** 
+	- [x] Lilian, Benjamin voire Djivan au tableau (9) 
+18. **Réalisation du circuit PCB** 
 	- [x] Louise sur `<INSÉRER_LOGICIEL_PCB_ICI>` (2) 
-18. Time-lapse général 
-19. **Images de Michel** 
+19. Time-lapse général 
+20. **Images de Michel** 
 	- [ ] ??? 
-20. *Crédits* 
+21. *Crédits* 
 
 - [ ] Thisalini qui fait le rapport / CDCF 
-- [ ] Djivan ou Benjamin qui fait le rapport hebdomadaire  
-- [x] Alice qui coupe un morceau de carton (5) 
+
 - [ ] Lilian et Thisalini qui font des activités manuelles 
-- [x] Benjamin qui fait le rapport hebdomadaire (7)
+
 - [x] Thisalini qui coupe du carton (2025-06 20, 8) 
 
 2¹⁰ = 10³ 
