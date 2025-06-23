@@ -136,12 +136,12 @@ def astar_directions(grid, start, end):
 
 if __name__ == "__main__":
     image_path = "grille.png"  # ton image d'entrée
-    block_size = 24
+    block_size = 20
 
     grid, start, end = load_grid_from_image_blocks(image_path, block_size=block_size)
     chemin = astar_directions(grid, start, end)
 
     if chemin:
-        print("Chemin trouvé (coordonnées blocs) :", chemin)
+        print("Chemin trouvé :", chemin)
     else:
         print("Aucun chemin trouvé.")
