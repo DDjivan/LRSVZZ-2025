@@ -51,10 +51,13 @@ def checkInterval(x,m,M) :
     return (m<x[0]) & (x[0]<M) & (m<x[1]) & (x[1]<M)
 
 def scriptTest():
+    a=getAngles()
+    aFinal=a+273
+    aFinal=aFinal % 273
     mot.start_pin(pi, gpioM1, 1)
     mot.start_pin(pi, gpioM2, 1)
-    while (not checkInterval(getAngles(),270,275)) :
-            time.sleep(0.01)
+    while (not checkInterval(getAngles(),aFinal-5,aFinal+5)) :
+            time.sleep(0.001)
     stopMoteurs()
 
 if __name__ == '__main__' :
