@@ -41,7 +41,7 @@ def getAngles():
 if __name__ == "__main__":
     try:
         while True:
-            for ch in range(1):
+            for ch in range(2):
                 raw = read_adc(ch)
                 angle = adc_to_degrees(raw)
                 voltage = (angle / 360) * 3.3
