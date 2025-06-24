@@ -30,19 +30,26 @@ Pour les titres : `\section{NOM}`
 Pour les sous-titres : `\subsection{NOM}` 
 Pour les sous-sous-titres : `\subsubsection{NOM}` 
 
-Texte en gras : `\textbf{TEXTE}` 
-`\textit{TEXTE}` 
+Ces derniers seront automatiquement présents dans la table des matières. 
 
+Texte en évidence : `\emph{TEXTE_texte}` 
+Texte en italique : `\textit{TEXTE_texte}` 
+Texte en gras : `\textbf{TEXTE_texte}` 
+
+> [!tip] Quelle différence ? 
+> La commande `\emph{}` est utilisée **pour mettre en évidence du texte** (généralement en l'affichant en italique), alors que `\textit{}` place directement le texte en italique. 
 
 Pour insérer une image ou un fichier PDF, il est conseillé d'utiliser une `figure`. 
 
 ```latex
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{CHEMIN_DU_FICHIER}
+	\centering % centre 
+	\includegraphics[width=LONGUEUR\textwidth]{CHEMIN_DU_FICHIER}
 	\caption{DESCRIPTION}
 \end{figure}
 ```
+
+Afin que l'image soit adaptée à la taille de la page, `LONGUEUR` est idéalement une valeur entre 0 et 1 (qui sera multipliée par la longueur de la page). 
 
 Pour les listes : 
 ```latex
@@ -52,11 +59,15 @@ Pour les listes :
 \end{STYLE_DE_LISTE}
 ```
 
-Styles de liste : 
+Exemples de styles de liste : 
 - à tiret : `itemize` 
 - numérotées : `enumerate` 
+- ... 
 
 ## Syntaxe Mathématiques 
+À encadrer soit par une paire de dollars, soit une paire de double dollars. 
+Donc soit `$équation$`, soit `$$équation centrée et grande et sur plusieurs lignes$$`. 
+
 Indice : `_` 
 Exposant : `^`  
 
@@ -67,7 +78,10 @@ Ne jamais hésiter à mettre des groupes de caractères entre des accolades. Il 
 
 Fractions : `\frac{EN_HAUT}{EN_BAS}` 
 
-Voir les ressources utiles de cette note ou les exemples déjà présents ([Théorique](../Hardware/Théorique.md)) pour des écritures plus avancées. 
+Mettre du texte (pour les unités, "si ...", "donc...", etc.) : `\mathrm{TEXTE}` 
+Espacer : `\,`, `\;`, `\quad`... 
+
+Voir les ressources utiles de cette note ou les exemples déjà présents ([Théorique](../Hardware/Théorique.md)) pour des styles plus avancés. 
 
 ### TeXstudio 
 [Flatpak](appstream:org.texstudio.TeXstudio) (le plus simple) 
