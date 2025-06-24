@@ -31,7 +31,11 @@ try:
     while True:
         raw = read_adc(0)  # Lecture sur canal CH0
         angle = adc_to_degrees(raw)
-        print(f"Valeur ADC : {raw} | Angle estimé : {angle:.1f}°")
+        print(f"Valeur ADC : {raw} | 2e Angle estimé : {angle:.1f}°")
+        raw = read_adc(1)  # Lecture sur canal CH0
+        angle = adc_to_degrees(raw)
+        print(f"Valeur ADC : {raw} | 2e Angle estimé : {angle:.1f}°")
+        print("----------------------------------------------------")
         time.sleep(0.5)
 
 except KeyboardInterrupt:
