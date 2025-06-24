@@ -47,7 +47,7 @@ def testSimple():
     stopMoteurs()
     print("Fin.")
 
-def checkInterval(x,m,M)
+def checkInterval(x,m,M) :
     return (m<x[0] & x[0]<M) & (m<x[1] & x[1]<M)
 
 def scriptTest():
