@@ -1,4 +1,4 @@
-from moteur_args import *
+import moteur_args as mot
 from rechercheChemin import *
 import spidev
 import time
