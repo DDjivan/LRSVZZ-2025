@@ -113,6 +113,7 @@ if __name__ == "__main__":
     try :
         for i in chemin :
             robot.set_direction(i)
+            time.sleep(2)
             robot.avancer()
             time.sleep(2)
     finally :
