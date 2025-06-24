@@ -20,7 +20,7 @@ def read_adc(channel):
 def adc_to_degrees(raw_value):
     """
     Convertit la valeur ADC brute en angle en degrés.
-    Hypothèse : 0 V = 0°, 3.3 V = 180°
+    Hypothèse : 0 V = 0°, 3.3 V = 360°
     """
     voltage = raw_value * 3.3 / 4095  # Convertir en volts
     angle = (voltage / 3.3) * 360     # Proportion linéaire

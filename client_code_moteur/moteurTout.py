@@ -33,11 +33,14 @@ class Robot:
             return
         # Tourner à droite (90°) ou à gauche (-90°)
         if angle == 90:
-            while (!checkInterval(getAngles(),270,275))
-                self.pi.set_servo_pulsewidth(self.gpioM1, 500)
-                self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
+            self.pi.set_servo_pulsewidth(self.gpioM1, 2500)
+            self.pi.set_servo_pulsewidth(self.gpioM2, 500)
+            time.sleep(1)
             self.direction_index = (self.direction_index + 1) % 4  # Tourner à droite
         else:
+            self.pi.set_servo_pulsewidth(self.gpioM1, 500)
+            self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
+            time.sleep(1)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
 
         direction = self.directions[self.direction_index]
