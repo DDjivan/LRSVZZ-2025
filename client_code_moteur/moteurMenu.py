@@ -52,9 +52,9 @@ def checkInterval(x,m,M,m1,M1) :
 
 def scriptTest():
     a=getAngles()
-    aFinal=( (a[0]+273)%273 , (a[1]+273)%273 )
-    mot.start_pin(pi, gpioM1, 0.1)
-    mot.start_pin(pi, gpioM2, 0.1)
+    aFinal=( (a[0]+273)%360 , (a[1]+273)%360 )
+    mot.start_pin(pi, gpioM1, 0.5)
+    mot.start_pin(pi, gpioM2, 0.5)
     print("val finale",aFinal)
     while (not checkInterval(getAngles(),aFinal[0]-5,aFinal[0]+5,aFinal[1]-5,aFinal[1]+5)) :
             print("angle",getAngles())

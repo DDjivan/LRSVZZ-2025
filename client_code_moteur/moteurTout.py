@@ -1,6 +1,7 @@
 from moteur_args import *
 from rechercheChemin import *
 import spidev
+import time
 
 class Robot:
     def __init__(self):
@@ -45,7 +46,7 @@ class Robot:
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
 
         direction = self.directions[self.direction_index]
-        print(f"Le robot tourne de {angle}° et se dirige maintenant vers {direction}.")
+        print(f"Le robot se dirige maintenant vers {direction}.")
 
     def afficher_direction(self):
         """Affiche la direction actuelle du robot."""
@@ -75,11 +76,11 @@ class Robot:
 
         # --- Retourne les valeurs d'angles---
     def getAngles(self):
-        raw = read_adc(0)  # Lecture sur canal CH0
-        angle = adc_to_degrees(raw)
+        raw = self.read_adc(0)  # Lecture sur canal CH0
+        angle = self.adc_to_degrees(raw)
         angle0= angle
-        raw = read_adc(1)  # Lecture sur canal CH0
-        angle = adc_to_degrees(raw)
+        raw = self.read_adc(1)  # Lecture sur canal CH0
+        angle = self.adc_to_degrees(raw)
         angle1=angle
         return (angle0,angle1)
 
@@ -87,9 +88,9 @@ class Robot:
         nIndex=self.directions.index(nDirect)
         if nIndex == self.direction_index :
             print("")
-        elif nIndex== (self.direction_index +1) :
+        elif nIndex== ((self.direction_index +1)%4) :
             self.tourner(90)
-        elif nIndex== (self.direction_index -1) :
+        elif nIndex== ((self.direction_index -1)%4) :
             self.tourner(-90)
         else :
             self.tourner(90)
