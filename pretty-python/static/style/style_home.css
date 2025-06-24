@@ -1,3 +1,97 @@
+html, body {
+    height: 90vh; 
+    margin: 0; /* Set margin to 0 for proper centering */
+}
+
+.box-section {
+    width: 100%;
+    max-width: 1000px;
+    height: 80vh;
+    border: 2px solid oklch(0.7414 0.1678 32.3801);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: oklch(90.119% 0.15661 188.254 / 0.1);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin: 0 auto; 
+    position: relative;
+    gap: 10px; 
+}
+
+.foreground {
+    z-index: 1;
+    width: 100%; 
+    height: 80%;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; 
+}
+
+.background {
+    z-index: 0; 
+    width: 100%;
+    height: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: fadeIn 4s ease-out forwards;
+}
+
+.background img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.left-div {
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 4rem;
+    /* border: 1px solid black; */
+    animation: fadeInLeft 2s ease-out;
+}
+
+.right-div {
+    /* padding: 0.5rem 1rem; */
+    /* font-family: "Courier New", monospace; */
+    /* font-weight: bold; */
+    /* background-color: white; */
+    height: 4rem;
+    /* border: 1px solid black; */
+    animation: fadeInRight 2s ease-out;
+}
+
+.bottom-div {
+    text-align: center;
+    animation: fadeInUp 2s ease-out forwards;
+}
+
+.bottom-div .content {
+    text-align: left;
+}
+
+.item-array {
+    display: flex;
+    justify-content: space-between; 
+    width: 90%; 
+    /* flex: 1;  */
+    gap: 1rem; 
+    margin-bottom: 100px; /* Adjust margin to reduce space */
+}
+
+.item-centered {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .orangebutton {
     line-height: 1.2;
     padding: 0.5em 2em;
@@ -17,171 +111,106 @@
     background-color: oklch(0.8738 0.0576 26.1301);
 }
 
-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.liste-smooth {
+    list-style: none;
+    margin-bottom: 1rem;
 }
 
-.top-section, .bottom-section {
-  height: 100vh;
-  position: relative;
-  border: 2px solid black;
-  /* padding: 2rem; */
-  overflow: hidden;
+.liste-smooth li {
+    margin: 0.4rem 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.header {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  z-index: 2;
-  flex-wrap: wrap;
-  gap: 1rem;
+.liste-smooth li:hover {
+    transform: translateX(5px);
 }
 
-.left-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  animation: fadeInLeft 1s ease-out;
+#client {
+    color: red;
+    border-left: 4px solid red;
+    padding-left: 0.5rem;
 }
 
-.right-box {
-  border: 2px solid black;
-  padding: 0.5rem 1rem;
-  font-family: "Courier New", monospace;
-  font-weight: bold;
-  font-size: 1rem;
-  background-color: white;
-  animation: slideInRight 2s ease-out;
+#vendeur {
+    color: blue;
+    border-left: 4px solid blue;
+    padding-left: 0.5rem;
 }
 
-.bg-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2.5rem;
-  color: #e4d4f0;
-  font-style: italic;
-  z-index: 1;
-  pointer-events: none;
-  text-align: center;
-  padding: 0 1rem;
+#dev {
+    color: orange;
+    border-left: 4px solid orange;
+    padding-left: 0.5rem;
 }
 
-.bottom-section .content {
-  text-align: left;
-  animation: fadeInUp 1s ease-out;
-}
-
-.welcome {
-  color: green;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.roles {
-  list-style: none;
-  margin-bottom: 1rem;
-}
-
-.roles li {
-  margin: 0.4rem 0;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.roles li:hover {
-  transform: translateX(5px);
-}
-
-.client {
-  color: red;
-  border-left: 4px solid red;
-  padding-left: 0.5rem;
-}
-
-.serveur {
-  color: blue;
-  border-left: 4px solid blue;
-  padding-left: 0.5rem;
-}
-
-.dev {
-  color: orange;
-  border-left: 4px solid orange;
-  padding-left: 0.5rem;
-}
-
-.doc {
-  color: green;
-}
-
-.documentation {
-  color: purple;
-  cursor: pointer;
-  text-decoration: underline;
+#doc {
+    color: green;
 }
 
 /* Animations */
-@keyframes fadeInLeft {
-  0% { opacity: 0; transform: translateX(-20px); }
-  100% { opacity: 1; transform: translateX(0); }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.1;
+    }
 }
 
-@keyframes slideInRight {
-  0% { opacity: 0; transform: translateX(30px); }
-  100% { opacity: 1; transform: translateX(0); }
+@keyframes fadeInLeft {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    0% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 /* ✅ Media Query for mobile */
 @media (max-width: 768px) {
-  .top-section, .bottom-section {
+    .section {
     padding: 1rem;
     height: auto;
-  }
+    }
 
-  .header {
+    .foreground {
     flex-direction: column;
     align-items: flex-start;
-  }
+    }
 
-  .left-title {
+    .left-div {
     font-size: 1.2rem;
     text-align: left;
-  }
+    }
 
-  .right-box {
+    .right-div {
     font-size: 0.9rem;
     padding: 0.5rem;
     align-self: flex-start;
-  }
+    }
 
-  .bg-text {
+    .bg-text {
     font-size: 1.8rem;
     padding: 0 0.5rem;
-  }
+    }
 
-  .welcome {
+    .welcome {
     font-size: 1rem;
-  }
+    }
 
-  .roles li {
+    .liste-smooth li {
     font-size: 1rem;
-  }
+    }
 
-  .bottom-section .content {
+    .bottom-section .content {
     padding: 0.5rem;
-  }
+    }
 }

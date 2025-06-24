@@ -275,7 +275,7 @@ def view_ips() :
 
     finally: 
         new_content = md_to_html(content)
-        return render_template('index.html', content=new_content)
+        return render_template('dev.html', content=new_content)
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
