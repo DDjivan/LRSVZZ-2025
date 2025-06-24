@@ -42,8 +42,8 @@ class Robot:
             time.sleep(1)
             self.direction_index = (self.direction_index + 1) % 4  # Tourner à droite
         else:
-            mot.start_pin(self.pi, self.gpioM1, -1)
-            mot.start_pin(self.pi, self.gpioM2, -1)
+            mot.start_pin(self.pi, self.gpioM1, 1)
+            mot.start_pin(self.pi, self.gpioM2, 1)
             time.sleep(1)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
         self.stopMoteurs()
@@ -113,8 +113,8 @@ if __name__ == "__main__":
     try :
         for i in chemin :
             robot.set_direction(i)
-            time.sleep(2)
+            time.sleep(1)
             robot.avancer()
-            time.sleep(2)
+            time.sleep(1)
     finally :
         robot.stopMoteurs()
