@@ -21,9 +21,9 @@
   {% if commandes|length == 0 %}
     <p>Aucune commande en attente.</p>
   {% else %}
-    <div class="orders-container">
+    <div class="commandes-container">
       {% for cmd in commandes %}
-      <div class="order-bubble">
+      <div class="commande-bulle">
         <h3>Commande #{{ cmd.id }} - {{ cmd.destination }}</h3>
         <p><em>Passée le {{ cmd.date }}</em></p>
         <ul>
@@ -36,7 +36,9 @@
           <input type="hidden" name="order_id" value="{{ cmd.id }}" />
 
           <button type="submit" name="action" value="envoyer">Envoyer</button>
+
           <button type="submit" name="action" value="refuser">Refuser</button>
+
         </form>
       </div>
       {% endfor %}
@@ -51,5 +53,3 @@
 <script src="{{ url_for('static', filename='script/script_server.js') }}"></script>
 
 </html>
-
-
