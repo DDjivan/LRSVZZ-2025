@@ -26,8 +26,8 @@ class Robot:
         self.stopMoteurs()
 
     def stopMoteurs(self):
-        self.pi.set_servo_pulsewidth(self.gpioM1, 0)
-        self.pi.set_servo_pulsewidth(self.gpioM2, 0)
+        self.pi.set_servo_pulsewidth(self.gpioM1, 1500)
+        self.pi.set_servo_pulsewidth(self.gpioM2, 1500)
 
     def tourner(self, angle):
         self.stopMoteurs()
