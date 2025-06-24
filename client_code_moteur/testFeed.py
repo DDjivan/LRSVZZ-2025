@@ -41,7 +41,7 @@ if __name__ == "__main__":
         while True:
             raw = read_adc(0)  # Lecture sur canal CH0
             angle = adc_to_degrees(raw)
-            print(f"Valeur ADC : {raw} | 1e Angle estimé : {angle:.1f}°"," tension ", angle/360 *3.3)
+            print(f"Valeur ADC : {raw} | 1e Angle estimé : {angle:.1f}°")
             raw = read_adc(1)  # Lecture sur canal CH0
             angle = adc_to_degrees(raw)
             print(f"Valeur ADC : {raw} | 2e Angle estimé : {angle:.1f}°")
