@@ -44,7 +44,7 @@ class Robot:
             self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
             time.sleep(1)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
-
+        self.stopMoteurs()
         direction = self.directions[self.direction_index]
         print(f"Le robot se dirige maintenant vers {direction}.")
 
@@ -110,6 +110,5 @@ if __name__ == "__main__":
         for i in chemin :
             robot.set_direction(i)
             robot.avancer()
-            print("test")
     finally :
         robot.stopMoteurs()
