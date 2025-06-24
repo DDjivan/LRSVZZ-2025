@@ -18,7 +18,7 @@ class Robot:
         """Simule l'avancement du robot d'une certaine distance."""
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
-        time.sleep(5)
+        time.sleep(1)
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
 
