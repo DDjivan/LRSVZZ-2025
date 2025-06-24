@@ -55,7 +55,9 @@ def scriptTest():
     aFinal=( (a[0]+273)%273 , (a[1]+273)%273 )
     mot.start_pin(pi, gpioM1, 1)
     mot.start_pin(pi, gpioM2, 1)
+    print(aFinal)
     while (not checkInterval(getAngles(),aFinal[0]-5,aFinal[0]+5,aFinal[1]-5,aFinal[1]+5)) :
+            print(getAngles())
             time.sleep(0.001)
     stopMoteurs()
 
