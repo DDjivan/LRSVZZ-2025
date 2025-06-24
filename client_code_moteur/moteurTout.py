@@ -67,7 +67,7 @@ if __name__ == "__main__":
     print(chemin)
     try :
         for i in chemin :
-            set_direction(i)
-            avancer()
+            robot.set_direction(i)
+            robot.avancer()
     finally :
         robot.stopMoteurs()
