@@ -58,7 +58,7 @@ def scriptTest():
     print("val finale",aFinal)
     while (not checkInterval(getAngles(),aFinal[0]-5,aFinal[0]+5,aFinal[1]-5,aFinal[1]+5)) :
             print("angle",getAngles())
-            time.sleep(0.01)
+            time.sleep(0.1)
     stopMoteurs()
 
 if __name__ == '__main__' :
