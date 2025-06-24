@@ -6,7 +6,7 @@ import time
 class Robot:
     def __init__(self):
         # Initialiser la direction du robot (0 = haut, 1 = droite, 2 = bas, 3 = gauche)
-        self.pi=init_pi()
+        self.pi=mot.init_pi()
         self.gpioM1=12
         self.gpioM2=13
         self.directions = ["haut", "droite", "bas", "gauche"]
