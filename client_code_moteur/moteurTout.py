@@ -29,6 +29,7 @@ class Robot:
         self.pi.set_servo_pulsewidth(self.gpioM2, 0)
 
     def tourner(self, angle):
+        self.stopMoteurs()
         """Fait tourner le robot d'un certain angle (90° ou -90°)."""
         if angle not in [90, -90]:
             print("L'angle doit être 90° ou -90°.")
@@ -85,6 +86,7 @@ class Robot:
         return (angle0,angle1)
 
     def set_direction(self,nDirect):
+        self.stopMoteurs()
         nIndex=self.directions.index(nDirect)
         if nIndex == self.direction_index :
             print("")
