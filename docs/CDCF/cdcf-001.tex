@@ -97,6 +97,7 @@
 
 \section{Introduction}
 % Contexte du projet, problématique, objectifs du robot.
+
 Notre projet vise à développer un robot autonome capable de livrer de la
 nourriture ou des boissons de la cafétéria aux personnes se trouvant à
 l'ESIEE. Le robot peut se déplacer de manière fluide, mais uniquement le
@@ -127,7 +128,6 @@ de livrer de la nourriture aux étudiants depuis la cafétéria ?
 	\centering
 	\includegraphics[width=0.6\textwidth]{./attachments/arch/2025-06-21-1200_Architecture.pdf}
 	\caption{Schéma de l'architecture. }
-
 \end{figure}
 
 \begin{figure}[H]
@@ -296,7 +296,6 @@ Pour assembler chaque composant voici un document qui nous sera très utile tout
 	\centering
 	\includegraphics[width=0.6\textwidth]{./attachments/raspberry_pi_pin_map.jpg}
 	\caption{Pins d'une Raspberry Pi. }
-
 \end{figure}
 
 \subsection{Gyroscope}
@@ -333,7 +332,7 @@ avec :
 	\item la broche SCL (Serial Clock Line) : Elle donne le rythme de communication (des transferts de données)
 \end{itemize}
 
-\subsection{Capteur d’obstacle}
+\subsection{Capteurs d’obstacle (LiDAR et ultrason)}
 
 Pour la détection d’obstacles, nous étions d’abord partis sur l’utilisation d’un capteur LIDAR.
 
@@ -443,10 +442,12 @@ Pour choisir les servomoteurs dont nous avons besoin pour notre robot, il faut l
 	\caption{Parallax Continuous Rotation Servo.}
 \end{figure}
 
-Le Parallax Continuous Rotation Servo fonctionne en 5V. Et nous voulons qu’il soit directement alimenté par la batterie car si on l'alimentait via le Raspberry (qui délivre bien du 5V), on avait peur qu’il soit trop sollicité et ne puisse plus être en capacité de mettre en marche correctement la partie informatique.
-Donc, ayant une alimentation de 6V et un servomoteur alimenté en 5V on doit mettre en place un régulateur de tension 5V (LM2940) pour ne pas endommager nos composants.
+Le Parallax Continuous Rotation Servo fonctionne en 5V. Et nous voulons qu’il soit directement alimenté par la batterie, car si on l'alimentait via le Raspberry (qui délivre bien du 5V), on avait peur qu’il soit trop sollicité et ne puisse plus être en capacité de mettre en marche correctement la partie informatique.
+
+Donc, ayant une alimentation de 6V et un servomoteur alimenté en 5 V on doit mettre en place un régulateur de tension 5V (LM2940) pour ne pas endommager nos composants.
 
 Voici comment nous avons mis en place notre régulateur de tension : 
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/regulateur_schema.jpg}
@@ -466,7 +467,7 @@ avec à droite câble rouge et noir sur servomoteur
 
 Après plusieurs tests, pour pouvoir faire tourner la roue dans les deux sens, contrôler la vitesse de rotation… les piles se sont vite déchargées. On a donc pensé à une alternative à la cage à piles : nos servomoteurs seront alimentés par une batterie externe, la même qui alimente le Raspberry. Pour pouvoir se faire, il a fallu se procurer un fil USB A vers fils Dupont.
 
-Après cela, nous sommes enfin passés à nos servomoteurs finaux (FB5311M-360). \\
+Le dimensionnement des servomoteurs effectué, nous sommes enfin passés à nos servomoteurs finaux (FB5311M-360). \\
 
 \begin{figure}[H]
 	\centering
@@ -474,14 +475,20 @@ Après cela, nous sommes enfin passés à nos servomoteurs finaux (FB5311M-360).
 	\caption{Servomoteur FB5311M-360.}
 \end{figure}
 
-Ces servomoteurs fonctionnent de 4 à 8.4 Vcc, donc nous n’avons plus besoin de notre régulateur de tension 5V. Voici comment nous avons branché nos servomoteurs avec le fil USB A vers fils Dupont : 
-(Schéma)
+Ces servomoteurs ont un câble feedback en plus et fonctionnent de 4 à 8.4 Vcc, donc nous n’avons plus besoin de notre régulateur de tension 5V. Voici comment nous avons branché nos servomoteurs avec le fil USB A vers fils Dupont : 
+
+\begin{figure}[H]
+	\centering
+%	\includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
+	\caption{SCHÉMA !!!}
+\end{figure}
 
 Tout le long de l’assemblage nous avons utilisé des breadboard pour connecter les composants entre eux. Toutefois, on s’est rendu compte que certains fils Dupont se détachent, ne sont plus fixés sur le breadboard. Ce qui est assez problématique. 
-Nous sommes donc passé à un circuit imprimé personnalisé qui remplacera nos breadboards.
+Nous sommes donc passé à un PCB personnalisé puis à un veroboard qui remplacera nos breadboards.
 
-\subsection{PCB}
+\subsection{PCB / Veroboard}
 
+\subsubsection{PCB}
 Pour concevoir notre propre PCB, nous l’avons modélisé sur EasyEDA, en commençant par les branchements électroniques, puis en générant le PCB correspondant. 
 
 \begin{figure}[H]
@@ -489,8 +496,6 @@ Pour concevoir notre propre PCB, nous l’avons modélisé sur EasyEDA, en comme
 	\includegraphics[width=0.5\textwidth]{./attachments/schema_elec.jpg}
 	\caption{Schéma électronique.}
 \end{figure}
-
-a
 
 \begin{figure}[H]
 	\centering
@@ -502,10 +507,16 @@ Côté composants : le dessus du circuit
 
 Côté cuivre : le dessous du circuit
 
-Voici le design en 3D : 
+Finalement, il était trop tard pour imprimer le circuit, donc on est passé sur une Veroboard comme conseillé lors d’une réunion.
 
-(IMAGE)
+\subsubsection{Veroboard}
+Sur le Veroboard, nous avons positionné tous les composants et les fils de la même manière que sur les breadboards. Contrairement à ces dernières, le Veroboard ne possède pas de circuits intégrés, il a donc été nécessaire de souder les composants et les fils.
 
+\begin{figure}[H]
+	\centering
+	%	\includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
+	\caption{SCHÉMA !!!}
+\end{figure}
 
 \subsection{Roues}
 
@@ -535,9 +546,9 @@ Afin de résoudre le problème d’incompatibilité entre les servomoteurs et le
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.3\textwidth]{./attachments/schema_pcb.jpg}
-	\includegraphics[width=0.3\textwidth]{./attachments/schema_pcb.jpg}
-	\includegraphics[width=0.3\textwidth]{./attachments/schema_pcb.jpg}
+	\includegraphics[width=0.3\textwidth]{./attachments/fixage-1.png}
+	\includegraphics[width=0.3\textwidth]{./attachments/fixage-2.png}
+	\includegraphics[width=0.3\textwidth]{./attachments/fixage-3.png}
 	\caption{Résultat.}
 \end{figure}
 
@@ -547,14 +558,20 @@ Face à ce problème, nous avons réfléchi à une autre solution plus fiable.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{./attachments/schema_pcb.jpg}
-	\includegraphics[width=0.4\textwidth]{./attachments/schema_pcb.jpg}
+	\includegraphics[width=0.4\textwidth]{./attachments/proto-photo-1.png}
+	\includegraphics[width=0.4\textwidth]{./attachments/proto-photo-2.png}
 	\caption{Résultat.}
 \end{figure}
 
 Après plusieurs tentatives, nous avons finalement utilisé l’équipement fourni avec les roues : des ailettes de fixation que nous avons vissées et solidement maintenues à l’aide d’écrous. Nous avons pris soin de bien aligner et fixer l’arbre moteur pour garantir la stabilité. Ensuite, nous avons monté l’ensemble sur les arbres moteurs avec précaution.
 
-Ensemble servomoteur-roues
+%Ensemble servomoteur-roues
+
+\begin{figure}[H]
+	\centering
+	%	\includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
+	\caption{PHOTO !!!}
+\end{figure}
 
 \section{Structure du système}
 
@@ -562,13 +579,13 @@ Tout d’abord, nous avons fait un schéma du robot (\autoref{fig:schema_proto})
 
 Ensuite, nous partons sur le fait d’imprimer la structure à l’aide d’une imprimante 3D. Alors nous avons en premier lieu chercher un logiciel de modélisation facile à manipuler et ensuite appris à le maîtriser. Ensuite, pour que tout le monde comprenne les outils utilisés, nous avons rédigé une documentation claire et détaillée de notre démarche sur l'outil utilisé qui est FreeCAD. Ce dernier est un logiciel de conception assistée par ordinateur open source.
 
+\subsection{Premières impressions 3D}
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{./attachments/cad_planche.jpg}
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_planche_v2.png}
 	\caption{Châssis.}
 \end{figure}
-
-Ici, le châssis est une planche rectangulaire, que nous poserons les composants dessus et percer des trous.
 
 \begin{figure}[H]
 	\centering
@@ -576,11 +593,11 @@ Ici, le châssis est une planche rectangulaire, que nous poserons les composants
 	\caption{Coffre.}
 \end{figure}
 
-Ici, le coffre comporte trois compartiments, pour stocker des boissons, des sandwichs au milieu et le reste.
+Le châssis est une planche rectangulaire, que nous percerons des trous pour fixer les composants. Tandis que le coffre comporte trois compartiments, pour stocker des boissons, des sandwichs au milieu et le reste.
 
-Après avoir modélisé les composants nécessaires, dont le châssis et le coffre. Nous nous sommes rendu compte que les dimensions des objets ne conviennent pas au plateau de l’imprimante 3D alors nous avons pensé à diviser les différentes parties du coffre et du châssis en plusieurs morceaux. Mais cela poserait problème pour le coffre. En effet, nous avons rapidement oublié l’idée du couvercle.
+Après avoir modélisé les composants nécessaires, dont le châssis et le coffre. Nous nous sommes rendu compte que les dimensions des objets ne conviennent pas au plateau de l’imprimante 3D, alors nous avons pensé à diviser les différentes parties du coffre et du châssis en plusieurs morceaux. Mais cela poserait un problème pour le coffre. En effet, nous avons rapidement oublié l’idée du couvercle.
 
-Nous voulions rester sur une structure imprimée alors nous avons opté pour quatre petits objets en forme d'équerre et de housse qui fait le contour. Cela permettra de les accrocher ensemble et de mettre les équerres l’un sur l’autre. De ce fait, le coffre et le châssis seraient modulables et nous mettrons les composants sur les équerres et n’importe quel carton pour faire le coffre.
+Nous voulions rester sur une structure imprimée, alors nous avons opté pour quatre petits objets en forme d'équerre et de housse qui fait le contour. Cela permettra de les accrocher ensemble et de mettre les équerres l’un sur l’autre. De ce fait, le coffre et le châssis seraient modulables et nous mettrons les composants sur les équerres et n’importe quel carton pour faire le coffre.
 
 \begin{figure}[H]
 	\centering
@@ -588,15 +605,13 @@ Nous voulions rester sur une structure imprimée alors nous avons opté pour qua
 	\caption{Première équerre.}
 \end{figure}
 
-L'équerre est assez fine pour pouvoir les empiler
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{./attachments/cad_housse.jpg}
 	\caption{Housse.}
 \end{figure}
 
-Les housses sont assez large, mais de la bonne taille pour bien fixer les équerres entre elles
+L’équerre est assez fine pour pouvoir les empiler. Les housses sont assez large, mais de bonne taille pour bien fixer les équerres entre elles.
 
 \begin{figure}[H]
 	\centering
@@ -614,7 +629,7 @@ Nous avons alors réfléchi à une meilleure solution, de faire le châssis sép
 	\caption{Seconde équerre.}
 \end{figure}
 
-Cette fois, les équerres seraient empilées entre eux pour éviter qu’il est trop d’écart entre le carton et les autres équerres avec un trou sur le long pour pouvoir le fixer au châssis à l’aide de piliers.
+Cette fois, les équerres seraient empilées entre elles pour éviter qu’il y ait trop d’écart entre le carton et les autres équerres, avec un trou sur le long pour pouvoir le fixer au châssis à l’aide de piliers.
 
 \begin{figure}[H]
 	\centering
@@ -626,9 +641,9 @@ Nous pouvons voir un aperçu avec les quatre coins assemblés, les coins ont pou
 
 Malheureusement, cette solution n’a pas abouti, car ces coins ne conviennent pas aux temps d’impression accordés, qui dure plus d’un jour d’impression pour un seul coin.
 
-Alors nous avons réfléchi longuement à quel matériau choisir. Nous nous sommes d’abord basés sur du bois, mais certaines planches (7 kg) dépassent le poids que peuvent supporter les roues. Nous nous sommes penchés sur le métal, mais cette solution a le même problème que le bois. 
+Alors nous avons réfléchi longuement à quel matériau choisir. Nous nous sommes d’abord basés sur du bois, mais certaines planches (7 kg) dépassent le poids que peuvent supporter les roues. Nous nous sommes penchés sur le métal ou même l’acier, mais cette solution a le même problème que le bois. 
 
-C’est alors que nous nous sommes concentrés sur le choix définitif du carton. Ce matériau est à la fois modulable, facile à manipuler, léger et facilement accessible. Il nous permet de faire et de refaire la structure sans se soucier du temps. De ce fait, nous n’avons pas la contrainte de tous les groupes ont, à utiliser une imprimante 3D qui prend beaucoup de temps à imprimer et nous démarque par rapport aux autres groupes.
+C’est alors que nous nous sommes concentrés sur le choix définitif du carton. Ce matériau est à la fois modulable, facile à manipuler, léger et facilement accessible. Il nous permet de faire et de refaire la structure sans se soucier du temps. De ce fait, nous n’avons pas la contrainte de tous les groupes à utiliser une imprimante 3D qui prend beaucoup de temps à imprimer et nous démarque par rapport aux autres groupes.
 
 \begin{figure}[H]
 	\centering
@@ -638,11 +653,55 @@ C’est alors que nous nous sommes concentrés sur le choix définitif du carton
 
 Voici le premier prototype du robot sans le coffre à l’instant. Les finitions du châssis sont plutôt négligées et le carton utilisé n’est pas très solide, nous pouvons voir que le châssis n’est pas droit. Cependant, il a été peint à la peinture et nous pouvons voir que ça couvre le fait que ce soit du carton. 
 
-C’est pour cela que nous avons refait une autre structure avec des finitions plus propre et avec du carton beaucoup plus solide. Ensuite, nous l’avons peint à la bombe pour avoir un rendu plus uniforme et pouvoir peindre surtout plus rapidement, ainsi éviter le temps de sèche. 
+C’est pour cela que nous avons refait une autre structure avec des finitions plus propre et avec du carton beaucoup plus solide. Ensuite, nous l’avons peinte à la bombe pour avoir un rendu plus uniforme et pouvoir peindre surtout plus rapidement, ainsi éviter le temps de sèche. 
 
-Certaines planches de cartons solides étaient assez fines alors nous l’avons renforcé en collant plusieurs planches entre elles pour bien renforcer le châssis et supporté la force des moteurs.
+Certaines planches de cartons solides étaient assez fines, alors nous l’avons renforcé en collant plusieurs planches entre elles pour bien renforcer le châssis et supporté la force des moteurs.
 
-Enfin, nous avons pu passer à la partie décoration du robot, pour donner du charme et donner une petite touche personnelle.
+\subsection{Ensemble servomoteur-roues sur le robot}
+
+Après avoir fixé les servomoteurs aux roues, nous avons cherché un moyen de les fixer solidement sur la structure du robot, réalisée en carton. Notre première idée a été de fabriquer des équerres en forme de \textbf{L} afin de relier les servomoteurs au châssis.
+
+Dans un premier temps, nous avons fixé les servomoteurs aux équerres à l’aide de scotch, puis attaché ces équerres au robot également à l’aide de scotch pour ce tout premier essai, sans utiliser de vis.
+
+Cependant, nous avons rapidement constaté que ce montage manquait de stabilité : le scotch ne tenait pas bien, se décollait facilement, et ne permettait pas un bon maintien des servomoteurs.
+
+Voici le résultat obtenu :
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues.png}
+	\caption{Description.}
+\end{figure}
+
+Afin de résoudre ce problème, nous avons conçu un support en carton sur lequel nous avons fixé le servomoteur à l’aide de scotch. Ensuite, nous avons attaché ce support en carton à la structure du robot en utilisant des vis. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues_vis.png}
+	\caption{Description.}
+\end{figure}
+
+Après avoir réalisé plusieurs essais avec cette méthode, nous avons constaté que les vis ne suffisaient pas à fixer solidement le support en carton à la structure du robot. Sous le poids des roues, le carton se déformait à l’arrière, ce qui entraînait un mauvais alignement des roues.
+
+Pour tenter de résoudre ce problème, nous avons testé différentes méthodes. Nous avons d’abord essayé d’ajouter de la colle chaude en complément des vis pour renforcer la fixation du support. Cependant, cela ne s’est pas révélé suffisamment efficace. Nous avons ensuite utilisé de la colle forte, toujours en complément des vis et de la colle chaude, afin d’obtenir un maintien plus rigide.
+
+Malgré tous ces efforts, la fixation restait imparfaite et ne garantissait pas une stabilité suffisante pour le bon fonctionnement du robot. Nous avons donc décidé de concevoir un support imprimé en 3D, plus rigide et mieux adapté à notre besoin.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues_modèle.png}
+	\caption{Modèle 3D du support.}
+\end{figure}
+
+Cette pièce agit comme un support de fixation pour le moteur sur le châssis.
+
+Voici le résultat : 
+
+\begin{figure}[H]
+	\centering
+%	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues_impression.png}
+	\caption{PHOTO A METTRE. \\ Version imprimée du modèle.}
+\end{figure}
 
 
 
@@ -746,7 +805,6 @@ Servomoteurs
 
 \subsection{Compte Rendu des Réunions Hebdomadaires}
 % Résumé des points discutés lors des réunions. 
-Compte rendu des réunion hebdomadaires
 
 7 Mai 2025 
 Discussion de date importante et de la notation 
@@ -790,15 +848,6 @@ Discussion sur le poster et le cahier des charges fonctionnels/rapports à rendr
 
 
 
-
-
-
-
-
-
-\section{Documentation et Ressources}
-% Documentation hébergée sur le serveur, liens vers les ressources.
-
 \section{Conclusion}
 % Bilan du projet, perspectives d'amélioration.
 
@@ -808,9 +857,10 @@ Dans le futur, ce projet pourrait être amélioré de par le fait que le robot p
 
 \section{Annexes}
 % Graphiques, schémas, photos du robot, code source.
+%\section{Documentation et Ressources}
+% Documentation hébergée sur le serveur, liens vers les ressources.
 
 \section{Remerciements}
-% Remerciements aux encadrants, partenaires, etc.
 
 Le papa de Thisalini pour son aide à plusieurs reprises, notamment la partie électrique.
 
