@@ -53,7 +53,7 @@ def checkInterval(x,m,M) :
 def scriptTest():
     mot.start_pin(pi, gpioM1, 1)
     mot.start_pin(pi, gpioM2, 1)
-    while (not checkInterval(getAngles(),270,275))
+    while (not checkInterval(getAngles(),270,275)) :
             time.sleep(0.01)
     stopMoteurs()
 
