@@ -73,40 +73,48 @@ Format :
 Idées Lilian : 
 
 1. *Introduction, choix du projet* 
+	- [x] Vote du robot (2025-06 19, 1) 
 2. Time-lapse général 
 3. **Partie théorique, mécanique** 
-	- [ ] Lilian qui écrit sur une feuille en papier jk
+	- [x] Lilian qui écrit sur une feuille en papier (6) 
 	- [ ] Djivan sur Obsidian qui écrit en MathJax 
 4. **Partie électrique** 
-	- [ ] Louise et Thisalini qui réalisent le câblage 
-5. **Partie logicielle, programmer sur des IDE, python, shell, site web** 
-	- [ ] Benjamin, Djivan sur le terminal, Kate ou VSCodium 
-	- [ ] Benjamin qui exécute `$ python app.py`, Djivan qui rafraîchit la page à côté et wow ça fonctionne 
-	- [ ] Interface de la page web 
-	- [ ] `git pull` 
+	- [ ] Louise et Thisalini qui réalisent le câblage (vendredi) 
+5. **Partie logicielle, programmer sur des IDE, python, shell, site web**  
+	- [x] Benjamin qui exécute `$ python app.py`, Djivan qui rafraîchit la page à côté et la page charge (4) 
+	- [ ] Utilisation de la plateforme web 
 6. Time-lapse général 
 7. **Photos avec matériel électronique, réception moteurs** 
-	- [ ] Juste photos de notre matos, où on ouvre la boîte 
-	- [ ] Photos du matériel dans la voiture de Djivan 
+	- [x] Juste photos de notre matos, où on ouvre la boîte 
+	- [x] Photos du matériel dans la voiture de Djivan 
 8. Time-lapse général 
 9. **Modélisations 3D** 
-	- [ ] Alice, Djivan sur FreeCAD 
+	- [x] Alice et Lilian sur FreeCAD (3) 
 10. Time-lapse général 
-11. **Time-lapse carton, peinture** 
-	- [ ] Thisalini qui peint 
+11. **Carton, hebdo** 
+	- [x] Alice qui coupe un morceau de carton (5) 
+	- [x] Benjamin qui fait le rapport hebdomadaire (7)
 12. **Vidéo de Michaël qui roule pour la première fois** 
 13. Time-lapse général 
 14. **Réalisation poster et mascotte Mikeru** 
-	- [ ] Djivan sur Inkscape 
-15. Time-lapse général 
-16. **Algorithme de plus court chemin** 
-	- [ ] Lilian, Benjamin voire Djivan au tableau 
-17. **Réalisation du circuit PCB** 
-	- [ ] Louise sur `<INSÉRER_LOGICIEL_PCB_ICI>`  
-18. Time-lapse général 
-19. **Images de Michel** 
+	- [x] Djivan sur Inkscape (8) 
+15. Peinture 
+	- [x] Thisalini qui peint (on a déjà) 
+16. Time-lapse général 
+17. **Algorithme de plus court chemin** 
+	- [x] Lilian, Benjamin voire Djivan au tableau (9) 
+18. **Réalisation du circuit PCB** 
+	- [x] Louise sur `<INSÉRER_LOGICIEL_PCB_ICI>` (2) 
+19. Time-lapse général 
+20. **Images de Michel** 
 	- [ ] ??? 
-20. *Crédits* 
+21. *Crédits* 
+
+- [ ] Thisalini qui fait le rapport / CDCF 
+
+- [ ] Lilian et Thisalini qui font des activités manuelles 
+
+- [x] Thisalini qui coupe du carton (2025-06 20, 8) 
 
 2¹⁰ = 10³ 
 2²⁰ = 10⁶ 
@@ -114,7 +122,7 @@ Idées Lilian :
 ## Comment 
 Un logiciel de composition vidéo. 
 
-- Davinci Resolve : avancé et complet 
+- **Davinci Resolve** : avancé et complet 
 - Kdenlive : moyennement avancé, simple 
 - Premiere Pro : avancé mais... adobe 
 - Shotcut : aucune idée 
@@ -126,7 +134,15 @@ Des outils pour faire des animations.
 - Tout : [Blender](https://www.blender.org/) 
 - Polyvalent, 2D : Adobe Animate 
 
-### Media 
+## Où 
+Les fichiers de projet sont sur l'ordinateur portable de [Djivan](../People/VARTANIAN%20Djivan.md) uniquement. 
+
+La vidéo a été uploadée sur YouTube à l'adresse suivante : 
+https://youtube.com/watch?v=tuzv-f1nu2c 
+
+
+
+## Media 
 
 Des banques de sons libres d'usage. (Merci [EvilDaystar](https://www.reddit.com/r/Filmmakers/comments/13lwk4l/comment/jkrynys/)) 
 

@@ -1,6 +1,9 @@
 # Modélisations 3D
+==L'impression 3D a été pour le moment annulée.== 
+
 ## Quoi 
 Un robot qui serait : 
+
 - Compact 
 - Solide 
 - Stable 
@@ -11,7 +14,8 @@ Les imprimantes 3D ne seront certainement pas cette taille, et il faudra sûreme
 Une [Raspberry Pi](../Guides/Raspberry%20Pi.md) sera installée sur le robot et permettra le contrôle de ses moteurs et roues. Il y aura une batterie et d'autres choses. 
 
 ## Comment 
-Un logiciel de modélisation 3D. Mais pas n'importe lequel, comme Blender. M. DUPONT-LEGENDRE nous a demandé à utiliser un logiciel de CAO : [CAD](../Guides/CAD.md). 
+Un logiciel de modélisation 3D. Mais pas n'importe lequel, comme Blender. 
+M. DUPONT-LEGENDRE nous a demandé à utiliser un logiciel de CAO : [CAD](../Guides/CAD.md). 
 
 ## Où 
 Des fichiers enregistrés en local sur les ordinateurs de Djivan et Alice. 

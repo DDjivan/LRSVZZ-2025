@@ -27,14 +27,15 @@ Obsidian :
 ### Connexion 
 Se connecter avec son compte GitHub en cliquant sur le bouton principal "Sign in". 
 
-![[000.png]] 
+![000.png](Screenshots%20-%20Guide%20espace%20de%20travail/000.png)
 
 <div style="page-break-after: always;"></div>
 
 ### Paramètres de connexion 
 Finaliser sa connexion en cliquant sur le bouton principal "Finish". 
 
-![[001.png]] 
+![001.png](Screenshots%20-%20Guide%20espace%20de%20travail/001.png) 
+
 <div style="page-break-after: always;"></div>
 
 ### Importation 
@@ -45,7 +46,7 @@ Cliquer sur le bouton principal "Clone".
 > [!info] Information
 > Si le repository n'apparaît pas dans la liste, s'assurer que le compte fait partie des membres du repository. Le propriétaire de ce dernier étant [VARTANIAN Djivan](../People/VARTANIAN%20Djivan.md), ne pas hésiter à le contacter.
 
-![[002.png]] 
+![002.png](Screenshots%20-%20Guide%20espace%20de%20travail/002.png) 
 <div style="page-break-after: always;"></div>
 
 ### Paramètres d'importation  
@@ -59,7 +60,7 @@ Sélectionner le répertoire "Local path" en cliquant sur le bouton "Choose".
  
 Après avoir sélectionné, cliquer sur le bouton principal "Clone". 
 
-![[004.png]] 
+![004.png](Screenshots%20-%20Guide%20espace%20de%20travail/004.png)
 <div style="page-break-after: always;"></div>
 
 ### Finalisation 
@@ -67,7 +68,7 @@ Si le dossier sélectionné est valide, une fenêtre devrait indiquer la progres
 
 Le logiciel peut être à présent minimisé, voire fermé. 
 
-![[005.png]] 
+![005.png](Screenshots%20-%20Guide%20espace%20de%20travail/005.png) 
 
 ---
 <div style="page-break-after: always;"></div>
@@ -78,7 +79,7 @@ Sélectionner le bouton "Open", et sélectionner le répertoire du repository, "
 
 S'il est situé comme proposé dans le guide, il devrait se situer à la racine de l'utilisateur : `Documents > Git > LRSVZZ-2025`. 
 
-![[006.png]]
+![006.png](Screenshots%20-%20Guide%20espace%20de%20travail/006.png)
 <div style="page-break-after: always;"></div>
 
 ### Confirmation  
@@ -88,13 +89,13 @@ Afin qu'ils restent activés, il faut sélectionner "Trust author and enable plu
 > [!info] Information 
 > À ce jour (2025-05-20), le *vault* peut être ouvert sans les *plugins* sans aucun problème. Il suffit d'appuyer sur le bouton "Browse vault in Restricted Mode". 
 
-![[007.png]] 
+![007.png](Screenshots%20-%20Guide%20espace%20de%20travail/007.png) 
 <div style="page-break-after: always;"></div>
 
 ### Finalisation 
 Le *vault* est prêt, la lecture (voire l'écriture) peut maintenant commencer. 
 
-![[008.png]] 
+![008.png](Screenshots%20-%20Guide%20espace%20de%20travail/008.png) 
 
 ---
 <div style="page-break-after: always;"></div>

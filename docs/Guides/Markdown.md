@@ -1,6 +1,13 @@
 # Markdown 
-[Markdown](https://fr.wikipedia.org/wiki/Markdown) est un "langage de programmation". 
+C'est un "langage de programmation". 
 C'est lisible même sans un éditeur de texte comme [Obsidian](docs/Guides/Obsidian.md). 
+
+Il a de nombreuses bibliothèques permettant de le convertir au format [HTML](HTML.md). Dans le cadre de notre projet, voir [Bibliothèque Python](#Bibliothèque%20Python).  
+
+## Liens 
+https://daringfireball.net/projects/markdown/ 
+https://fr.wikipedia.org/wiki/Markdown 
+https://www.markdownguide.org/ 
 
 ## Syntaxe 
 ### Modifier le texte en l'entourant de caractères 
@@ -51,5 +58,18 @@ Références à un document -> crochet puis parenthèse : `[texte](https://lien)
 
 Ajouter un point d'exclamation `!` au début d'une référence permet de la transformer en aperçu (embed). 
 https://help.obsidian.md/embeds 
+
+
+## Bibliothèque Python 
+Il y a deux bibliothèques qui permettent de convertir du contenu Markdown en [HTML](HTML.md). 
+
+- `markdown` 
+- `markdown2` 
+
+Pour prendre en charge [MathJax](MathJax), un outil qui affiche des équations [[LaTeX]], penser à utiliser la fonction `markdown`, tel que l'exemple suivant. 
+
+```python
+html_data = markdown(DATA, extensions=['tables', 'footnotes', 'fenced_code', 'breaks', 'mdx_math', 'code-friendly'])
+```
 
 
