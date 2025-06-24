@@ -1,5 +1,6 @@
 import moteur_args as mot
 import time
+from testFeed import *
 
 def stopMoteurs():
     global pi,gpioM1,gpioM2
@@ -46,10 +47,21 @@ def testSimple():
     stopMoteurs()
     print("Fin.")
 
+def checkInterval(x,m,M)
+    return (m<x[0] & x[0]<M) & (m<x[1] & x[1]<M)
+
 def scriptTest():
-    print("Script de test à faire")
+    mot.start_pin(pi, gpioM1, 1)
+    mot.start_pin(pi, gpioM2, 1)
+    while (!checkInterval(getAngles(),270,275))
+            time.sleep(0.01)
+    stopMoteurs()
 
 if __name__ == '__main__' :
+    # --- Initialisation SPI ---
+    spi = spidev.SpiDev()
+    spi.open(0, 0)  # Bus SPI 0, périphérique CS0
+    spi.max_speed_hz = 1000000  # Fréquence adaptée au MCP3204
     try :
         pi = mot.init_pi()
         gpioM1=12

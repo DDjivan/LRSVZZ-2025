@@ -26,18 +26,29 @@ def adc_to_degrees(raw_value):
     angle = (voltage / 3.3) * 360     # Proportion linéaire
     return angle
 
-# --- Boucle de test ---
-try:
-    while True:
-        raw = read_adc(0)  # Lecture sur canal CH0
-        angle = adc_to_degrees(raw)
-        print(f"Valeur ADC : {raw} | 2e Angle estimé : {angle:.1f}°")
-        raw = read_adc(1)  # Lecture sur canal CH0
-        angle = adc_to_degrees(raw)
-        print(f"Valeur ADC : {raw} | 2e Angle estimé : {angle:.1f}°")
-        print("----------------------------------------------------")
-        time.sleep(0.5)
+# --- Retourne les valeurs d'angles---
+def getAngles():
+    raw = read_adc(0)  # Lecture sur canal CH0
+    angle = adc_to_degrees(raw)
+    angle0= angle
+    raw = read_adc(1)  # Lecture sur canal CH0
+    angle = adc_to_degrees(raw)
+    angle1=angle
+    return (angle0,angle1)
 
-except KeyboardInterrupt:
-    print("Arrêt par l'utilisateur.")
-    spi.close()
+# --- Boucle de test ---
+if __name__ == "__main__":
+    try:
+        while True:
+            raw = read_adc(0)  # Lecture sur canal CH0
+            angle = adc_to_degrees(raw)
+            print(f"Valeur ADC : {raw} | 2e Angle estimé : {angle:.1f}°")
+            raw = read_adc(1)  # Lecture sur canal CH0
+            angle = adc_to_degrees(raw)
+            print(f"Valeur ADC : {raw} | 2e Angle estimé : {angle:.1f}°")
+            print("----------------------------------------------------")
+            time.sleep(0.5)
+
+    except KeyboardInterrupt:
+        print("Arrêt par l'utilisateur.")
+        spi.close()
