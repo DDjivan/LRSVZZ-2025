@@ -90,10 +90,8 @@
 \pagebreak
 % --- --- --- --- %
 
-%\section{Résumé}
-% Brève description du projet, de ses objectifs et de ses résultats attendus.
-
-%Résumé. 
+% VENANT DU GOOGLE DOC : COLLER À PARTIR D'ICI
+% https://docs.google.com/document/d/1HbEzYS0UaP-KckqQrKnavtIfuLFMVqc9utsnXRt5M9c/ 
 
 \section{Introduction}
 % Contexte du projet, problématique, objectifs du robot.
@@ -121,6 +119,7 @@ d'autres logiciels informatiques et électroniques.
 \textbf{Problématique :} Comment concevoir un robot permettant
 de livrer de la nourriture aux étudiants depuis la cafétéria ?
 
+
 \section{Architecture du système}
 % Revue des technologies existantes pour la livraison autonome.
 
@@ -141,11 +140,11 @@ Liste des composants utilisés :
 
 \begin{itemize}
 	\item
-	\textbf{Raspberry Pi 4 Model B :} permet de contrôler tous les
+	\textbf{Raspberry Pi 4 Model B :} permet de contrôler tous les
 	composants.
 	
 	\item
-	\textbf{Module de détection US HC-SR0 :} capteur ultrason qui détecte
+	\textbf{Module de détection US HC-SR0 :} capteur ultrason qui détecte
 	les obstacles.
 	
 	\item
@@ -155,7 +154,7 @@ Liste des composants utilisés :
 	
 	\item
 	\textbf{Paire de roulettes pivotantes à platine 
-		de diamètre 40 mm (Réf 82629519) :} permet le déplacement du robot.
+		de diamètre 40 mm (Réf 82629519) :} permet le déplacement du robot.
 	
 	\item
 	\textbf{Paire de roues 136 mm DGR136 :} permet de déplacer le robot à
@@ -178,118 +177,122 @@ Liste des composants utilisés :
 	accéléromètre, magnétomètre.
 \end{itemize}
 
+
+
 \section{Cahier des Charges Fonctionnel}
+
 \subsection{Description des Fonctionnalités}
 % Description des fonctionnalités requises (navigation, évitement d'obstacles, etc.)
 
 {\fontsize{10pt}{12pt}\selectfont 
-\begin{longtable}{|l|l|p{4cm}|p{4cm}|p{4cm}|}
-	\hline
-	\textbf{Type} & \textbf{N°} & \textbf{Fonctions} 
-	& \textbf{Critère de performance} & \textbf{Niveau attendu} \\
-	\hline
-	\endhead
-	
-	\hline
-	\endfoot
-	
-	\hline
-	Mécanique & F1 & Transporter de la nourriture & Capacité de charge & 3 kg de nourriture  \\
-	
-	\hline
-	Cinématique & F2 & Se déplacer à une vitesse constante réglable & Plage de vitesse réglable & Entre \ldots{} à \ldots{}  \\
-	
-	\hline
-	Électrique & F3 & Avoir une autonomie minimale & Durée de fonctionnement continu sans recharge & Minimum 1 h  \\
-	
-	\hline
-	Logiciel & F4 & Navigation autonome & Itinéraire sans rechargement & \\
-	
-	\hline
-	Mécanique & F5 & Se déplacer de manière stable & Tenue de cap en ligne droite & Pas de déviation significative pendant le trajet (à préciser) \\
-	
-	\hline
-	Informatique & F6 & Circuler en sécurité dans l'établissement & Capacité à contourner des obstacles & Doit éviter humains, murs et objets  \\
-	
-	\hline
-	Informatique & F7 & Détecter les obstacles & Type de détection & Détection fiable pour éviter les collisions \\
-	
-	\hline
-	Mécanique & F8 & Sécuriser la nourriture dans le coffre & Coffre verrouillé mécaniquement & S'ouvre seulement par l'intervention humaine (bouton poussoir, écran)  \\
-	
-	\hline
-	Mécanique & F9 & Assurer la stabilité dans le coffre & Compartimentage adapté & 3 zones : boissons, sandwichs, vide. Le nombre à fixer \\
-	
-	\hline
-	Informatique & F10 & Avoir un site web intuitif pour contrôle utilisateur & Interface simple et claire & Navigation intuitive, accès rapide aux commandes \\
-	
-	\hline
-	Informatique & F11 & Commander le robot via interface web & Contrôle à distance & Envoi d'ordres depuis le site (start/stop) \\
-	
-	\hline
-	Informatique & F12 & Avoir un retour d'information depuis le robot & Données visibles en temps réel & Position, statut, livraison en cours ou terminée, batterie \\
-	
-\end{longtable}
+	\begin{longtable}{|l|l|p{4cm}|p{4cm}|p{4cm}|}
+		\hline
+		\textbf{Type} & \textbf{N°} & \textbf{Fonctions} 
+		& \textbf{Critère de performance} & \textbf{Niveau attendu} \\
+		\hline
+		\endhead
+		
+		\hline
+		\endfoot
+		
+		\hline
+		Mécanique & F1 & Transporter de la nourriture & Capacité de charge & 3 kg de nourriture  \\
+		
+		\hline
+		Cinématique & F2 & Se déplacer à une vitesse constante réglable & Plage de vitesse réglable & Entre \ldots{} à \ldots{}  \\
+		
+		\hline
+		Électrique & F3 & Avoir une autonomie minimale & Durée de fonctionnement continu sans recharge & Minimum 1 h  \\
+		
+		\hline
+		Logiciel & F4 & Navigation autonome & Itinéraire sans rechargement & \\
+		
+		\hline
+		Mécanique & F5 & Se déplacer de manière stable & Tenue de cap en ligne droite & Pas de déviation significative pendant le trajet (à préciser) \\
+		
+		\hline
+		Informatique & F6 & Circuler en sécurité dans l'établissement & Capacité à contourner des obstacles & Doit éviter humains, murs et objets  \\
+		
+		\hline
+		Informatique & F7 & Détecter les obstacles & Type de détection & Détection fiable pour éviter les collisions \\
+		
+		\hline
+		Mécanique & F8 & Sécuriser la nourriture dans le coffre & Coffre verrouillé mécaniquement & S'ouvre seulement par l'intervention humaine (bouton poussoir, écran)  \\
+		
+		\hline
+		Mécanique & F9 & Assurer la stabilité dans le coffre & Compartimentage adapté & 3 zones : boissons, sandwichs, vide. Le nombre à fixer \\
+		
+		\hline
+		Informatique & F10 & Avoir un site web intuitif pour contrôle utilisateur & Interface simple et claire & Navigation intuitive, accès rapide aux commandes \\
+		
+		\hline
+		Informatique & F11 & Commander le robot via interface web & Contrôle à distance & Envoi d'ordres depuis le site (start/stop) \\
+		
+		\hline
+		Informatique & F12 & Avoir un retour d'information depuis le robot & Données visibles en temps réel & Position, statut, livraison en cours ou terminée, batterie \\
+		
+	\end{longtable}
 }
 
 \subsection{Contraintes Techniques}
 % Contraintes techniques (dimensions, poids, autonomie, etc.)
 
 {\fontsize{10pt}{12pt}\selectfont 
-\begin{longtable}{|l|l|p{4cm}|p{4cm}|p{4cm}|}
-	\hline
-	\textbf{Type} & \textbf{N°} & \textbf{Fonctions} 
-	& \textbf{Critères de performance} & \textbf{Niveau attendu} \\
-	\hline
-	\endhead
-	
-	\hline
-	\endfoot
-	
-	\hline
-	Électrique & T1 & Avoir une batterie adaptée pour l'autonomie &
-	Autonomie énergétique & ≥ 1 heure d'alimentation continue \\
-	
-	\hline
-	Cinématique & T2 & Avoir des moteurs adaptés à la charge totale &
-	Vitesse fluide & à définir \\
-	
-	\hline
-	Mécanique & T3 & Avoir des roues pouvant supporter la charge & Capacité
-	de roulement sous charge & Doivent supporter ≥ charge totale à définir \\
-	
-	\hline
-	Mécanique & T4 & Avoir un coffre assez grand & Volume utile de stockage
-	& H = 25 cm, Lg = 40 cm, l = 45 cm \\
-	
-	\hline
-	Logiciel & T5 & Avoir un capteur performant & Portée de détection avant
-	& Capteur d'ultrasons : portée de 2 cm à 4 m  \\
-	
-	\hline
-	Mécanique & T6 & Avoir un châssis solide & Résistance mécanique &
-	Doivent supporter ≥ \ldots{} kg sans déformation \\
-	
-	\hline
-	Électronique & T7 & Avoir une carte microcontrôleur adaptée & Capacité
-	de pilotage & Capacité de pilotage \\
-	
-	\hline
-	Électronique & T8 & Avoir une carte de contrôle double moteur DC &
-	Nombre de canaux / compatibilité & Alimenter les moteurs et relier à la
-	carte microcontrôleur. \\
-	
-\end{longtable}
+	\begin{longtable}{|l|l|p{4cm}|p{4cm}|p{4cm}|}
+		\hline
+		\textbf{Type} & \textbf{N°} & \textbf{Fonctions} 
+		& \textbf{Critères de performance} & \textbf{Niveau attendu} \\
+		\hline
+		\endhead
+		
+		\hline
+		\endfoot
+		
+		\hline
+		Électrique & T1 & Avoir une batterie adaptée pour l'autonomie &
+		Autonomie énergétique & ≥ 1 heure d'alimentation continue \\
+		
+		\hline
+		Cinématique & T2 & Avoir des moteurs adaptés à la charge totale &
+		Vitesse fluide & à définir \\
+		
+		\hline
+		Mécanique & T3 & Avoir des roues pouvant supporter la charge & Capacité
+		de roulement sous charge & Doivent supporter ≥ charge totale à définir \\
+		
+		\hline
+		Mécanique & T4 & Avoir un coffre assez grand & Volume utile de stockage
+		& H = 25 cm, Lg = 40 cm, l = 45 cm \\
+		
+		\hline
+		Logiciel & T5 & Avoir un capteur performant & Portée de détection avant
+		& Capteur d'ultrasons : portée de 2 cm à 4 m  \\
+		
+		\hline
+		Mécanique & T6 & Avoir un châssis solide & Résistance mécanique &
+		Doivent supporter ≥ \ldots{} kg sans déformation \\
+		
+		\hline
+		Électronique & T7 & Avoir une carte microcontrôleur adaptée & Capacité
+		de pilotage & Capacité de pilotage \\
+		
+		\hline
+		Électronique & T8 & Avoir une carte de contrôle double moteur DC &
+		Nombre de canaux / compatibilité & Alimenter les moteurs et relier à la
+		carte microcontrôleur. \\
+		
+	\end{longtable}
 }
 
-\section{Partie théorique}
 
+
+\section{Partie théorique}
 Sur le repository à l'adresse \texttt{LRSVZZ-2025/docs/Hardware/Théorique.md}
 
 \pagebreak
 
-\section{Partie matérielle}
 
+\section{Partie matérielle}
 Pour assembler chaque composant voici un document qui nous sera très utile tout le long. 
 
 \begin{figure}[H]
@@ -304,7 +307,7 @@ Pour assembler chaque composant voici un document qui nous sera très utile tout
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/gyroscope.jpg}
 	\caption{Gyroscope LSM9DS0.}
-
+	
 \end{figure}
 
 Ce composant est un capteur 9 axes, 
@@ -332,6 +335,7 @@ avec :
 	\item la broche SCL (Serial Clock Line) : Elle donne le rythme de communication (des transferts de données)
 \end{itemize}
 
+
 \subsection{Capteurs d’obstacle (LiDAR et ultrason)}
 
 Pour la détection d’obstacles, nous étions d’abord partis sur l’utilisation d’un capteur LIDAR.
@@ -340,9 +344,8 @@ Pour la détection d’obstacles, nous étions d’abord partis sur l’utilisat
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/capteur_lidar.jpg}
 	\caption{LIDAR Benewake TF02.}
-
+	
 \end{figure}
-
 
 Le LIDAR envoie un rayon laser infrarouge en permanence, lorsque ce rayon touche un objet, il est réfléchi et revient vers le LIDAR. Le capteur va donc mesurer le temps (qu’on appelle time of flight) que le rayon à mis pour revenir, et connaissant la vitesse de la lumière, on pourra avoir la distance de l’objet qui a réfléchi le rayon infrarouge. 
 
@@ -352,6 +355,7 @@ Le LiDAR est alimenté en 5V et délivre une tension de sortie de 3.3V.
 Il communique via UART qui est un protocole de communication série qui permet à deux appareils de s’échanger des données bit par bit sur une ligne de transmission avec le Raspberry.
 
 Voici les câblages à effectuer :
+
 \begin{itemize}
 	\item Le fil rouge du capteur sur une broche 5V PWR 
 	\item Le fil noir du capteur sur une broche GND
@@ -366,14 +370,17 @@ avec :
 	\item Le fil RX du capteur : c’est le fil qui reçoit les données => le Raspberry va envoyer les données via sa broche UART0 TX
 \end{itemize}
 
-Après câblage et lancement du programme du LiDAR (que nous allons évoquer par la suite), nous n’avions aucune donnée. Ne trouvant pas la réelle source du problème (potentiels problèmes de fils, code…), nous sommes passés à un autre capteur d’obstacles : le capteur ultrason HC-SR04.
+Après câblage et lancement du programme du LiDAR (que nous allons évoquer par la suite), nous n’avions aucune donnée. Ne trouvant pas la réelle source du problème (potentiels problèmes de fils, code…), nous sommes passés à un autre capteur d’obstacles : le capteur ultrason HC-SR04. 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/capteur_ultrason.jpg}
 	\caption{Module de détection US HC-SR04.}
 	\label{fig:capteur_us}
+	
 \end{figure}
+
+
 
 Le module HC-SR04 permet de détecter la présence d’objets se trouvant devant lui en utilisant la réflexion des ultrasons. Le transmetteur du capteur va émettre un signal ultrason qui sera réfléchi s’il y a un objet se trouvant devant le capteur. Ce signal sera réfléchi et détecté par le récepteur du capteur. Le capteur va donc pouvoir calculer la durée entre l’émission et la réception du signal, permettant de calculer la distance entre le capteur et l’objet ayant réfléchi le signal ultrason. 
 
@@ -383,6 +390,9 @@ En revanche, ce dispositif peut détecter des objets entre 2 à 400 cm, sa port�
 Donc, à défaut d’avoir une portée de détection d’obstacles grandement réduite, donc une moins bonne anticipation des obstacles par notre robot (pour qu’il se prépare à tourner, à contourner l’obstacle…), on est sûr qu’aucun objet ne peut perturber le déplacement de notre robot (avec un rayon infrarouge mono-point, on aurait pu passer à côté d’un obstacle par exemple sur les côtés du robot).
 
 Ce dispositif est alimenté en 5V et sa tension de sortie 5V également. Or, il est important de rappeler que les broches d’entrée d’un Raspberry sont conçues pour du 3.3V maximum. Pour pouvoir utiliser notre module HC-SR04 correctement et ne pas endommager nos composants, il est nécessaire de mettre en place un pont diviseur de tension afin de diminuer la tension de sortie du capteur.
+
+
+Voici le calcul afin d’avoir la valeur des deux résistances constituant notre pont diviseur de tension : 
 
 
 Voici le calcul afin d’avoir la valeur des deux résistances constituant notre pont diviseur de tension : 
@@ -411,6 +421,7 @@ Voici les câblages à effectuer :
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/capteur_ultrason_rpi.jpg}
 	\caption{Schéma du câblage.}
+	
 \end{figure}
 
 \begin{itemize}
@@ -426,9 +437,13 @@ Voici les câblages à effectuer :
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/moteur_continu.jpg}
 	\caption{Moteur à courant continu.}
+	
 \end{figure}
 
+
 Pour la partie moteur, au commencement du projet nous avions des moteurs courant continu (MFA RE360), ceux que nous connaissons le mieux, une carte contrôleur double moteur cc pont en H afin de les piloter et des roues. En revanche, au moment d’assembler les roues aux moteurs, nous avons découvert que le diamètre de l’axe moteur était bien trop petit pour s’emboîter correctement dans les roues. Il y avait énormément de jeu. \\
+
+
 
 Ensuite nous est venu l’idée d’utiliser plutôt des servomoteurs avec feedback alimentés par une batterie 6V constituée de quatre piles (1.5V chacune).
 
@@ -436,10 +451,13 @@ Les servomoteurs ont une meilleure précision sur le positionnement des roues qu
 
 Pour choisir les servomoteurs dont nous avons besoin pour notre robot, il faut les dimensionner. En attendant de les dimensionner, on a pris des servomoteurs disponibles afin de tester leur fonctionnement en amont : Parallax Continuous Rotation Servo. Tout en sachant que le fonctionnement de tout servomoteur reste le même avec des différences près (fréquence…) à modifier grâce aux datasheets. \\
 
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/moteur_rotation.jpg}
 	\caption{Parallax Continuous Rotation Servo.}
+	
 \end{figure}
 
 Le Parallax Continuous Rotation Servo fonctionne en 5V. Et nous voulons qu’il soit directement alimenté par la batterie, car si on l'alimentait via le Raspberry (qui délivre bien du 5V), on avait peur qu’il soit trop sollicité et ne puisse plus être en capacité de mettre en marche correctement la partie informatique.
@@ -460,6 +478,9 @@ Voici comment nous avons mis en place notre régulateur de tension :
 	\caption{Schéma sur breadboard à faire de .}
 \end{figure}
 
+
+
+
 (\href{https://www.bing.com/videos/riverview/relatedvideo?&q=regulador+de+5voltios+L7805&&mid=4E46E731ADB08757CF134E46E731ADB08757CF13&mmscn=mtsc&aps=13&FORM=VRDGAR}{Vidéos Bing} 
 avec à droite câble rouge et noir sur servomoteur
 à  gauche, câbles de la batterie 
@@ -479,14 +500,14 @@ Ces servomoteurs ont un câble feedback en plus et fonctionnent de 4 à 8.4 Vcc,
 
 \begin{figure}[H]
 	\centering
-%	\includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
+	%    \includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
 	\caption{SCHÉMA !!!}
 \end{figure}
 
 Tout le long de l’assemblage nous avons utilisé des breadboard pour connecter les composants entre eux. Toutefois, on s’est rendu compte que certains fils Dupont se détachent, ne sont plus fixés sur le breadboard. Ce qui est assez problématique. 
 Nous sommes donc passé à un PCB personnalisé puis à un veroboard qui remplacera nos breadboards.
 
-\subsection{PCB / Veroboard}
+PCB / Veroboard
 
 \subsubsection{PCB}
 Pour concevoir notre propre PCB, nous l’avons modélisé sur EasyEDA, en commençant par les branchements électroniques, puis en générant le PCB correspondant. 
@@ -500,26 +521,24 @@ Pour concevoir notre propre PCB, nous l’avons modélisé sur EasyEDA, en comme
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{./attachments/schema_pcb.jpg}
-    \caption{PCB généré après avoir mis en place les wires.}
+	\caption{PCB généré après avoir mis en place les wires.}
 \end{figure}
 
 Côté composants : le dessus du circuit 
 
 Côté cuivre : le dessous du circuit
 
+
+
 Finalement, il était trop tard pour imprimer le circuit, donc on est passé sur une Veroboard comme conseillé lors d’une réunion.
 
 \subsubsection{Veroboard}
 Sur le Veroboard, nous avons positionné tous les composants et les fils de la même manière que sur les breadboards. Contrairement à ces dernières, le Veroboard ne possède pas de circuits intégrés, il a donc été nécessaire de souder les composants et les fils.
+(Schéma)
 
-\begin{figure}[H]
-	\centering
-	%	\includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
-	\caption{SCHÉMA !!!}
-\end{figure}
+
 
 \subsection{Roues}
-
 Comme mentionné précédemment, nous avons constaté que le diamètre de l’axe des moteurs à courant continu était trop petit pour s’adapter correctement aux roues que nous avions. Il y avait trop de jeu, ce qui rendait l’assemblage instable et peu fiable.
 
 Face à ce problème, nous avons décidé de baser notre robot sur un servomoteur en attendant de dimensionner précisément celui dont nous aurions besoin pour la version finale. Pour nos premiers tests, nous avons utilisé un servomoteur déjà disponible. Ce servomoteur était fourni avec un kit de roues parfaitement compatibles, ce qui nous a permis de réaliser des essais pratiques rapidement.
@@ -542,6 +561,7 @@ Malheureusement, à la réception de la commande, nous avons constaté que l’a
 	\caption{Liens roues.}
 \end{figure}
 
+
 Afin de résoudre le problème d’incompatibilité entre les servomoteurs et les roues, notre première idée a été d’agrandir le trou de l’adaptateur de roue pour y faire passer l’arbre moteur et le fixer solidement. Voici le résultat obtenu :
 
 \begin{figure}[H]
@@ -549,8 +569,11 @@ Afin de résoudre le problème d’incompatibilité entre les servomoteurs et le
 	\includegraphics[width=0.3\textwidth]{./attachments/fixage-1.png}
 	\includegraphics[width=0.3\textwidth]{./attachments/fixage-2.png}
 	\includegraphics[width=0.3\textwidth]{./attachments/fixage-3.png}
+	
 	\caption{Résultat.}
 \end{figure}
+
+
 
 Après avoir fixé les servomoteurs aux roues de cette manière, nous avons réalisé un premier essai de déplacement avec notre prototype. Cependant, nous avons rapidement constaté que l’arbre moteur n’était pas suffisamment maintenu. Cela provoquait un mauvais alignement des roues, les faisant tourner de manière désordonnée, comme sur une surface glissante.
 
@@ -564,20 +587,21 @@ Face à ce problème, nous avons réfléchi à une autre solution plus fiable.
 \end{figure}
 
 Après plusieurs tentatives, nous avons finalement utilisé l’équipement fourni avec les roues : des ailettes de fixation que nous avons vissées et solidement maintenues à l’aide d’écrous. Nous avons pris soin de bien aligner et fixer l’arbre moteur pour garantir la stabilité. Ensuite, nous avons monté l’ensemble sur les arbres moteurs avec précaution.
-
 %Ensemble servomoteur-roues
 
 \begin{figure}[H]
 	\centering
-	%	\includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
+	%    \includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
 	\caption{PHOTO !!!}
 \end{figure}
+
 
 \section{Structure du système}
 
 Tout d’abord, nous avons fait un schéma du robot (\autoref{fig:schema_proto}) pour avoir un aperçu de notre projet. Nous voulions un châssis dont le coffre serait posé dessus avec des piliers, avec des compartiments qui aurait un couvercle qui s'ouvrerait automatiquement, lorsque la commande serait arrivée à destination. 
 
 Ensuite, nous partons sur le fait d’imprimer la structure à l’aide d’une imprimante 3D. Alors nous avons en premier lieu chercher un logiciel de modélisation facile à manipuler et ensuite appris à le maîtriser. Ensuite, pour que tout le monde comprenne les outils utilisés, nous avons rédigé une documentation claire et détaillée de notre démarche sur l'outil utilisé qui est FreeCAD. Ce dernier est un logiciel de conception assistée par ordinateur open source.
+
 
 \subsection{Premières impressions 3D}
 
@@ -592,6 +616,7 @@ Ensuite, nous partons sur le fait d’imprimer la structure à l’aide d’une 
 	\includegraphics[width=0.4\textwidth]{./attachments/cad_coffre.jpg}
 	\caption{Coffre.}
 \end{figure}
+
 
 Le châssis est une planche rectangulaire, que nous percerons des trous pour fixer les composants. Tandis que le coffre comporte trois compartiments, pour stocker des boissons, des sandwichs au milieu et le reste.
 
@@ -651,6 +676,7 @@ C’est alors que nous nous sommes concentrés sur le choix définitif du carton
 	\caption{Premier prototype.}
 \end{figure}
 
+
 Voici le premier prototype du robot sans le coffre à l’instant. Les finitions du châssis sont plutôt négligées et le carton utilisé n’est pas très solide, nous pouvons voir que le châssis n’est pas droit. Cependant, il a été peint à la peinture et nous pouvons voir que ça couvre le fait que ce soit du carton. 
 
 C’est pour cela que nous avons refait une autre structure avec des finitions plus propre et avec du carton beaucoup plus solide. Ensuite, nous l’avons peinte à la bombe pour avoir un rendu plus uniforme et pouvoir peindre surtout plus rapidement, ainsi éviter le temps de sèche. 
@@ -658,7 +684,6 @@ C’est pour cela que nous avons refait une autre structure avec des finitions p
 Certaines planches de cartons solides étaient assez fines, alors nous l’avons renforcé en collant plusieurs planches entre elles pour bien renforcer le châssis et supporté la force des moteurs.
 
 \subsection{Ensemble servomoteur-roues sur le robot}
-
 Après avoir fixé les servomoteurs aux roues, nous avons cherché un moyen de les fixer solidement sur la structure du robot, réalisée en carton. Notre première idée a été de fabriquer des équerres en forme de \textbf{L} afin de relier les servomoteurs au châssis.
 
 Dans un premier temps, nous avons fixé les servomoteurs aux équerres à l’aide de scotch, puis attaché ces équerres au robot également à l’aide de scotch pour ce tout premier essai, sans utiliser de vis.
@@ -666,7 +691,6 @@ Dans un premier temps, nous avons fixé les servomoteurs aux équerres à l’ai
 Cependant, nous avons rapidement constaté que ce montage manquait de stabilité : le scotch ne tenait pas bien, se décollait facilement, et ne permettait pas un bon maintien des servomoteurs.
 
 Voici le résultat obtenu :
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues.png}
@@ -699,16 +723,14 @@ Voici le résultat :
 
 \begin{figure}[H]
 	\centering
-%	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues_impression.png}
+	%    \includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues_impression.png}
 	\caption{PHOTO A METTRE. \\ Version imprimée du modèle.}
 \end{figure}
 
-
-
 \section{Partie logicielle}
 % Étapes de développement, utilisation de Git, défis rencontrés.
-
 \subsection{Programmation individuelle des composants}
+
 Gyroscope
 
 Capteur d’obstacle (Lidar et ultrason)
@@ -721,20 +743,17 @@ Servomoteurs
 
 
 
-%Beaucoup de calculs pour dimensionner les moteurs et roues.
-%
-%Beaucoup de recherches pour les composants à utiliser.
-%
-%Au début on voulait faire la structure à l'aide d'une imprimante 3D, donc 
-%apprentissage des outils de développement 3D et un coffre modulable mais 
-%par souci de temps (en effet l'impression des pièces seraient chronophages), 
-%donc on a abandonné cette idée et on est parti sur une structure en carton.
-%
-%Utilisation de JavaScript, apprentissage assez long et ensuite mise en application.
+
+Programmation du site web
+
+
+
 
 \section{Gestion du projet}
+
 \subsection{Organisation des Tâches}
 % Inclure un tableau ou un graphique du rétroplanning.
+
 
 \subsection{Liste des Actions Réalisées}
 % Liste des actions réalisées pendant le projet.
@@ -802,16 +821,15 @@ Servomoteurs
 	\item Décorer le châssis
 \end{itemize}
 
-
 \subsection{Compte Rendu des Réunions Hebdomadaires}
 % Résumé des points discutés lors des réunions. 
 
 7 Mai 2025 
-Discussion de date importante et de la notation 
-Approvisionnement du matériel 
-Le déroulement des rendus hebdomadaires et de la soutenance
-Discussion du cahier des charges et de l'interlocuteur principal entre le suiveur et l’équipe de projet
-Discussion de l’architecture du projet
+Discussion de date importante et de la notation.
+Approvisionnement du matériel.
+Le déroulement des rendus hebdomadaires et de la soutenance.
+Discussion du cahier des charges et de l'interlocuteur principal entre le suiveur et l’équipe de projet.
+Discussion de l’architecture du projet.
 
 
 16 Mai 2025
@@ -824,27 +842,29 @@ Discussion du design du projet ainsi que des logiciels 3D à utiliser et imprima
 
 28 Mai 2025
 Réattribution des rôles.
-Choix des matériaux et composants
-Discussion des modélisations 3D niveau technique
-Discussion niveau software, hardware et la manière dont le robot va se déplacer
-Discussion sur le déroulement de la journée des projets
+Choix des matériaux et composants.
+Discussion des modélisations 3D niveau technique.
+Discussion niveau software, hardware et la manière dont le robot va se déplacer.
+Discussion sur le déroulement de la journée des projets.
 
 
 6 Juin 2025
-Observation et démonstration prototype, il y a quelques problèmes
-Détails supplémentaires sur la notations
+Observation et démonstration prototype, il y a quelques problèmes.
+Détails supplémentaires sur la notation.
 
 
 12 Juin 2025
-Discussion sur l’esthétique du software et du prototype du robot
-Discussion sur le poster et le cahier des charges fonctionnels/rapports à rendre
+Discussion sur l’esthétique du software et du prototype du robot.
+Discussion sur le poster et le cahier des charges fonctionnels/rapports à rendre.
 
 
 20 Juin 2025
-
+Discussion sur les problèmes de connectiques.
+Déroulement de la soutenance et de la journée des projets.
 
 
 23 Juin 2025
+
 
 
 
@@ -855,13 +875,13 @@ Ce projet a pour but de livrer de la nourriture de la cafétéria aux personnes 
 
 Dans le futur, ce projet pourrait être amélioré de par le fait que le robot puisse prendre l’ascenseur pour livrer directement devant une salle. Faire un robot plus solide, plus propre que seulement en carton.
 
+
 \section{Annexes}
 % Graphiques, schémas, photos du robot, code source.
 %\section{Documentation et Ressources}
 % Documentation hébergée sur le serveur, liens vers les ressources.
 
 \section{Remerciements}
-
 Le papa de Thisalini pour son aide à plusieurs reprises, notamment la partie électrique.
 
 La voiture de Djivan pour le transport de notre matériel au quotidien. 
@@ -875,6 +895,5 @@ Louis DUBOIS pour avoir soudé le lecteur carte SD d’une Raspberry Pi.
 Ilann MIMET pour l’affichage d’équations sur notre plateforme web. 
 
 Sylvain DUPONT-LEGENDRE pour le suivi. 
-
 
 \end{document}
