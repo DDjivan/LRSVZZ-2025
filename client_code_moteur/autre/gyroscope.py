@@ -16,14 +16,15 @@ while True:
     gyro_x, gyro_y, gyro_z = sensor.gyro
     mag_x, mag_y, mag_z = sensor.magnetic
 
-    float heading = atan2(mag_y, mag_x);
+    heading = atan2(mag_y, mag_x);
     heading *= 180.0/3.14
-    if (heading<0)
-        heading+= 360.0;
+    if (heading<0) :
+        heading+= 360.0
 
     #print("Gyroscope (degre/s): X={:.2f} Y={:.2f} Z={:.2f}".format(gyro_x, gyro_y, gyro_z))
     #print("Accelerometre (m/s2): Z={:.2f} Y={:.2f} Z={:.2f}".format(accel_x, accel_y, accel_z))
     print("Magnetometre (uT): X={:.2f} Y={:.2f} Z={:.2f}".format(mag_x, mag_y, mag_z))
+    print("VLVLVLLMBLMBA.PK.R3OLRMO valeur en degres : ", heading)
     print("----------------------------------------------------------------------")
     time.sleep(2.0)
 
