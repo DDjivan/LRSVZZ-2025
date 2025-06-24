@@ -82,6 +82,12 @@ Sur le repository, dans le dossier `FichiersPosters`.
 	- https://no-ai-icon.com/all-downloads/?accepted=true 
 - Markdown 
 	- https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg 
+- Raspberry Pi par [SiRo126](https://www.reddit.com/r/raspberry_pi/comments/5y0s0j/comment/dempy1f/) 
+	- https://i.imgur.com/YGTQmIg.png 
+- Git 
+	- https://git-scm.com/downloads/logos 
+	- https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg 
+	- fonctionne pas 
 
 #### Éléments étapes 
 1. Commande 
@@ -124,6 +130,7 @@ Afin de réaliser un poster de qualité, voici des inspirations.
 
 
 ## Problèmes 
+### Google Drive 
 Comment utiliser Google Drive pour héberger des images ? 
 
 Merci à [Aathi et AymDev](https://stackoverflow.com/questions/15557392/how-do-i-display-images-from-google-drive-on-a-website#52067077) sur stack overflow. 
@@ -147,5 +154,4 @@ https://drive.google.com/thumbnail?id=1omwimIhElE-idGV9QKTgngyVpMtV4FHf&sz=w1000
 4. Ce nouveau lien est utilisable sur [Inkscape](../Guides/Inkscape.md) ou sur une page [HTML](../Guides/HTML.md) ! Yippee ! 🥤 
 
 Autre problème : les liens sur Inkscape n'ont pas l'air de pouvoir garder les query strings... donc celui de la résolution (`&sz=w1000`) n'est pas conservé et l'image est de basse résolution... 
-
 
