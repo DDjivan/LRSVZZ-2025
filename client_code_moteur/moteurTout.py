@@ -22,7 +22,7 @@ class Robot:
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
 
-    def stopMoteurs():
+    def stopMoteurs(self):
         self.pi.set_servo_pulsewidth(self.gpioM1, 0)
         self.pi.set_servo_pulsewidth(self.gpioM2, 0)
 
@@ -87,12 +87,12 @@ class Robot:
         if nIndex == self.direction_index :
             print("")
         elif nIndex== (self.direction_index +1) :
-            tourner(90)
+            self.tourner(90)
         elif nIndex== (self.direction_index -1) :
-            tourner(-90)
+            self.tourner(-90)
         else :
-            tourner(90)
-            tourner(90)
+            self.tourner(90)
+            self.tourner(90)
         self.direction_index = nIndex
 
 # Exemple d'utilisation de la classe Robot
