@@ -21,6 +21,7 @@ class Robot:
         time.sleep(1)
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
+        self.stopMoteurs()
 
     def stopMoteurs(self):
         self.pi.set_servo_pulsewidth(self.gpioM1, 0)
