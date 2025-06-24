@@ -115,7 +115,6 @@ if __name__ == "__main__":
             robot.set_direction(i)
             robot.avancer()
             time.sleep(1)
-    finally :
         robot.stopMoteurs()
         opposite_directions = {
         "haut": "bas",
@@ -127,11 +126,11 @@ if __name__ == "__main__":
         chemin_inverse = [opposite_directions[dir] for dir in reversed(chemin)]
         print("Retour arrière :", chemin_inverse)
 
-            for direction in chemin_inverse:
-                set_direction(robot, direction)
-                time.sleep(1)
-                avancer(robot)
-                time.sleep(1)
-        finally:
-            stop_moteurs(robot)
+        for direction in chemin_inverse:
+            robot.set_direction(direction)
+            time.sleep(1)
+            robot.avancer()
+            time.sleep(1)
+    finally :
+        stop_moteurs(robot)
 
