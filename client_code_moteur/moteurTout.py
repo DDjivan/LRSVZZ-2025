@@ -110,5 +110,6 @@ if __name__ == "__main__":
         for i in chemin :
             robot.set_direction(i)
             robot.avancer()
+            time.sleep(2)
     finally :
         robot.stopMoteurs()
