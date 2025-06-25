@@ -118,7 +118,7 @@ class Robot:
             aFinal=(a0+273)%360
             mot.start_pin(self.pi, self.gpioM1, 1)
             mot.start_pin(self.pi, self.gpioM2, 1)
-            while not(aFinal-10<a0 and a0<aFinal+10):
+            while not(aFinal-20<a0 and a0<aFinal+20):
                 print("testetszaeaeazea")
                 time.sleep(0.01)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
