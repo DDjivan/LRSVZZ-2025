@@ -39,12 +39,10 @@ def getAngles():
 if __name__ == "__main__":
     try:
         while True:
-            raw = read_adc(0)  # Lecture sur canal CH0
-            angle = adc_to_degrees(raw)
-            print(f"Valeur ADC : {raw} | 1e Angle estimé : {angle:.1f}°")
-            raw = read_adc(1)  # Lecture sur canal CH0
-            angle = adc_to_degrees(raw)
-            print(f"Valeur ADC : {raw} | 2e Angle estimé : {angle:.1f}°")
+            for ch in range(4)
+                raw = read_adc(ch)  # Lecture sur canal CH0
+                angle = adc_to_degrees(raw)
+                print(f"Valeur ADC : {raw} | Angle estimé : {angle:.1f}°")
             print("----------------------------------------------------")
             time.sleep(0.5)
 
