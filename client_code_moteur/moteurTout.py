@@ -56,17 +56,17 @@ class Robot:
             aFinal=(a0-259)%360
             mot.start_pin(self.pi, self.gpioM1, -1)
             mot.start_pin(self.pi, self.gpioM2, -1)
-            while not(aFinal-5<a0 and a0<aFinal+5):
+            while not(aFinal-2<a0 and a0<aFinal+2):
                 a0,a1=lire_feedback_servos(ads)
-                time.sleep(0.00001)
+                time.sleep(0.000001)
             self.direction_index = (self.direction_index + 1) % 4  # Tourner à droite
         else:
             aFinal=(a0+259)%360
             mot.start_pin(self.pi, self.gpioM1, 1)
             mot.start_pin(self.pi, self.gpioM2, 1)
-            while not(aFinal-5<a0 and a0<aFinal+5):
+            while not(aFinal-2<a0 and a0<aFinal+2):
                 a0,a1=lire_feedback_servos(ads)
-                time.sleep(0.00001)
+                time.sleep(0.000001)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
         self.stopMoteurs()
         direction = self.directions[self.direction_index]
