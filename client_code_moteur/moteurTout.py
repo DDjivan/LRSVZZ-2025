@@ -1,6 +1,6 @@
 import moteur_args as mot
 from rechercheChemin import *
-import spidev
+from testFeed import *
 import time
 import RPi.GPIO as GPIO
 
@@ -13,9 +13,6 @@ class Robot:
         self.gpioM2=13
         self.directions = ["haut", "droite", "bas", "gauche"]
         self.direction_index = 0  # Direction initiale (0 = haut)
-        self.spi = spidev.SpiDev()
-        self.spi.open(0, 0)  # Bus SPI 0, périphérique CS0
-        self.spi.max_speed_hz = 1000000  # Fréquence adaptée au MCP3204
         GPIO.setmode(GPIO.BCM)
         self.TRIG = 23
         self.ECHO = 24
@@ -113,37 +110,6 @@ class Robot:
         """Affiche la direction actuelle du robot."""
         direction = self.directions[self.direction_index]
         print(f"Direction actuelle du robot : {direction}.")
-
-
-        # --- Fonction de lecture MCP3204 ---
-    def read_adc(self,channel):
-        if not 0 <= channel <= 3:
-            raise ValueError("Canal invalide : 0 à 3 uniquement")
-        start_bit = 0b00000110
-        command = (channel & 0b11) << 6
-        result = self.spi.xfer2([start_bit, command, 0x00])
-        value = ((result[1] & 0b00001111) << 8) | result[2]
-        return value
-
-    # --- Conversion en degrés ---
-    def adc_to_degrees(self,raw_value):
-        """
-        Convertit la valeur ADC brute en angle en degrés.
-        Hypothèse : 0 V = 0°, 3.3 V = 180°
-        """
-        voltage = raw_value * 3.3 / 4095  # Convertir en volts
-        angle = (voltage / 3.3) * 360     # Proportion linéaire
-        return angle
-
-        # --- Retourne les valeurs d'angles---
-    def getAngles(self):
-        raw = self.read_adc(0)  # Lecture sur canal CH0
-        angle = self.adc_to_degrees(raw)
-        angle0= angle
-        raw = self.read_adc(1)  # Lecture sur canal CH0
-        angle = self.adc_to_degrees(raw)
-        angle1=angle
-        return (angle0,angle1)
 
     def set_direction(self,nDirect):
         self.stopMoteurs()
