@@ -19,7 +19,7 @@ def send_plans() :
 
     port = 50001
     remote_host = "nous@localhost"
-    directory = '~/PLANS_À_RÉSOUDRE'
+    directory = '~/PLANS_A_RESOUDRE'
     current_time = datetime.now().isoformat().replace('T', ' ')
 
     # scp -P port path/to/local_file remote_host:path/to/remote_file

@@ -60,7 +60,7 @@ def upload():
             new_color = closest_color_of(original_color)
             new_image.putpixel((x, y), new_color)
 
-    image_path = os.path.join('PLANS_À_RÉSOUDRE', image_file.filename)
+    image_path = os.path.join('PLANS_A_RESOUDRE', image_file.filename)
     os.chdir(os.path.expanduser('~'))
     # print(os.getcwd())
     os.makedirs(os.path.dirname(image_path), exist_ok=True)
