@@ -26,7 +26,13 @@ class Robot:
         seuil=30 #seuil d'arret en cm'
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
-        time.sleep(duree_avance)
+        a0,a1=lire_feedback_servos(ads)
+        aFinal=(a0-210)%360
+        mot.start_pin(self.pi, self.gpioM1, -1)
+        mot.start_pin(self.pi, self.gpioM2, -1)
+        while not(aFinal-10<a0 and a0<aFinal+10):
+            a0,a1=lire_feedback_servos(ads)
+            time.sleep(0.01)
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
         self.stopMoteurs()
