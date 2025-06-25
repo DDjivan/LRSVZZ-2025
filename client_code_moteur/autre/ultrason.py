@@ -8,8 +8,6 @@ ECHO = 24
 GPIO.setup(TRIG, GPIO.OUT)
 GPIO.setup(ECHO, GPIO.IN)
 
-
-
 print("Demarrage de la lecture de la distance de l'obstacle")
 
 GPIO.output(TRIG, False)  
