@@ -31,6 +31,11 @@ class Robot:
         while not(aFinal-10<a0 and a0<aFinal+10):
             a0,a1=lire_feedback_servos(ads)
             time.sleep(0.01)
+        a0,a1=lire_feedback_servos(ads)
+        aFinal=(a0-210)%360
+        while not(aFinal-10<a0 and a0<aFinal+10):
+            a0,a1=lire_feedback_servos(ads)
+            time.sleep(0.01)
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
         self.stopMoteurs()
