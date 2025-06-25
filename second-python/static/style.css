@@ -68,6 +68,7 @@ code {
     font-size: large;
 }
 
+
 @media (max-width: 600px) {
     #markdown-content {
         /* background-color: inherit; */

@@ -35,6 +35,6 @@ Dans le fichier [HTML](HTML.md), penser à ajouter ceci.
 </head>
 ```
 
-Merci à Ilann (`ilo80`) sur le Discord du Club\*Nix. 
+Merci à Ilann Mimet (`ilo80`) sur le Discord du Club\*Nix. 
 
 

@@ -74,6 +74,10 @@ def get_products():
     conn.close()
     return products
 
+from flask_socketio import SocketIO, emit
+
+socketio = SocketIO(app)
+
 @app.route('/client')
 def web_client() :
     products = get_products()
@@ -111,12 +115,12 @@ def commander():
     for produit, quantite in produits_commandes:
         c.execute("INSERT INTO order_items (order_id, product_name, quantity) VALUES (?, ?, ?)",
                   (order_id, produit, quantite))
-
     conn.commit()
     conn.close()
 
-    products = get_products()
-    return render_template("client.html", products=products)
+    socketio.emit("new order")
+
+    return redirect(url_for('web_client'))
 
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
@@ -174,6 +178,8 @@ def web_gestion() :
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
+from flask import redirect, url_for
+
 @app.route('/server', methods=['GET', 'POST'])
 def web_server():
     conn = sqlite3.connect("data/gestion.db")
@@ -191,6 +197,8 @@ def web_server():
             c.execute("DELETE FROM orders WHERE id = ?", (order_id,))
             conn.commit()
 
+            return redirect(url_for('web_server'))
+          
     # Afficher toutes les commandes (toutes les commandes sont en attente tant qu'elles existent)
     c.execute("""
         SELECT id, destination, date
@@ -266,7 +274,7 @@ def view_ips() :
         with open(sFile, 'r') as f :
             content = f.read()
 
-        # return f'<pre>{content}</pre>'  
+        # return f'<pre>{content}</pre>'
         content = f'<pre>{content}</pre>'
 
     except FileNotFoundError :
@@ -311,4 +319,7 @@ def moteurMarche():
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 
 if __name__ == '__main__' :
-    app.run(host='0.0.0.0', port=50000, debug=True)
+    socketio.run(app,host='0.0.0.0', port=50000, debug=True)
+    
+    #app.run(host='0.0.0.0', port=50000, debug=True)
+
