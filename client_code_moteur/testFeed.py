@@ -1,39 +1,29 @@
-import spidev
 import time
+import board
+import busio
+import adafruit_ads1x15.ads1115 as ADS
+from adafruit_ads1x15.analog_in import AnalogIn
 
-# --- Initialisation SPI ---
-spi = spidev.SpiDev()
-spi.open(0, 0)  # Bus SPI 0, périphérique CS0
-spi.max_speed_hz = 1000000  # Fréquence adaptée au MCP3204
+# Initialisation I2C et ADC
+i2c = busio.I2C(board.SCL, board.SDA)
+ads = ADS.ADS1115(i2c)
+ads.gain = 1  # adapté à 3.3 V
 
-# --- Fonction de lecture MCP3204 ---
-def read_adc(channel):
-    if not 0 <= channel <= 3:
-        raise ValueError("Canal invalide : 0 à 3 uniquement")
-    start_bit = 0b00000110
-    command = (channel & 0b11) << 6
-    result = spi.xfer2([start_bit, command, 0x00])
-    value = ((result[1] & 0b00001111) << 8) | result[2]
-    return value
+def lire_feedback_servos(ads):
+    chan1 = AnalogIn(ads, ADS.P0)
+    chan2 = AnalogIn(ads, ADS.P1)
 
-# --- Conversion en degrés ---
-def adc_to_degrees(raw_value):
-    """
-    Convertit la valeur ADC brute en angle en degrés.
-    Hypothèse : 0 V = 0°, 3.3 V = 180°
-    """
-    voltage = raw_value * 3.3 / 4095  # Convertir en volts
-    angle = (voltage / 3.3) * 360     # Proportion linéaire
-    return angle
+    angle1 = chan1.voltage * (360 / 3.3)
+    angle2 = chan2.voltage * (360 / 3.3)
 
-# --- Boucle de test ---
-try:
+    angle1 = max(0, min(360, angle1))
+    angle2 = max(0, min(360, angle2))
+
+    return angle1, angle2
+
+# Boucle principale
+if __name__ == "__main__":
     while True:
-        raw = read_adc(0)  # Lecture sur canal CH0
-        angle = adc_to_degrees(raw)
-        print(f"Valeur ADC : {raw} | Angle estimé : {angle:.1f}°")
-        time.sleep(0.5)
-
-except KeyboardInterrupt:
-    print("Arrêt par l'utilisateur.")
-    spi.close()
+        a1, a2 = lire_feedback_servos(ads)
+        print(f"Servo 1 : {a1:.1f}°\tServo 2 : {a2:.1f}°")
+        time.sleep(0.2)

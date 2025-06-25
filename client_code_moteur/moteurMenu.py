@@ -46,8 +46,11 @@ def testSimple():
     stopMoteurs()
     print("Fin.")
 
+def checkInterval(x,m,M,m1,M1) :
+    return (m<x[0]) & (x[0]<M) & (m1<x[1]) & (x[1]<M1)
+
 def scriptTest():
-    print("Script de test à faire")
+    return
 
 if __name__ == '__main__' :
     try :

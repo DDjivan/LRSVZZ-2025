@@ -134,6 +134,31 @@ def astar_directions(grid, start, end):
 
     return None
 
+def analyze_path_with_obstacle_ahead(grid, start, end):
+    path = astar_coords(grid, start, end)
+    if not path or len(path) < 2:
+        return []  # Aucun chemin ou trop court
+
+    obstacle_ahead_list = []
+
+    for i in range(len(path)-1):
+        curr = path[i]
+        next_ = path[i+1]
+        dr = next_[0] - curr[0]
+        dc = next_[1] - curr[1]
+
+        # case suivante dans la même direction
+        next_next = (next_[0] + dr, next_[1] + dc)
+        if 0 <= next_next[0] < len(grid) and 0 <= next_next[1] < len(grid[0]):
+            obstacle_ahead = grid[next_next[0]][next_next[1]] == 1
+        else:
+            obstacle_ahead = True  # hors grille = considéré comme obstacle
+
+        obstacle_ahead_list.append(obstacle_ahead)
+
+    return obstacle_ahead_list
+
+
 if __name__ == "__main__":
     image_path = "grille.png"  # ton image d'entrée
     block_size = 20
@@ -145,3 +170,5 @@ if __name__ == "__main__":
         print("Chemin trouvé :", chemin)
     else:
         print("Aucun chemin trouvé.")
+    analyze_path_with_obstacle_ahead(grid, start, end)
+
