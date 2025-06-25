@@ -19,8 +19,8 @@ class Robot:
         GPIO.setmode(GPIO.BCM)
         self.TRIG = 23
         self.ECHO = 24
-        GPIO.setup(TRIG, GPIO.OUT)
-        GPIO.setup(ECHO, GPIO.IN)
+        GPIO.setup(self.TRIG, GPIO.OUT)
+        GPIO.setup(self.ECHO, GPIO.IN)
 
     def avancer(self,presObstacle):
         """Simule l'avancement du robot d'une certaine distance."""
