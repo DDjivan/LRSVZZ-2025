@@ -51,7 +51,7 @@ class Robot:
             aFinal=(a0-273)%360
             mot.start_pin(self.pi, self.gpioM1, -1)
             mot.start_pin(self.pi, self.gpioM2, -1)
-            while not(aFinal-10<a0 and a0<aFinal+10):
+            while not(aFinal-5<a0 and a0<aFinal+5):
                 a0,a1=lire_feedback_servos(ads)
                 time.sleep(0.01)
             self.direction_index = (self.direction_index + 1) % 4  # Tourner à droite
@@ -59,7 +59,7 @@ class Robot:
             aFinal=(a0+273)%360
             mot.start_pin(self.pi, self.gpioM1, 1)
             mot.start_pin(self.pi, self.gpioM2, 1)
-            while not(aFinal-10<a0 and a0<aFinal+10):
+            while not(aFinal-5<a0 and a0<aFinal+5):
                 a0,a1=lire_feedback_servos(ads)
                 time.sleep(0.01)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
@@ -91,9 +91,8 @@ class Robot:
 if __name__ == "__main__":
     robot = Robot()
 
-    # os.chdir('..')
-    # os.chdir('pretty-python/PLANS_À_RÉSOUDRE/')
-    os.chdir('/home/nous/PLANS_A_RESOUDRE/')
+    os.chdir('..')
+    os.chdir('pretty-python/PLANS_À_RÉSOUDRE/')
     files = os.listdir()
 
     if not files :
