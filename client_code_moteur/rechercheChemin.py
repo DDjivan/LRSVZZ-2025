@@ -137,31 +137,26 @@ def astar_directions(grid, start, end):
 def analyze_path_with_obstacle_ahead(grid, start, end):
     path = astar_coords(grid, start, end)
     if not path or len(path) < 2:
-        print("Chemin trop court ou introuvable.")
-        return
+        return []  # Aucun chemin ou trop court
 
-    directions = {
-        (-1, 0): "haut",
-        (1, 0): "bas",
-        (0, -1): "gauche",
-        (0, 1): "droite"
-    }
+    obstacle_ahead_list = []
 
     for i in range(len(path)-1):
         curr = path[i]
         next_ = path[i+1]
         dr = next_[0] - curr[0]
         dc = next_[1] - curr[1]
-        dir_label = directions.get((dr, dc), "inconnue")
 
         # case suivante dans la même direction
         next_next = (next_[0] + dr, next_[1] + dc)
-        obstacle_ahead = False
         if 0 <= next_next[0] < len(grid) and 0 <= next_next[1] < len(grid[0]):
             obstacle_ahead = grid[next_next[0]][next_next[1]] == 1
         else:
-            obstacle_ahead = True  # hors grille = mur
-        return obstacle_ahead
+            obstacle_ahead = True  # hors grille = considéré comme obstacle
+
+        obstacle_ahead_list.append(obstacle_ahead)
+
+    return obstacle_ahead_list
 
 
 if __name__ == "__main__":
