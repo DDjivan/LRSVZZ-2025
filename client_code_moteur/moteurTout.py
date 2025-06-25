@@ -24,10 +24,18 @@ class Robot:
         duree_avance=1
         trancheSeuil=5 #pas de descente du seuil
         seuil=30 #seuil d'arret en cm'
+        GPIO.output(TRIG, False)
+        time.sleep(2)
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
         if presObstacle : #Si obstacle, avancer avec descente du seuil d'arrêt'
             for iter in range(trancheSeuil) :
+
+                GPIO.output(TRIG, True)
+                time.sleep(0.00001)
+
+                GPIO.output(TRIG, False)
+
                 while GPIO.input(self.ECHO) == 0:
                     duree_debut = time.time()
                 while GPIO.input(self.ECHO) == 1:
@@ -53,6 +61,12 @@ class Robot:
 
         else :
             for iter in range(trancheSeuil) :
+
+                GPIO.output(TRIG, True)
+                time.sleep(0.00001)
+
+                GPIO.output(TRIG, False)
+
                 while GPIO.input(self.ECHO) == 0:
                     duree_debut = time.time()
                 while GPIO.input(self.ECHO) == 1:
@@ -134,7 +148,7 @@ class Robot:
 if __name__ == "__main__":
     robot = Robot()
     image_path = "grille.png"  # image d'entrée
-    block_size = 20
+    block_size = 1
 
     grid, start, end = load_grid_from_image_blocks(image_path, block_size=block_size)
     chemin = astar_directions(grid, start, end)
