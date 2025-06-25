@@ -1,6 +1,5 @@
 import moteur_args as mot
 import time
-from testFeed import *
 
 def stopMoteurs():
     global pi,gpioM1,gpioM2
@@ -51,15 +50,7 @@ def checkInterval(x,m,M,m1,M1) :
     return (m<x[0]) & (x[0]<M) & (m1<x[1]) & (x[1]<M1)
 
 def scriptTest():
-    a=getAngles()
-    aFinal=( (a[0]+273)%360 , (a[1]+273)%360 )
-    mot.start_pin(pi, gpioM1, 0.5)
-    mot.start_pin(pi, gpioM2, 0.5)
-    print("val finale",aFinal)
-    while (not checkInterval(getAngles(),aFinal[0]-5,aFinal[0]+5,aFinal[1]-5,aFinal[1]+5)) :
-            print("angle",getAngles())
-            time.sleep(0.1)
-    stopMoteurs()
+    return
 
 if __name__ == '__main__' :
     # --- Initialisation SPI ---
