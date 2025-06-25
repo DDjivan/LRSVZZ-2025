@@ -139,5 +139,5 @@ if __name__ == "__main__":
             robot.avancer()
             time.sleep(1)
     finally :
-        robot.stop_moteurs()
+        robot.stopMoteurs()
 
