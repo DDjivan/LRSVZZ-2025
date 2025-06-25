@@ -4,7 +4,11 @@ from flask import request
 from PIL import Image
 import os
 
+
+
 app_upload = Blueprint('upload', __name__)
+
+
 
 # DIRECTORY = 'PLANS_À_RÉSOUDRE'
 # app_upload.config['UPLOADS_DIR'] = DIRECTORY
@@ -57,9 +61,9 @@ def upload():
             new_image.putpixel((x, y), new_color)
 
     image_path = os.path.join('PLANS_À_RÉSOUDRE', image_file.filename)
-
-    # name = 1
-    # image_path = os.path.join('PLANS_À_RÉSOUDRE', f'{name}.png')
+    os.chdir(os.path.expanduser('~'))
+    # print(os.getcwd())
+    os.makedirs(os.path.dirname(image_path), exist_ok=True)
     new_image.save(image_path, format='PNG')
 
     return 'Image received and saved', 200
