@@ -157,7 +157,7 @@ if __name__ == "__main__":
     # image_path = "grille.png"
 
     os.chdir('..')
-    os.chdir('/pretty-python/PLANS_À_RÉSOUDRE/')
+    os.chdir('pretty-python/PLANS_À_RÉSOUDRE/')
     files = os.listdir()
 
     if not files :
