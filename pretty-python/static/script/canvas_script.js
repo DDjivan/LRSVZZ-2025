@@ -9,7 +9,7 @@ const pixelCursor = document.getElementById('pixelCursor');
 
 function initCanvas() {
     const img = new Image();
-    img.src = '/static/plans/plan_vecteur.png';
+    img.src = '/static/plans/plan_juste_piliers.png';
 
     img.onload = function() {
         ctx.drawImage(img, 0, 0);
