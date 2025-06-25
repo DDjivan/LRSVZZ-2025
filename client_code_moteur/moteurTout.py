@@ -91,8 +91,9 @@ class Robot:
 if __name__ == "__main__":
     robot = Robot()
 
-    os.chdir('..')
-    os.chdir('pretty-python/PLANS_À_RÉSOUDRE/')
+    # os.chdir('..')
+    # os.chdir('pretty-python/PLANS_À_RÉSOUDRE/')
+    os.chdir('/home/nous/PLANS_A_RESOUDRE/')
     files = os.listdir()
 
     if not files :

@@ -156,8 +156,9 @@ def analyze_path_with_obstacle_ahead(grid, start, end):
 if __name__ == "__main__":
     # image_path = "grille.png"
 
-    os.chdir('..')
-    os.chdir('pretty-python/PLANS_À_RÉSOUDRE/')
+    # os.chdir('..')
+    # os.chdir('pretty-python/PLANS_À_RÉSOUDRE/')
+    os.chdir('/home/nous/PLANS_A_RESOUDRE/')
     files = os.listdir()
 
     if not files :
