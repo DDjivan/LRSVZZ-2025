@@ -27,8 +27,7 @@ D'après https://jdp.esiee.fr/videos-jdp-2025/
 > - **Musique et images libres de droits** 
 > - **Durée** : entre de 1:30 et 2:30  
 > - **Envoyez le lien de votre vidéo à** jourdesprojets@esiee.fr 
-> - ==**Date de transmission** : au plus tard le **20 juin 2025 midi.== Le jury se réunit le 23 juin 2025.**  
-> 
+> - ==**Date de transmission** : au plus tard le **20 juin 2025 midi.== Le jury se réunit le 23 juin 2025.** 
 > **Exemples de vidéos :** https://jdp.esiee.fr/concours-videos-2018/ 
 
 ## Idées 
@@ -202,6 +201,5 @@ yt-dlp -x --audio-format wav --audio-quality 0 https://youtu.be/xLsuam9o9BA
 > For video compositing, WAV files are preferred due to their uncompressed quality, which provides the best audio fidelity. M4A and MP3 files are compressed formats that may sacrifice some audio quality for smaller file sizes, making them less ideal for professional audio work.
 > 
 > [lalal.ai](https://www.lalal.ai/blog/difference-between-audio-formats-mp3-flac-wav-aiff-m4a-ogg/), [caseguard.com](https://caseguard.com/articles/m4a-mp3-and-wav-audio-files-new-technology/) 
-
 
 
