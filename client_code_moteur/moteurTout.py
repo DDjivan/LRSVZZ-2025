@@ -22,12 +22,63 @@ class Robot:
         GPIO.setup(TRIG, GPIO.OUT)
         GPIO.setup(ECHO, GPIO.IN)
 
-    def avancer(self):
+    def avancer(self,presObstacle):
         """Simule l'avancement du robot d'une certaine distance."""
-
+        duree_avance=1
+        trancheSeuil=5
+        seuil=30
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
-        time.sleep(1)
+        if presObstacle : #Si obstacle, avancer avec descente du seuil d'arrêt'
+            for iter in range(trancheSeuil) :
+                while GPIO.input(self.ECHO) == 0:
+                    duree_debut = time.time()
+                while GPIO.input(self.ECHO) == 1:
+                    duree_fin = time.time()
+
+                duree_impulsion = duree_fin - duree_debut
+                distance = duree_impulsion * (34000/2)
+                distance = round(distance, 2)
+                if distance <seuil - iter*seuil/trancheSeuil : #si obstacle imprévu, arrêt et attente.
+                    self.stopMoteurs()
+                    while distance <seuil - iter*seuil/trancheSeuil :
+                        while GPIO.input(self.ECHO) == 0:
+                            duree_debut = time.time()
+                        while GPIO.input(self.ECHO) == 1:
+                            duree_fin = time.time()
+
+                        duree_impulsion = duree_fin - duree_debut
+                        distance = duree_impulsion * (34000/2)
+                        distance = round(distance, 2)
+                    self.pi.set_servo_pulsewidth(self.gpioM1, 500)
+                    self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
+                time.sleep(duree_avance/trancheSeuil)
+
+        else :
+            for iter in range(trancheSeuil) :
+                while GPIO.input(self.ECHO) == 0:
+                    duree_debut = time.time()
+                while GPIO.input(self.ECHO) == 1:
+                    duree_fin = time.time()
+
+                duree_impulsion = duree_fin - duree_debut
+                distance = duree_impulsion * (34000/2)
+                distance = round(distance, 2)
+                if distance <seuil : #si obstacle imprévu, arrêt et attente.
+                    self.stopMoteurs()
+                    while distance <Seuil :
+                        while GPIO.input(self.ECHO) == 0:
+                            duree_debut = time.time()
+                        while GPIO.input(self.ECHO) == 1:
+                            duree_fin = time.time()
+
+                        duree_impulsion = duree_fin - duree_debut
+                        distance = duree_impulsion * (34000/2)
+                        distance = round(distance, 2)
+                    self.pi.set_servo_pulsewidth(self.gpioM1, 500)
+                    self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
+                time.sleep(duree_avance/trancheSeuil)
+
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
         self.stopMoteurs()
@@ -116,11 +167,12 @@ if __name__ == "__main__":
 
     grid, start, end = load_grid_from_image_blocks(image_path, block_size=block_size)
     chemin = astar_directions(grid, start, end)
+    obstacleA=analyze_path_with_obstacle_ahead(grid, start, end)
     print(chemin)
     try :
-        for i in chemin :
-            robot.set_direction(i)
-            robot.avancer()
+        for i in range(len(chemin)) :
+            robot.set_direction(chemin[i])
+            robot.avancer(obstacleA[i])
             time.sleep(1)
         robot.stopMoteurs()
         opposite_directions = {
@@ -132,11 +184,11 @@ if __name__ == "__main__":
         # --- Inversion du chemin pour retour arrière ---
         chemin_inverse = [opposite_directions[dir] for dir in reversed(chemin)]
         print("Retour arrière :", chemin_inverse)
-
-        for direction in chemin_inverse:
-            robot.set_direction(direction)
+        obstacleR=analyze_path_with_obstacle_ahead(grid, end, start)
+        for j in range(len(chemin_inverse)):
+            robot.set_direction(chemin_inverse[j])
             time.sleep(1)
-            robot.avancer()
+            robot.avancer(obstacleR[j])
             time.sleep(1)
     finally :
         robot.stopMoteurs()

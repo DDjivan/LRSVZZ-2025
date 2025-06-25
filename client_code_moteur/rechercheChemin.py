@@ -161,7 +161,7 @@ def analyze_path_with_obstacle_ahead(grid, start, end):
             obstacle_ahead = grid[next_next[0]][next_next[1]] == 1
         else:
             obstacle_ahead = True  # hors grille = mur
-
+        return obstacle_ahead
 
 
 if __name__ == "__main__":
