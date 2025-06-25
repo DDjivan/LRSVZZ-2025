@@ -67,7 +67,7 @@ class Robot:
                 distance = round(distance, 2)
                 if distance <seuil : #si obstacle imprévu, arrêt et attente.
                     self.stopMoteurs()
-                    while distance <Seuil :
+                    while distance <seuil :
                         while GPIO.input(self.ECHO) == 0:
                             duree_debut = time.time()
                         while GPIO.input(self.ECHO) == 1:
