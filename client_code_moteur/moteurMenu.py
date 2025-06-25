@@ -53,10 +53,6 @@ def scriptTest():
     return
 
 if __name__ == '__main__' :
-    # --- Initialisation SPI ---
-    spi = spidev.SpiDev()
-    spi.open(0, 0)  # Bus SPI 0, périphérique CS0
-    spi.max_speed_hz = 1000000  # Fréquence adaptée au MCP3204
     try :
         pi = mot.init_pi()
         gpioM1=12
