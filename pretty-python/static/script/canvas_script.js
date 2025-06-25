@@ -208,7 +208,7 @@ document.getElementById('pixelToolButtonArrive').addEventListener('click', () =>
 //     });
 // });
 
-document.getElementById('sendButton').addEventListener('click', () => {
+document.getElementById('saveButton').addEventListener('click', () => {
     canvas.toBlob((blob) => {
         const formData = new FormData();
         formData.append('image', blob, 'canvas-image.png');
