@@ -2,6 +2,8 @@ import moteur_args as mot
 from rechercheChemin import *
 import spidev
 import time
+import RPi.GPIO as GPIO
+
 
 class Robot:
     def __init__(self):
@@ -14,6 +16,11 @@ class Robot:
         self.spi = spidev.SpiDev()
         self.spi.open(0, 0)  # Bus SPI 0, périphérique CS0
         self.spi.max_speed_hz = 1000000  # Fréquence adaptée au MCP3204
+        GPIO.setmode(GPIO.BCM)
+        self.TRIG = 23
+        self.ECHO = 24
+        GPIO.setup(TRIG, GPIO.OUT)
+        GPIO.setup(ECHO, GPIO.IN)
 
     def avancer(self):
         """Simule l'avancement du robot d'une certaine distance."""
@@ -132,5 +139,5 @@ if __name__ == "__main__":
             robot.avancer()
             time.sleep(1)
     finally :
-        stop_moteurs(robot)
+        robot.stop_moteurs()
 
