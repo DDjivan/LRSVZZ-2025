@@ -24,11 +24,9 @@ class Robot:
         duree_avance=1
         trancheSeuil=5 #pas de descente du seuil
         seuil=30 #seuil d'arret en cm'
-        GPIO.output(self.TRIG, False)
-        time.sleep(2)
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
-
+        time.sleep(duree_avance)
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
         self.stopMoteurs()
