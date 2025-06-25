@@ -160,7 +160,7 @@ if __name__ == "__main__":
     os.chdir('/pretty-python/PLANS_À_RÉSOUDRE/')
     files = os.listdir()
 
-    if !files :
+    if not files :
         raise Exception("The directory is empty.")
 
     image_path = files[0]
