@@ -24,13 +24,15 @@ def send_plans() :
 
     # scp -P port path/to/local_file remote_host:path/to/remote_file
     # scp -r remote_host:path/to/remote_directory path/to/local_directory
+    # scp -P 50001 -r ~/PLANS_A_RESOUDRE nous@localhost:~
 
     try:
         run(
-            ["scp", "-P", str(port), "-r", f'{remote_host}:{directory}', directory],
+            ["scp", "-P", str(port), "-r", directory, f'{remote_host}:~'],
             check=True
         )
-        return f"[{current_time}] Sent!"
+        return f"[{current_time}] Sent! \n" #+' '.join(["scp", "-P", str(port), "-r", f'{remote_host}:{directory}', directory])
+        # print(' '.join(["scp", "-P", str(port), "-r", f'{remote_host}:{directory}', directory]))
 
     except Exception as e:
         return f"[{current_time}] Python Error: \n{str(e)}", 500
