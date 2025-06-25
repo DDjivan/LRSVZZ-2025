@@ -4,12 +4,12 @@ const undoStack = [];
 const redoStack = [];
 let currentTool = 'pixel';
 let startPoint = null;
-const scaleFactor = 10;
+const scaleFactor = 50;
 const pixelCursor = document.getElementById('pixelCursor');
 
 function initCanvas() {
     const img = new Image();
-    img.src = '/static/plans/1.png';
+    img.src = '/static/plans/plan_vecteur.png';
 
     img.onload = function() {
         ctx.drawImage(img, 0, 0);
@@ -44,7 +44,9 @@ canvas.addEventListener('click', (event) => {
     const y = Math.floor((event.clientY - rect.top) / scaleFactor);
 
     if (currentTool === 'pixel') {
-        drawPixel(x, y);
+        drawObstacle(x, y,);
+    } else if (currentTool === 'arrivee') {
+        drawArrivee(x, y);
     } else if (currentTool === 'rectangle') {
         if (!startPoint) {
             startPoint = { x, y };
@@ -55,12 +57,47 @@ canvas.addEventListener('click', (event) => {
     }
 });
 
-function drawPixel(x, y) {
-    // ctx.fillStyle = 'black';
-    ctx.fillStyle = '#000000';
+function drawPixel(x, y, color) {
+    ctx.fillStyle = color;
     ctx.fillRect(x, y, 1, 1);
+}
+
+function drawObstacle(x, y) {
+    colorObstacle = '#000000'
+    drawPixel(x, y, colorObstacle)
     saveState();
 }
+
+function drawArrivee(x, y) {
+    const pixelColor = ctx.getImageData(x, y, 1, 1).data;
+    const isBlack = (pixelColor[0] === 0 && pixelColor[1] === 0 && pixelColor[2] === 0);
+    const isGreenNearby = checkForGreenPixel(x, y); // Check for nearby green pixels
+
+    if (isBlack || isGreenNearby) {
+        return;
+    }
+
+    const colorArrivee = '#00ff00';
+    drawPixel(x, y, colorArrivee);
+    saveState();
+}
+
+function checkForGreenPixel(x, y) {
+    const greenColor = { r: 0, g: 255, b: 0 }; // RGB values for green
+    const checkRadius = 1; // You can adjust this radius as needed
+
+    for (let dx = -checkRadius; dx <= checkRadius; dx++) {
+        for (let dy = -checkRadius; dy <= checkRadius; dy++) {
+            const pixelColor = ctx.getImageData(x + dx, y + dy, 1, 1).data;
+            if (pixelColor[0] === greenColor.r && pixelColor[1] === greenColor.g && pixelColor[2] === greenColor.b) {
+                return true; // Found a green pixel nearby
+            }
+        }
+    }
+    return false;
+}
+
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
 
 function drawBasicRectangle(x1, y1, x2, y2, color) {
     ctx.fillStyle = color;
@@ -110,7 +147,7 @@ function saveState() {
     redoStack.length = 0;
 }
 
-document.getElementById('clearButton').addEventListener('click', clearCanvas);
+// document.getElementById('clearButton').addEventListener('click', clearCanvas);
 document.getElementById('undoButton').addEventListener('click', undo);
 document.getElementById('redoButton').addEventListener('click', redo);
 
@@ -142,8 +179,12 @@ document.getElementById('pixelToolButton').addEventListener('click', () => {
     currentTool = 'pixel';
 });
 
-document.getElementById('rectangleToolButton').addEventListener('click', () => {
-    currentTool = 'rectangle';
+// document.getElementById('rectangleToolButton').addEventListener('click', () => {
+//     currentTool = 'rectangle';
+// });
+
+document.getElementById('pixelToolButtonArrive').addEventListener('click', () => {
+    currentTool = 'arrivee';
 });
 
 // document.getElementById('sendButton').addEventListener('click', () => {

@@ -9,16 +9,17 @@
 </head>
 <body>
   <div id="canvas-box">
-    <canvas id="bitmapCanvas" width="40" height="30"></canvas>
+    <canvas id="bitmapCanvas" width="13" height="5"></canvas>
     <div id="pixelCursor"></div>
   </div>
   <br>
   <div>
     <button class="orangebutton" id="undoButton">↩️ Undo</button>
     <button class="orangebutton" id="redoButton">↪️ Redo</button>
-    <button class="orangebutton" id="pixelToolButton">🖌️ Pixel Tool</button>
-    <button class="orangebutton" id="rectangleToolButton">⬛ Rectangle Tool</button>
-    <button class="orangebutton" id="clearButton">🧼 Clear Canvas</button>
+    <button class="orangebutton" id="pixelToolButton">🖌️ Obstacle</button>
+    <button class="orangebutton" id="pixelToolButtonArrive">⛳ Arrivée</button>
+<!--     <button class="orangebutton" id="rectangleToolButton">⬛ Rectangle Tool</button> -->
+<!--     <button class="orangebutton" id="clearButton">🧼 Clear Canvas</button> -->
     <button class="orangebutton" id="sendButton">✅ Send</button>
   </div>
   <script src="{{ url_for('static', filename='script/canvas_script.js') }}"></script>

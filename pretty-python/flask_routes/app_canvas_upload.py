@@ -21,11 +21,10 @@ def color_distance(color1, color2):
 def closest_color_of(color):
 
     PURE_COLORS = [
-        (255, 255, 255),  # White
-        (  0,   0,   0),  # Black
-        hex('#e82ae5'),
-        hex('#00FF00'),
-        hex('#0000FF'),
+        (255, 255, 255),  # LIBRE
+        (  0,   0,   0),  # OBSTACLE
+        hex('#ff0000'), # START
+        hex('#00FF00'), # FIN
     ]
 
     if color in PURE_COLORS:
@@ -57,9 +56,10 @@ def upload():
             new_color = closest_color_of(original_color)
             new_image.putpixel((x, y), new_color)
 
-    # image_path = os.path.join('PLANS_À_RÉSOUDRE', image_file.filename)
-    name = 1
-    image_path = os.path.join('PLANS_À_RÉSOUDRE', f'{name}.png')
+    image_path = os.path.join('PLANS_À_RÉSOUDRE', image_file.filename)
+
+    # name = 1
+    # image_path = os.path.join('PLANS_À_RÉSOUDRE', f'{name}.png')
     new_image.save(image_path, format='PNG')
 
     return 'Image received and saved', 200

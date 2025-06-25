@@ -9,6 +9,9 @@
    id="svg1"
    inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
    sodipodi:docname="plan_vecteur.svg"
+   inkscape:export-filename="plan_vecteur.png"
+   inkscape:export-xdpi="1"
+   inkscape:export-ydpi="1"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,15 +26,16 @@
      inkscape:pagecheckerboard="true"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.019414214"
-     inkscape:cx="10482.011"
-     inkscape:cy="4455.4985"
+     inkscape:zoom="0.024009626"
+     inkscape:cx="14869.036"
+     inkscape:cy="5893.4695"
      inkscape:window-width="1440"
      inkscape:window-height="910"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g671" />
+     inkscape:current-layer="g671"
+     inkscape:export-bgcolor="#ffffffff" />
   <defs
      id="defs1" />
   <g
@@ -1802,6 +1806,10 @@
        d="m 22677.166,7559.0545 h -1889.764 v 1889.7637 h 1889.764 z"
        style="stroke-width:37.7953;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;paint-order:stroke fill markers"
        id="path676" />
+    <path
+       d="M 24566.93,3779.5272 H 22677.166 V 5669.2909 H 24566.93 Z"
+       style="stroke-width:37.7953;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;paint-order:stroke fill markers;fill:#ff0000;fill-opacity:1"
+       id="path1" />
   </g>
   <g
      inkscape:groupmode="layer"

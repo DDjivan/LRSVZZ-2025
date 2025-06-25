@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw
 from heapq import heappush, heappop
+import os
 
 def load_grid_from_image_pixels(path):
     img = Image.open(path).convert('RGB')
@@ -153,7 +154,18 @@ def analyze_path_with_obstacle_ahead(grid, start, end):
 
 
 if __name__ == "__main__":
-    image_path = "grille.png"  # ton image d'entrée
+    # image_path = "grille.png"
+
+    os.chdir('..')
+    os.chdir('/pretty-python/PLANS_À_RÉSOUDRE/')
+    files = os.listdir()
+
+    if !files :
+        raise Exception("The directory is empty.")
+
+    image_path = files[0]
+
+
 
     grid, start, end = load_grid_from_image_pixels(image_path)
     chemin = astar_directions(grid, start, end)
