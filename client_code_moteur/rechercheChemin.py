@@ -1,45 +1,38 @@
 from PIL import Image, ImageDraw
 from heapq import heappush, heappop
 
-def load_grid_from_image_blocks(path, block_size=5, obstacle_threshold=100):
+def load_grid_from_image_pixels(path):
     img = Image.open(path).convert('RGB')
     width, height = img.size
     data = img.load()
 
-    grid_rows = height // block_size
-    grid_cols = width // block_size
-
-    grid = [[0]*grid_cols for _ in range(grid_rows)]
+    grid = [[0 for _ in range(width)] for _ in range(height)]
     start = None
     end = None
 
-    for gr in range(grid_rows):
-        for gc in range(grid_cols):
-            block_pixels = [data[c, r]
-                            for r in range(gr*block_size, (gr+1)*block_size)
-                            for c in range(gc*block_size, (gc+1)*block_size)]
+    for y in range(height):
+        for x in range(width):
+            r, g, b = data[x, y]
 
-            found_start = any((p == (255,0,0)) for p in block_pixels)
-            found_end = any((p == (0,255,0)) for p in block_pixels)
-
-            if found_start:
-                start = (gr, gc)
-                grid[gr][gc] = 0
-            elif found_end:
-                end = (gr, gc)
-                grid[gr][gc] = 0
+            if (r, g, b) == (255, 0, 0):  # Rouge = Start
+                start = (y, x)
+                grid[y][x] = 0  # Libre
+            elif (r, g, b) == (0, 255, 0):  # Vert = End
+                end = (y, x)
+                grid[y][x] = 0  # Libre
+            elif (r, g, b) == (0, 0, 0):  # Noir = obstacle
+                grid[y][x] = 1
+            elif (r, g, b) == (255, 255, 255):  # Blanc = libre
+                grid[y][x] = 0
             else:
-                def is_obstacle_color(rgb):
-                    r, g, b = rgb
-                    gray = 0.299*r + 0.587*g + 0.114*b
-                    return gray < obstacle_threshold
-
-                grid[gr][gc] = 1 if any(is_obstacle_color(p) for p in block_pixels) else 0
+                # Pour d'autres couleurs : considérer comme libre (ou adapte ici si besoin)
+                grid[y][x] = 0
 
     if start is None or end is None:
-        raise ValueError("Start (rouge) ou end (vert) non trouvés dans l'image")
+        raise ValueError("Start (rouge) ou End (vert) non trouvés dans l'image")
 
     return grid, start, end
+
 
 def manhattan(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
@@ -161,9 +154,8 @@ def analyze_path_with_obstacle_ahead(grid, start, end):
 
 if __name__ == "__main__":
     image_path = "grille.png"  # ton image d'entrée
-    block_size = 20
 
-    grid, start, end = load_grid_from_image_blocks(image_path, block_size=block_size)
+    grid, start, end = load_grid_from_image_pixels(image_path)
     chemin = astar_directions(grid, start, end)
 
     if chemin:

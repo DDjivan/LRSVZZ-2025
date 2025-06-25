@@ -148,9 +148,8 @@ class Robot:
 if __name__ == "__main__":
     robot = Robot()
     image_path = "grille.png"  # image d'entrée
-    block_size = 1
 
-    grid, start, end = load_grid_from_image_blocks(image_path, block_size=block_size)
+    grid, start, end = load_grid_from_image_blocks(image_path)
     chemin = astar_directions(grid, start, end)
     obstacleA=analyze_path_with_obstacle_ahead(grid, start, end)
     print(chemin)
