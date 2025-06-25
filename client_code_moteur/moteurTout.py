@@ -28,67 +28,6 @@ class Robot:
         time.sleep(2)
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
-        if presObstacle : #Si obstacle, avancer avec descente du seuil d'arrêt'
-            for iter in range(trancheSeuil) :
-
-                GPIO.output(self.TRIG, True)
-                time.sleep(0.00001)
-
-                GPIO.output(self.TRIG, False)
-
-                while GPIO.input(self.ECHO) == 0:
-                    duree_debut = time.time()
-                while GPIO.input(self.ECHO) == 1:
-                    duree_fin = time.time()
-
-                duree_impulsion = duree_fin - duree_debut
-                distance = duree_impulsion * (34000/2)
-                distance = round(distance, 2)
-                if distance <seuil - iter*seuil/trancheSeuil : #si obstacle imprévu, arrêt et attente.
-                    self.stopMoteurs()
-                    while distance <seuil - iter*seuil/trancheSeuil :
-                        while GPIO.input(self.ECHO) == 0:
-                            duree_debut = time.time()
-                        while GPIO.input(self.ECHO) == 1:
-                            duree_fin = time.time()
-
-                        duree_impulsion = duree_fin - duree_debut
-                        distance = duree_impulsion * (34000/2)
-                        distance = round(distance, 2)
-                    self.pi.set_servo_pulsewidth(self.gpioM1, 500)
-                    self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
-                time.sleep(duree_avance/trancheSeuil)
-
-        else :
-            for iter in range(trancheSeuil) :
-
-                GPIO.output(self.TRIG, True)
-                time.sleep(0.00001)
-
-                GPIO.output(self.TRIG, False)
-
-                while GPIO.input(self.ECHO) == 0:
-                    duree_debut = time.time()
-                while GPIO.input(self.ECHO) == 1:
-                    duree_fin = time.time()
-
-                duree_impulsion = duree_fin - duree_debut
-                distance = duree_impulsion * (34000/2)
-                distance = round(distance, 2)
-                if distance <seuil : #si obstacle imprévu, arrêt et attente.
-                    self.stopMoteurs()
-                    while distance <seuil :
-                        while GPIO.input(self.ECHO) == 0:
-                            duree_debut = time.time()
-                        while GPIO.input(self.ECHO) == 1:
-                            duree_fin = time.time()
-
-                        duree_impulsion = duree_fin - duree_debut
-                        distance = duree_impulsion * (34000/2)
-                        distance = round(distance, 2)
-                    self.pi.set_servo_pulsewidth(self.gpioM1, 500)
-                    self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
-                time.sleep(duree_avance/trancheSeuil)
 
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
@@ -112,16 +51,14 @@ class Robot:
             mot.start_pin(self.pi, self.gpioM2, -1)
             while not(aFinal-10<a0 and a0<aFinal+10):
                 a0,a1=lire_feedback_servos(ads)
-                print("testsets")
                 time.sleep(0.01)
             self.direction_index = (self.direction_index + 1) % 4  # Tourner à droite
         else:
             aFinal=(a0+273)%360
             mot.start_pin(self.pi, self.gpioM1, 1)
             mot.start_pin(self.pi, self.gpioM2, 1)
-            while not(aFinal-20<a0 and a0<aFinal+20):
+            while not(aFinal-10<a0 and a0<aFinal+10):
                 a0,a1=lire_feedback_servos(ads)
-                print(a0,aFinal)
                 time.sleep(0.01)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
         self.stopMoteurs()
