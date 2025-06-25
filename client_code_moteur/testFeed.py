@@ -22,7 +22,8 @@ def lire_feedback_servos(ads):
     return angle1, angle2
 
 # Boucle principale
-while True:
-    a1, a2 = lire_feedback_servos(ads)
-    print(f"Servo 1 : {a1:.1f}°\tServo 2 : {a2:.1f}°")
-    time.sleep(0.2)
+if __name__ == "__main__":
+    while True:
+        a1, a2 = lire_feedback_servos(ads)
+        print(f"Servo 1 : {a1:.1f}°\tServo 2 : {a2:.1f}°")
+        time.sleep(0.2)

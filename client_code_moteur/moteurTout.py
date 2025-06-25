@@ -22,8 +22,8 @@ class Robot:
     def avancer(self,presObstacle):
         """Simule l'avancement du robot d'une certaine distance."""
         duree_avance=1
-        trancheSeuil=5
-        seuil=30
+        trancheSeuil=5 #pas de descente du seuil
+        seuil=30 #seuil d'arret en cm'
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
         if presObstacle : #Si obstacle, avancer avec descente du seuil d'arrêt'
@@ -36,7 +36,6 @@ class Robot:
                 duree_impulsion = duree_fin - duree_debut
                 distance = duree_impulsion * (34000/2)
                 distance = round(distance, 2)
-                print("test")
                 if distance <seuil - iter*seuil/trancheSeuil : #si obstacle imprévu, arrêt et attente.
                     self.stopMoteurs()
                     while distance <seuil - iter*seuil/trancheSeuil :
@@ -92,15 +91,20 @@ class Robot:
             print("L'angle doit être 90° ou -90°.")
             return
         # Tourner à droite (90°) ou à gauche (-90°)
+        a0,a1=lire_feedback_servos(ads)
         if angle == 90:
+            aFinal=(a0-273)%360
             mot.start_pin(self.pi, self.gpioM1, -1)
             mot.start_pin(self.pi, self.gpioM2, -1)
-            time.sleep(1)
+            while not(aFinal-10<a0 & a0<aFinal+10):
+                time.sleep(0.1)
             self.direction_index = (self.direction_index + 1) % 4  # Tourner à droite
         else:
+            aFinal=(a0+273)%360
             mot.start_pin(self.pi, self.gpioM1, 1)
             mot.start_pin(self.pi, self.gpioM2, 1)
-            time.sleep(1)
+            while not(aFinal-10<a0 & a0<aFinal+10):
+                time.sleep(0.1)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
         self.stopMoteurs()
         direction = self.directions[self.direction_index]
