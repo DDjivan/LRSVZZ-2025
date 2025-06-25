@@ -147,9 +147,19 @@ class Robot:
 # Exemple d'utilisation de la classe Robot
 if __name__ == "__main__":
     robot = Robot()
-    image_path = "grille.png"  # image d'entrée
 
-    grid, start, end = load_grid_from_image_blocks(image_path)
+    os.chdir('..')
+    os.chdir('pretty-python/PLANS_À_RÉSOUDRE/')
+    files = os.listdir()
+
+    if not files :
+        raise Exception("The directory is empty.")
+
+    image_path = files[0]
+
+
+
+    grid, start, end = load_grid_from_image_pixels(image_path)
     chemin = astar_directions(grid, start, end)
     obstacleA=analyze_path_with_obstacle_ahead(grid, start, end)
     print(chemin)

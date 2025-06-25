@@ -174,5 +174,5 @@ if __name__ == "__main__":
         print("Chemin trouvé :", chemin)
     else:
         print("Aucun chemin trouvé.")
-    analyze_path_with_obstacle_ahead(grid, start, end)
+    print(analyze_path_with_obstacle_ahead(grid, start, end))
 
