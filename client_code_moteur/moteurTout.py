@@ -39,6 +39,7 @@ class Robot:
                 duree_impulsion = duree_fin - duree_debut
                 distance = duree_impulsion * (34000/2)
                 distance = round(distance, 2)
+                print("test")
                 if distance <seuil - iter*seuil/trancheSeuil : #si obstacle imprévu, arrêt et attente.
                     self.stopMoteurs()
                     while distance <seuil - iter*seuil/trancheSeuil :
