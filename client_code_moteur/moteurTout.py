@@ -28,14 +28,14 @@ class Robot:
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
         a0,a1=lire_feedback_servos(ads)
         aFinal=(a0-210)%360
-        while not(aFinal-10<a0 and a0<aFinal+10):
+        while not(aFinal-3<a0 and a0<aFinal+3):
             a0,a1=lire_feedback_servos(ads)
-            time.sleep(0.01)
+            time.sleep(0.00001)
         a0,a1=lire_feedback_servos(ads)
         aFinal=(a0-210)%360
-        while not(aFinal-10<a0 and a0<aFinal+10):
+        while not(aFinal-3<a0 and a0<aFinal+3):
             a0,a1=lire_feedback_servos(ads)
-            time.sleep(0.01)
+            time.sleep(0.00001)
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
         self.stopMoteurs()
@@ -56,17 +56,17 @@ class Robot:
             aFinal=(a0-273)%360
             mot.start_pin(self.pi, self.gpioM1, -1)
             mot.start_pin(self.pi, self.gpioM2, -1)
-            while not(aFinal-5<a0 and a0<aFinal+5):
+            while not(aFinal-2<a0 and a0<aFinal+2):
                 a0,a1=lire_feedback_servos(ads)
-                time.sleep(0.001)
+                time.sleep(0.00001)
             self.direction_index = (self.direction_index + 1) % 4  # Tourner à droite
         else:
             aFinal=(a0+273)%360
             mot.start_pin(self.pi, self.gpioM1, 1)
             mot.start_pin(self.pi, self.gpioM2, 1)
-            while not(aFinal-5<a0 and a0<aFinal+5):
+            while not(aFinal-2<a0 and a0<aFinal+2):
                 a0,a1=lire_feedback_servos(ads)
-                time.sleep(0.001)
+                time.sleep(0.00001)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
         self.stopMoteurs()
         direction = self.directions[self.direction_index]
