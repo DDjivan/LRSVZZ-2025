@@ -54,17 +54,17 @@ class Robot:
         a0,a1=lire_feedback_servos(ads)
         if angle == 90:
             aFinal=(a0-259)%360
-            mot.start_pin(self.pi, self.gpioM1, -1)
-            mot.start_pin(self.pi, self.gpioM2, -1)
-            while not(aFinal-2<a0 and a0<aFinal+2):
+            mot.start_pin(self.pi, self.gpioM1, -0.5)
+            mot.start_pin(self.pi, self.gpioM2, -0.5)
+            while not(aFinal-1<a0 and a0<aFinal+1):
                 a0,a1=lire_feedback_servos(ads)
                 time.sleep(0.000001)
             self.direction_index = (self.direction_index + 1) % 4  # Tourner à droite
         else:
             aFinal=(a0+259)%360
-            mot.start_pin(self.pi, self.gpioM1, 1)
-            mot.start_pin(self.pi, self.gpioM2, 1)
-            while not(aFinal-2<a0 and a0<aFinal+2):
+            mot.start_pin(self.pi, self.gpioM1, 0.5)
+            mot.start_pin(self.pi, self.gpioM2, 0.5)
+            while not(aFinal-1<a0 and a0<aFinal+1):
                 a0,a1=lire_feedback_servos(ads)
                 time.sleep(0.000001)
             self.direction_index = (self.direction_index - 1) % 4  # Tourner à gauche
