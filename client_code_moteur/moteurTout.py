@@ -12,7 +12,7 @@ class Robot:
         self.gpioM1=12
         self.gpioM2=13
         self.directions = ["haut", "droite", "bas", "gauche"]
-        self.direction_index = 0  # Direction initiale (0 = haut)
+        self.direction_index = 3  # Direction initiale (0 = haut)
         GPIO.setmode(GPIO.BCM)
         self.TRIG = 23
         self.ECHO = 24
@@ -27,15 +27,15 @@ class Robot:
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
         a0,a1=lire_feedback_servos(ads)
-        aFinal=(a0-210)%360
+        aFinal=(a0-180)%360
         while not(aFinal-3<a0 and a0<aFinal+3):
             a0,a1=lire_feedback_servos(ads)
-            time.sleep(0.00001)
+            time.sleep(0.000001)
         a0,a1=lire_feedback_servos(ads)
-        aFinal=(a0-210)%360
+        aFinal=(a0-180)%360
         while not(aFinal-3<a0 and a0<aFinal+3):
             a0,a1=lire_feedback_servos(ads)
-            time.sleep(0.00001)
+            time.sleep(0.000001)
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
         self.stopMoteurs()
