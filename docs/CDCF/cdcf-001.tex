@@ -16,6 +16,7 @@
 \usepackage{datetime}  % pour que la date de \thedate soit en français 
 \usepackage{float}  % paramètre 'H' dans figure pour éviter un problème avec les images 
 \usepackage{amsmath} % \text dans les équations
+\usepackage{listings}
 
 % --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
 
@@ -35,6 +36,10 @@
 % fontspec
 %\setmainfont{Bricolage Grotesque}
 %\setmonofont[size=6pt]{Comic Code Ligatures} 
+
+\lstdefinestyle{mystyle}{language=Python}
+\lstset{style=mystyle}
+
 
 
 % --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- %
@@ -139,7 +144,7 @@ de livrer de la nourriture aux étudiants depuis la cafétéria ?
 Liste des composants utilisés : 
 
 \begin{itemize}
-%\begin{enumerate}
+	%\begin{enumerate}
 	\item
 	\textbf{Raspberry Pi 4 Model B :} permet de contrôler tous les
 	composants.
@@ -289,7 +294,418 @@ Liste des composants utilisés :
 
 
 \section{Partie théorique}
-Sur le repository à l'adresse \texttt{LRSVZZ-2025/docs/Hardware/Théorique.md}
+
+On veut : 
+
+- dimensionner le moteur 
+- dimensionner la batterie 
+- rendre le système stable 
+
+%## Cinématique 
+%### Modélisation 
+
+On cherche la relation entre la vitesse de rotation des roues et la vitesse du robot et sa vitesse de rotation par rapport au sol. 
+
+%![](attachments/schéma_modélisation.jpg)
+
+$S$ est le châssis 
+$R_0$ est le référentiel terrestre 
+$S_i$ est la roue n°i (il y en a quatre) 
+$F_i$ est la fusée n°i (il y en a deux) 
+
+$A_i$ est un point qui représente le point de contact entre la roue n°$i$ et le sol 
+$R$ est le rayon de la roue 
+$\omega$ est la vitesse de rotation 
+
+$\vec{x},\vec{y},\vec{z} \in S$ 
+$\vec{x_0},\vec{y_0},\vec{z_0} \in S_0$ 
+$\vec{x_1},\vec{y_1},\vec{z_1} \in F_1$ 
+$\vec{x_2},\vec{y_2},\vec{z_2} \in F_2$ 
+$S_1$ et $S_2$ sont respectivement confondues avec $F_1$ et $F_2$ 
+$S_4$ et $S_3$ sont confondues avec $S$ 
+
+Condition de roulement sans glissement : 
+\begin{equation}
+	\vec{V}(A_4, S/R_0) = R\omega_{S_4/S} \cdot \vec{x} \tag{1}
+\end{equation}
+\begin{equation}
+	\vec{V}(A_3, S/R_0)=R\omega_{S_3/S} \cdot \vec{x} \tag{2}
+\end{equation}
+
+Rotation d'une roue par rapport à $R_0$, obtenu par composition des vitesses de rotation. 
+\begin{equation}
+	\vec{\Omega}(S_3/R_0) = \omega_{S_3/S} \cdot \vec{y} + \omega_{S/R_0} \cdot \vec{z} \tag{3}
+\end{equation}
+\begin{equation}
+	\vec{\Omega}(S_4/R_0) = \omega_{S_4/S} \cdot \vec{y} + \omega_{S/R_0} \cdot \vec{z} \tag{4}
+\end{equation}
+
+%### Étape 1 
+Relation entre vitesse de rotation des roues et la vitesse du châssis. 
+\begin{equation}
+	R\omega_{S_4/S} \cdot \vec{x} + R\omega_{S_3/S} \cdot \vec{x}
+	=
+	\vec{V}(A_4, S/R_0) + \vec{V}(A_3, S/R_0) 
+	\tag{1)+(2}
+\end{equation}
+
+Changement de point en $C$. 
+$$ = 
+\vec{V}(C,S/R_0) 
++ \overrightarrow{A_{4}C} \wedge \vec{\Omega}(S/R_0) 
++ \vec{V}(C,S/R_0) 
++ \overrightarrow{A_{3}C} \wedge \vec{\Omega}(S/R_0) 
+$$
+$$
+= 2\vec{V}(C,S/R_0) + (-\frac{L}{2} + \frac{L}{2}) \cdot \vec{y} \wedge \omega_{S/R_0} \cdot \vec{y}
+$$
+Donc selon $x$, on a : 
+$$
+\boxed{
+	\vec{V}(C,S/R_0) = \frac{R}{2}\bigg( \omega_{S_4/S} + \omega_{S_3/S} \bigg)
+}
+$$
+%### Étape 2 
+Relation entre vitesse de rotation des roues et la **vitesse de rotation** du châssis. 
+\begin{equation}
+	R\omega_{S_4/S} \cdot \vec{x} - R\omega_{S_3/S} \cdot \vec{x}
+	=
+	\vec{V}(A_4, S/R_0) - \vec{V}(A_3, S/R_0) 
+	\tag{1)–(2}
+\end{equation}
+
+Changement de point en $I$, point sur l'axe de rotation du châssis par rapport au sol : $(I,\vec{z})$. 
+$$= 
+\vec{V}(I, S/R_0) + \overrightarrow{A_4 I} \wedge \vec{\Omega}(S/R_0) 
+- \bigg(\vec{V}(I, S/R_0) + \overrightarrow{A_3 I} \wedge \vec{\Omega}(S/R_0) \bigg)
+$$
+$I$ centre de l'axe de rotation donc $\vec{V}(I, S/R_0) = \vec0$
+On a alors : 
+$$
+= \overrightarrow{A_4 I} \wedge \vec{\Omega}(S/R_0) 
+- \bigg( \overrightarrow{A_3 I} \wedge \vec{\Omega}(S/R_0) \bigg)$$
+On décompose avec la relation de Chasles : 
+$$
+= 
+\bigg(\overrightarrow{A_4 I_4}+\overrightarrow{I_4 I} \bigg)
+\wedge \vec{\Omega}(S/R_0) 
+- 
+\Bigg( 
+\bigg(
+\overrightarrow{A_3 I_3} 
++ \overrightarrow{I_3 I_4} 
++ \overrightarrow{I_4 I}
+\bigg) 
+\wedge \vec{\Omega}(S/R_0) 
+\Bigg)
+$$
+
+$$
+= 
+\bigg( -R\vec{z}+\overrightarrow{I_4 I} \bigg)
+\wedge {\omega}_{S/R_0} \cdot \vec{z} 
+- 
+\Bigg( 
+\bigg( 
+-R\vec{z} + L\vec{y} +\overrightarrow{I_4I}
+\bigg) 
+\wedge {\omega}_{S/R_0} \cdot \vec{z}  
+\Bigg)
+$$
+
+$$
+= 
+- 
+\Bigg( 
+\bigg( 
+L\vec{y} 
+\bigg) 
+\wedge {\omega}_{S/R_0} \cdot \vec{z}  
+\Bigg)
+$$
+
+$$
+= 
+- 
+\Bigg( 
+\bigg( 
+L
+\bigg) 
+{\omega}_{S/R_0}
+\cdot \vec{x}
+\Bigg)
+$$
+
+Donc : 
+$$
+R\omega_{S_4/S} \cdot \vec{x} - R\omega_{S_3/S} \cdot \vec{x}
+=
+-L {\omega}_{S/R_0} \cdot \vec{x}
+$$
+
+Selon $\vec{x}$ : 
+$$
+R\omega_{S_4/S} - R\omega_{S_3/S} 
+=
+-L {\omega}_{S/R_0} 
+$$
+
+Donc : 
+$$
+\boxed{
+	\omega_{S_3/S} - \omega_{S_4/S} 
+	=
+	\frac{L}{R} {\omega}_{S/R_0}
+}
+$$
+
+Fin de la cinématique. 
+
+%## Dynamique 
+%### Modélisation 
+Torseur d'action mécanique avec $i \in \{1,2,3,4\}$ : 
+$$
+F(\text{route} \to S_i) = 
+\begin{Bmatrix}
+	T_{ri} \cdot \vec{x} + N_{ri} \cdot \vec{z} 
+	\\
+	\vec0
+\end{Bmatrix}_{I_{i}}
+$$
+
+Limite de roulement sans glissement : $T_{ri,\text{max}} = f \times N_{ri, \text{max}}$. 
+$$
+F(S \to S_i) = 
+\begin{Bmatrix}
+	X_i \cdot \vec{x} + Y_i \cdot \vec{y} + Z_i \cdot \vec{z} \\
+	L_i \cdot \vec{x} + N_i \cdot \vec{z}
+\end{Bmatrix}_{A_{i}}
+$$
+
+
+$$
+F(S_{\text{moteur}_3}\to S_3) = 
+\begin{Bmatrix}
+	\vec{0} \\
+	C_{m_3} \cdot \vec{y} 
+\end{Bmatrix}_{A_{3}}
+$$
+$$
+F(S_{\text{moteur}_4}\to S_4) = 
+\begin{Bmatrix}
+	\vec{0} \\
+	C_{m_4} \cdot \vec{y} 
+\end{Bmatrix}_{A_{4}}
+$$
+
+
+
+$$
+F(P \to S) = 
+\begin{Bmatrix}
+	-mg\vec{z} \\
+	\vec0 
+\end{Bmatrix}_{G}
+$$
+Avec $i \in \{1,2\}$ : 
+$$
+F(S \to F_i) = 
+\begin{Bmatrix}
+	X_{F_i} \cdot \vec{x} + Y_{F_i} \cdot \vec{y} + Z_{F_i} \cdot \vec{z} \\
+	L_{F_i} \cdot \vec{x} + M_{F_i} \cdot \vec{y}
+\end{Bmatrix}_{A_{i}}
+$$
+
+$$
+F(F_i \to S_i) = 
+\begin{Bmatrix}
+	X_{F_i S_i} \cdot \vec{x_i} + Y_{F_i S_i} \cdot \vec{y_i} + Z_{F_i S_i} \cdot \vec{z_i} \\
+	L_{F_i S_i} \cdot \vec{x_i} + N_{F_i S_i} \cdot \vec{z_i}
+\end{Bmatrix}_{A_{i}}
+$$
+
+
+
+PFD sur les roues arrières (i=3 ou 4)
+
+$$\ {D}({S_i/R_0}) = \ {F}({S \rightarrow S_i)} + \ {F}{(\text{roue} \rightarrow S_i)} + \ {F} ({S_{rot_i}\rightarrow S_i)}$$
+
+masse des roues négligeable $$\vec{D}_{S_i/R_0} = \begin{Bmatrix}
+	\vec{0} \\
+	\vec{0}\\ \end{Bmatrix}_{\forall P}$$
+
+
+$$
+\vec{M}_{Ai}({\text{roue} \rightarrow S_i)} = \vec{M}_{I_i}({S_i \rightarrow S_i)} + \left( \overrightarrow{A_iI_i} \right) \wedge \vec{T}_{rix} + \vec{N}_{r_i} \vec{z}
+$$
+
+$$ = \vec{O} + ({-R}\vec{z})\wedge\vec{T}_{ri}\vec{x} = -R\vec{T}_{ri}\vec{y}
+$$
+
+On a alors
+$$
+	X_i + T_{ri} = 0 \quad (1) \\
+	Y_i = 0 \quad (2) \\
+	Z_i + N_{ri} = 0 \quad (3) \\
+	L_i = 0 \quad  (4) \\
+	C_{mi} - R\,T_{ri} = 0 \quad  (5) \\
+	N_i = 0 \quad  (6)
+$$
+
+
+%----------------------------------------------------------------------
+PFD sur la fusée
+
+$$
+	D(F_i/R_0) = {F}(\text{S}\rightarrow F_i) + {F}(S_i \rightarrow F_i) \\
+	= {F}(S \rightarrow F_i) - {F}(F_i \rightarrow S_i) \\
+$$
+
+![](attachments/Pasted%20image%2020250619132805.png)
+
+$$
+F(F_i \to S_i) = 
+\begin{Bmatrix}
+	X_{F_i S_i} \cdot \vec{x_i} + Y_{F_i S_i} \cdot \vec{y_i} + Z_{F_i S_i} \cdot \vec{z_i} \\
+	L_{F_i S_i} \cdot \vec{x_i} + N_{F_i S_i} \cdot \vec{z_i}
+\end{Bmatrix}_{A_{i}}
+$$
+
+
+
+
+On néglige la masse des moteurs (peut être abusif)
+
+
+$$
+\vec{F}_{F_i \to S_i} =
+\left\{
+\begin{array}{c}
+	X_{F_iS_i} \big(\cos(\theta_i) \vec{x} + \sin(\theta_i) \vec{y} \big) 
+	+  Y_{F_iS_i} \big(\cos(\theta_i) \vec{y} - \sin(\theta_i) \vec{x} \big)
+	+ Z_{F_iS_i} \vec{z} \\[1em]
+	\quad L_{F_iS_i} \big(\cos(\theta_i) \vec{x} + \sin(\theta_i) \vec{y} \big)  + N_{R_{S_i}} \vec{z}
+\end{array}
+\right\}_{A_i}
+$$
+
+
+\begin{align}
+X_{F_i} - X_{F_iS_i} \cos(\theta_i) + Y_{F_iS_i} \sin(\theta_i) &= 0 \tag{7} \\
+Y_{F_i} - X_{F_iS_i} \sin(\theta_i) - Y_{F_iS_i} \cos(\theta_i) &= 0 \tag{8} \\
+Z_{F_i} - Z_{F_iS_i} &= 0 \tag{9} \\
+L_{F_i} - L_{F_iS_i} \cos(\theta_i) &= 0 \tag{10} \\
+M_{F_i} - L_{F_iS_i} \sin(\theta_i) &= 0 \tag{11} \\
+N_{F_iS_i} &= 0 \tag{12}
+\end{align}
+
+PFD sur les roue avant (inertie negligé)
+
+\begin{align}
+D(S_i/R_0) = {F}(\text{Route} \rightarrow S_i) + {F}(F_i \rightarrow S_i) 
+\end{align}
+
+On se place au point $A_i$
+
+$$
+\vec{M}_{Ai}({\text{Route} \rightarrow S_i)} = \vec{M}_{I_i}({\text{Route}\rightarrow S_i)} + \left( \overrightarrow{A_iI_i} \right) \wedge (-{T}_{ri}\vec{x} + \vec{N}_{r_i} \vec{z})
+$$
+$$ = \vec{O} + ({-R}\vec{z})\wedge-T_{ri}\vec{x} = R *T_{ri}\vec{y}
+$$
+
+
+\begin{align}
+		X_{F_iS_i} \cos(\theta_i) - Y_{F_iS_i} \sin(\theta_i) + T_{ri} &= 0 \tag{13} \\
+		X_{F_iS_i}\sin(\theta_i) + Y_{F_iS_i} \cos(\theta_i)&= 0 \tag{14} \\
+		Z_{F_iS_i} + N_i &= 0 \tag{15} \\
+		L_{F_iS_i} \cos(\theta_i) &= 0 \tag{16} \\
+		L_{F_iS_i} \sin(\theta_i) + R T_{ri} &= 0 \tag{17} \\
+		N_{F_iS_i} &= 0 \tag{18}
+\end{align}
+
+
+PFD appliqué à tout le systeme
+
+
+\begin{align}
+	D(\Sigma/R_0) = \Sigma_{i=1}^{4}{F}(\text{Route} \rightarrow S_i) + {F}(P \rightarrow S) 
+\end{align}
+
+
+
+\begin{align}
+	D(S/R_0) = \Sigma_{i=1}^{4}{F}(\text{Route} \rightarrow S_i) + {F}(P \rightarrow S) \\
+\end{align}
+
+
+$$
+\vec{M}_{G}({\text{Route} \rightarrow S_i)} = \vec{M}_{I_i}({\text{Route}\rightarrow S_i)} + \left( \overrightarrow{GI_i} \right) \wedge (-{T}_{ri}\vec{x} + \vec{N}_{r_i} \vec{z})
+$$
+$$
+\vec{M}_{G}({\text{Route} \rightarrow S_i)} = \vec{M}_{I_i}({\text{Route}\rightarrow S_i)} + \left( \overrightarrow{GI_i} \right) \wedge (-{T}_{ri}\vec{x} + \vec{N}_{r_i} \vec{z})
+$$
+$$
+=(x_G \vec{x} + y_G \vec{y} + z_G \vec{z}) \wedge ({T}_{ri}\vec{x} + \vec{N}_{r_i} \vec{z}) 
+$$
+
+$$
+={T}_{ri}(-y_G \vec{z} + z_G \vec{y}) + N_{r_i}(-x_G\vec{y} +  y_G\vec{x}) 
+$$
+
+\begin{align}
+	T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4} &= Rd_x \tag{13}\\
+	0 &= Rd_y \tag{14} \\
+	N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}-mg &= Rd_z \tag{15} \\
+	y_G(N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}) &= δ_x \tag{16} \\
+	z_G(T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4}) - x_G(N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}) &= δ_y \tag{17} \\
+	-y_G(T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4}) &= δ_z \tag{18}
+\end{align}
+
+
+
+
+
+
+$$
+\text{On a avec les équations (16),(17) et (5) :}
+$$
+$$
+\text{Dans le cas } \theta_i \neq \frac{\pi}{2}(2k+1)\text{ et } \theta_i \neq k\pi 
+\Rightarrow \cos(\theta_i) \neq 0
+$$
+
+
+\begin{align}
+	L_{F_{r_i}} \cos(\theta_i) &= 0 \quad \Rightarrow \quad L_{F_{r_i}} = 0 \\
+	L_{F_{r_i}} \sin(\theta_i) + R T_{r_i} &= 0 \quad \Rightarrow \quad T_{r_1} = T_{r_2} = 0 \\
+	C_{m_i} - R T_{r_i} &= 0 \quad \Rightarrow \quad T_{r_3} = \frac{C_{m_3}}{R} \text{ et } T_{r_4} = \frac{C_{m_4}}{R}
+\end{align}
+
+$$
+\text{On a alors avec l'équations (5) et (19):}
+$$
+
+
+$$
+\frac{C_{m_3}}{R} + \frac{C_{m_4}}{R} = Rd_x 
+$$
+
+
+
+
+
+
+\subsubsection{CALCUL DE RDX}
+
+$$
+\text{Pour obtenir } R_d
+$$
+
+$$
+\vec{R}_d(S/R_0) = m \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}
+$$
+
+
 
 \pagebreak
 
@@ -303,77 +719,8 @@ Pour assembler chaque composant voici un document qui nous sera très utile tout
 	\caption{Pins d'une Raspberry Pi. }
 \end{figure}
 
-\subsection{Gyroscope}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{./attachments/gyroscope.jpg}
-	\caption{Gyroscope LSM9DS0.}
-	
-\end{figure}
-
-Ce composant est un capteur 9 axes, 
-composé d’un gyroscope 3 axes (mesure la rotation du robot), 
-d’un accéléromètre 3 axes (la vitesse du robot) 
-et d’un magnétomètre 3 axes (agit comme une boussole). 
-Il va nous permettre de savoir si notre robot fait 
-bien face à son point d'arrivée, s’il a assez tourné… 
-
-Le gyroscope est alimenté en 3.3V et peut communiquer via I2C qui est un protocole de communication permettant à des appareils électroniques d’échanger des données avec le Raspberry. 
-
-Voici les câblages à effectuer :
-
-\begin{itemize}
-	\item Relier la broche VDD du capteur à une broche 3.3V
-	\item Relier la broche SDA du capteur au PIN3 
-	\item Relier la broche SCL du capteur au PIN5 
-	\item Relier la broche GND du capteur à une broche GND
-\end{itemize}
-
-avec : 
-
-\begin{itemize}
-	\item la broche SDA (Serial Data Line) : c’est par cette broche que les données passent (rotation, vitesse, direction absolue du robot)
-	\item la broche SCL (Serial Clock Line) : Elle donne le rythme de communication (des transferts de données)
-\end{itemize}
-
-
-\subsection{Capteurs d’obstacle (LiDAR et ultrason)}
-
-Pour la détection d’obstacles, nous étions d’abord partis sur l’utilisation d’un capteur LIDAR.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{./attachments/capteur_lidar.jpg}
-	\caption{LIDAR Benewake TF02.}
-	
-\end{figure}
-
-Le LIDAR envoie un rayon laser infrarouge en permanence, lorsque ce rayon touche un objet, il est réfléchi et revient vers le LIDAR. Le capteur va donc mesurer le temps (qu’on appelle time of flight) que le rayon à mis pour revenir, et connaissant la vitesse de la lumière, on pourra avoir la distance de l’objet qui a réfléchi le rayon infrarouge. 
-
-Ce dispositif peut détecter des objets de 0.4 à 22 mètres en intérieur avec un angle de 3° (quasi du mono-point) et une précision de 1 à 5 cm lorsque l’objet est à moins de 10 mètres et 5 à 10 cm lorsque l’objet est entre 10 et 22 mètres. 
-
-Le LiDAR est alimenté en 5V et délivre une tension de sortie de 3.3V. 
-Il communique via UART qui est un protocole de communication série qui permet à deux appareils de s’échanger des données bit par bit sur une ligne de transmission avec le Raspberry.
-
-Voici les câblages à effectuer :
-
-\begin{itemize}
-	\item Le fil rouge du capteur sur une broche 5V PWR 
-	\item Le fil noir du capteur sur une broche GND
-	\item Le fil vert (RX du LIDAR) sur le PIN8
-	\item Le fil blanc (TX du LIDAR) : sur le PIN10
-\end{itemize}
-
-avec : 
-
-\begin{itemize}
-	\item Le fil TX du capteur : c’est le fil qui envoie les données => le Raspberry va donc recevoir les données via sa broche UART0 RX
-	\item Le fil RX du capteur : c’est le fil qui reçoit les données => le Raspberry va envoyer les données via sa broche UART0 TX
-\end{itemize}
-
-Après câblage et lancement du programme du LiDAR (que nous allons évoquer par la suite), nous n’avions aucune donnée. Ne trouvant pas la réelle source du problème (potentiels problèmes de fils, code…), nous sommes passés à un autre capteur d’obstacles : le capteur ultrason HC-SR04. 
-
+\subsection{Capteur d’obstacle}
+Module de détection US HC-SR04 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/capteur_ultrason.jpg}
@@ -382,19 +729,15 @@ Après câblage et lancement du programme du LiDAR (que nous allons évoquer par
 	
 \end{figure}
 
+Le module HC-SR04 permet de détecter la présence d’objets se trouvant devant lui en utilisant des signaux ultrasons. Ce dispositif fonctionne avec des données logiques - donc aucun souci dans la communication avec la Raspberry Pi - et peut détecter des objets entre 2 à 400 cm avec un angle de 15° maximum et une précision de +-3mm. 
 
+Pour que le capteur ultrason fonctionne et émette un signal, il faut activer sa broche d’entrée Trig (qui contrôle l’émission). Cela se fait en envoyant une impulsion électrique de 10 us sur cette broche. Si un objet se trouve dans la zone de détection, le signal ultrason émis sera réfléchi et reviendra vers le capteur.
 
-Le module HC-SR04 permet de détecter la présence d’objets se trouvant devant lui en utilisant la réflexion des ultrasons. Le transmetteur du capteur va émettre un signal ultrason qui sera réfléchi s’il y a un objet se trouvant devant le capteur. Ce signal sera réfléchi et détecté par le récepteur du capteur. Le capteur va donc pouvoir calculer la durée entre l’émission et la réception du signal, permettant de calculer la distance entre le capteur et l’objet ayant réfléchi le signal ultrason. 
+Dès que le signal ultrason est envoyé, la broche de sortie Echo (qui donne la durée du trajet) passe à l’état haut et le reste jusqu’à ce que le signal revienne sur le capteur. Ainsi, la durée pendant laquelle Echo reste à l’état haut correspond au temps aller-retour du signal.
 
-C’est le même principe que pour le LiDAR. 
-En revanche, ce dispositif peut détecter des objets entre 2 à 400 cm, sa portée de détection est beaucoup plus petite que pour le LiDAR (4 mètres max vs 22 mètres max). Mais, le HC-SR04 peut détecter des objets dans un angle de 30° maximum (angle 10 fois plus grand que pour le LiDAR) avec une précision de +-3mm (plus précis que le LiDAR).
+Connaissant la durée aller-retour du signal, il faudra appliquer la formule : distance = (vitesse du son × durée aller-retour) / 2.
 
-Donc, à défaut d’avoir une portée de détection d’obstacles grandement réduite, donc une moins bonne anticipation des obstacles par notre robot (pour qu’il se prépare à tourner, à contourner l’obstacle…), on est sûr qu’aucun objet ne peut perturber le déplacement de notre robot (avec un rayon infrarouge mono-point, on aurait pu passer à côté d’un obstacle par exemple sur les côtés du robot).
-
-Ce dispositif est alimenté en 5V et sa tension de sortie 5V également. Or, il est important de rappeler que les broches d’entrée d’un Raspberry sont conçues pour du 3.3V maximum. Pour pouvoir utiliser notre module HC-SR04 correctement et ne pas endommager nos composants, il est nécessaire de mettre en place un pont diviseur de tension afin de diminuer la tension de sortie du capteur.
-
-
-Voici le calcul afin d’avoir la valeur des deux résistances constituant notre pont diviseur de tension : 
+De plus, le module HC-SR04 est alimenté en 5V et sa tension de sortie 5V également. Or, il est important de rappeler que les broches d’entrée d’une Raspberry Pi sont conçues pour du 3.3V maximum. Pour pouvoir utiliser notre module HC-SR04 correctement et ne pas endommager nos composants, il est nécessaire de mettre en place un pont diviseur de tension afin de diminuer la tension de sortie du capteur.
 
 Formule du diviseur de tension : $V_{out} = V_{in} \times \frac{R_2}{R_1 + R_2}$
 
@@ -414,7 +757,17 @@ nous en avons pris deux à disposition avec à peu près un coefficient de 2 ent
 $$R_1 = 2.2 \, \mathrm{k}\Omega$$
 $$R_2 = 3.3 \, \mathrm{k}\Omega$$
 
-Voici les câblages à effectuer :
+En sortie du pont diviseur de tension, il est également nécessaire de vérifier si le courant ne dépasse pas le courant maximal accepté par une broche GPIO. 
+
+On a $I = \frac{V_{in}}{R_1 + R_2}$ 
+
+Application numérique : 
+
+$$I = \frac{5}{(2.2+3.3)\times10^3} = 0.0009 \mathrm{A} = 0.9 \mathrm{mA}$$
+
+De plus, une broche GPIO accepte au maximum 16 mA. Donc il n’y a aucun souci au niveau du courant. 
+
+Câblages : 
 
 \begin{figure}[H]
 	\centering
@@ -431,7 +784,7 @@ Voici les câblages à effectuer :
 \end{itemize}
 
 \subsection{Servomoteurs}
-
+\subsubsection{Moteurs courant continu}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/moteur_continu.jpg}
@@ -439,18 +792,14 @@ Voici les câblages à effectuer :
 	
 \end{figure}
 
+Pour la partie moteur, au commencement du projet nous avions des moteurs courant continu (MFA RE360), ceux que nous connaissons le mieux en théorie. On avait donc également une carte contrôleur double moteur cc pont en H afin de les piloter et quatre roues. En revanche, au moment d’assembler les roues aux moteurs, nous avons mis en évidence le fait que le diamètre de l’axe moteur était bien trop petit pour s’emboîter correctement dans les roues. Il y avait énormément de jeu. \\
 
-Pour la partie moteur, au commencement du projet nous avions des moteurs courant continu (MFA RE360), ceux que nous connaissons le mieux, une carte contrôleur double moteur cc pont en H afin de les piloter et des roues. En revanche, au moment d’assembler les roues aux moteurs, nous avons découvert que le diamètre de l’axe moteur était bien trop petit pour s’emboîter correctement dans les roues. Il y avait énormément de jeu. \\
+\subsubsection{Servomoteurs}
+Ensuite nous est venu l’idée d’utiliser plutôt des servomoteurs avec feedback qui serait au début alimentés par une batterie 6V constituée de quatre piles (1.5V chacune).
+Les servomoteurs ont une meilleure précision sur le positionnement des roues que des moteurs courant continu. Et c’est plus simple de contrôler et programmer des servomoteurs (via un signal PWM donné par la Raspberry Pi). De plus, les servomoteurs avec feedback ont un capteur de position intégré nous permettant de pouvoir localiser notre robot contrairement à des moteurs courant continu. 
+Pour choisir les servomoteurs dont nous avons besoin pour notre robot, il faut les dimensionner. En attendant de les dimensionner, on a pris des servomoteurs disponibles à l’ESIEE afin de tester leur fonctionnement en amont : Parallax Continuous Rotation Servo. Tout en sachant que le fonctionnement de tout servomoteur reste le même avec des différences près (fréquence…) à modifier grâce aux datasheets. \\
 
-
-
-Ensuite nous est venu l’idée d’utiliser plutôt des servomoteurs avec feedback alimentés par une batterie 6V constituée de quatre piles (1.5V chacune).
-
-Les servomoteurs ont une meilleure précision sur le positionnement des roues que des moteurs courant continu. Et c’est plus simple de contrôler et programmer des servomoteurs (juste via un signal PWM donné par le Raspberry). De plus, les servomoteurs avec feedback ont un capteur de position intégré contrairement à des moteurs courant continu. 
-
-Pour choisir les servomoteurs dont nous avons besoin pour notre robot, il faut les dimensionner. En attendant de les dimensionner, on a pris des servomoteurs disponibles afin de tester leur fonctionnement en amont : Parallax Continuous Rotation Servo. Tout en sachant que le fonctionnement de tout servomoteur reste le même avec des différences près (fréquence…) à modifier grâce aux datasheets. \\
-
-
+\subsubsection{Parallax Continuous Rotation Servo}
 
 \begin{figure}[H]
 	\centering
@@ -459,85 +808,108 @@ Pour choisir les servomoteurs dont nous avons besoin pour notre robot, il faut l
 	
 \end{figure}
 
-Le Parallax Continuous Rotation Servo fonctionne en 5V. Et nous voulons qu’il soit directement alimenté par la batterie, car si on l'alimentait via le Raspberry (qui délivre bien du 5V), on avait peur qu’il soit trop sollicité et ne puisse plus être en capacité de mettre en marche correctement la partie informatique.
+Le Parallax Continuous Rotation Servo fonctionne en 5V. Et nous voulons qu’il soit directement alimenté par la batterie, car si on l'alimente via la Raspberry Pi (qui délivre bien du 5V), on avait peur qu’il soit trop sollicité et ne puisse plus être en capacité de mettre en marche correctement la partie informatique.
 
 Donc, ayant une alimentation de 6V et un servomoteur alimenté en 5 V on doit mettre en place un régulateur de tension 5V (LM2940) pour ne pas endommager nos composants.
 
-Voici comment nous avons mis en place notre régulateur de tension : 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{./attachments/regulateur_schema.jpg}
-	\caption{Schéma régulateur de tension.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{./attachments/regulateur_breadboard.jpg}
-	\caption{Schéma sur breadboard à faire de .}
-\end{figure}
-
-
-
-
-(\href{https://www.bing.com/videos/riverview/relatedvideo?&q=regulador+de+5voltios+L7805&&mid=4E46E731ADB08757CF134E46E731ADB08757CF13&mmscn=mtsc&aps=13&FORM=VRDGAR}{Vidéos Bing} 
-avec à droite câble rouge et noir sur servomoteur
-à  gauche, câbles de la batterie 
-à ajouter câble pour relier à la masse de la Raspberry Pi)
-
-Après plusieurs tests, pour pouvoir faire tourner la roue dans les deux sens, contrôler la vitesse de rotation… les piles se sont vite déchargées. On a donc pensé à une alternative à la cage à piles : nos servomoteurs seront alimentés par une batterie externe, la même qui alimente le Raspberry. Pour pouvoir se faire, il a fallu se procurer un fil USB A vers fils Dupont.
+Après plusieurs tests, pour pouvoir faire tourner la roue dans les deux sens, contrôler la vitesse de rotation… les piles se sont vite déchargées. On a donc pensé à une alternative à la cage à piles : nos servomoteurs seront alimentés par une batterie externe, la même qui alimente la Raspberry Pi. Pour pouvoir se faire, il a fallu se procurer un fil USB A vers fils DuPont.
 
 Le dimensionnement des servomoteurs effectué, nous sommes enfin passés à nos servomoteurs finaux (FB5311M-360). \\
 
+\subsubsection{Servomoteurs FB5311M-360}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./attachments/moteur_servo.jpg}
 	\caption{Servomoteur FB5311M-360.}
 \end{figure}
 
-Ces servomoteurs ont un câble feedback en plus et fonctionnent de 4 à 8.4 Vcc, donc nous n’avons plus besoin de notre régulateur de tension 5V. Voici comment nous avons branché nos servomoteurs avec le fil USB A vers fils Dupont : 
+Ces servomoteurs ont un câble feedback en plus et fonctionnent de 4 à 8.4 Vcc, donc nous n’avons plus besoin de notre régulateur de tension 5V. 
 
-\begin{figure}[H]
-	\centering
-	%    \includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
-	\caption{SCHÉMA !!!}
-\end{figure}
-
-Tout le long de l’assemblage nous avons utilisé des breadboard pour connecter les composants entre eux. Toutefois, on s’est rendu compte que certains fils Dupont se détachent, ne sont plus fixés sur le breadboard. Ce qui est assez problématique. 
+Tout le long de l’assemblage nous avons utilisé des breadboard pour connecter les composants entre eux. Toutefois, on s’est rendu compte que certains fils DuPont se détachent, ne sont plus fixés sur le breadboard. Ce qui est assez problématique. 
 Nous sommes donc passé à un PCB personnalisé puis à un veroboard qui remplacera nos breadboards.
 
-PCB / Veroboard
 
-\subsubsection{PCB}
-Pour concevoir notre propre PCB, nous l’avons modélisé sur EasyEDA, en commençant par les branchements électroniques, puis en générant le PCB correspondant. 
+\subsection{Convertisseur analogique numérique (WPI453/MCP3204)}
+
+\subsubsection{MCP3204}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{./attachments/MCP3204.png}
+	\caption{MCP3204.}
+\end{figure}
+
+Le MCP3204 est un convertisseur analogique-numérique (CAN) qui transforme un signal analogique - dans notre cas, le feedback des servomoteurs - en une valeur numérique sur 12 bits, soit des valeurs allant de 0 à 4095. Ce composant est alimenté par la Raspberry Pi, avec laquelle il communique via le bus SPI. 
+
+Maintenant vient la question : « Doit-on alimenter le MCP3204 en 3.3V ou 5V ? » 
+
+Les broches GPIO de la Raspberry Pi ne supportent que des signaux allant jusqu’à 3.3V maximum. Par conséquent, pour assurer un bon fonctionnement, le MCP3204 doit être alimenté en 3.3V. 
+
+Concernant son fonctionnement, le MCP3204 a besoin d’une tension de référence pour pouvoir convertir les signaux analogiques qu’il reçoit des feedback des servomoteurs en données numériques exploitables par la Raspberry Pi. Cette tension de référence doit être la même que sa tension d’alimentation. D’où l’importance de mettre au clair la tension d’alimentation du convertisseur.  
+
+Le MCP3204 communique en SPI avec la Raspberry Pi. C’est un protocole de communication synchrone sous le schéma “maître-esclave”. C’est la Raspberry Pi qui va activer/désactiver le convertisseur et qui va lui envoyer des ordres (ex : pouvoir lire les données numériques des entrées analogiques). 
+
+Le convertisseur va recevoir les ordres du microcontrôleur sur sa broche Dout. Puis, il va lui envoyer les données numériques demandées via sa broche Din. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./attachments/schema_elec.jpg}
-	\caption{Schéma électronique.}
+	\includegraphics[width=0.3\textwidth]{./attachments/broches.png}
+	\caption{Broches.}
 \end{figure}
+
+Câblages : 
+
+\begin{itemize}
+	\item Les broches VDD et VREF sur une broche 3.3V
+	\item Les broches DGND et AGND sur une broche GND
+	\item La broche CLK sur le PIN23
+	\item La broche DOUT sur le PIN21
+	\item La broche DIN sur le PIN19
+	\item La broche CS/SHDN sur le PIN24
+\end{itemize}
+
+Au moment de l’implémentation du programme pour avoir le feedback des servomoteurs, nous avons constaté quelques anomalies : les valeurs qu’on recevait n’étaient pas celles que nous attendions. On a donc procédé à un débug pour savoir d’où venait le problème. 
+
+On a commencé par vérifier l’entrée du convertisseur, c’est-à-dire lorsqu’on tournait les roues est-ce qu’à l’oscilloscope on avait bien des tensions qui varient entre 3.3V et 0V. Et c’était bien le cas. 
+
+Au niveau des branchements/soudage, il n’y avait aucun problème non plus. Donc le problème ne pouvait venir soit de la sortie du convertisseur (ie il ne donne pas des données pouvant être comprises par le microcontrôleur) ou sinon du code. 
+
+Ne pouvant pas vérifier la sortie du convertisseur, nous avions plutôt essayé de voir si le problème résidait dans le code en le testant sur un autre convertisseur : le WPI453. 
+
+\subsubsection{WPI453}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./attachments/schema_pcb.jpg}
-	\caption{PCB généré après avoir mis en place les wires.}
+	\includegraphics[width=0.3\textwidth]{./attachments/WPI453.png}
+	\caption{WPI453.}
 \end{figure}
 
-Côté composants : le dessus du circuit 
+Le WPI453 est également un convertisseur analogique numérique fonctionnant de la même manière que le MCP3204 et aussi alimenté par la Raspberry Pi en 3.3V pour la même raison. En revanche, ce convertisseur a une précision de 16 bits et communique avec le microcontrôleur via le protocole de communication $I^2 C$ qui est également un protocole synchrone (d’où la broche SCL - l’horloge - qui donne le rythme de communication entre les deux périphériques) sous le schéma “maître-esclave”.
 
-Côté cuivre : le dessous du circuit
+Le convertisseur va, sur une même broche : la SDA, recevoir les ordres de la Raspberry Pi et lui envoyer les données numériques demandées. 
 
+Câblages : 
 
+\begin{itemize}
+	\item La broche VDD sur une broche 3.3V
+	\item La broches GND sur une broche GND
+	\item La broche SCL sur le PIN5
+	\item La broche SDA sur le PIN3
+	\item Les broches A0 et A1 (les entrées analogiques) sur les fils feedback des servomoteurs
+\end{itemize}
 
-Finalement, il était trop tard pour imprimer le circuit, donc on est passé sur une Veroboard comme conseillé lors d’une réunion.
+L’assemblage terminé, nous sommes passés au code et tout fonctionnait comme on le voulait. Donc le problème résidait plutôt dans la sortie du précédent convertisseur.
 
-\subsubsection{Veroboard}
+Tout le long de l’assemblage nous avons utilisé des breadboard pour connecter les composants entre eux. Toutefois, on s’est rendu compte que certains fils Dupont se détachent, ne sont plus fixés sur le breadboard. Ce qui est assez problématique. 
+
+Nous sommes donc passé à un veroboard qui remplacera nos breadboards.
+
+\subsection{Veroboard}
+
 Sur le Veroboard, nous avons positionné tous les composants et les fils de la même manière que sur les breadboards. Contrairement à ces dernières, le Veroboard ne possède pas de circuits intégrés, il a donc été nécessaire de souder les composants et les fils.
-(Schéma)
-
 
 
 \subsection{Roues}
+
 Comme mentionné précédemment, nous avons constaté que le diamètre de l’axe des moteurs à courant continu était trop petit pour s’adapter correctement aux roues que nous avions. Il y avait trop de jeu, ce qui rendait l’assemblage instable et peu fiable.
 
 Face à ce problème, nous avons décidé de baser notre robot sur un servomoteur en attendant de dimensionner précisément celui dont nous aurions besoin pour la version finale. Pour nos premiers tests, nous avons utilisé un servomoteur déjà disponible. Ce servomoteur était fourni avec un kit de roues parfaitement compatibles, ce qui nous a permis de réaliser des essais pratiques rapidement.
@@ -546,7 +918,7 @@ Nous avons ainsi utilisé ce couple servomoteur-roue pour valider nos premières
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./attachments/schema_pcb.jpg}
+	\includegraphics[width=0.5\textwidth]{./attachments/première_roue.png}
 	\caption{Premières roues.}
 \end{figure}
 
@@ -556,10 +928,9 @@ Malheureusement, à la réception de la commande, nous avons constaté que l’a
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./attachments/schema_pcb.jpg}
+	\includegraphics[width=0.5\textwidth]{./attachments/liens_roues.png}
 	\caption{Liens roues.}
 \end{figure}
-
 
 Afin de résoudre le problème d’incompatibilité entre les servomoteurs et les roues, notre première idée a été d’agrandir le trou de l’adaptateur de roue pour y faire passer l’arbre moteur et le fixer solidement. Voici le résultat obtenu :
 
@@ -613,16 +984,15 @@ Ensuite, nous partons sur le fait d’imprimer la structure à l’aide d’une 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{./attachments/cad_coffre.jpg}
+	\includegraphics[width=0.4\textwidth]{./attachments/cad_coffre_v2.png}
 	\caption{Coffre.}
 \end{figure}
-
 
 Le châssis est une planche rectangulaire, que nous percerons des trous pour fixer les composants. Tandis que le coffre comporte trois compartiments, pour stocker des boissons, des sandwichs au milieu et le reste.
 
 Après avoir modélisé les composants nécessaires, dont le châssis et le coffre. Nous nous sommes rendu compte que les dimensions des objets ne conviennent pas au plateau de l’imprimante 3D, alors nous avons pensé à diviser les différentes parties du coffre et du châssis en plusieurs morceaux. Mais cela poserait un problème pour le coffre. En effet, nous avons rapidement oublié l’idée du couvercle.
 
-Nous voulions rester sur une structure imprimée, alors nous avons opté pour quatre petits objets en forme d'équerre et de housse qui fait le contour. Cela permettra de les accrocher ensemble et de mettre les équerres l’un sur l’autre. De ce fait, le coffre et le châssis seraient modulables et nous mettrons les composants sur les équerres et n’importe quel carton pour faire le coffre.
+Nous voulions rester sur une structure imprimée, alors nous avons opté pour quatre petits objets en forme d'équerre et de housse qui font le contour. Cela permettra de les accrocher ensemble et de mettre les équerres l’un sur l’autre. De ce fait, le coffre et le châssis seraient modulables et nous mettrons les composants sous les équerres et n’importe quel carton pour faire le coffre.
 
 \begin{figure}[H]
 	\centering
@@ -644,9 +1014,7 @@ L’équerre est assez fine pour pouvoir les empiler. Les housses sont assez lar
 	\caption{Ce que ça donnerait assemblé.}
 \end{figure}
 
-Après réflexions, nous avons vu qu’il y avait un problème dans nos propos. En effet, si on pose les composants sur les équerres puis ensuite un carton, ça écrase les composants.
-
-Nous avons alors réfléchi à une meilleure solution, de faire le châssis séparément du coffre comme convenu à la base. Le châssis serait équipé de petit trou pour placer des piliers pour continuer à avoir un coffre modulable avec du carton posé dessus. 
+Après réflexions, nous nous sommes dit que mettre les composants en dessous poserait problème. Nous avons alors réfléchi à une meilleure solution, de faire le châssis séparément du coffre comme convenu à la base. Le châssis serait équipé de petit trou pour placer des piliers pour continuer à avoir un coffre modulable avec du carton posé dessus. 
 
 \begin{figure}[H]
 	\centering
@@ -664,7 +1032,7 @@ Cette fois, les équerres seraient empilées entre elles pour éviter qu’il y 
 
 Nous pouvons voir un aperçu avec les quatre coins assemblés, les coins ont pour but de coulisser entre elles et s’ajuster en fonction de la taille du carton choisi.
 
-Malheureusement, cette solution n’a pas abouti, car ces coins ne conviennent pas aux temps d’impression accordés, qui dure plus d’un jour d’impression pour un seul coin.
+Malheureusement, cette solution n’a pas abouti, car ces coins ne conviennent pas aux temps d’impression accordés, qui dure plus d’un jour d’impression pour un seul coin et les dimensions ne conviennent pas au plateau d’impression.
 
 Alors nous avons réfléchi longuement à quel matériau choisir. Nous nous sommes d’abord basés sur du bois, mais certaines planches (7 kg) dépassent le poids que peuvent supporter les roues. Nous nous sommes penchés sur le métal ou même l’acier, mais cette solution a le même problème que le bois. 
 
@@ -682,6 +1050,13 @@ Voici le premier prototype du robot sans le coffre à l’instant. Les finitions
 C’est pour cela que nous avons refait une autre structure avec des finitions plus propre et avec du carton beaucoup plus solide. Ensuite, nous l’avons peinte à la bombe pour avoir un rendu plus uniforme et pouvoir peindre surtout plus rapidement, ainsi éviter le temps de sèche. 
 
 Certaines planches de cartons solides étaient assez fines, alors nous l’avons renforcé en collant plusieurs planches entre elles pour bien renforcer le châssis et supporté la force des moteurs.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./attachments/robot_final_1.png}
+	\caption{Robot final.}
+\end{figure}
+
 
 \subsection{Ensemble servomoteur-roues sur le robot}
 Après avoir fixé les servomoteurs aux roues, nous avons cherché un moyen de les fixer solidement sur la structure du robot, réalisée en carton. Notre première idée a été de fabriquer des équerres en forme de \textbf{L} afin de relier les servomoteurs au châssis.
@@ -723,9 +1098,20 @@ Voici le résultat :
 
 \begin{figure}[H]
 	\centering
-	%    \includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues_impression.png}
-	\caption{PHOTO A METTRE. \\ Version imprimée du modèle.}
+	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues_impression.jpg}
+	\caption{Version imprimée du modèle.}
 \end{figure}
+
+\subsection{Fixation de la batterie}
+Pour la batterie, nous avons aussi modélisé un support pour la fixer sur le châssis.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./attachments/support_batterie_impression.png}
+	\caption{Support batterie.}
+\end{figure}
+
+Le reste des composants a été vissé sur le châssis.
 
 \section{Partie logicielle}
 % Étapes de développement, utilisation de Git, défis rencontrés.
@@ -743,7 +1129,7 @@ Nous avons divisé le projet en plusieurs branches :
 	\item Le rapport que vous êtes en train de lire en ce moment-même ; 
 	
 	\item Les éléments graphiques, tels que la mascotte ou le poster ; 
-
+	
 \end{itemize}
 
 Chacune de ses branches est documentée avec des fichiers Markdown, qui seront disponibles à la lecture sur la plateforme web. 
@@ -762,15 +1148,60 @@ Le front-end est donné par Flask. Il consiste de fichiers HTML, ces derniers fa
 
 \subsection{Programmation individuelle des composants}
 
-Gyroscope
+\subsubsection{Ultrason}
 
-Capteur d’obstacle (Lidar et ultrason)
+L’utilisation du capteur Ultrason se fait à l’aide de la bibliothèque \texttt{RPi.GPIO}.
+Nous avons branché les pins TRIG et ECHO respectivement sur les pins 23 et 24.
 
-Pour le LiDAR
+On calcule d’abord pour détecter l’instant de début des ultrasons émis :
+\begin{lstlisting}
+	while GPIO.input(ECHO) == 0:   
+	duree_debut = time.time()
+\end{lstlisting}
 
-Pour l’ultrason
+Puis on détermine la fin des ultrasons (on peut ainsi déterminer la durée de trajet des l’ultrasons) :
+\begin{lstlisting}
+	while GPIO.input(ECHO) == 1:
+	duree_fin = time.time()
+\end{lstlisting}
 
-Servomoteurs
+Qu’on peut convertir en distance en approximant leur vitesse.
+
+\begin{lstlisting}
+	duree_impulsion = duree_fin - duree_debut
+	
+	distance = duree_impulsion * (34000/2)
+	distance = round(distance, 2)
+\end{lstlisting}
+
+\subsubsection{Servomoteurs}
+
+Les servos sont contrôlés principalement par la bibliothèque pigpio.  
+Ils sont contrôlés par les pins 12 et 13. Il suffit d’utiliser la fonction de la bibliothèque pigpio \texttt{pi.set\_servo\_pulsewidth(pin,largeur)} en initialisant \texttt{pi=pi()}. Les arguments pin et largeurs sont à fixer, largeur étant la largeur d’impulsion du signal PWM qui rentre dans le servomoteur. En suivant la datasheet de nos servomoteurs, on peut déterminer qu’il faut envoyer des signaux PWM avec des largeurs allant de 500 à 2500, avec une valeur médiane à 1500 qui laisse les moteurs à l’arrêt.
+À noter qu’il est possible de mettre un signal nul (largeur 0), mais que cela laisse une grande inertie sur les roues provenant de déplacements antérieurs. 
+
+\subsubsection{Feedback}
+
+Il est important de comprendre que le feedback des servomoteurs est un signal analogique, alors que la Raspberry Pi, contrairement à une Arduino par exemple, n’est pas capable d’interpréter ce type de signal. Il est donc nécessaire d’utiliser un convertisseur analogique vers numérique, nous utilisons le WPI453, un convertisseur 16 bits avec 4 canaux. Nous souhaitions en effet au moins avoir une précision supérieure à 8 bits, et un minimum de 2 canaux était nécessaire. 16 bits nous permet d’avoir une meilleure précision, mais n’est pas complètement nécessaire.
+
+L’ensemble des fonctions nécessaire à l’acquisition des angles de feedback est défini dans le module \texttt{testFeed.py}. Une fois la Raspberry Pi configurée pour pouvoir communiquer avec le protocole I2C, il suffit d’initialiser la communication (\texttt{i2c = busio.I2C(board.SCL, board.SDA)}) et d’initialiser la bibliothèque correspondante à notre composant : \texttt{ads = ADS.ADS1115(i2c)}.
+
+À partir de là, il suffit d’exécuter la fonction \texttt{lire\_feedback\_servo} : 
+
+\begin{lstlisting}
+	def lire_feedback_servos(ads):
+	chan1 = AnalogIn(ads, ADS.P0)
+	chan2 = AnalogIn(ads, ADS.P1)
+\end{lstlisting}
+
+qui va simplement stocker dans les différents canaux les tensions données au convertisseur. Il suffit ensuite de les convertir en angle et de les retourner à la fin de la fonction :
+
+\begin{lstlisting}
+	angle1 = chan1.voltage * (360 / 3.3)
+	angle2 = chan2.voltage * (360 / 3.3)
+\end{lstlisting}
+
+Ces angles sont notamment utilisés pour régler les déplacements du robot, pour savoir combien de temps avancer/tourner pour parcourir les distances souhaitées avec les bons angles.
 
 \subsection{Le rapport}
 
@@ -781,6 +1212,120 @@ Ce rapport (ou cahier des charges fonctionnel) a été réalisé avec \href{http
 Afin de donner une identité graphique à notre projet, il a fallu créer. Nous aurions pu faire du dessin manuel ou numérique, mais sachant que le poster allait être imprimé au format A0, il nous a semblé essentiel de faire du dessin vectoriel. 
 
 Par conséquent, nous nous sommes tournés vers le logiciel open-source \href{https://inkscape.org/fr/}{Inkscape}, idéal pour les affiches et logos professionnels. 
+
+\subsection{Algorithme de recherche de chemin}
+Le robot suit une suite d’instructions pour se déplacer, qu’il interprète pour décider quand avancer et tourner.
+
+Pour modéliser la carte des environnements du robot, on utilise une bitmap (une grille avec des pixels colorés qui représentent la réalité par des cases). Cette bitmap qui provient du serveur est ensuite fournie aux cartes Raspberry clients, qui interprètent la carte pour la convertir en matrice : les cases blanches sont libres, noires sont des obstacles, et les cases rouges et vertes sont respectivement le départ et l’arrivée du parcours. On peut ensuite interpréter cette matrice comme un graphe non orienté, où chaque case de la matrice est un sommet lié à ses (au maximum 4) plus proches voisins qui sont à une case de distance (les sommets de coordonnées i +-1 , j+-1 pour un sommet de coordonnées i,j).
+
+Ce modèle de graphe et ce système de coordonnées justifient l’utilisation de l’algorithme de recherche de chemin A*, en choisissant comme heuristique la distance de Manhattan qui se prête tout naturellement à ce modèle.
+
+Pour rappel, l’algorithme A* va chercher à parcourir le graphe pour trouver un chemin entre le sommet de départ et celui d’arrivée, en tentant d’optimiser le chemin selon une heuristique qui calcule la “distance” entre deux sommets (l’algorithme cherche à minimiser la distance entre le sommet courant et celui d’arrivée), selon une définition de distance qui lui est propre. Naturellement, dans notre modèle on compte les distances selon l’heuristique de Manhattan en comptant le nombre de déplacements horizontaux et verticaux qui séparent deux sommets.
+
+\begin{lstlisting}
+	def manhattan(a, b):
+	return abs(a[0] - b[0]) + abs(a[1] - b[1])
+\end{lstlisting}
+
+
+La fonction en question dans le code est implémentée dans le module \texttt{rechercheChemin.py} : 
+\begin{lstlisting}
+	def astar_directions(grid, start, end)
+\end{lstlisting}
+
+qui prend donc en paramètres la matrice qui représente la carte (le graphe) et les coordonnées des sommets de départ et arrivée. Elle retourne une liste de directions en chaînes de caractères du type “[‘haut’,‘haut’,‘gauche’, ‘haut’,‘gauche’,‘haut’,‘gauche’,‘gauche’,‘bas’...]”. On peut ainsi par la suite itérer sur cette liste de directions et en déduire les mouvements nécessaires par le robot dans le module \texttt{moteurTout.py}.
+
+Ci-dessous la boucle principale d’exécutions de fonctions lors des déplacements, qui itére sur la liste des directions pour en fiare une suite d’instructions pour tourner et avancer :
+\begin{lstlisting}
+	for i in range(len(chemin)) :
+	robot.set_direction(chemin[i])
+	robot.avancer(obstacleA[i])
+	time.sleep(1)
+\end{lstlisting}
+
+\subsection{Conversion d’image en matrice}
+On s'intéresse à la conversion des images bitmap qui représentent les cartes en matrices python pour modéliser les problèmes. Pour cela, on utilise la bibliothèque \texttt{pillow} de python, puis on interprète l’image bitmap en tant qu’image RGB. On peut ainsi facilement détecter les cases de départ, arrivée, et les obstacles en regardant simplement le code RGB de chaque case.
+
+\begin{lstlisting}
+	for y in range(height):
+	for x in range(width):
+	r, g, b = data[x, y]
+	
+	if (r, g, b) == (255, 0, 0):  # Rouge = Start
+	start = (y, x)
+	grid[y][x] = 0  # Libre
+	elif (r, g, b) == (0, 255, 0):  # Vert = End
+	end = (y, x)
+	grid[y][x] = 0  # Libre
+	elif (r, g, b) == (0, 0, 0):  # Noir = obstacle
+	grid[y][x] = 1
+	elif (r, g, b) == (255, 255, 255):  # Blanc = libre
+	grid[y][x] = 0
+\end{lstlisting}
+
+
+Nota Bene : L’image que l’on cherche à analyser est la bitmap envoyée par le serveur au préalable pour fixer l’environnement de travail du robot.
+
+\subsection{Algorithme de déplacement}
+
+Une fois les instructions de l’algorithme de déplacement interprétées, l’ensemble du programme nécessaire au pilotage des moteurs est contenu dans une classe “Robot” définie dans “\texttt{moteurTout.py}”. Cette classe possède des attributs qui permettent de définir notamment les pins de contrôle des GPIO.
+
+\begin{lstlisting}
+	def __init__(self):
+	self.pi=mot.init_pi()
+	self.gpioM1=12
+	self.gpioM2=13
+	self.directions = ["haut", "droite", "bas", "gauche"]
+	self.direction_index = 0  # Direction initiale (0 = haut)
+\end{lstlisting}
+
+Elle contient entre autres la direction initiale du robot, qu’il est possible de changer, et qu’il est nécessaire de respecter lors du calibrage initial pour la position du robot.
+
+Une fois cette classe initialisée, il suffit de se concentrer sur les deux méthodes principales éponymes à leur utilités réelles : “avancer” et “tourner”.
+
+La méthode définie ainsi : 
+\begin{lstlisting}
+	def avancer(self)
+\end{lstlisting}
+
+Cette méthode va d’abord activer les moteurs pour avancer : si on se positionne de l’extérieur, la roue gauche doit tourner en sens antihoraire et la roue droite en sens horaire, d’où la rotation en vitesse -1 pour l’une et 1 pour l’autre.
+
+Une fois les moteurs activés, il suffit d’attendre que les roues aient tournées les angles déterminées par la partie théorique pour parcourir les distances souhaitées : un exemple qui est implémenté est de faire une rotation de 380° pour parcourir environ 0,5m.
+
+\begin{lstlisting}
+	self.pi.set_servo_pulsewidth(self.gpioM1, 500)
+	self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
+	a0,a1=lire_feedback_servos(ads)
+	aFinal=(a0-190)%360
+	while not(aFinal-5<a0 and a0<aFinal+5):
+	a0,a1=lire_feedback_servos(ads)
+	a0,a1=lire_feedback_servos(ads)
+	aFinal=(a0-190)%360
+	while not(aFinal-5<a0 and a0<aFinal+5):
+	a0,a1=lire_feedback_servos(ads)
+	direction = self.directions[self.direction_index]
+	print(f"Le robot avance vers {direction}.")
+	self.stopMoteurs()
+\end{lstlisting}
+
+
+L’avancée va attendre que les roues fassent une rotation de 380°, en regardant constamment les angles retournés par les feedbacks des servomoteurs. On exécute cette rotation en deux vérifications de rotations à 190° pour éviter des problèmes de chevauchement en calculant l’angle final par le reste de division euclidienne pour des angles supérieurs à 360°.
+
+Une fois la rotation effectuée, il suffit d’arrêter les moteurs pour terminer l’avancée.
+
+Le même principe de vérification des angles par le feedback est utilisé pour effectuer les rotations, en fixant des vitesses de moteurs et des valeurs d’angles différentes.
+
+Enfin, pour finir le retour en arrière du robot après son trajet, on effectue un mapping à travers un dictionnaire pour convertir les directions, et on réalise le parcours inversé depuis l’arrivée vers le début.
+
+\begin{lstlisting}
+	opposite_directions = {
+		"haut": "bas",
+		"bas": "haut",
+		"gauche": "droite",
+		"droite": "gauche"
+	}
+	chemin_inverse = [opposite_directions[dir] for dir in reversed(chemin)]
+\end{lstlisting}
 
 
 \section{Gestion du projet}
@@ -929,5 +1474,7 @@ Louis DUBOIS pour avoir soudé le lecteur carte SD d’une Raspberry Pi.
 Ilann MIMET pour l’affichage d’équations sur notre plateforme web. 
 
 Sylvain DUPONT-LEGENDRE pour le suivi. 
+
+Le club ESIEESPACE pour les impressions 3D.
 
 \end{document}
