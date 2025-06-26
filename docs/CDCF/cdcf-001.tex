@@ -936,7 +936,6 @@ Afin de résoudre le problème d’incompatibilité entre les servomoteurs et le
 	\includegraphics[width=0.3\textwidth]{./attachments/fixage-1.png}
 	\includegraphics[width=0.3\textwidth]{./attachments/fixage-2.png}
 	\includegraphics[width=0.3\textwidth]{./attachments/fixage-3.png}
-	
 	\caption{Résultat.}
 \end{figure}
 
@@ -964,7 +963,6 @@ Après plusieurs tentatives, nous avons finalement utilisé l’équipement four
 
 
 \section{Structure du système}
-
 
 Tout d’abord, nous avons fait un schéma du robot (\autoref{fig:schema_proto}) pour avoir un aperçu de notre projet. Nous voulions un châssis dont le coffre serait posé dessus avec des piliers, avec des compartiments qui aurait un couvercle qui s'ouvrerait automatiquement, lorsque la commande serait arrivée à destination. 
 
@@ -1141,14 +1139,19 @@ Un site web moderne nécessite plusieurs ingrédients, les plus essentiels étan
 
 Le back-end a été réalisé avec \href{https://flask.palletsprojects.com/en/stable/}{Flask}, un framework Python. Il permet d'avoir un site web avec plusieurs pages avec du contenu différent à des adresses voulues. 
 
-Le front-end est donné par Flask. Il consiste de fichiers HTML, ces derniers faisant référence à des fichiers CSS pour le style, et des fichiers JavaScript pour des informations en temps réel, et des fonctionnalités plus avancées. 
+Le front-end est également donné par Flask. Il consiste de fichiers HTML, ces derniers faisant référence à des fichiers CSS pour le style, et des fichiers JavaScript pour des informations en temps réel, et des fonctionnalités plus avancées. 
 
 \subsubsection{Back-end avec Flask}
 
+La majorité du code Flask (Python) est contenue dans le fichier \texttt{pretty-python/app.py}. Il s’agit du script principal qui gère l’ensemble des routes du serveur. 
 
 \subsubsection{Front-end avec HTML, JS et CSS}
 
+
+
 \subsection{Programmation individuelle des composants}
+
+
 
 \subsubsection{Ultrason}
 
@@ -1476,6 +1479,6 @@ Ilann MIMET pour l’affichage d’équations sur notre plateforme web.
 
 Sylvain DUPONT-LEGENDRE pour le suivi. 
 
-Le club ESIEESPACE pour les impressions 3D.
+Le club ESIEESPACE pour les impressions 3D. 
 
 \end{document}
