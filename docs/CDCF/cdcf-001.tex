@@ -294,15 +294,10 @@ Liste des composants utilisés :
 
 
 \section{Partie théorique}
+On veut dimensionner le moteur, dimensionner la batterie, et rendre le système stable. 
 
-On veut : 
-
-- dimensionner le moteur 
-- dimensionner la batterie 
-- rendre le système stable 
-
-%## Cinématique 
-%### Modélisation 
+\subsection{Cinématique} 
+\subsubsection{Modélisation} 
 
 On cherche la relation entre la vitesse de rotation des roues et la vitesse du robot et sa vitesse de rotation par rapport au sol. 
 
@@ -544,12 +539,12 @@ $$
 
 On a alors
 $$
-	X_i + T_{ri} = 0 \quad (1) \\
-	Y_i = 0 \quad (2) \\
-	Z_i + N_{ri} = 0 \quad (3) \\
-	L_i = 0 \quad  (4) \\
-	C_{mi} - R\,T_{ri} = 0 \quad  (5) \\
-	N_i = 0 \quad  (6)
+X_i + T_{ri} = 0 \quad (1) \\
+Y_i = 0 \quad (2) \\
+Z_i + N_{ri} = 0 \quad (3) \\
+L_i = 0 \quad  (4) \\
+C_{mi} - R\,T_{ri} = 0 \quad  (5) \\
+N_i = 0 \quad  (6)
 $$
 
 
@@ -557,8 +552,8 @@ $$
 PFD sur la fusée
 
 $$
-	D(F_i/R_0) = {F}(\text{S}\rightarrow F_i) + {F}(S_i \rightarrow F_i) \\
-	= {F}(S \rightarrow F_i) - {F}(F_i \rightarrow S_i) \\
+D(F_i/R_0) = {F}(\text{S}\rightarrow F_i) + {F}(S_i \rightarrow F_i) \\
+= {F}(S \rightarrow F_i) - {F}(F_i \rightarrow S_i) \\
 $$
 
 ![](attachments/Pasted%20image%2020250619132805.png)
@@ -591,18 +586,18 @@ $$
 
 
 \begin{align}
-X_{F_i} - X_{F_iS_i} \cos(\theta_i) + Y_{F_iS_i} \sin(\theta_i) &= 0 \tag{7} \\
-Y_{F_i} - X_{F_iS_i} \sin(\theta_i) - Y_{F_iS_i} \cos(\theta_i) &= 0 \tag{8} \\
-Z_{F_i} - Z_{F_iS_i} &= 0 \tag{9} \\
-L_{F_i} - L_{F_iS_i} \cos(\theta_i) &= 0 \tag{10} \\
-M_{F_i} - L_{F_iS_i} \sin(\theta_i) &= 0 \tag{11} \\
-N_{F_iS_i} &= 0 \tag{12}
+	X_{F_i} - X_{F_iS_i} \cos(\theta_i) + Y_{F_iS_i} \sin(\theta_i) &= 0 \tag{7} \\
+	Y_{F_i} - X_{F_iS_i} \sin(\theta_i) - Y_{F_iS_i} \cos(\theta_i) &= 0 \tag{8} \\
+	Z_{F_i} - Z_{F_iS_i} &= 0 \tag{9} \\
+	L_{F_i} - L_{F_iS_i} \cos(\theta_i) &= 0 \tag{10} \\
+	M_{F_i} - L_{F_iS_i} \sin(\theta_i) &= 0 \tag{11} \\
+	N_{F_iS_i} &= 0 \tag{12}
 \end{align}
 
 PFD sur les roue avant (inertie negligé)
 
 \begin{align}
-D(S_i/R_0) = {F}(\text{Route} \rightarrow S_i) + {F}(F_i \rightarrow S_i) 
+	D(S_i/R_0) = {F}(\text{Route} \rightarrow S_i) + {F}(F_i \rightarrow S_i) 
 \end{align}
 
 On se place au point $A_i$
@@ -615,12 +610,12 @@ $$
 
 
 \begin{align}
-		X_{F_iS_i} \cos(\theta_i) - Y_{F_iS_i} \sin(\theta_i) + T_{ri} &= 0 \tag{13} \\
-		X_{F_iS_i}\sin(\theta_i) + Y_{F_iS_i} \cos(\theta_i)&= 0 \tag{14} \\
-		Z_{F_iS_i} + N_i &= 0 \tag{15} \\
-		L_{F_iS_i} \cos(\theta_i) &= 0 \tag{16} \\
-		L_{F_iS_i} \sin(\theta_i) + R T_{ri} &= 0 \tag{17} \\
-		N_{F_iS_i} &= 0 \tag{18}
+	X_{F_iS_i} \cos(\theta_i) - Y_{F_iS_i} \sin(\theta_i) + T_{ri} &= 0 \tag{13} \\
+	X_{F_iS_i}\sin(\theta_i) + Y_{F_iS_i} \cos(\theta_i)&= 0 \tag{14} \\
+	Z_{F_iS_i} + N_i &= 0 \tag{15} \\
+	L_{F_iS_i} \cos(\theta_i) &= 0 \tag{16} \\
+	L_{F_iS_i} \sin(\theta_i) + R T_{ri} &= 0 \tag{17} \\
+	N_{F_iS_i} &= 0 \tag{18}
 \end{align}
 
 
@@ -704,6 +699,8 @@ $$
 $$
 \vec{R}_d(S/R_0) = m \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}
 $$
+
+
 
 
 
@@ -958,13 +955,7 @@ Face à ce problème, nous avons réfléchi à une autre solution plus fiable.
 
 Après plusieurs tentatives, nous avons finalement utilisé l’équipement fourni avec les roues : des ailettes de fixation que nous avons vissées et solidement maintenues à l’aide d’écrous. Nous avons pris soin de bien aligner et fixer l’arbre moteur pour garantir la stabilité. Ensuite, nous avons monté l’ensemble sur les arbres moteurs avec précaution.
 
-%Ensemble servomoteur-roues
 
-\begin{figure}[H]
-	\centering
-	%    \includegraphics[width=0.6\textwidth]{./attachments/???.jpg}
-	\caption{PHOTO !!!}
-\end{figure}
 
 
 \section{Structure du système}
@@ -1140,11 +1131,16 @@ Chacune de ses branches est documentée avec des fichiers Markdown, qui seront d
 
 Nous avions besoin d'un site web, donc d'une adresse IP publique fixe. Ainsi, Djivan a installé chez lui une Raspberry Pi 2 personnelle qui va servir de serveur. 
 
-Un site web moderne nécessite de plusieurs ingrédients, les plus essentiels étant un back-end, un front-end, et une base de données. 
+Un site web moderne nécessite plusieurs ingrédients, les plus essentiels étant un back-end, un front-end, et une base de données. 
 
 Le back-end a été réalisé avec \href{https://flask.palletsprojects.com/en/stable/}{Flask}, un framework Python. Il permet d'avoir un site web avec plusieurs pages avec du contenu différent à des adresses voulues. 
 
 Le front-end est donné par Flask. Il consiste de fichiers HTML, ces derniers faisant référence à des fichiers CSS pour le style, et des fichiers JavaScript pour des informations en temps réel, et des fonctionnalités plus avancées. 
+
+\subsubsection{Back-end avec Flask}
+
+
+\subsubsection{Front-end avec HTML, JS et CSS}
 
 \subsection{Programmation individuelle des composants}
 
@@ -1283,7 +1279,6 @@ Elle contient entre autres la direction initiale du robot, qu’il est possible 
 
 Une fois cette classe initialisée, il suffit de se concentrer sur les deux méthodes principales éponymes à leur utilités réelles : “avancer” et “tourner”.
 
-La méthode définie ainsi : 
 \begin{lstlisting}
 	def avancer(self)
 \end{lstlisting}
@@ -1313,7 +1308,7 @@ L’avancée va attendre que les roues fassent une rotation de 380°, en regarda
 
 Une fois la rotation effectuée, il suffit d’arrêter les moteurs pour terminer l’avancée.
 
-Le même principe de vérification des angles par le feedback est utilisé pour effectuer les rotations, en fixant des vitesses de moteurs et des valeurs d’angles différentes.
+Le même principe de vérification des angles par le feedback est utilisé pour effectuer les rotations (faire tourner le robot), en fixant des vitesses de moteurs et des valeurs d’angles différentes. Il faut bien évidemment préciser l’angle de rotation du robot, dans notre modèle il ne peut que faire des rotations multiples de 90°, qui correspondent à trois cas de rotations du robot qui sont traités dans le code.
 
 Enfin, pour finir le retour en arrière du robot après son trajet, on effectue un mapping à travers un dictionnaire pour convertir les directions, et on réalise le parcours inversé depuis l’arrivée vers le début.
 
