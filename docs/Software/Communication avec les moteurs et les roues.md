@@ -35,5 +35,8 @@ Deux types de pins :
 
 ![PWM](https://images.theengineeringprojects.com/image/webp/2022/04/8-2.jpg.webp?ssl=1)
 
+## 2025-06-25 Valeurs importantes 
+421.28° <=> 0.5 m
+90° => 259.41°
 
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitmap Canvas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/canvas_style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style_orangebutton.css') }}">
+</head>
+<body>
+  <div id="canvas-box">
+    <canvas id="bitmapCanvas" width="13" height="5"></canvas>
+    <div id="pixelCursor"></div>
+  </div>
+  <br>
+  <div>
+    <button class="orangebutton" id="undoButton">↩️ Undo</button>
+    <button class="orangebutton" id="redoButton">↪️ Redo</button>
+    <button class="orangebutton" id="pixelToolButton">🖌️ Obstacle</button>
+    <button class="orangebutton" id="pixelToolButtonArrive">⛳ Arrivée</button>
+<!--     <button class="orangebutton" id="rectangleToolButton">⬛ Rectangle Tool</button> -->
+<!--     <button class="orangebutton" id="clearButton">🧼 Clear Canvas</button> -->
+    <button class="orangebutton" id="saveButton">✅ Sauvegarder</button>
+  </div>
+  <script src="{{ url_for('static', filename='script/canvas_script.js') }}"></script>
+</body>
+</html>

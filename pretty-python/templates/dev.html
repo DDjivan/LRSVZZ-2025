@@ -23,34 +23,19 @@
         <div class="button-container">
             <button class="orangebutton" onclick="window.location.href='/'">🏠 Return Home</button>
             <button class="orangebutton" onclick="window.location.href='/view_ips'">🌐 Adresses IP</button>
-            <button class="orangebutton" onclick="executeScript()">🐍 Run Script</button>
-            <button class="orangebutton" onclick="moteurMarche()">🐍 Moteur Marche</button>
+<!--             <button class="orangebutton" onclick="executeScript()">🐍 Run Script</button> -->
+<!--             <button class="orangebutton" onclick="moteurMarche()">🐍 Moteur Marche</button> -->
         </div>
         <p id="response"></p>
 
     </header>
 
     <main>
-        <div id="markdown-content">
-            {{ content|safe }}
-        </div>
-
-        <br>
-
+        <button class="orangebutton" onclick="sendPlans()">🐍 Envoyer le(s) plan(s)</button>
+        <p id="response_plans"></p>
     </main>
-
-    <script>
-        const svgIconLink = "{{ url_for('static', filename='square.svg') }}";
-        const svgIconLinkInternal = "{{ url_for('static', filename='icon-link-internal.svg') }}";
-        const svgIconLinkExternal = "{{ url_for('static', filename='icon-link-external.svg') }}";
-        const svgIconLinkFlathub = "{{ url_for('static', filename='icon-link-flatpak.svg') }}";
-        const svgIconLinkEmail = "{{ url_for('static', filename='icon-link-email.svg') }}";
-    </script>
-    <script src="{{ url_for('static', filename='script/script_doc.js') }}"></script>
-    <script src="{{ url_for('static', filename='script/script_collapsible.js') }}"></script>
-    <script src="{{ url_for('static', filename='script/script_link_icons.js') }}"></script>
 </body>
 
-
+<script src="{{ url_for('static', filename='script/dev_send_script.js') }}"></script>
 
 </html>
