@@ -27,12 +27,12 @@ class Robot:
         self.pi.set_servo_pulsewidth(self.gpioM1, 500)
         self.pi.set_servo_pulsewidth(self.gpioM2, 2500)
         a0,a1=lire_feedback_servos(ads)
-        aFinal=(a0-180)%360
+        aFinal=(a0-190)%360
         while not(aFinal-3<a0 and a0<aFinal+3):
             a0,a1=lire_feedback_servos(ads)
             time.sleep(0.000001)
         a0,a1=lire_feedback_servos(ads)
-        aFinal=(a0-180)%360
+        aFinal=(a0-190)%360
         while not(aFinal-3<a0 and a0<aFinal+3):
             a0,a1=lire_feedback_servos(ads)
             time.sleep(0.000001)
