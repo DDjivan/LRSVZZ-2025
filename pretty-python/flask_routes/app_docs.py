@@ -9,6 +9,11 @@ app_docs = Blueprint('docs', __name__)
 
 
 
+def render_error(error_msg) -> str :
+    return f'<h1>Error</h1><p>{str(error_msg)}</p>'
+
+
+
 @app_docs.route('/docs')
 def web_doc() :
     sREADME = path.join('../', 'README.md')
