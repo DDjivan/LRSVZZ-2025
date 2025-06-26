@@ -15,9 +15,13 @@ except ImportError:
 
 def md_to_html(md_data) :
     if MARKDOWN_LIBRARY == 'markdown2':
-        html_data = markdown(md_data, extras=['tables', 'footnotes', 'fenced-code-blocks', 'break-on-newline'])
+        html_data = markdown(md_data, extras=[
+            'tables', 'footnotes', 'fenced-code-blocks', 'break-on-newline', 'mdx_math', 'code-friendly'
+            ])
     else:
-        html_data = markdown(md_data, extensions=['tables', 'footnotes', 'fenced_code', 'breaks'])
+        html_data = markdown(md_data, extensions=[
+            'tables', 'footnotes', 'fenced_code', 'breaks', 'mdx_math', 'code-friendly'
+            ])
 
     return html_data
 
