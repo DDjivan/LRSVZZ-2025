@@ -30,10 +30,15 @@ class Robot:
         aFinal=(a0-190)%360
         while not(aFinal-5<a0 and a0<aFinal+5):
             a0,a1=lire_feedback_servos(ads)
+        self.pi.set_servo_pulsewidth(self.gpioM1, 1200)
+        self.pi.set_servo_pulsewidth(self.gpioM2, 1800)
         a0,a1=lire_feedback_servos(ads)
         aFinal=(a0-190)%360
         while not(aFinal-5<a0 and a0<aFinal+5):
             a0,a1=lire_feedback_servos(ads)
+        self.pi.set_servo_pulsewidth(self.gpioM1, 1300)
+        self.pi.set_servo_pulsewidth(self.gpioM2, 1700)
+        time/sleep(0.01)
         direction = self.directions[self.direction_index]
         print(f"Le robot avance vers {direction}.")
         self.stopMoteurs()
