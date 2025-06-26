@@ -12,4 +12,6 @@ Liste :
 
 Partie théorique à expliquer. --> [Théorique](Hardware/Théorique.md) 
 
-Branchement de l'ADC [[MCP3204]], [voir la datasheet.](https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/21298e.pdf)
+Branchement de l'ADC [MCP3204](MCP3204.md), [voir la datasheet.](https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/21298e.pdf) 
+
+
