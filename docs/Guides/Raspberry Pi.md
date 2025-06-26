@@ -15,3 +15,7 @@ https://fr.wikipedia.org/wiki/Raspberry_Pi
 ## Software 
 Fait tourner une version modifiée de Debian, une distribution de [Linux](Linux.md). 
 
+## Problèmes 
+Sur une Raspberry Pi 2 : [Pillow](Pillow.md) 
+
+

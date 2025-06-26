@@ -22,10 +22,12 @@ GPIO.output(TRIG, False)
 
 
 while GPIO.input(ECHO) == 0:   
+
     duree_debut = time.time()
     
 
 while GPIO.input(ECHO) == 1:
+
     duree_fin = time.time()
     
 duree_impulsion = duree_fin - duree_debut

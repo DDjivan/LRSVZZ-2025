@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitmap Canvas</title>
+    <style>
+        canvas {
+            width: 400px; /* Display size (4 times 40px) */
+            height: 300px; /* Display size (4 times 30px) */
+            image-rendering: pixelated; /* Nearest neighbor scaling */
+            border: 1px solid black;
+        }
+        .orange-button {
+            background-color: orange;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bitmapCanvas" width="40" height="30"></canvas>
+    <div id="pixelCursor" style="position: absolute; width: 10px; height: 10px; background-color: gray; display: none; pointer-events: none;"></div>
+    <div>
+        <button class="orange-button" id="undoButton">↩️ Undo</button>
+        <button class="orange-button" id="redoButton">↪️ Redo</button>
+        <button class="orange-button" id="pixelToolButton">🖌️ Pixel Tool</button>
+        <button class="orange-button" id="rectangleToolButton">⬛ Rectangle Tool</button>
+        <button class="orange-button" id="clearButton">🧼 Clear Canvas</button>
+        <button class="orange-button" id="sendButton">✅ Send</button>
+    </div>
+    <script src="{{ url_for('static', filename='script/canvas_script.js') }}"></script>
+</body>
+</html>

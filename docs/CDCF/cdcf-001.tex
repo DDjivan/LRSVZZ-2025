@@ -33,7 +33,7 @@
 }
 
 % fontspec
-\setmainfont{Bricolage Grotesque}
+%\setmainfont{Bricolage Grotesque}
 %\setmonofont[size=6pt]{Comic Code Ligatures} 
 
 
@@ -52,7 +52,7 @@
 %\titlepic{\includegraphics[width=0.5\textwidth]{../Design/FichiersPoster/Logo_ESIEE.pdf}}
 
 \begin{document}
-	
+
 %	\maketitle
 
 \begin{titlepage}
@@ -139,6 +139,7 @@ de livrer de la nourriture aux étudiants depuis la cafétéria ?
 Liste des composants utilisés : 
 
 \begin{itemize}
+%\begin{enumerate}
 	\item
 	\textbf{Raspberry Pi 4 Model B :} permet de contrôler tous les
 	composants.
@@ -176,6 +177,7 @@ Liste des composants utilisés :
 	\textbf{Module capteur LSM9DSO :} composé d'un gyroscope,
 	accéléromètre, magnétomètre.
 \end{itemize}
+%\end{enumerate}
 
 
 
@@ -394,9 +396,6 @@ Ce dispositif est alimenté en 5V et sa tension de sortie 5V également. Or, il 
 
 Voici le calcul afin d’avoir la valeur des deux résistances constituant notre pont diviseur de tension : 
 
-
-Voici le calcul afin d’avoir la valeur des deux résistances constituant notre pont diviseur de tension : 
-
 Formule du diviseur de tension : $V_{out} = V_{in} \times \frac{R_2}{R_1 + R_2}$
 
 Application numérique : $$\frac{V_{out}}{V_{in}} = \frac{3.3}{5} = 0.66$$
@@ -407,13 +406,13 @@ $$R_2 = 0.66 R_1 + 0.66 R_2 \implies 0.34 R_2 = 0.66 R_1 \implies \frac{R_1}{R_2
 
 
 Exemple de paires possibles : 
-$$R_1 = 1 \, k\Omega$$
-$$R_2 = 2 \, k\Omega$$
+$$R_1 = 1 \, \mathrm{k}\Omega$$
+$$R_2 = 2 \, \mathrm{k}\Omega$$
 
 Les résistances ayant des valeurs universelles, 
 nous en avons pris deux à disposition avec à peu près un coefficient de 2 entre les deux.
-$$R_1 = 2.2 \, k\Omega$$
-$$R_2 = 3.3 \, k\Omega$$
+$$R_1 = 2.2 \, \mathrm{k}\Omega$$
+$$R_2 = 3.3 \, \mathrm{k}\Omega$$
 
 Voici les câblages à effectuer :
 
@@ -730,6 +729,37 @@ Voici le résultat :
 
 \section{Partie logicielle}
 % Étapes de développement, utilisation de Git, défis rencontrés.
+\subsection{Organisation}
+
+Afin de pouvoir développer en équipe, nous avons utilisé le logiciel \texttt{git} qui permet une gestion de version. Nous avons donc pu créer et améliorer nos fichiers de code et de documentation tout au long de la période de projet en utilisant un dépôt hébergé en ligne. L'hébergeur de dépôts que nous avons choisi est \href{https://github.com/}{GitHub}, l'une des plus grandes plateformes web collaboratives pour le développement de logiciels. 
+
+Nous avons divisé le projet en plusieurs branches : 
+
+\begin{itemize}
+	\item La plateforme web, qui sera sur un unique serveur ; 
+	
+	\item Les scripts qui communiquent avec des composants branchés en PWM, qui seront sur la carte embarquée d'un robot ; 
+	
+	\item Le rapport que vous êtes en train de lire en ce moment-même ; 
+	
+	\item Les éléments graphiques, tels que la mascotte ou le poster ; 
+
+\end{itemize}
+
+Chacune de ses branches est documentée avec des fichiers Markdown, qui seront disponibles à la lecture sur la plateforme web. 
+
+
+
+\subsection{La plateforme web}
+
+Nous avions besoin d'un site web, donc d'une adresse IP publique fixe. Ainsi, Djivan a installé chez lui une Raspberry Pi 2 personnelle qui va servir de serveur. 
+
+Un site web moderne nécessite de plusieurs ingrédients, les plus essentiels étant un back-end, un front-end, et une base de données. 
+
+Le back-end a été réalisé avec \href{https://flask.palletsprojects.com/en/stable/}{Flask}, un framework Python. Il permet d'avoir un site web avec plusieurs pages avec du contenu différent à des adresses voulues. 
+
+Le front-end est donné par Flask. Il consiste de fichiers HTML, ces derniers faisant référence à des fichiers CSS pour le style, et des fichiers JavaScript pour des informations en temps réel, et des fonctionnalités plus avancées. 
+
 \subsection{Programmation individuelle des composants}
 
 Gyroscope
@@ -742,17 +772,20 @@ Pour l’ultrason
 
 Servomoteurs
 
+\subsection{Le rapport}
 
+Ce rapport (ou cahier des charges fonctionnel) a été réalisé avec \href{https://www.latex-project.org/}{\LaTeX}, afin d'obtenir une mise en forme cohérente et professionnelle. 
 
+\subsection{Les éléments graphiques}
 
-Programmation du site web
+Afin de donner une identité graphique à notre projet, il a fallu créer. Nous aurions pu faire du dessin manuel ou numérique, mais sachant que le poster allait être imprimé au format A0, il nous a semblé essentiel de faire du dessin vectoriel. 
 
-
+Par conséquent, nous nous sommes tournés vers le logiciel open-source \href{https://inkscape.org/fr/}{Inkscape}, idéal pour les affiches et logos professionnels. 
 
 
 \section{Gestion du projet}
 
-\subsection{Organisation des Tâches}
+\subsection{Organisation des Tâches} 
 % Inclure un tableau ou un graphique du rétroplanning.
 
 

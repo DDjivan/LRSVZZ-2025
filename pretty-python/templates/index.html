@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MechaDelivery</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style/style_police.css') }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='style/style_home.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style_orangebutton.css') }}" />
 </head>
 <body>
-  <!-- SECTION 1 -->
-  <section class="top-section">
-    <div class="header">
-      <div class="left-title">MechaDelivery</div>
-      <div class="right-box">Description RAPIDE</div>
+  <section class="box-section">
+    <div class="foreground">
+
+      <div class="item-array">
+        <div class="left-div">
+          <h1>MechaDelivery</h1>
+        </div>
+        <div class="right-div">
+          <h3>Livraison à l'ESIEE</h3>
+        </div>
+      </div>
+      
+      <div class="item-centered">
+        <div class="bottom-div">
+          <button class="orangebutton" onclick="window.location.href='/choix'">🍱 Commencer</button>
+          <br>
+          <br>
+          <button class="orangebutton" onclick="window.location.href='https://www.youtube.com/watch?v=tuzv-f1nu2c'">
+            📺 Regarder notre vidéo sur YouTube
+          </button>
+          <h1>
+            Votez pour nous ! <br>
+            Notre stand : <mark>numéro 13, en face de l'épi 3</mark>.
+          </h1>
+        </div>
+      </div>
+
     </div>
-
-    <img src="{{ url_for('static', filename='PotiRoboV3.svg') }}" alt="Robot Background" />
-
-    <p><a href="/choix">Commencer</a></p>
+    
+    <div class="background">
+      <img src="{{ url_for('static', filename='PotiRoboV3.svg') }}" alt="Robot Background" />
+    </div>
   </section>
 
   <script src="{{ url_for('static', filename='script/script_home.js') }}"></script>
