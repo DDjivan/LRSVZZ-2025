@@ -125,6 +125,7 @@ d'autres logiciels informatiques et électroniques.
 de livrer de la nourriture aux étudiants depuis la cafétéria ?
 
 
+\pagebreak
 \section{Architecture du système}
 % Revue des technologies existantes pour la livraison autonome.
 
@@ -186,6 +187,7 @@ Liste des composants utilisés :
 
 
 
+\pagebreak
 \section{Cahier des Charges Fonctionnel}
 
 \subsection{Description des Fonctionnalités}
@@ -293,6 +295,7 @@ Liste des composants utilisés :
 
 
 
+\pagebreak
 \section{Partie théorique}
 On veut dimensionner le moteur, dimensionner la batterie, et rendre le système stable. 
 
@@ -704,9 +707,8 @@ $$
 
 
 
+
 \pagebreak
-
-
 \section{Partie matérielle}
 Pour assembler chaque composant voici un document qui nous sera très utile tout le long. 
 
@@ -962,6 +964,7 @@ Après plusieurs tentatives, nous avons finalement utilisé l’équipement four
 
 
 
+\pagebreak
 \section{Structure du système}
 
 Tout d’abord, nous avons fait un schéma du robot (\autoref{fig:schema_proto}) pour avoir un aperçu de notre projet. Nous voulions un châssis dont le coffre serait posé dessus avec des piliers, avec des compartiments qui aurait un couvercle qui s'ouvrerait automatiquement, lorsque la commande serait arrivée à destination. 
@@ -1108,11 +1111,14 @@ Pour la batterie, nous avons aussi modélisé un support pour la fixer sur le ch
 
 Le reste des composants a été vissé sur le châssis.
 
+\pagebreak
 \section{Partie logicielle}
 % Étapes de développement, utilisation de Git, défis rencontrés.
 \subsection{Organisation}
 
 Afin de pouvoir développer en équipe, nous avons utilisé le logiciel \texttt{git} qui permet une gestion de version. Nous avons donc pu créer et améliorer nos fichiers de code et de documentation tout au long de la période de projet en utilisant un dépôt hébergé en ligne. L'hébergeur de dépôts que nous avons choisi est \href{https://github.com/}{GitHub}, l'une des plus grandes plateformes web collaboratives pour le développement de logiciels. 
+
+Notre dépôt se situe donc à cette adresse : \href{https://github.com/DDjivan/LRSVZZ-2025}{https://github.com/DDjivan/LRSVZZ-2025}
 
 Nous avons divisé le projet en plusieurs branches : 
 
@@ -1130,7 +1136,6 @@ Nous avons divisé le projet en plusieurs branches :
 Chacune de ses branches est documentée avec des fichiers Markdown, qui seront disponibles à la lecture sur la plateforme web. 
 
 
-
 \subsection{La plateforme web}
 
 Nous avions besoin d'un site web, donc d'une adresse IP publique fixe. Ainsi, Djivan a installé chez lui une Raspberry Pi 2 personnelle qui va servir de serveur. 
@@ -1144,14 +1149,100 @@ Le front-end est également donné par Flask. Il consiste de fichiers HTML, ces 
 \subsubsection{Back-end avec Flask}
 
 La majorité du code Flask (Python) est contenue dans le fichier \texttt{pretty-python/app.py}. Il s’agit du script principal qui gère l’ensemble des routes du serveur. 
+La suite d’instructions principale est la suivante : 
 
-\subsubsection{Front-end avec HTML, JS et CSS}
+\begin{lstlisting}
+	@app.route('/NOM_ROUTE')
+	def fonction_route() :
+\end{lstlisting}
 
+Lorsque l’on se connecte à l’adresse IP du serveur avec la route (à l’URI \texttt{255.255.255.255/NOM\_ROUTE} par exemple), on déclenche alors la fonction \texttt{fonction\_route}.
+On peut alors faire le code Python que l’on souhaite dans la fonction, qui doit se terminer par une instruction \texttt{return} telle que :
 
+\begin{lstlisting}
+	return render_template('PAGE_A_AFFICHER.html')
+\end{lstlisting}
+
+Où \texttt{render\_template} permet d’ordonner au serveur d’afficher à l’utilisateur (qui s’est connecté à l’URI) la page HTML correspondant au nom du fichier HTML donné en paramètre. Il est notamment possible de donner d’autres paramètres à \texttt{render\_template}, comme lorsque l’on veut remplir certains champs / certaines variables de la page HTML affichée. C’est le cas dans les routes de la page client et documentation, qui ont besoin d’obtenir une liste avec les produits de la base de données pour l’un, et l’affichage propre de la documentation Markdown pour l’autre.
+
+\subsubsection{Front-end avec HTML, JavaScript (JS) et CSS}
+
+On utilise les trois langages de manière très classique que l’on va décrire brièvement dans les sous parties suivantes.
+
+L’ensemble des différentes pages HTML est contenu dans le répertoire \texttt{templates} du dossier du serveur, tandis que les scripts (JS) et feuilles de styles (CSS) sont dans des dossiers du répertoire \texttt{static}, respectivement \texttt{scripts} et \texttt{styles}.
+
+Nota Bene : ce même dossier \texttt{static} contient aussi l’ensemble des images et logos présents sur le site.
+
+HTML est le langage qui va permettre de former le squelette des pages : là où sont positionnées les informations et comment doivent être affichés les objets. Il permet aussi de former les liens entre les pages, à travers le paramètre de balise <href>. 
+
+L’utilisation de JS est cruciale pour pouvoir implémenter des boutons fonctionnels sur le site, c'est-à-dire qui permettent de déclencher les fonctions Python qui constituent les scripts importants comme la création et le partage de la carte du robot, et l’envoi des instructions au robot. 
+
+Les fichiers CSS permettront de donner du style aux zones et sous-ensembles de la page, c’est ce qui permet de donner une identité visuelle aux pages web. 
+
+\subsubsection{Scripts JS usuels}
+
+On décrit ici l’utilisation classique de JS pour implémenter un bouton sur une page HTML, pour permettre de lancer un script python ; à fortiori interagir avec le back-end Flask.
+
+L’instruction majeure utilisée dans ce contexte est \texttt{fetch} : 
+{\scriptsize
+	\begin{lstlisting}
+		async function executeScript() {
+			fetch('/execute_script')
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.text();
+			})
+			.then(data => {
+				document.getElementById('response').innerText = data;
+			})
+			.catch(error => {
+				document.getElementById('response').innerText = 'Error: ' + error.message;
+			});
+		}
+	\end{lstlisting}
+}
+
+Cette instruction permet, lors de l’exécution de la fonction, de faire le lien entre JS et notre back-end Flask. Dans cet exemple, lors de l’exécution de la fonction (qui arrive quand on appuie sur un bouton paramétré au préalable avec le paramètre \texttt{onclick} par exemple) l’instruction \texttt{fetch} va déclencher la route à l’adresse définie par :
+\begin{lstlisting}
+	@ app.route(‘/execute_script’)
+\end{lstlisting}
+
+Ainsi, après l’exécution du script au niveau back-end, on peut continuer l’exécution de la fonction JS \texttt{executeScript()} et réagir en conséquence en fonction de la réponse retournée et stockée dans des champs qu’on appelle \texttt{response} et \texttt{data} ici. (Voir la sous-section back-end avec Flask pour plus d’informations)
+
+\subsubsection{Websocket}
+
+Les websockets sont des objets qui permettent de l’affichage en temps réel sur des pages Internet. Ils sont déclarés dans le back-end Python (\texttt{data.py}) : 
+\begin{lstlisting}
+	from flask_socketio import SocketIO, emit
+	socketio = SocketIO(app)
+\end{lstlisting}
+
+Ils peuvent alors émettre un signal sur le serveur avec : 
+\begin{lstlisting}
+	socketio.emit("new order")
+\end{lstlisting}
+que l’on peut capter sur n’importe quelle page du serveur facilement, du côté JS, avec par exemple du côté vendeur (dans \texttt{vendeur.js}): 
+\begin{lstlisting}
+	const socket = io();
+	
+	socket.on("new order", (data) => {
+		window.location.reload(1);
+	});
+\end{lstlisting}
+
+Pour permettre de rafraîchir la page \texttt{vendeur} dès qu’une commande est lancée par la page \texttt{client}.
+
+À noter que l’implémentation d’un websocket sur le serveur nécessite de changer la commande usuelle pour le lancer à la fin du script python principal \texttt{app.py} :
+\begin{lstlisting}
+	if __name__ == '__main__' :
+	socketio.run(app,host='0.0.0.0', port=50000, debug=True)
+	
+	# au lieu de app.run(host='0.0.0.0', port=50000, debug=True)
+\end{lstlisting}
 
 \subsection{Programmation individuelle des composants}
-
-
 
 \subsubsection{Ultrason}
 
@@ -1210,13 +1301,13 @@ Ces angles sont notamment utilisés pour régler les déplacements du robot, pou
 
 \subsection{Le rapport}
 
-Ce rapport (ou cahier des charges fonctionnel) a été réalisé avec \href{https://www.latex-project.org/}{\LaTeX}, afin d'obtenir une mise en forme cohérente et professionnelle. Le logiciel utilisé est \href{https://flathub.org/apps/org.texstudio.TeXstudio}{TeXstudio}. 
+Ce rapport (ou cahier des charges fonctionnel) a été réalisé avec \LaTeX, afin d'obtenir une mise en forme cohérente et professionnelle. Le logiciel utilisé est \href{https://flathub.org/apps/org.texstudio.TeXstudio}{TeXstudio}. 
 
 \subsection{Les éléments graphiques}
 
 Afin de donner une identité graphique à notre projet, il a fallu créer. Nous aurions pu faire du dessin manuel ou numérique, mais sachant que le poster allait être imprimé au format A0, il nous a semblé essentiel de faire du dessin vectoriel. 
 
-Par conséquent, nous nous sommes tournés vers le logiciel open-source \href{https://inkscape.org/fr/}{Inkscape}, idéal pour les affiches et logos professionnels. 
+Par conséquent, nous nous sommes tournés vers le logiciel open-source \href{https://flathub.org/apps/org.inkscape.Inkscape}{Inkscape}, idéal pour les affiches et logos professionnels. 
 
 \subsection{Algorithme de recherche de chemin}
 Le robot suit une suite d’instructions pour se déplacer, qu’il interprète pour décider quand avancer et tourner.
@@ -1226,6 +1317,8 @@ Pour modéliser la carte des environnements du robot, on utilise une bitmap (une
 Ce modèle de graphe et ce système de coordonnées justifient l’utilisation de l’algorithme de recherche de chemin A*, en choisissant comme heuristique la distance de Manhattan qui se prête tout naturellement à ce modèle.
 
 Pour rappel, l’algorithme A* va chercher à parcourir le graphe pour trouver un chemin entre le sommet de départ et celui d’arrivée, en tentant d’optimiser le chemin selon une heuristique qui calcule la “distance” entre deux sommets (l’algorithme cherche à minimiser la distance entre le sommet courant et celui d’arrivée), selon une définition de distance qui lui est propre. Naturellement, dans notre modèle on compte les distances selon l’heuristique de Manhattan en comptant le nombre de déplacements horizontaux et verticaux qui séparent deux sommets.
+
+L’algorithme A* stock les sommets déjà explorés à l’aide d’une structure de données nommée “tas”. Il s’agit d’une structure qui a pour avantage majeur de pouvoir toujours en extraire un extremum en temps constant, ce qui est utile dans le cadre de l’algorithme : on insère les sommets avec la valeur correspondante à ce que retourne l’heuristique sur eux, puis on peut facilement extraire le sommet qui à la valeur d’heuristique minimale, c’est-à-dire le sommet le plus proche de l’arrivée.
 
 \begin{lstlisting}
 	def manhattan(a, b):
@@ -1321,20 +1414,23 @@ Le même principe de vérification des angles par le feedback est utilisé pour 
 
 Enfin, pour finir le retour en arrière du robot après son trajet, on effectue un mapping à travers un dictionnaire pour convertir les directions, et on réalise le parcours inversé depuis l’arrivée vers le début.
 
-\begin{lstlisting}
-	opposite_directions = {
-		"haut": "bas",
-		"bas": "haut",
-		"gauche": "droite",
-		"droite": "gauche"
-	}
-	chemin_inverse = [opposite_directions[dir] for dir in reversed(chemin)]
-\end{lstlisting}
+{\scriptsize
+	\begin{lstlisting}
+		opposite_directions = {
+			"haut": "bas",
+			"bas": "haut",
+			"gauche": "droite",
+			"droite": "gauche"
+		}
+		chemin_inverse = [opposite_directions[dir] for dir in reversed(chemin)]
+	\end{lstlisting}
+}
 
 
+\pagebreak
 \section{Gestion du projet}
 
-\subsection{Organisation des Tâches} 
+%\subsection{Organisation des Tâches} 
 % Inclure un tableau ou un graphique du rétroplanning.
 
 
@@ -1451,6 +1547,7 @@ Déroulement de la soutenance et de la journée des projets.
 
 
 
+\pagebreak
 \section{Conclusion}
 % Bilan du projet, perspectives d'amélioration.
 
@@ -1459,11 +1556,12 @@ Ce projet a pour but de livrer de la nourriture de la cafétéria aux personnes 
 Dans le futur, ce projet pourrait être amélioré de par le fait que le robot puisse prendre l’ascenseur pour livrer directement devant une salle. Faire un robot plus solide, plus propre que seulement en carton.
 
 
-\section{Annexes}
+% \section{Annexes}
 % Graphiques, schémas, photos du robot, code source.
 %\section{Documentation et Ressources}
 % Documentation hébergée sur le serveur, liens vers les ressources.
 
+\pagebreak
 \section{Remerciements}
 Le papa de Thisalini pour son aide à plusieurs reprises, notamment la partie électrique.
 
