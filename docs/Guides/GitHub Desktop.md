@@ -4,7 +4,8 @@ Il n'y a de version officielle pour Linux, mais la communauté en a fait une.
 
 ## Liens 
 - Site officiel : https://github.com/apps/desktop 
-- Linux (Flatpak) : https://flathub.org/apps/io.github.shiftey.Desktop ^Linux
+- [Flatpak](appstream:io.github.shiftey.Desktop) 
+- Page Flathub : https://flathub.org/apps/io.github.shiftey.Desktop ^Linux
 - Installateur Windows (`.exe`) : https://central.github.com/deployments/desktop/desktop/latest/win32 ^Windows
 
 ## En bref 
