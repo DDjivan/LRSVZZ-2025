@@ -8,11 +8,13 @@ c.execute("CREATE TABLE IF NOT EXISTS products (name TEXT PRIMARY KEY)")
 
 # Produits à insérer
 products = [
-    ("Sand Witch à la fraise"),
-    ("Ouiche Lorraine"),
-    ("Docteur Poivre"),
-    ("Coke"),
-    ("Lèvre thon")
+    ("Tranche Pâtissière"),
+    ("Chocolats"),
+    ("Sandwitch Œuf Thon"),
+    ("Sandwitch Jambon Beurre"),
+    ("Quiche Lorraine"),
+    ("Cannette 33cl de Coca Cola"),
+    ("Cannette 33cl de Lipton Ice Tea"),
 ]
 
 # Insertion seulement si le produit n'existe pas déjà (par nom)
