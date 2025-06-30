@@ -357,31 +357,31 @@ $S_4$ et $S_3$ sont confondues avec $S$
 
 
 Condition de roulement sans glissement : 
-\begin{equation}
-\vec{V}(A_4, S/R_0) = R\omega_{S_4/S} \cdot \vec{x} \tag{1}
-\end{equation}
+\begin{equation*}
+	\vec{V}(A_4, S/R_0) = R\omega_{S_4/S} \cdot \vec{x} \tag{1}
+\end{equation*}
 
-\begin{equation}
-\vec{V}(A_3, S/R_0)=R\omega_{S_3/S} \cdot \vec{x} \tag{2}
-\end{equation}
+\begin{equation*}
+	\vec{V}(A_3, S/R_0)=R\omega_{S_3/S} \cdot \vec{x} \tag{2}
+\end{equation*}
 
 Rotation d'une roue par rapport à $R_0$, obtenu par composition des vitesses de rotation. 
-\begin{equation}
-\vec{\Omega}(S_3/R_0) = \omega_{S_3/S} \cdot \vec{y} + \omega_{S/R_0} \cdot \vec{z} \tag{3}
-\end{equation}
-\begin{equation}	
-\vec{\Omega}(S_4/R_0) = \omega_{S_4/S} \cdot \vec{y} + \omega_{S/R_0} \cdot \vec{z} \tag{4}
-\end{equation}
+\begin{equation*}
+	\vec{\Omega}(S_3/R_0) = \omega_{S_3/S} \cdot \vec{y} + \omega_{S/R_0} \cdot \vec{z} \tag{3}
+\end{equation*}
+\begin{equation*}    
+	\vec{\Omega}(S_4/R_0) = \omega_{S_4/S} \cdot \vec{y} + \omega_{S/R_0} \cdot \vec{z} \tag{4}
+\end{equation*}
 
 %### Étape 1 
 
 \textbf{Relation entre vitesse de rotation des roues et la vitesse du châssis.} 
 
-\begin{equation}
-R\omega_{S_4/S} \cdot \vec{x} + R\omega_{S_3/S} \cdot \vec{x} =
-\vec{V}(A_4, S/R_0) + \vec{V}(A_3, S/R_0) 
-\tag{1)+(2}
-\end{equation}
+\begin{equation*}
+	R\omega_{S_4/S} \cdot \vec{x} + R\omega_{S_3/S} \cdot \vec{x} =
+	\vec{V}(A_4, S/R_0) + \vec{V}(A_3, S/R_0) 
+	\tag{1)+(2}
+\end{equation*}
 
 Changement de point en $C$. 
 $$ = \vec{V}(C,S/R_0) 
@@ -403,11 +403,11 @@ $$
 
 \textbf{Relation entre vitesse de rotation des roues et la vitesse de rotation du châssis.} 
 
-\begin{equation}
-R\omega_{S_4/S} \cdot \vec{x} - R\omega_{S_3/S} \cdot \vec{x} =
-\vec{V}(A_4, S/R_0) - \vec{V}(A_3, S/R_0) 
-\tag{1)–(2}
-\end{equation}
+\begin{equation*}
+	R\omega_{S_4/S} \cdot \vec{x} - R\omega_{S_3/S} \cdot \vec{x} =
+	\vec{V}(A_4, S/R_0) - \vec{V}(A_3, S/R_0) 
+	\tag{1)–(2}
+\end{equation*}
 
 Changement de point en $I$, point sur l'axe de rotation du châssis par rapport au sol : $(I,\vec{z})$. 
 $$= 
@@ -490,7 +490,7 @@ Fin de la cinématique.
 
 \subsection{Dynamique} 
 
-On cherche dans cette partie à avoir l'équation du système qui est ici vitesse de rotation des roue en fonction du temps pour une tension en entré donné . Pour voir si notre systeme est stable pour une entre constante et une fois s'etre assure de cela on veut dimentionner les moteur 
+On cherche dans cette partie à avoir l'équation du système qui est ici vitesse de rotation des roues en fonction du temps pour une tension en entrée donnée. Pour voir si notre système est stable pour une entre constante et une fois s'être assuré de cela, on veut dimensionner les moteurs. 
 
 \subsubsection{Modélisation} 
 
@@ -572,14 +572,14 @@ $$ = \vec{O} + ({-R}\vec{z})\wedge\vec{T}_{ri}\vec{x} = -R\vec{T}_{ri}\vec{y}
 $$
 
 On a alors
-\begin{align}
-	X_3 + T_{r3} = 0  \\
-	Y_3 = 0  \\
-	Z_3 + N_{r3} = 0  \\
-	L_3 = 0  \\
-	C_{m3} - R\,T_{r3} = 0  \\
-	N_3 = 0 
-\end{align}
+\begin{align*}
+	X_3 + T_{r3} = 0  \tag{1}\\
+	Y_3 = 0  \tag{2}\\
+	Z_3 + N_{r3} = 0  \tag{3}\\
+	L_3 = 0  \tag{4}\\
+	C_{m3} - R\,T_{r3} = 0  \tag{5}\\
+	N_3 = 0 \tag{6}
+\end{align*}
 
 
 Pareil pour $S_4$
@@ -587,23 +587,23 @@ Pareil pour $S_4$
 PFD sur la fusée
 
 
-\begin{align}
+\begin{align*}
 	D(F_i/R_0) = {F}(_{\text{S}\rightarrow F_i}) + {F}(_{S_i \rightarrow F_i}) \\
 	= {F}(_{S \rightarrow F_i}) - {F}(_{F_i \rightarrow S_i}) \\
-\end{align}
+\end{align*}
 
 
 
 
 
 
-\begin{equation}
-F(F_i \to S_i) = 
-\begin{Bmatrix}
-	X_{F_i S_i} \cdot \vec{x_i} + Y_{F_i S_i} \cdot \vec{y_i} + Z_{F_i S_i} \cdot \vec{z_i} \\
-	L_{F_i S_i} \cdot \vec{x_i} + N_{F_i S_i} \cdot \vec{z_i}
-\end{Bmatrix}_{A_{i}}
-\end{equation}
+\begin{equation*}
+	F(F_i \to S_i) = 
+	\begin{Bmatrix}
+		X_{F_i S_i} \cdot \vec{x_i} + Y_{F_i S_i} \cdot \vec{y_i} + Z_{F_i S_i} \cdot \vec{z_i} \\
+		L_{F_i S_i} \cdot \vec{x_i} + N_{F_i S_i} \cdot \vec{z_i}
+	\end{Bmatrix}_{A_{i}}
+\end{equation*}
 
 
 
@@ -619,46 +619,46 @@ On néglige la masse des moteurs (peut être abusif)
 
 
 
-\begin{equation}
-\vec{F}_{F_i \to S_i} =
-\left\{
-\begin{array}{c}
-	X_{F_iS_i} \big(\cos(\theta_i) \vec{x} + \sin(\theta_i) \vec{y} \big) 
-	
-	+  Y_{F_iS_i} \big(\cos(\theta_i) \vec{y} - \sin(\theta_i) \vec{x} \big)
-	
-	+ Z_{F_iS_i} \vec{z} \\[1em]
-	
-	\quad L_{F_iS_i} \big(\cos(\theta_i) \vec{x} + \sin(\theta_i) \vec{y} \big)  + N_{R_{S_i}} \vec{z}
-	
-\end{array}
-\right\}_{A_i}
-\end{equation}
+\begin{equation*}
+	\vec{F}_{F_i \to S_i} =
+	\left\{
+	\begin{array}{c}
+		X_{F_iS_i} \big(\cos(\theta_i) \vec{x} + \sin(\theta_i) \vec{y} \big) 
+		
+		+  Y_{F_iS_i} \big(\cos(\theta_i) \vec{y} - \sin(\theta_i) \vec{x} \big)
+		
+		+ Z_{F_iS_i} \vec{z} \\[1em]
+		
+		\quad L_{F_iS_i} \big(\cos(\theta_i) \vec{x} + \sin(\theta_i) \vec{y} \big)  + N_{R_{S_i}} \vec{z}
+		
+	\end{array}
+	\right\}_{A_i}
+\end{equation*}
 
 
 
 
 
 
-\begin{align}
+\begin{align*}
 	X_{F_i} - X_{F_iS_i} \cos(\theta_i) + Y_{F_iS_i} \sin(\theta_i) &= 0 \tag{7} \\
 	Y_{F_i} - X_{F_iS_i} \sin(\theta_i) - Y_{F_iS_i} \cos(\theta_i) &= 0 \tag{8} \\
 	Z_{F_i} - Z_{F_iS_i} &= 0 \tag{9} \\
 	L_{F_i} - L_{F_iS_i} \cos(\theta_i) &= 0 \tag{10} \\
 	M_{F_i} - L_{F_iS_i} \sin(\theta_i) &= 0 \tag{11} \\
 	N_{F_iS_i} &= 0 \tag{12}
-\end{align}
+\end{align*}
 
 
 
 
-PFD sur les roues avant (inertie negligée)
+PFD sur les roues avant (inertie négligée)
 
 
 
-\begin{align}
+\begin{align*}
 	D(S_i/R_0) = {F}(\text{Route} \rightarrow S_i) + {F}(F_i \rightarrow S_i) \\
-\end{align}
+\end{align*}
 
 
 
@@ -677,32 +677,32 @@ $$
 
 
 
-\begin{align}
+\begin{align*}
 	X_{F_iS_i} \cos(\theta_i) - Y_{F_iS_i} \sin(\theta_i) + T_{ri} &= 0 \tag{13} \\
 	X_{F_iS_i}\sin(\theta_i) + Y_{F_iS_i} \cos(\theta_i)&= 0 \tag{14} \\
 	Z_{F_iS_i} + N_i &= 0 \tag{15} \\
 	L_{F_iS_i} \cos(\theta_i) &= 0 \tag{16} \\
 	L_{F_iS_i} \sin(\theta_i) + R T_{ri} &= 0 \tag{17} \\
 	N_{F_iS_i} &= 0 \tag{18}
-\end{align}
+\end{align*}
 
 
 
 
-PFD appliqué à tout le systeme
+PFD appliqué à tout le système
 
 
 
-\begin{align}
+\begin{align*}
 	D(\Sigma/R_0) = \Sigma_{i=1}^{4}{F}(\text{Route} \rightarrow S_i) + {F}(P \rightarrow S) \\
-\end{align}
+\end{align*}
 
 
 
 
-\begin{align}
+\begin{align*}
 	D(S/R_0) = \Sigma_{i=1}^{4}{F}(\text{Route} \rightarrow S_i) + {F}(P \rightarrow S) \\
-\end{align}
+\end{align*}
 
 
 
@@ -726,14 +726,14 @@ $$
 $$
 
 
-\begin{align}
-	T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4} &= Rd_x \tag{13}\\
-	0 &= Rd_y \tag{14} \\
-	N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}-mg &= Rd_z \tag{15} \\
-	y_G(N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}) &= δ_x \tag{16} \\
-	z_G(T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4}) - x_G(N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}) &= δ_y \tag{17} \\
-	-y_G(T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4}) &= δ_z \tag{18}
-\end{align}
+\begin{align*}
+	T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4} &= Rd_x \tag{19}\\
+	0 &= Rd_y \tag{20} \\
+	N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}-mg &= Rd_z \tag{21} \\
+	y_G(N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}) &= \delta_x \tag{22} \\
+	z_G(T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4}) - x_G(N_{r_1}+N_{r_2}+N_{r_3}+N_{r_4}) &= \delta_y \tag{23} \\
+	-y_G(T_{r_1}+T_{r_2}+T_{r_3}+T_{r_4}) &= \delta_z \tag{24}
+\end{align*}
 
 
 
@@ -750,11 +750,11 @@ $$
 
 
 
-\begin{align}
+\begin{align*}
 	L_{F_{r_i}} \cos(\theta_i) &= 0 \quad \Rightarrow \quad L_{F_{r_i}} = 0 \\
 	L_{F_{r_i}} \sin(\theta_i) + R T_{r_i} &= 0 \quad \Rightarrow \quad T_{r_1} = T_{r_2} = 0 \\
 	C_{m_i} - R T_{r_i} &= 0 \quad \Rightarrow \quad T_{r_3} = \frac{C_{m_3}}{R} \text{ et } T_{r_4} = \frac{C_{m_4}}{R}
-\end{align}
+\end{align*}
 
 
 $$
@@ -776,7 +776,7 @@ $$
 $$
 
 $$
-\text{calcule de }V(G,S/R_0)
+\text{Calcul de }V(G,S/R_0)
 $$
 $$
 \vec{V}(G,S/R_0) = \vec{V}(C,S/R_0) + \vec{GC}\wedge\vec{\Omega}(S/R_0) 
@@ -787,20 +787,20 @@ $$$$
 \vec{V}(G,S/R_0) = \vec{V}(C,S/R_0) + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x})
 $$
 $$
-\text{calcule de } \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}
+\text{Calcul de } \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}
 $$
 $$
-\text{calcule de } \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0} \text{ (utulisation de la formule de derviation vectorielle)}
+\text{Calcul de } \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0} \text{ (utilisation de la formule de dérivation vectorielle)}
 $$
 $$
 \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}  = \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{S} + \vec{\Omega}(S/R_0) \wedge \vec{V}(G,S/R_0)
 $$
 
-\begin{align}
-	\frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}  &= \frac{d\vec{V}(C,S/R_0)}{dt} + \frac{d\omega_{SR_0}}{dt}(x_0 \vec{y} - y_0 \vec{x}) + \omega_{SR_0}\vec{z} \wedge (\vec{V}(C,S/R_0) + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x}))	\\
-	&= \dot{V}(C,S/R_0)\vec{x} + \dot{\omega}_{SR_0}(x_0 \vec{y} - y_0 \vec{x}) + \omega_{SR_0} \vec{z} \wedge (V(C,S/R_0)\vec{x} + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x}))	\\
+\begin{align*}
+	\frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}  &= \frac{d\vec{V}(C,S/R_0)}{dt} + \frac{d\omega_{SR_0}}{dt}(x_0 \vec{y} - y_0 \vec{x}) + \omega_{SR_0}\vec{z} \wedge (\vec{V}(C,S/R_0) + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x}))    \\
+	&= \dot{V}(C,S/R_0)\vec{x} + \dot{\omega}_{SR_0}(x_0 \vec{y} - y_0 \vec{x}) + \omega_{SR_0} \vec{z} \wedge (V(C,S/R_0)\vec{x} + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x}))    \\
 	&=\dot{V}(C,S/R_0)\vec{x} + \dot{\omega}_{SR_0}(x_0 \vec{y} - y_0 \vec{x}) -\omega_{SR_0}(V(C,S/R_0) - y_0 {\omega}_{SR_0} )\vec{y}+ \omega_{SR_0}x_0 \vec{y} - \omega_{SR_0}^2 x_0 \vec{x}
-\end{align}
+\end{align*}
 
 $$
 \text{Simplification } V(C,S/R_0) = V  \text{ et } \omega_{SR_0} = \omega
@@ -818,10 +818,10 @@ $$
 
 On a alors selon $\vec{e_x}$
 
-\begin{align}
+\begin{align*}
 	\frac{C_{m_3}}{R} + \frac{C_{m_4}}{R} &= m(\dot{V} - \dot{\omega} y_0 - \omega^2 x_0) \\
 	C_{m_3} + C_{m_4} &= Rm(\dot{V} - \dot{\omega} y_0 - \omega^2 x_0)
-\end{align}
+\end{align*}
 
 
 
@@ -848,18 +848,18 @@ On se place dans le cas U=constante
 
 
 
-\begin{align}	
+\begin{align*}    
 	I &= \frac{U-E}{R} \\
 	C &= kI = \frac{k}{R}(U-E) \\
 	C &= \frac{k}{R}(U-K_{E}\omega)
-\end{align}
+\end{align*}
 
 
 
 
 
 
-On se place dans le cas ou on a de la modulation en tension . Modulation pouvant aller de 0 à 1 exprimer par le terme $\alpha$ PWM
+On se place dans le cas où on a de la modulation en tension. Modulation pouvant aller de 0 à 1 exprimée par le terme $\alpha$ PWM. 
 
 
 
@@ -874,21 +874,21 @@ On pose $a =- \frac{k K_E}{R}$ et $b=\frac{k  U}{R}$
 $$
 C(\omega) = a\omega + b\alpha 
 $$
-On cherche à déterminer a et b avec des valeurs donné dans la datasheet des moteurs
-On se place dans le cas $\alpha = 1$ (pas de modulation)
+On cherche à déterminer a et b avec des valeurs données dans la datasheet des moteurs.
+On se place dans le cas $\alpha = 1$ (pas de modulation).
 
-On se place au couple bloqué appelle ici $C_{max}$ (couple maximum ou la vitesse de rotation est alors nul)
+On se place au couple bloqué appellé ici $C_{max}$ (couple maximum où la vitesse de rotation est alors nulle)
 $$
 C(0) = C_{max} = a*0 + b
 $$
 On se place à la vitesse à vide ici noté $\omega_{max}$ 
 
-\begin{align}
+\begin{align*}
 	C(\omega_{max}) = 0 &= a\omega_{max} + b \\
 	a\omega_{max} &= -b \\
 	a &= \frac{-b}{\omega_{max}} \\
 	a &= -\frac{C_{max}}{\omega_{max}}
-\end{align}
+\end{align*}
 
 On a alors
 
@@ -896,7 +896,7 @@ $$
 C(\omega) = -\frac{C_{max}}{\omega_{max}}\omega + C_{max}\alpha 
 $$
 
-\subsection{Utiliser les équations moteurs et du mécanique du solide pour avoir l'équation différentielle finale} 
+\subsection{Utiliser les équations des moteurs et de mécanique du solide pour avoir l'équation différentielle finale} 
 
 
 $$
@@ -904,12 +904,12 @@ C_{m_3} + C_{m_4} = Rm(\dot{V} - \dot{\omega} y_0 - \omega^2 x_0)
 $$
 Or $C_{m_3} + C_{m_4}$ peut s'écrire
 
-\begin{align}
-	C_{m_3} + C_{m_4} &= -\frac{C_{max}}{\omega_{max}}\omega_{m_3} + C_{max}\alpha_3 + -\frac{C_{max}}{\omega_{max}}\omega_{m_3} + C_{max}\alpha_4	\\
-	&= C_{max}(-\frac{\omega_{m_3}}{\omega_{max}} + \alpha_3  -\frac{\omega_{m_4}}{\omega_{max}} + \alpha_4)	\\
-	&= C_{max}(\alpha_3 + \alpha_4 -\frac{1}{\omega_{max}}(\omega_{m_3} + \omega_{m_4}))	\\
+\begin{align*}
+	C_{m_3} + C_{m_4} &= -\frac{C_{max}}{\omega_{max}}\omega_{m_3} + C_{max}\alpha_3 + -\frac{C_{max}}{\omega_{max}}\omega_{m_3} + C_{max}\alpha_4    \\
+	&= C_{max}(-\frac{\omega_{m_3}}{\omega_{max}} + \alpha_3  -\frac{\omega_{m_4}}{\omega_{max}} + \alpha_4)    \\
+	&= C_{max}(\alpha_3 + \alpha_4 -\frac{1}{\omega_{max}}(\omega_{m_3} + \omega_{m_4}))    \\
 	&= C_{max}(\alpha_3 + \alpha_4 -\frac{2}{R\omega_{max}}V)
-\end{align}
+\end{align*}
 
 On a alors
 
@@ -921,17 +921,17 @@ On note
 $$
 \lambda (t){\omega}_{m3} = \lambda(t) {\omega_{m}} = \omega_{m4} 
 $$
-On peu alors en plus d'exprmier $V$ et $\omega$ en fonction de $\lambda$ on peut aussi exprimer $\alpha$ 
+On peut alors en plus d'exprimer $V$ et $\omega$ en fonction de $\lambda$ on peut aussi exprimer $\alpha$ 
 car $\omega_{m_3} = \frac{\alpha_3 U_{max}}{K_E}$  et  $\omega_{m_4} = \frac{\alpha_4 U_{max}}{K_E}$ or 
 or 
 
-\begin{align}
+\begin{align*}
 	&\Rightarrow \lambda \omega_{m_3} = \omega_{m_4}
 	\\
 	&\Rightarrow \lambda\frac{\alpha_3 U_{max}}{K_E}=\frac{\alpha_4 U_{max}}{K_E}
 	\\
 	&\Rightarrow\lambda\alpha_3=\alpha_4 = \lambda\alpha
-\end{align}
+\end{align*}
 
 
 $$
@@ -964,54 +964,54 @@ $$0 = 0 + bk + c k^2 + d$$
 
 
 On suppose $\Delta = b^2 - 4cd \geq 0$ car sinon k ne vérifie par l'équation dans R 
-on verfie avec le traceur de courbe que pour nos valeurs du système réelle on a bien delta positif ce qui est bien le cas pour les intervalle de valeur voulue 
+on vérifie avec le traceur de courbe que pour nos valeurs du système réel, on a bien delta positif ce qui est bien le cas pour les intervalles de valeur voulue 
 
-On prend $k_0 = \frac{-b + \sqrt{b^2 - 4cd}}{2c}$ car la racine negative n'est pas verifier par le systeme reel (vitesse de rotation negative pour une tension positive)
+On prend $k_0 = \frac{-b + \sqrt{b^2 - 4cd}}{2c}$ car la racine négative n'est pas verifiée par le système réel (vitesse de rotation négative pour une tension positive).
 
 
 On la fonction suivante  $$z = y-y_p \Leftrightarrow y = z + y_p$$
-qu'on injecte, on a donc 
+On fait le changement de variable , on a donc 
 
-\begin{align}
+\begin{align*}
 	0 &= a \dot{z} + b (z + \cancel{k_0}) + c (z^2+2k_0z + \cancel{{k_0}^2}) + \cancel{d}
 	\\
 	\Rightarrow 0 &= a \dot{z} + (b + 2c k_0){z} + c z^2
-\end{align}
+\end{align*}
 
-Bernoulli ordre 2 on alors la fonction suivante  
+Bernoulli ordre 2 on a alors la fonction suivante  
 $$h = z^{1-2} = z^{-1} \Leftrightarrow z = \frac{1}{h} \Rightarrow z'= - \frac{h'}{h^2}$$
-qu'on injecte on a alors 
+qu'on injecte. on a alors 
 
-\begin{align}
+\begin{align*}
 	0 &= -a \frac{h'}{h^2} + (b + 2 c k_0)  \frac{1}{h} + c\frac{1}{h^2}
 	\\
 	\Rightarrow0 &= -a h' + (b + 2 c k_0) h + c
-\end{align}
+\end{align*}
 
-On se retrouve avec une simple equation du premier ordre en h qu'on résout facilement
+On se retrouve avec une simple équation du premier ordre en h qu'on résout facilement
 
 on a h de la forme
 $$h(t) = A e^{\beta t} + C$$
 On identifie
 $$0 = -a \beta A e^{\beta x} + (b + 2c k_0)( A e^{\beta x} + C)+ c$$
 
-On a les constantes égales et les exponentielles égales pour que la solution soit vrai pour tout t 
+On a les constantes égales et les exponentielles égales pour que la solution soit vraie pour tout t 
 
-en terme constant on a
+en terme constant, on a
 $$0 = (b + 2c k_0)C+c \Leftrightarrow C = -\frac{c}{(b + 2c k_0)}$$
 en terme exponentielle on a 
 
-\begin{align}
+\begin{align*}
 	0 &= -a \beta \cancel{A}f  \cancel{e^{f x}} + (b + 2c k_0) \cancel{A e^{f x}}
 	\\
 	\beta &= \frac{b + 2c k_0}{fa}
-\end{align}
+\end{align*}
 
 On a alors 
 $$ h(t) = A e^{\frac{b + 2c k_0}{fa}t} - \frac{c}{(b + 2c k_0)}$$
 On a donc
 $$y = z + y_p =  \frac{1}{h} + y_p = \frac{1}{ A e^{\frac{b + 2c k_0}{a}x} - \frac{c}{(b + 2c k_0)}} + k_0$$
-On détermine A grâce au condition initiale
+On détermine A grâce aux conditions initiales
 $$y(0) = \omega_0 = \frac{1}{ A e^0 - \frac{c}{(b + 2c k_0)}} + k_0 \quad\Leftrightarrow \quad \omega_0 = \frac{1}{A - \frac{c}{(b + 2c k_0)}} + k_0$$
 $$\omega_0 \neq 0$$
 
@@ -1023,32 +1023,32 @@ $$\Leftrightarrow A = \frac{1}{\omega_0-k_0} + \frac{c}{(b + 2c k_0)}$$
 $$\Rightarrow y(t) = \frac{1}{(\frac{1}{\omega_0-k_0} + \frac{c}{(b + 2c k_0)}) e^{\frac{b + 2c k_0}{a}t} - \frac{c}{(b + 2c k_0)}} + k_0$$
 
 \subsection{Lecture des courbes}
-Une fois cette équation obtenue, on peut tracer les courbe sur Desmos en faisant les variables si dessous 
+Une fois cette équation obtenue, on peut tracer les courbes sur Desmos en faisant les variables ci dessous 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./attachments/théorique/Pasted image 20250630214547.png}
-%	\caption{DESCRIPTION.}
+	%    \caption{DESCRIPTION.}
 	\caption{}
 \end{figure}
 
-Sont les mêmes que celles dans les calculs si dessus pour la plupart, mais voici le détail pour plus d'accessibilité. 
+Sont les mêmes que celles dans les calculs ci dessus pour la plupart, mais voici le détail pour plus d'accessibilité. 
 
 $\omega_0$ vitesse de rotation initiale 
 $\lambda$ rapport des difference de vitesse de rotation entre les 2 roue 
 $\alpha$ PWM
 L Distance entre l'axe de rotation des 2 roue 
-$x_0$ ou se trouve le centre de gravité par raport au point C (arriere du vehicule) selon l'axe x attaché au chassi
-$y_0$ ou se trouve le centre de gravité par raport au point C (arriere du vehicule) selon l'axe y attaché au chassi
-m masse du vehicule
+$x_0$ où se trouve le centre de gravité par rapport au point C (arrière du véhicule) selon l'axe x attaché au châssis
+$y_0$ où se trouve le centre de gravité par rapport au point C (arrière du véhicule) selon l'axe y attaché au châssis
+m masse du véhicule
 $C_1$ couple bloqué du moteur
 $\omega_1$ vitesse de rotation à vide du moteur
 R rayon d'une roue 
 
 
 
-Et en faisant varier ces parametre et regarder les courbe pour voir de ce qu'etait capable de faire virutellement notre rebot . On a put faire une balance cout benefice 
+Et en faisant varier ces paramètres et en regardant les courbes pour voir de ce qu'était capable de faire virtuellement notre robot, on a pu faire une balance coût-bénéfice 
 
-pour les shema si dessous on la vitesse en bleu en km/h et la vitesse de rotation en roge en deg/s
+pour les schémas ci-dessous, on a la vitesse en bleu en km/h et la vitesse de rotation en rouge en deg/s
 
 Exemple avec notre moteur final pour les moteurs à vitesse max
 
@@ -1074,7 +1074,7 @@ Pour un moteur à vitesse max et l'autre à la moitié de la vitesse de l'autre
 	\caption{}
 \end{figure}
 
-Pour un moteur à vitesse nul et l'autre à vitesse max
+Pour un moteur à vitesse nulle et l'autre à vitesse max
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./attachments/théorique/Pasted image 20250630232919.png}
@@ -1091,9 +1091,11 @@ Pour un moteur à vitesse nul et l'autre à vitesse max
 
 
 
+
+
 \pagebreak
 \section{Partie matérielle}
-Pour assembler chaque composant voici un document qui nous sera très utile tout le long. 
+Pour assembler chaque composant, voici un document qui nous sera très utile tout le long. 
 
 \begin{figure}[H]
 	\centering
@@ -1451,7 +1453,6 @@ Voici le résultat obtenu :
 	\centering
 	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues.png}
 	%\caption{Description.}
-	\caption{}
 \end{figure}
 
 Afin de résoudre ce problème, nous avons conçu un support en carton sur lequel nous avons fixé le servomoteur à l’aide de scotch. Ensuite, nous avons attaché ce support en carton à la structure du robot en utilisant des vis. 
@@ -1460,7 +1461,6 @@ Afin de résoudre ce problème, nous avons conçu un support en carton sur leque
 	\centering
 	\includegraphics[width=0.6\textwidth]{./attachments/servomoteur-roues_vis.png}
 	%\caption{Description.}
-	\caption{}
 \end{figure}
 
 Après avoir réalisé plusieurs essais avec cette méthode, nous avons constaté que les vis ne suffisaient pas à fixer solidement le support en carton à la structure du robot. Sous le poids des roues, le carton se déformait à l’arrière, ce qui entraînait un mauvais alignement des roues.
@@ -1490,7 +1490,7 @@ Pour la batterie, nous avons aussi modélisé un support pour la fixer sur le ch
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{./attachments/support_batterie_modèle.png}
+	\includegraphics[width=0.6\textwidth]{./attachments/support_batterie_impression.png}
 	\caption{Support batterie modèle 3D.}
 \end{figure}
 
