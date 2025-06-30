@@ -11,7 +11,8 @@ On cherche la relation entre la vitesse de rotation des roues et la vitesse du r
 
 ![schéma_modélisation.jpg](attachments/schéma_modélisation.jpg)
 
-Un 
+**![](https://lh7-rt.googleusercontent.com/slidesz/AGV_vUf_LVkiDq3jGDfQ0r39l-CXNCpSUTdLteuI5BOpWipL9ChJUTG0_DJNrnfl-5YKczwLKhd2Alg70OPInZFVi4O_nZsVdr4s0jC4S7SjzZ6zG5Zvt420MQZkX0zeo0uE-PewQSOcyw=s2048?key=ydrTYtBYPLeaEjse8Xs66A)**
+
 
 - $S$ est le châssis 
 - $R_0$ est le référentiel terrestre 
@@ -161,6 +162,7 @@ $$
 Fin de la cinématique. 
 
 ## Dynamique 
+On cherche dans cette partie à avoir l'equation du systeme qui est ici vitesse de rotation des roue en fonction du temps pour une tension en entré donné . Pour voir si notre systeme est stable pour une entre constante et une fois s'etre assure de cela on veut dimentionner les moteur 
 ### Modélisation 
 Torseur d'action mécanique avec $i \in \{1,2,3,4\}$ : 
 $$
@@ -196,8 +198,6 @@ F(S_{\text{moteur}_4}\to S_4) =
 	C_{m_4} \cdot \vec{y} 
 \end{Bmatrix}_{A_{4}}
 $$
-
-
 
 $$
 F(P \to S) = 
@@ -263,7 +263,7 @@ D(F_i/R_0) = {F}(_{\text{S}\rightarrow F_i}) + {F}(_{S_i \rightarrow F_i}) \\
 \end{align}
 $$
 
-![](attachments/Pasted%20image%2020250619132805.png)
+![[Pasted image 20250630214005.png]]
 
 
 $$
@@ -560,13 +560,13 @@ $$
 \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}  = \frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{S} + \vec{\Omega}(S/R_0) \wedge \vec{V}(G,S/R_0)
 $$
 $$
-\frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}  = \frac{d\vec{V}(C,S/R_0)}{dt} + \frac{d\omega_{SR_0}}{dt}(x_0 \vec{y} - y_0 \vec{x}) + \omega_{SR_0}\vec{z} \wedge (\vec{V}(C,S/R_0) + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x}))
-$$
-$$
-\frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0} = \dot{V}(C,S/R_0)\vec{x} + \dot{\omega}_{SR_0}(x_0 \vec{y} - y_0 \vec{x}) + \omega_{SR_0} \vec{z} \wedge (V(C,S/R_0)\vec{x} + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x}))
-$$
-$$
-\frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0} = \dot{V}(C,S/R_0)\vec{x} + \dot{\omega}_{SR_0}(x_0 \vec{y} - y_0 \vec{x}) -\omega_{SR_0}(V(C,S/R_0) - y_0 {\omega}_{SR_0} )\vec{y}+ \omega_{SR_0}x_0 \vec{y} - \omega_{SR_0}^2 x_0 \vec{x}
+\begin{align}
+\frac{d}{dt} [ \vec{V}(G,S/R_0) ]_{R_0}  &= \frac{d\vec{V}(C,S/R_0)}{dt} + \frac{d\omega_{SR_0}}{dt}(x_0 \vec{y} - y_0 \vec{x}) + \omega_{SR_0}\vec{z} \wedge (\vec{V}(C,S/R_0) + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x}))
+\\
+&= \dot{V}(C,S/R_0)\vec{x} + \dot{\omega}_{SR_0}(x_0 \vec{y} - y_0 \vec{x}) + \omega_{SR_0} \vec{z} \wedge (V(C,S/R_0)\vec{x} + \omega_{SR_0}(x_0 \vec{y} - y_0 \vec{x}))
+\\
+&=\dot{V}(C,S/R_0)\vec{x} + \dot{\omega}_{SR_0}(x_0 \vec{y} - y_0 \vec{x}) -\omega_{SR_0}(V(C,S/R_0) - y_0 {\omega}_{SR_0} )\vec{y}+ \omega_{SR_0}x_0 \vec{y} - \omega_{SR_0}^2 x_0 \vec{x}
+\end{align}
 $$
 $$
 \text{Simplification } V(C,S/R_0) = V  \text{ et } \omega_{SR_0} = \omega
@@ -582,7 +582,7 @@ $$
 + (\dot{\omega} x_0 - \omega V - y_0 \omega^2) \vec{y}
 $$
 
-On a alors selon e_x
+On a alors selon $\vec{e_x}$
 $$
 \begin{align}
 
@@ -594,7 +594,7 @@ $$
 
 
 ## Equation moteur
-resultat clasique sur les moteur CC
+résultat classique sur les moteur CC
 
 $C = kI$      $E=K_{E}\omega$
 
@@ -624,7 +624,7 @@ $$
 
   
 
-On se place dans le cas où U est constant... 
+On se place dans le cas ou on a de la modulation en tension . Modulation pouvant aller de 0 à 1 exprimer par le terme $\alpha$ PWM
 
   
 
@@ -665,7 +665,7 @@ $$
 
 C(\omega) = -\frac{C_{max}}{\omega_{max}}\omega + C_{max}\alpha 
 $$
-## Equa diff (verifier le 2)
+## Utuliser les equation moteurs et du mechanique du solide pour avoir l'equa diff finale 
 
 
 $$
@@ -695,9 +695,17 @@ $$
 \lambda (t){\omega}_{m3} = \lambda(t) {\omega_{m}} = \omega_{m4} 
 $$
 On peu alors en plus d'exprmier $V$ et $\omega$ en fonction de $\lambda$ on peut aussi exprimer $\alpha$ 
-
-$$E=K_{E}\omega$$ 
-
+car $\omega_{m_3} = \frac{\alpha_3 U_{max}}{K_E}$  et  $\omega_{m_4} = \frac{\alpha_4 U_{max}}{K_E}$ or 
+or 
+$$
+\begin{align}
+&\Rightarrow \lambda \omega_{m_3} = \omega_{m_4}
+\\
+&\Rightarrow \lambda\frac{\alpha_3 U_{max}}{K_E}=\frac{\alpha_4 U_{max}}{K_E}
+\\
+&\Rightarrow\lambda\alpha_3=\alpha_4 = \lambda\alpha
+\end{align}
+$$
 
 $$
 \ 0 = \frac{R}{2} (\lambda + 1)\dot{\omega_m} + \frac{2 C_{\text{max}}}{R^2 \omega_{\text{max}} m} \cdot \frac{R}{2} (\lambda + 1)\omega_m - y_G \frac{R}{L} (1 - \lambda)\dot{\omega_m} - x_G \frac{R}{L} (1 - \lambda)^2 \omega_m^2 - \frac{ C_{\text{max}} (1 + \lambda) \alpha}{R m} \
@@ -723,19 +731,13 @@ $$
 $$
 ## Resolution Equa diff
 
-
-
-$$0 = a \dot{W_m} + bW_m + c {W_m}^2 + d \quad $$
+$$0 = a \dot{\omega_m} + b\omega_m + c {\omega_m}^2 + d \quad $$
 On considère la solution particulière constante $y_p = k$ puis on cherche k qui vérifie l’équation différentielle
 $$0 = 0 + bk + c k^2 + d$$
 
 
 On suppose $\Delta = b^2 - 4cd \geq 0$ car sinon k ne vérifie par l'équation dans R 
-on verfie avec le traceur de courbe que pour nos valeurs du systeme relle on a bien delta positif ce qui est bien le cas
-
-image
-
-  
+on verfie avec le traceur de courbe que pour nos valeurs du système réelle on a bien delta positif ce qui est bien le cas pour les intervalle de valeur voulue 
 
 On prend $k_0 = \frac{-b + \sqrt{b^2 - 4cd}}{2c}$ car la racine negative n'est pas verifier par le systeme reel (vitesse de rotation negative pour une tension positive)
 
@@ -782,17 +784,44 @@ On a alors
 $$ h(t) = A e^{\frac{b + 2c k_0}{fa}t} - \frac{c}{(b + 2c k_0)}$$
 On a donc
 $$y = z + y_p =  \frac{1}{h} + y_p = \frac{1}{ A e^{\frac{b + 2c k_0}{a}x} - \frac{c}{(b + 2c k_0)}} + k_0$$
-On determine A grace au condition initiale
-$$y(0) = W_0 = \frac{1}{ A e^0 - \frac{c}{(b + 2c k_0)}} + k_0 \quad\Leftrightarrow \quad W_0 = \frac{1}{A - \frac{c}{(b + 2c k_0)}} + k_0$$
-$$W_0 \neq 0$$
+On détermine A grâce au condition initiale
+$$y(0) = \omega_0 = \frac{1}{ A e^0 - \frac{c}{(b + 2c k_0)}} + k_0 \quad\Leftrightarrow \quad \omega_0 = \frac{1}{A - \frac{c}{(b + 2c k_0)}} + k_0$$
+$$\omega_0 \neq 0$$
 
-$$\Leftrightarrow (A-\frac{c}{(b + 2c k_0)})(W_0-k_0) = 1$$
-
+$$\Leftrightarrow (A-\frac{c}{(b + 2c k_0)})(\omega_0-k_0) = 1$$
   
 
 $$\Leftrightarrow A = \frac{1}{\omega_0-k_0} + \frac{c}{(b + 2c k_0)}$$
 
-  
-
 $$\Rightarrow y(t) = \frac{1}{(\frac{1}{\omega_0-k_0} + \frac{c}{(b + 2c k_0)}) e^{\frac{b + 2c k_0}{a}t} - \frac{c}{(b + 2c k_0)}} + k_0$$
 
+## Lecture des courbe 
+Une fois cette équation obtenue on peut tracer les courbe sur desmos en faisant les variable si dessous 
+![[Pasted image 20250630214547.png]]
+SOnt les meme que c'elle dans les calculs si dessu pour la plupart mais voici le detaille pour plus d'accessibilité
+
+$\omega_0$ vitesse de rotation initiale 
+$\lambda$ rapport des difference de vitesse de rotation entre les 2 roue 
+$\alpha$ PWM
+L Distance entre l'axe de rotation des 2 roue 
+$x_0$ ou se trouve le centre de gravité par raport au point C (arriere du vehicule) selon l'axe x attaché au chassi
+$y_0$ ou se trouve le centre de gravité par raport au point C (arriere du vehicule) selon l'axe y attaché au chassi
+m masse du vehicule
+$C_1$ couple bloqué du moteur
+$\omega_1$ vitesse de rotation à vide du moteur
+R rayon d'une roue 
+
+
+
+Et en faisant varier ces parametre et regarder les courbe pour voir de ce qu'etait capable de faire virutellement notre rebot . On a put faire une balance cout benefice 
+
+pour les shema si dessous on la vitesse en bleu en km/h et la vitesse de rotation en roge en deg/s
+
+Exemple avec notre moteur final pour les moteurs à vitesse max
+![[Pasted image 20250630232502.png]]
+Pour un moteur à vitesse max et l'autre à la moitié de la vitesse de l'autre 
+![[Pasted image 20250630232621.png]]
+![[Pasted image 20250630232700.png]]
+Pour un moteur à vitesse nul et l'autre à vitesse max
+![[Pasted image 20250630232919.png]]
+![[Pasted image 20250630232851.png]]
